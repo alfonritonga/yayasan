@@ -12,8 +12,7 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon"
-        href="{{ asset('front/imgs/theme/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
@@ -45,12 +44,8 @@
                                     Lentera Kasih Agape</span> --}}
                                 <h1 class="heading-banner wow animate__animated animate__fadeInUp">Yayasan Lentera Kasih
                                     Agape</h1>
-                                <div class="banner-description mt-30 wow animate__animated animate__fadeInUp">Yayasan
-                                    Lentera Kasih Agape (selanjutnya disingkat YLKA) adalah organisasi yang sebelumnya
-                                    berdiri atas nama sebuah lembaga, yaitu Lembaga Obor Sahabat (LOS) yang berdiri
-                                    sejak Maret 2008. Pelayanan LOS berfokus kepada komunitas, Gereja dan Anak namun
-                                    atas dasar kebutuhan pengembangan pelayanan maka Lembaga LOS ditutup dan
-                                    pelayanannya dialihkan kepada YLKA.</div>
+                                <div class="banner-description mt-30 wow animate__animated animate__fadeInUp">
+                                    {{ $landing_info->description }}</div>
 
                             </div>
                         </div>
@@ -91,7 +86,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="accordion accordion-flush" id="accordionFlushExample">
-                            @foreach($program as $x)
+                            @foreach ($program as $x)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -123,7 +118,7 @@
                     <div class="box-swiper">
                         <div class="swiper-container swiper-group-6">
                             <div class="swiper-wrapper pb-70 pt-5">
-                                @foreach($partner as $x)
+                                @foreach ($partner as $x)
                                     <div class="swiper-slide hover-up">
                                         <div class="item-logo">
                                             <a href="#">
@@ -143,7 +138,8 @@
         </div>
         <div class="section-box mt-70 bggreen pt-50">
             <div class="container">
-                <h2 class="section-title mb-15 wow animate__animated animate__fadeInUp text-center">Artikel Terbaru</h2>
+                <h2 class="section-title mb-15 wow animate__animated animate__fadeInUp text-center">Artikel Terbaru
+                </h2>
                 <div class="text-md-lh24 color-white wow animate__animated animate__fadeInUp text-center">
                     Rilis berita terbaru dari Yayasan Lentera Kasih Agape
                 </div>
@@ -151,7 +147,7 @@
                     <div class="box-swiper">
                         <div class="swiper-container swiper-group-3">
                             <div class="swiper-wrapper pb-60 pt-5">
-                                @foreach($article as $x)
+                                @foreach ($article as $x)
                                     <div class="swiper-slide">
                                         <div class="card-grid-3 hover-up">
                                             <div class="text-center card-grid-3-image">
@@ -170,8 +166,8 @@
                                                         <span>{{ date('d M Y', strtotime($x->created_at)) }}</span>
                                                     </div>
                                                 </div>
-                                                <h5 class="mt-15 heading-md"><a href="/blog/{{ $x->slug }}">{{ $x->title
-                                                    }}</a></h5>
+                                                <h5 class="mt-15 heading-md"><a
+                                                        href="/blog/{{ $x->slug }}">{{ $x->title }}</a></h5>
                                                 <div class="card-2-bottom mt-50">
                                                     <div class="row">
                                                         <div class="col-lg-9 col-8">
@@ -188,7 +184,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 @endforeach
                             </div>
                             <div class="swiper-pagination swiper-pagination3"></div>
@@ -238,14 +233,11 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
                                 alt="YLKA" /></a>
                         <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
                                 alt="YLKA" /></a>

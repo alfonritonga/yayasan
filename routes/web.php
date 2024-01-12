@@ -7,6 +7,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\MediaMateriController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LandingInfoController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PartnerListController;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +71,26 @@ Route::group(['middleware' => ['auth']], function () {
         });
     });
 
+    Route::prefix('/description')->group(function () {
+        Route::get('/', [LandingInfoController::class, 'descriptionView'])->name('description_view_index');
+        Route::post('/', [LandingInfoController::class, 'descriptionPost'])->name('description_edit');
+    });
+
+    Route::prefix('/history')->group(function () {
+        Route::get('/', [LandingInfoController::class, 'historyView'])->name('history_view_index');
+        Route::post('/', [LandingInfoController::class, 'historyPost'])->name('history_edit');
+    });
+
+    Route::prefix('/visi-mission')->group(function () {
+        Route::get('/', [LandingInfoController::class, 'visiMissionView'])->name('visi-mission_view_index');
+        Route::post('/', [LandingInfoController::class, 'visiMissionPost'])->name('visi-mission_edit');
+    });
+
+    Route::prefix('/partnership')->group(function () {
+        Route::get('/', [LandingInfoController::class, 'partnershipView'])->name('partnership_view_index');
+        Route::post('/', [LandingInfoController::class, 'partnershipPost'])->name('partnership_edit');
+    });
+
     Route::prefix('/donation')->group(function () {
         Route::get('/', [DonationController::class, 'index'])->name('donation_view_index');
     });
@@ -92,5 +113,4 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/list/{id}', [PartnerListController::class, 'delete'])->name('list_delete');
         Route::delete('/{id}', [PartnerController::class, 'delete'])->name('category_delete');
     });
-    
 });
