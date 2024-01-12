@@ -956,17 +956,10 @@
                         </ul>
 
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a href="/program" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-086-star"></i>
                             <span class="nav-text">Program</span>
                         </a>
-                        <ul aria-expanded="false">
-                            <li><a href="index.html">Community</a></li>
-                            <li><a href="index-2.html">Next Generation</a></li>
-                            <li><a href="coin-details.html">UPG</a></li>
-                            <li><a href="my-wallet.html">Church</a></li>
-                        </ul>
-
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-043-menu"></i>

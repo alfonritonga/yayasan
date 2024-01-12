@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LandingInfoController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PartnerListController;
+use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -94,6 +95,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/donation')->group(function () {
         Route::get('/', [DonationController::class, 'index'])->name('donation_view_index');
     });
+
+    Route::prefix('/program')->group(function () {
+        Route::get('/', [ProgramController::class, 'index'])->name('program_view_index');
+        Route::get('/add', [ProgramController::class, 'addView'])->name('program_view_add');
+        Route::get('/edit/{id}', [ProgramController::class, 'editView'])->name('program_edit_view');
+        Route::post('/', [ProgramController::class, 'addPost'])->name('program_add');
+        Route::patch('/{id}', [ProgramController::class, 'editPatch'])->name('program_edit');
+        Route::delete('/{id}', [ProgramController::class, 'delete'])->name('programw_delete');
+    });
+
     Route::prefix('/job')->group(function () {
         Route::get('/', [JobController::class, 'index'])->name('job_view_index');
         Route::get('/add-job', [JobController::class, 'addJob'])->name('add_job_view_index');

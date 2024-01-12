@@ -16,13 +16,8 @@ class ProgramModel extends Model
         'media'
     ];
 
-    function admin()
+    function tasks()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
-    }
-
-    function list()
-    {
-        return $this->belongsTo(User::class, 'users_id', 'id');
+        return $this->hasMany(ProgramTaskModel::class, 'programs_id', 'id');
     }
 }
