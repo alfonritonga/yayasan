@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit31e3e25f4d1f9e70c37c871ff8dfd054
+class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -354,8 +354,8 @@ class ComposerStaticInit31e3e25f4d1f9e70c37c871ff8dfd054
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -538,6 +538,7 @@ class ComposerStaticInit31e3e25f4d1f9e70c37c871ff8dfd054
         'App\\Http\\Controllers\\DonationController' => __DIR__ . '/../..' . '/app/Http/Controllers/DonationController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\JobController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobController.php',
+        'App\\Http\\Controllers\\LandingInfoController' => __DIR__ . '/../..' . '/app/Http/Controllers/LandingInfoController.php',
         'App\\Http\\Controllers\\MediaMateriController' => __DIR__ . '/../..' . '/app/Http/Controllers/MediaMateriController.php',
         'App\\Http\\Controllers\\PartnerController' => __DIR__ . '/../..' . '/app/Http/Controllers/PartnerController.php',
         'App\\Http\\Controllers\\PartnerListController' => __DIR__ . '/../..' . '/app/Http/Controllers/PartnerListController.php',
@@ -561,10 +562,12 @@ class ComposerStaticInit31e3e25f4d1f9e70c37c871ff8dfd054
         'App\\Models\\ArticleModel' => __DIR__ . '/../..' . '/app/Models/ArticleModel.php',
         'App\\Models\\DonationModel' => __DIR__ . '/../..' . '/app/Models/DonationModel.php',
         'App\\Models\\JobModel' => __DIR__ . '/../..' . '/app/Models/JobModel.php',
+        'App\\Models\\LandingInfoModel' => __DIR__ . '/../..' . '/app/Models/LandingInfoModel.php',
         'App\\Models\\MediaModel' => __DIR__ . '/../..' . '/app/Models/MediaModel.php',
         'App\\Models\\PartnerListModel' => __DIR__ . '/../..' . '/app/Models/PartnerListModel.php',
         'App\\Models\\PartnerModel' => __DIR__ . '/../..' . '/app/Models/PartnerModel.php',
         'App\\Models\\ProgramModel' => __DIR__ . '/../..' . '/app/Models/ProgramModel.php',
+        'App\\Models\\ProgramTaskModel' => __DIR__ . '/../..' . '/app/Models/ProgramTaskModel.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -683,6 +686,7 @@ class ComposerStaticInit31e3e25f4d1f9e70c37c871ff8dfd054
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\LandingInfoSeeder' => __DIR__ . '/../..' . '/database/seeders/LandingInfoSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
         'DateInvalidOperationException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateInvalidOperationException.php',
@@ -6542,9 +6546,9 @@ class ComposerStaticInit31e3e25f4d1f9e70c37c871ff8dfd054
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit31e3e25f4d1f9e70c37c871ff8dfd054::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit31e3e25f4d1f9e70c37c871ff8dfd054::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit31e3e25f4d1f9e70c37c871ff8dfd054::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9c491b8531eec05ba41a11d9276a5749::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9c491b8531eec05ba41a11d9276a5749::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit9c491b8531eec05ba41a11d9276a5749::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -15,7 +15,7 @@ class HomeController extends Controller
     {
         $article = ArticleModel::with('admin')->orderBy('id', 'desc')->get();
         $partner = PartnerListModel::with('admin', 'category')->orderBy('id', 'desc')->get();
-        $program = ProgramModel::orderBy('id', 'desc')->get();
+        $program = ProgramModel::orderBy('id', 'asc')->get();
         $landing_info = LandingInfoModel::find(1);
         // $donations = DonationModel::orderBy('id', 'desc')->get();
         return view('home.index', compact('article', 'partner', 'program', 'landing_info'));
@@ -42,8 +42,8 @@ class HomeController extends Controller
 
     function program()
     {
-
-        return view('program');
+        $program = ProgramModel::with(['tasks'])->orderBy('id', 'asc')->get();
+        return view('program', compact('program'));
     }
 
     function media()

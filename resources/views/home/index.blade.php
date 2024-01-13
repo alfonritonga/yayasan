@@ -90,12 +90,13 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                            aria-controls="flush-collapseOne">
+                                            data-bs-target="#flush-collapseOne-{{ $x->id }}"
+                                            aria-expanded="false"
+                                            aria-controls="flush-collapseOne-{{ $x->id }}">
                                             {{ $x->title }}
                                         </button>
                                     </h2>
-                                    <div id="flush-collapseOne" class="accordion-collapse collapse show"
+                                    <div id="flush-collapseOne-{{ $x->id }}" class="accordion-collapse collapse"
                                         aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body">
                                             {{ $x->description }}

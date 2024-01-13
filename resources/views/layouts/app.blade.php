@@ -21,7 +21,7 @@
     <link href="{{ asset('template/vendor/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet">
     <!-- Style css -->
     <link href="{{ asset('template/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('template/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet"> --}}
 
     <link rel="stylesheet" href="{{ asset('template/vendor/select2/css/select2.min.css') }}">
     <link href="{{ asset('template/vendor/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet">
@@ -956,7 +956,7 @@
                         </ul>
 
                     </li>
-                    <li><a href="/program" class="ai-icon" aria-expanded="false">
+                    <li><a href="/programs" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-086-star"></i>
                             <span class="nav-text">Program</span>
                         </a>
@@ -1063,8 +1063,7 @@
     <script src="{{ asset('template/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('template/js/plugins-init/datatables.init.js') }}"></script>
 
-    <script src="{{ asset('template/vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
-    <script src="{{ asset('template/js/plugins-init/sweetalert.init.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ asset('template/vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('template/vendor/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('template/js/plugins-init/select2-init.js') }}"></script>

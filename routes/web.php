@@ -96,7 +96,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', [DonationController::class, 'index'])->name('donation_view_index');
     });
 
-    Route::prefix('/program')->group(function () {
+    Route::prefix('/programs')->group(function () {
         Route::get('/', [ProgramController::class, 'index'])->name('program_view_index');
         Route::get('/add', [ProgramController::class, 'addView'])->name('program_view_add');
         Route::get('/edit/{id}', [ProgramController::class, 'editView'])->name('program_edit_view');

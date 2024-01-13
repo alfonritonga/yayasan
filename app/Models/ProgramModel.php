@@ -13,7 +13,8 @@ class ProgramModel extends Model
     protected $fillable = [
         'title',
         'description',
-        'media'
+        'media',
+        'image_position'
     ];
 
     function tasks()

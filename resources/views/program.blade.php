@@ -37,167 +37,91 @@
             <div class="container">
                 <h2 class="section-title mb-15 wow animate__animated animate__fadeInUp text-center">Program Yayasan
                     Lentera Kasih Agape</h2>
-                </div>
-                <div class="row mt-50">
-                    <div class="col-lg-6">
-                        <div class="box-image-findjob box-image-about ml-0">
-                            <figure><img alt="YLKA" src="{{ asset('front/imgs/program.png') }}">
-                            </figure>
-                            <a href="https://www.youtube.com/watch?v=ea-I4sqgVGY"
-                                class="btn-play-video popup-youtube"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <p class="program mb-15">PROGRAM</p>
-                        <h4 class="wow animate__animated animate__fadeInUp">Community
-                        </h4>
-                        <p class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
-                            Peningkatan pelayanan holistik di komunitas Masyarakat. Program ini untuk meningkatkan
-                            ekonomi Masyarakat, mengedukasi Masyarakat dan meningkatkan kepedulian mereka ter hadap
-                            lingkungan.</p>
-
-                        <div class="list-program">
-                            <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
-                                data-wow-delay=".0s">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <img src="{{ asset('front/imgs/CheckCircle_active.png') }}">
-                                    </div>
-                                    <div class="col-11">
-                                        Program Pengembangan Masyarakat di pinggir rel Helvetia Medan
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-
-        <section class="section-box mt-90">
-            <div class="container">
-                <div class="row mt-50">
-                    <div class="col-lg-6">
-                        <p class="program mb-15">PROGRAM</p>
-                        <h4 class="wow animate__animated animate__fadeInUp">Community
-                        </h4>
-                        <p class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
-                            Peningkatan pelayanan holistik di komunitas Masyarakat. Program ini untuk meningkatkan
-                            ekonomi Masyarakat, mengedukasi Masyarakat dan meningkatkan kepedulian mereka ter hadap
-                            lingkungan.</p>
-
-                        <div class="list-program">
-                            <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
-                                data-wow-delay=".0s">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <img src="{{ asset('front/imgs/CheckCircle_active.png') }}">
-                                    </div>
-                                    <div class="col-11">
-                                        Program Pengembangan Masyarakat di pinggir rel Helvetia Medan
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="box-image-findjob box-image-about ml-0">
-                            <figure><img alt="YLKA" src="{{ asset('front/imgs/program.png') }}">
-                            </figure>
-                            <a href="https://www.youtube.com/watch?v=ea-I4sqgVGY"
-                                class="btn-play-video popup-youtube"></a>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="section-box mt-90">
-            <div class="container">
-                <h2 class="section-title mb-15 wow animate__animated animate__fadeInUp text-center">Program Yayasan
-                    Lentera Kasih Agape</h2>
                 <div class="text-md-lh24 color-black-5 wow animate__animated animate__fadeInUp text-center">
                     Program Kerja dari Yayasan Lentera Kasih Agape
                 </div>
-                <div class="row mt-50">
-                    <div class="col-lg-6">
-                        <div class="box-image-findjob box-image-about ml-0">
-                            <figure><img alt="YLKA" src="{{ asset('front/imgs/program.png') }}">
-                            </figure>
-                            <a href="https://www.youtube.com/watch?v=ea-I4sqgVGY"
-                                class="btn-play-video popup-youtube"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <p class="program mb-15">PROGRAM</p>
-                        <h4 class="wow animate__animated animate__fadeInUp">Community
-                        </h4>
-                        <p class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
-                            Peningkatan pelayanan holistik di komunitas Masyarakat. Program ini untuk meningkatkan
-                            ekonomi Masyarakat, mengedukasi Masyarakat dan meningkatkan kepedulian mereka ter hadap
-                            lingkungan.</p>
-
-                        <div class="list-program">
-                            <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
-                                data-wow-delay=".0s">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <img src="{{ asset('front/imgs/CheckCircle_active.png') }}">
-                                    </div>
-                                    <div class="col-11">
-                                        Program Pengembangan Masyarakat di pinggir rel Helvetia Medan
-                                    </div>
+            </div>
+        </section>
+        @foreach ($program as $i)
+            @if ($i->image_position == 1)
+                <section class="section-box mt-90 @if ($loop->last) mb-200 @endif">
+                    <div class="container">
+                        <div class="row mt-50">
+                            <div class="col-lg-6">
+                                <div class="box-image-findjob box-image-about ml-0">
+                                    <figure><img alt="YLKA" src="{{ asset($i->media) }}">
+                                    </figure>
+                                    <a href="https://www.youtube.com/watch?v=ea-I4sqgVGY"
+                                        class="btn-play-video popup-youtube"></a>
                                 </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <p class="program mb-15">PROGRAM</p>
+                                <h4 class="wow animate__animated animate__fadeInUp">{{ $i->title }}</h4>
+                                <p
+                                    class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
+                                    {{ $i->description }}</p>
+                                @foreach ($i->tasks as $j)
+                                    <div class="list-program">
+                                        <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
+                                            data-wow-delay=".0s">
+                                            <div class="row">
+                                                <div class="col-1">
+                                                    <img src="{{ asset('front/imgs/CheckCircle_active.png') }}">
+                                                </div>
+                                                <div class="col-11">
+                                                    {{ $j->task }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            </div>
-        </section>
-
-        <section class="section-box mt-90 mb-200">
-            <div class="container">
-                <div class="row mt-50">
-                    <div class="col-lg-6">
-                        <p class="program mb-15">PROGRAM</p>
-                        <h4 class="wow animate__animated animate__fadeInUp">Community
-                        </h4>
-                        <p class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
-                            Peningkatan pelayanan holistik di komunitas Masyarakat. Program ini untuk meningkatkan
-                            ekonomi Masyarakat, mengedukasi Masyarakat dan meningkatkan kepedulian mereka ter hadap
-                            lingkungan.</p>
-
-                        <div class="list-program">
-                            <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
-                                data-wow-delay=".0s">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <img src="{{ asset('front/imgs/CheckCircle_active.png') }}">
+                    </div>
+                </section>
+            @else
+                <section class="section-box mt-90 @if ($loop->last) mb-200 @endif">
+                    <div class="container">
+                        <div class="row mt-50">
+                            <div class="col-lg-6">
+                                <p class="program mb-15">PROGRAM</p>
+                                <h4 class="wow animate__animated animate__fadeInUp">{{ $i->title }}</h4>
+                                <p
+                                    class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
+                                    {{ $i->description }}</p>
+                                @foreach ($i->tasks as $j)
+                                    <div class="list-program">
+                                        <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
+                                            data-wow-delay=".0s">
+                                            <div class="row">
+                                                <div class="col-1">
+                                                    <img src="{{ asset('front/imgs/CheckCircle_active.png') }}">
+                                                </div>
+                                                <div class="col-11">
+                                                    {{ $j->task }}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-11">
-                                        Program Pengembangan Masyarakat di pinggir rel Helvetia Medan
-                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="box-image-findjob box-image-about ml-0">
+                                    <figure><img alt="YLKA" src="{{ asset($i->media) }}">
+                                    </figure>
+                                    <a href="https://www.youtube.com/watch?v=ea-I4sqgVGY"
+                                        class="btn-play-video popup-youtube"></a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="box-image-findjob box-image-about ml-0">
-                            <figure><img alt="YLKA" src="{{ asset('front/imgs/program.png') }}">
-                            </figure>
-                            <a href="https://www.youtube.com/watch?v=ea-I4sqgVGY"
-                                class="btn-play-video popup-youtube"></a>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            </div>
-        </section>
 
+                        </div>
+                    </div>
+                    </div>
+                </section>
+            @endif
+        @endforeach
     </main>
     <!-- End Content -->
     <!-- Footer -->
@@ -238,10 +162,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}" alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}" alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}" alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}" alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                                alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                                alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                                alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
+                                alt="YLKA" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">

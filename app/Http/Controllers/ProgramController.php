@@ -24,10 +24,20 @@ class ProgramController extends Controller
     {
         DB::beginTransaction();
         try {
+            $file = $request->file('media');
+            if ($file != null) {
+                $imageName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('/asset'), $imageName);
+                $path = 'asset/' . $imageName;
+            } else {
+                $path = null;
+            }
+
             $program = ProgramModel::create([
                 'title' => $request->title,
                 'description' => $request->description,
-                'media' => $request->media
+                'media' => $path,
+                'image_position' => $request->image_position
             ]);
             if ($request->has('tasks')) {
                 for ($i = 0; $i < count($request->tasks); $i++) {
@@ -47,7 +57,7 @@ class ProgramController extends Controller
 
     function editView($id)
     {
-        $program = ProgramModel::find($id);
+        $program = ProgramModel::with(['tasks'])->find($id);
         return view('program.edit', compact('program'));
     }
 
@@ -58,9 +68,21 @@ class ProgramController extends Controller
             $program = ProgramModel::find($id);
             $data = [
                 'title' => $request->title,
-                'description' => $request->description,
-                'media' => $request->media,
+                'description' => $request->description, 
+                'image_position' => $request->image_position
             ];
+
+            $file = $request->file('media');
+            if ($file != null) {
+                $imageName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('/asset'), $imageName);
+                $path = 'asset/' . $imageName;
+                $data['media'] = $path;
+            } else {
+                $path = null;
+            }
+           
+            
             $program->update($data);
             ProgramTaskModel::where('programs_id', $id)->delete();
             if ($request->has('tasks')) {

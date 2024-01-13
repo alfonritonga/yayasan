@@ -38,7 +38,7 @@
                             <h4 class="card-title">Program</h4>
                         </div>
                         <div class="col-xl- d-flex flex-column align-items-end">
-                            <a href="program/add" class="btn btn-outline-primary">Tambah Data</a>
+                            <a href="{{ route('program_view_add') }}" class="btn btn-outline-primary">Tambah Data</a>
                         </div>
                         <!-- </div> -->
                     </div>
@@ -47,24 +47,34 @@
                             <table id="example4" class="display" style="min-width: 845px">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>Judul</th>
                                         <th>Deskripsi</th>
                                         <th>Media</th>
                                         <th>Task</th>
+                                        <th>Posisi</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($program as $x)
+                                    @foreach ($program as $key => $x)
                                         <tr>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $x->title }}</td>
                                             <td>{{ $x->description }}</td>
                                             <td><a target="_blank" href="../{{ $x->media }}"> {{ $x->media }}</a>
                                             </td>
                                             <td>
                                                 @foreach ($x->tasks as $i)
-                                                    <small>{{ $i->task }}</small><br>
+                                                    <small>- {{ $i->task }}</small><br>
                                                 @endforeach
+                                            </td>
+                                            <td>
+                                                @if ($x->image_position == 0)
+                                                    Kanan
+                                                @else
+                                                    Kiri
+                                                @endif
                                             </td>
                                             <td>
                                                 <div class="d-flex">
@@ -96,13 +106,13 @@
                     title: "Yakin bro?",
                     icon: "warning",
                     buttons: true,
-                    dangerMode: false,
+                    dangerMode: true,
                 })
                 .then((willDelete) => {
                     if (willDelete) {
                         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                         $.ajax({
-                            url: `/program/${id}`,
+                            url: `/programs/${id}`,
                             method: 'DELETE',
                             data: {
                                 _token: CSRF_TOKEN
