@@ -1,6 +1,6 @@
     @extends('layouts.app')
 
-    @section('title', 'Subscription')
+    @section('title', 'Subscribtion')
 
     @section('content')
 
@@ -8,8 +8,8 @@
 
             <div class="row page-titles">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Subscription</a></li>
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Subscription</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Subscribtion</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Subscribtion</a></li>
                 </ol>
             </div>
             <!-- row -->
@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Subscription</h4>
+                            <h4 class="card-title">Subscribtion</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

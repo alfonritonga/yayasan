@@ -69,7 +69,8 @@
                             <div class="rekening">
                                 <img src="{{ asset('front/imgs/mandiri.png') }}">
                                 <p class="no_rekening">Bank Mandiri Yayasan Lentera Kasih Agape
-                                    <br><span>1050012466011</span></p>
+                                    <br><span>1050012466011</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -153,14 +154,17 @@
                         <h5 class="text-md-newsletter-subcribe">Subscribe</h5>
                         <h6 class="text-lg-newsletter-2 pt-15">Berlangganan berita dan informasi terbaru:</h6>
                         <div class="mt-30 box-subscribe">
-                            <form class="form-newsletter">
+                            <form class="form-newsletter" id="formSubscribe">
+                                @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="text" class="input-newsletter-2" value=""
-                                            placeholder="Alamat email" />
+                                        <input type="email" id="email" name="email"
+                                            class="input-newsletter-2" value="" placeholder="Alamat email"
+                                            required />
                                     </div>
-                                    <div class="col-md-3"><button
-                                            class="btn btn-subcribe font-heading">Subscribe</button></div>
+                                    <div class="col-md-3"><button type="submit"
+                                            class="btn btn-subcribe font-heading">Subscribe</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -169,10 +173,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}" alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}" alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}" alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}" alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                                alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                                alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                                alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
+                                alt="YLKA" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -212,6 +220,27 @@
     <script src="{{ asset('front/js/plugins/swiper-bundle.min.js') }}"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#formSubscribe').submit(function(event) {
+                event.preventDefault();
+                var email = $('#email').val();
+                var formData = $('#formSubscribe').serialize();
+                $.ajax({
+                    url: '/subscription',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        $('#email').val('');
+                        swal("Success", "Subscribe added successfully!", "success");
+                    },
+                    error: function(error) {
+                        alert('Terjadi kesalahan');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

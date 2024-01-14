@@ -24,7 +24,7 @@
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="text-center">
-                    <img src="{{ asset('front/imgs/theme/loading.gif')}}" alt="YLKA" />
+                    <img src="{{ asset('front/imgs/theme/loading.gif') }}" alt="YLKA" />
                 </div>
             </div>
         </div>
@@ -117,7 +117,8 @@
                                 <div class="card-grid pengurus hover-up wow animate__animated animate__fadeInUp"
                                     data-wow-delay=".0s">
                                     <div class="block-image">
-                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" /></figure>
+                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" />
+                                        </figure>
                                     </div>
                                     <div class="card-info-bottom">
                                         <h6>Alfon Ritonga</h6>
@@ -129,7 +130,8 @@
                                 <div class="card-grid pengurus hover-up wow animate__animated animate__fadeInUp"
                                     data-wow-delay=".0s">
                                     <div class="block-image">
-                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" /></figure>
+                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" />
+                                        </figure>
                                     </div>
                                     <div class="card-info-bottom">
                                         <h6>Alfon Ritonga</h6>
@@ -141,7 +143,8 @@
                                 <div class="card-grid pengurus hover-up wow animate__animated animate__fadeInUp"
                                     data-wow-delay=".0s">
                                     <div class="block-image">
-                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" /></figure>
+                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" />
+                                        </figure>
                                     </div>
                                     <div class="card-info-bottom">
                                         <h6>Alfon Ritonga</h6>
@@ -179,14 +182,17 @@
                         <h5 class="text-md-newsletter-subcribe">Subscribe</h5>
                         <h6 class="text-lg-newsletter-2 pt-15">Berlangganan berita dan informasi terbaru:</h6>
                         <div class="mt-30 box-subscribe">
-                            <form class="form-newsletter">
+                            <form class="form-newsletter" id="formSubscribe">
+                                @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="text" class="input-newsletter-2" value=""
-                                            placeholder="Alamat email" />
+                                        <input type="email" id="email" name="email"
+                                            class="input-newsletter-2" value="" placeholder="Alamat email"
+                                            required />
                                     </div>
-                                    <div class="col-md-3"><button
-                                            class="btn btn-subcribe font-heading">Subscribe</button></div>
+                                    <div class="col-md-3"><button type="submit"
+                                            class="btn btn-subcribe font-heading">Subscribe</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -195,10 +201,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}" alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}" alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}" alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}" alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                                alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                                alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                                alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
+                                alt="YLKA" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -238,6 +248,27 @@
     <script src="{{ asset('front/js/plugins/swiper-bundle.min.js') }}"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#formSubscribe').submit(function(event) {
+                event.preventDefault();
+                var email = $('#email').val();
+                var formData = $('#formSubscribe').serialize();
+                $.ajax({
+                    url: '/subscription',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        $('#email').val('');
+                        swal("Success", "Subscribe added successfully!", "success");
+                    },
+                    error: function(error) {
+                        alert('Terjadi kesalahan');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

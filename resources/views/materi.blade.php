@@ -12,8 +12,7 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon"
-        href="{{ asset('front/imgs/theme/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
@@ -236,8 +235,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".0s">
                             <div class="block-image">
-                                <figure><img alt="YLKA"
-                                        src="{{ asset('front/imgs/ic_support.svg') }}" /></figure>
+                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" /></figure>
                             </div>
                             <div class="card-info-bottom">
                                 <!-- <h3><span class="count">15</span>00+</h3>
@@ -250,8 +248,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                             <div class="block-image">
-                                <figure><img alt="YLKA"
-                                        src="{{ asset('front/imgs/ic_support2.svg') }}" />
+                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support2.svg') }}" />
                                 </figure>
                             </div>
                             <div class="card-info-bottom">
@@ -266,8 +263,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
                             <div class="block-image">
-                                <figure><img alt="YLKA"
-                                        src="{{ asset('front/imgs/ic_support3.svg') }}" />
+                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support3.svg') }}" />
                                 </figure>
                             </div>
                             <div class="card-info-bottom">
@@ -291,7 +287,7 @@
                     <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
                         Dalam mengemban misi tersebut, YLKA bekerjasama dengan mitra-mitra/rekan pada tingkat nasional
                         ataupun lokal, seperti: gereja, organisasi/lembaga agama, pemerintah atau kelompok-kelompok yang
-                        ada di masyarakat. 
+                        ada di masyarakat.
                     </p>
                 </div>
                 <div class="row mt-60">
@@ -330,7 +326,7 @@
                     <div class="box-swiper">
                         <div class="swiper-container swiper-group-6">
                             <div class="swiper-wrapper pb-70 pt-5">
-                                @foreach($partner as $x)
+                                @foreach ($partner as $x)
                                     <div class="swiper-slide hover-up">
                                         <div class="item-logo">
                                             <a href="#">
@@ -375,14 +371,17 @@
                         <h5 class="text-md-newsletter-subcribe">Subscribe</h5>
                         <h6 class="text-lg-newsletter-2 pt-15">Berlangganan berita dan informasi terbaru:</h6>
                         <div class="mt-30 box-subscribe">
-                            <form class="form-newsletter">
+                            <form class="form-newsletter" id="formSubscribe">
+                                @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="text" class="input-newsletter-2" value=""
-                                            placeholder="Alamat email" />
+                                        <input type="email" id="email" name="email"
+                                            class="input-newsletter-2" value="" placeholder="Alamat email"
+                                            required />
                                     </div>
-                                    <div class="col-md-3"><button
-                                            class="btn btn-subcribe font-heading">Subscribe</button></div>
+                                    <div class="col-md-3"><button type="submit"
+                                            class="btn btn-subcribe font-heading">Subscribe</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -391,14 +390,11 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
                                 alt="YLKA" /></a>
                         <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
                                 alt="YLKA" /></a>
@@ -441,6 +437,27 @@
     <script src="{{ asset('front/js/plugins/swiper-bundle.min.js') }}"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#formSubscribe').submit(function(event) {
+                event.preventDefault();
+                var email = $('#email').val();
+                var formData = $('#formSubscribe').serialize();
+                $.ajax({
+                    url: '/subscription',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        $('#email').val('');
+                        swal("Success", "Subscribe added successfully!", "success");
+                    },
+                    error: function(error) {
+                        alert('Terjadi kesalahan');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

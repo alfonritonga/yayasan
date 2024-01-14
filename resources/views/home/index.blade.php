@@ -222,19 +222,17 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" class="input-newsletter-2"
-                                            value="" placeholder="Alamat email" required />
+                                        <input type="email" id="email" name="email"
+                                            class="input-newsletter-2" value="" placeholder="Alamat email"
+                                            required />
                                     </div>
-                                    <div class="col-md-3"><button type="button"
-                                            class="btn btn-subcribe font-heading"
-                                            onclick="addSubscribe()">Subscribe</button></div>
+                                    <div class="col-md-3"><button type="submit"
+                                            class="btn btn-subcribe font-heading">Subscribe</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <!-- <div class="box-newsletter-bottom">
-                    <div class="newsletter-bottom"></div>
-                </div> -->
                     <div class="mobile-social-icon mt-50">
                         <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
                                 alt="YLKA" /></a>
@@ -281,23 +279,29 @@
     <script src="{{ asset('front/js/plugins/isotope.js') }}"></script>
     <script src="{{ asset('front/js/plugins/scrollup.js') }}"></script>
     <script src="{{ asset('front/js/plugins/swiper-bundle.min.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <script>
-        function addSubscribe() {
-            $.ajax({
-                url: '/subscription',
-                type: 'POST',
-                data: $('#formSubscribe').serialize(), // Mengumpulkan data formulir
-                success: function(response) {
-                    alert('Berhasil subscribe');
-                    $('#email').val('');
-                },
-                error: function(error) {
-                    alert('Terjadi kesalahan');
-                }
+        $(document).ready(function() {
+            $('#formSubscribe').submit(function(event) {
+                event.preventDefault();
+                var email = $('#email').val();
+                var formData = $('#formSubscribe').serialize();
+                $.ajax({
+                    url: '/subscription',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        $('#email').val('');
+                        swal("Success", "Subscribe added successfully!", "success");
+                    },
+                    error: function(error) {
+                        alert('Terjadi kesalahan');
+                    }
+                });
             });
-        }
+        });
     </script>
 </body>
 

@@ -2607,6 +2607,10 @@ label {
   border: 0px !important;
 }
 
+.input-newsletter-2:focus {
+  color: white !important;
+}
+
 .btn-subcribe {
   background-color: #ffffff;
   width: 100%;

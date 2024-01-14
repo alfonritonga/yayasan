@@ -978,6 +978,11 @@
                             <span class="nav-text">Donasi</span>
                         </a>
                     </li>
+                    <li><a href="/subscribtion" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-heart"></i>
+                            <span class="nav-text">Subscription</span>
+                        </a>
+                    </li>
                     <li><a href="/job" class="ai-icon" aria-expanded="false">
                             <i class="la la-graduation-cap"></i>
                             <span class="nav-text">Lowongan</span>

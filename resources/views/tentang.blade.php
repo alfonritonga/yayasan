@@ -365,14 +365,17 @@
                         <h5 class="text-md-newsletter-subcribe">Subscribe</h5>
                         <h6 class="text-lg-newsletter-2 pt-15">Berlangganan berita dan informasi terbaru:</h6>
                         <div class="mt-30 box-subscribe">
-                            <form class="form-newsletter">
+                            <form class="form-newsletter" id="formSubscribe">
+                                @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="text" class="input-newsletter-2" value=""
-                                            placeholder="Alamat email" />
+                                        <input type="email" id="email" name="email"
+                                            class="input-newsletter-2" value="" placeholder="Alamat email"
+                                            required />
                                     </div>
-                                    <div class="col-md-3"><button
-                                            class="btn btn-subcribe font-heading">Subscribe</button></div>
+                                    <div class="col-md-3"><button type="submit"
+                                            class="btn btn-subcribe font-heading">Subscribe</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -429,6 +432,26 @@
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <script>
+        $(document).ready(function() {
+            $('#formSubscribe').submit(function(event) {
+                event.preventDefault();
+                var email = $('#email').val();
+                var formData = $('#formSubscribe').serialize();
+                $.ajax({
+                    url: '/subscription',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        $('#email').val('');
+                        swal("Success", "Subscribe added successfully!", "success");
+                    },
+                    error: function(error) {
+                        alert('Terjadi kesalahan');
+                    }
+                });
+            });
+        });
+
         $(".box-mitra").click(function() {
             $(".box-mitra").removeClass("box-selected");
             $(this).addClass("box-selected");

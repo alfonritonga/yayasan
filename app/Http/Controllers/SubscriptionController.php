@@ -18,13 +18,14 @@ class SubscriptionController extends Controller
     {
         DB::beginTransaction();
         try {
-            SubscriptionModel::create([
+            $data = SubscriptionModel::create([
                 'email' => $request->email
             ]);
             DB::commit();
             return response([
                 'status' => true,
-                'message' => 'Add subscription success'
+                'message' => 'Add subscription success',
+                'data' => $data
             ]);
         } catch (\Exception $exception) {
             DB::rollback();
