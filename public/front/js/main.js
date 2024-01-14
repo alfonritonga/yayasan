@@ -200,6 +200,39 @@
             }
         });
     });
+    $(".swiper-group-5").each(function () {
+        var swiper_5_items = new Swiper(this, {
+            spaceBetween: 30,
+            slidesPerView: 6,
+            spaceBetween: 30,
+            slidesPerGroup: 6, 
+            centerInsufficientSlides: true,
+            loop: false,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            autoplay: {
+                delay: 10000
+            },
+            breakpoints: {
+                1199: {
+                    slidesPerView: 6
+                },
+                800: {
+                    slidesPerView: 4
+                },
+                400: {
+                    slidesPerView: 2
+                },
+                350: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 1,
+                    spaceBetween: 15
+                }
+            }
+        });
+    });
     $(".swiper-group-3").each(function () {
         var swiper_3_items = new Swiper(this, {
             spaceBetween: 30,

@@ -24,7 +24,7 @@
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="text-center">
-                    <img src="assets/imgs/theme/loading.gif" alt="YLKA" />
+                    <img src="{{ asset('landing/imgs/loading.gif') }}" alt="YLKA" />
                 </div>
             </div>
         </div>
@@ -218,14 +218,16 @@
                         <h5 class="text-md-newsletter-subcribe">Subscribe</h5>
                         <h6 class="text-lg-newsletter-2 pt-15">Berlangganan berita dan informasi terbaru:</h6>
                         <div class="mt-30 box-subscribe">
-                            <form class="form-newsletter">
+                            <form class="form-newsletter" id="formSubscribe">
+                                @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="text" class="input-newsletter-2" value=""
-                                            placeholder="Alamat email" />
+                                        <input type="email" id="email" class="input-newsletter-2"
+                                            value="" placeholder="Alamat email" required />
                                     </div>
-                                    <div class="col-md-3"><button
-                                            class="btn btn-subcribe font-heading">Subscribe</button></div>
+                                    <div class="col-md-3"><button type="button"
+                                            class="btn btn-subcribe font-heading"
+                                            onclick="addSubscribe()">Subscribe</button></div>
                                 </div>
                             </form>
                         </div>
@@ -281,6 +283,22 @@
     <script src="{{ asset('front/js/plugins/swiper-bundle.min.js') }}"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
+    <script>
+        function addSubscribe() {
+            $.ajax({
+                url: '/subscription',
+                type: 'POST',
+                data: $('#formSubscribe').serialize(), // Mengumpulkan data formulir
+                success: function(response) {
+                    alert('Berhasil subscribe');
+                    $('#email').val('');
+                },
+                error: function(error) {
+                    alert('Terjadi kesalahan');
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

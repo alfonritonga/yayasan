@@ -20,8 +20,8 @@ class PartnerModel extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    function list()
+    function lists()
     {
-        return $this->belongsTo(User::class, 'users_id', 'id');
+        return $this->hasMany(PartnerListModel::class, 'partner_id', 'id');
     }
 }

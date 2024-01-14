@@ -11,6 +11,7 @@ use App\Http\Controllers\LandingInfoController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PartnerListController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,13 @@ Route::get('/donasi', [HomeController::class, 'donasi']);
 Route::get('/program', [HomeController::class, 'program']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
 Route::get('/media-materi', [HomeController::class, 'media']);
+
+Route::post('/subscription', [SubscriptionController::class, 'addPost']);
+
+Route::prefix('/ajax')->group(function () {
+    Route::get('/partner-list/{partner_category}', [PartnerController::class, 'ajaxList'])->name('partner-category_view_lists');
+});
+
 
 Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/dashboard')->group(function () {
@@ -96,6 +104,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', [DonationController::class, 'index'])->name('donation_view_index');
     });
 
+    Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription_view_index');
+
     Route::prefix('/programs')->group(function () {
         Route::get('/', [ProgramController::class, 'index'])->name('program_view_index');
         Route::get('/add', [ProgramController::class, 'addView'])->name('program_view_add');
@@ -115,13 +125,18 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::prefix('/partner')->group(function () {
-        Route::get('/category', [PartnerController::class, 'index'])->name('category_view_index');
-        Route::get('/add-category', [PartnerController::class, 'addCategory'])->name('add_category_view_index');
-        Route::post('/add-category', [PartnerController::class, 'addPostCategory'])->name('category_add_post');
-        Route::get('/list', [PartnerListController::class, 'index'])->name('list_view_index');
-        Route::get('/add-list', [PartnerListController::class, 'addList'])->name('add_list_view_index');
-        Route::post('/add-list', [PartnerListController::class, 'addPostList'])->name('list_add_post');
-        Route::delete('/list/{id}', [PartnerListController::class, 'delete'])->name('list_delete');
-        Route::delete('/{id}', [PartnerController::class, 'delete'])->name('category_delete');
+        Route::get('/category', [PartnerController::class, 'index'])->name('partner-category_view_index');
+        Route::get('/category/add', [PartnerController::class, 'addView'])->name('partner-category_add_view');
+        Route::get('/category/edit/{id}', [PartnerController::class, 'editView'])->name('partner-category_edit_view');
+        Route::post('/category/add', [PartnerController::class, 'addPost'])->name('partner-category_add_post');
+        Route::patch('/category/edit/{id}', [PartnerController::class, 'editPatch'])->name('partner-category_edit_patch');
+        Route::delete('/category/{id}', [PartnerController::class, 'delete'])->name('partner-category_delete');
+
+        Route::get('/list', [PartnerListController::class, 'index'])->name('partner-list_view_index');
+        Route::get('/list/add', [PartnerListController::class, 'addView'])->name('partner-list_add_view');
+        Route::get('/list/edit/{id}', [PartnerListController::class, 'editView'])->name('partner-list_edit_view');
+        Route::post('/list/add', [PartnerListController::class, 'addPost'])->name('partner-list_add_post');
+        Route::patch('/list/edit/{id}', [PartnerListController::class, 'editPatch'])->name('partner-list_edit_patch');
+        Route::delete('/list/{id}', [PartnerController::class, 'delete'])->name('partner-list_delete');
     });
 });

@@ -10,35 +10,23 @@ use Illuminate\Support\Facades\DB;
 
 class PartnerListController extends Controller
 {
-    //
     function index()
     {
-        // $users = User::with(['role'])->orderBy('id', 'desc')->get();
         $partner = PartnerListModel::with(['category'])->orderBy('id', 'desc')->get();
-        return view('partner.index', compact('partner'));
+        return view('partner.index-list', compact('partner'));
     }
 
-    function addList()
+    function addView()
     {
-        // $genre = GenreModel::all();
         $partner = PartnerModel::orderBy('id', 'desc')->get();
-        return view('partner.addList', compact('partner'));
+        return view('partner.add-list', compact('partner'));
     }
 
-    function editView($id)
+    function addPost(PartnerListRequest $request)
     {
-        $job = JobModel::with('admin')->find($id);
-        // dd($job);
-        return view('lowongan.edit', compact('job'));
-    }
-
-    function editPatch(JobRequest $request, $id)
-    {
-        $file = $request->file('media');
         DB::beginTransaction();
         try {
-            $job = JobModel::with('admin')->find($id);
-
+            $file = $request->file('media');
             if ($file != null) {
                 $imageName = time() . '_' . $file->getClientOriginalName();
                 $file->move(public_path('/asset'), $imageName);
@@ -46,43 +34,51 @@ class PartnerListController extends Controller
             } else {
                 $path = null;
             }
-            
-            if($file == null){
-                $data = [
-                    // 'guid' => Str::uuid()->toString(),
-                    // 'user_id' => Auth::user()->id,
-                    'title' => $request->title,
-                    'description' => $request->description,
-                    'from' => $request->from,
-                    'to' => $request->to,
-                    'status' => $request->status == 'true' ? 1 : 0
-                ];
-    
-                $job->update($data);
-    
-                DB::commit();
-            } else {
-                $data = [
-                    // 'guid' => Str::uuid()->toString(),
-                    // 'user_id' => Auth::user()->id,
-                    'title' => $request->title,
-                    'description' => $request->description,
-                    'from' => $request->from,
-                    'to' => $request->to,
-                    'status' => $request->status == 'true' ? 1 : 0,
-                    'media' => $path
-                ];
-    
-                $job->update($data);
-    
-                DB::commit();
-            }
 
-           
-            return redirect()->route('job_view_index')->with('message', 'Lowongan berhasil di edit!');
+            PartnerListModel::create([
+                'partner_id' => $request->partner_id,
+                'title' => $request->title,
+                'description' => $request->description,
+                'media' => $path,
+            ]);
+            DB::commit();
+            return redirect()->route('partner-list_view_index')->with('message', 'Partner List berhasil ditambahkan!');
         } catch (\Exception $exception) {
             DB::rollBack();
-            return redirect()->route('job_edit', $id)->with('error_message', $exception->getMessage());
+            return redirect()->route('partner-list_add_view')->with('error_message', $exception->getMessage());
+        }
+    }
+
+    function editView($id)
+    {
+        $partner_list = PartnerListModel::find($id);
+        $partner = PartnerModel::orderBy('id', 'desc')->get();
+        return view('partner.edit-list', compact('partner', 'partner_list'));
+    }
+
+    function editPatch(Request $request, $id)
+    {
+        DB::beginTransaction();
+        try {
+            $job = PartnerListModel::find($id);
+            $data = [
+                'partner_id' => $request->partner_id,
+                'title' => $request->title,
+                'description' => $request->description,
+            ];
+            $file = $request->file('media');
+            if ($file != null) {
+                $imageName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('/asset'), $imageName);
+                $path = 'asset/' . $imageName;
+                $data['media'] = $path;
+            }
+            $job->update($data);
+            DB::commit();
+            return redirect()->route('partner-list_view_index')->with('message', 'Parner list berhasil diedit!');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return redirect()->route('partner-list_edit_view', $id)->with('error_message', $exception->getMessage());
         }
     }
 
@@ -106,42 +102,5 @@ class PartnerListController extends Controller
                 'error' => $exception->getMessage()
             ]);
         }
-    }
-
-
-    function addPostList(PartnerListRequest $request)
-    {
-        $file = $request->file('media');
-
-        // dd($request);
-        if(empty($request->partner_id)){
-            return redirect()->route('add_list_view_index')->with('error_message', 'Partner Category tidak boleh kosong');
-        }
-        DB::beginTransaction();
-        try {
-            if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-            } else {
-                $path = null;
-            }
-
-            $partner = PartnerListModel::create([
-                // 'guid' => Str::uuid()->toString(),
-                // 'user_id' => Auth::user()->id,
-                'partner_id' => $request->partner_id,
-                'title' => $request->title,
-                'description' => $request->description,
-                // 'status' => $request->status == 'true' ? 1 : 0,
-                'media' => $path,
-            ]);
-            DB::commit();
-            return redirect()->route('list_view_index')->with('message', 'Partner List berhasil di tambahkan!');
-        } catch (\Exception $exception) {
-            DB::rollBack();
-            return redirect()->route('add_list_view_index')->with('error_message', $exception->getMessage());
-        }
-        return redirect()->route('list_view_index')->with('message', 'Partner List berhasil di tambahkan!');
     }
 }

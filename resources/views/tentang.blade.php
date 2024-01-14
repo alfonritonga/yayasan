@@ -24,7 +24,7 @@
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="text-center">
-                    <img src="assets/imgs/theme/loading.gif" alt="YLKA" />
+                    <img src="{{ asset('landing/imgs/loading.gif') }}" alt="YLKA" />
                 </div>
             </div>
         </div>
@@ -280,59 +280,63 @@
                     <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
                         {{ $landing_info->partnership }}</p>
                 </div>
-                <div class="row mt-60">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-md-30">
-                        <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".0s">
-                            <div class="card-info-bottom">
-                                <h3>Kerjasama Gereja</h3>
-                                <strong>&nbsp</strong>
-                                <p class="text-mutted">Bekerjasama dengan dan menggerakkan gereja yang resmi dan mapan.
-                                </p>
+                <div class="row no-gutters mt-60">
+                    @php
+                        $point = 2;
+                    @endphp
+                    @foreach ($partner as $i)
+                        <div class="col-md-6 box-mitra @if ($loop->first) box-selected @endif @if ($loop->iteration == $point) bg-light @endif"
+                            onclick="getPartnerList({{ $i->id }})">
+                            <div class="p-4">
+                                <h5 class="mb-3 medium-heading">{{ $i->title }}</h5>
+                                <p class="text-muted">{{ $i->description }}</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-md-30">
-                        <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".0s">
-                            <div class="card-info-bottom">
-                                <h3><span class="count">15</span>00+</h3>
-                                <strong>&nbsp</strong>
-                                <p class="text-mutted">Gereja yang senantiasa terbuka untuk bekerjasama menjadi
-                                    mitra/rekan sekerja Allah dalam mengemban tugas peduli terhadap anak-anak,
-                                    keberlangsungan misi terhadap tritugas panggilan gereja (koinonia, diakonia,
-                                    marturia) dan peningkatan kapasitas para pelayan rohani.</p>
-                            </div>
-                        </div>
-                    </div>
+                        @php
+                            if ($loop->iteration == $point) {
+                                if ($loop->iteration % 2 == 0) {
+                                    $point += 1;
+                                } else {
+                                    $point += 3;
+                                }
+                            }
+                        @endphp
+                    @endforeach
                 </div>
+
             </div>
         </section>
-        <div class="section-box wow animate__animated animate__fadeIn mt-70 mb-70">
-            <div class="container">
-                <div class="text-md-lh24 color-black-5 wow animate__animated animate__fadeInUp text-center">
-                    Kemitraan
-                </div>
-                <h2 class="section-title mb-15 wow animate__animated animate__fadeInUp text-center">Partnership</h2>
-                <div class="row mt-50">
-                    <div class="box-swiper">
-                        <div class="swiper-container swiper-group-6">
-                            <div class="swiper-wrapper pb-70 pt-5">
-                                @foreach ($partner as $x)
-                                    <div class="swiper-slide hover-up">
-                                        <div class="item-logo">
-                                            <a href="#">
-                                                <img alt="YLKA" src="{{ $x->media }}" width="78" />
-                                                <p>{{ $x->title }}</p>
-                                            </a>
+        <div class="section-box wow animate__animated animate__fadeIn mt-70 mb-70" id="div-partner">
+            @if (count($partner[0]->lists) > 0)
+                <div class="container">
+                    <div class="text-md-lh24 color-black-5 wow animate__animated animate__fadeInUp text-center">
+                        Partner Kemitraan
+                    </div>
+                    <h4 class="section-title mb-15 wow animate__animated animate__fadeInUp text-center">
+                        {{ $partner[0]->title }}
+                    </h4>
+                    <div class="row mt-50">
+                        <div class="box-swiper">
+                            <div class="swiper-container swiper-group-5">
+                                <div class="swiper-wrapper pb-70 pt-5">
+                                    @foreach ($partner[0]->lists as $x)
+                                        <div class="swiper-slide hover-up">
+                                            <div class="item-logo">
+                                                <a href="#">
+                                                    <img alt="YLKA" src="{{ $x->media }}" width="78" />
+                                                    <p>{{ $x->title }}</p>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
                             </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
                     </div>
                 </div>
-            </div>
+            @endif
         </div>
 
 
@@ -424,6 +428,80 @@
     <script src="{{ asset('front/js/plugins/swiper-bundle.min.js') }}"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
+    <script>
+        $(".box-mitra").click(function() {
+            $(".box-mitra").removeClass("box-selected");
+            $(this).addClass("box-selected");
+        });
+
+        function getPartnerList(id) {
+            $.ajax({
+                url: `/ajax/partner-list/${id}`,
+                method: 'GET',
+                success: function(res) {
+                    $('#div-partner').html(res);
+                    initiateSwiper();
+
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            })
+        }
+
+        function initiateSwiper() {
+            var swiper_2_items = new Swiper('.swiper-container', {
+                spaceBetween: 30,
+                slidesPerView: 6,
+                spaceBetween: 30,
+                slidesPerGroup: 1,
+                centerInsufficientSlides: true,
+                loop: false,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "custom",
+                    renderCustom: function(swiper, current, total) {
+                        var customPaginationHtml = "";
+                        for (var i = 0; i < total; i++) {
+                            //Determine which pager should be activated at this time
+                            if (i == current - 1) {
+                                customPaginationHtml +=
+                                    '<span class="swiper-pagination-customs swiper-pagination-customs-active"></span>';
+                            } else {
+                                customPaginationHtml +=
+                                    '<span class="swiper-pagination-customs"></span>';
+                            }
+                        }
+                        return customPaginationHtml;
+                    }
+                },
+                autoplay: {
+                    delay: 10000
+                },
+                breakpoints: {
+                    1199: {
+                        slidesPerView: 6
+                    },
+                    800: {
+                        slidesPerView: 1
+                    },
+                    600: {
+                        slidesPerView: 1
+                    },
+                    400: {
+                        slidesPerView: 1
+                    },
+                    350: {
+                        slidesPerView: 1
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

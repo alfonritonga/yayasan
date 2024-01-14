@@ -1,29 +1,35 @@
-[ADMIN]
-- CRUD Kemitraan
-- Get Subscribe
-- Fix CRUD Artikel
-- Fix Galery
-- CRUD About Galery
-- Get Donasi
-- Fix CRUD Lowongan
-- CRUD Kisah Inspiratif
-- Crud Alamat, Phone, email, google map
-- CRUD pengurus
+TODO 
+- [ADMIN] Show Donasi
+- [ADMIN] CRUD Lowongan
+- [ADMIN] CRUD Image on About Page
+- [ADMIN] CRUD Kisah Inspiratif
+- [ADMIN] CRUD Video 
+- [ADMIN] CRUD Materi
+- [ADMIN] CRUD pengurus
 
+- [LANDING] Show Galery
+- [LANDING] Show Video
+- [LANDING] Carousel Image on About Page
+- [LANDING] Post Donasi
+- [LANDING] Show Lowongan
+- [LANDING] Show Kisah Inspiratif
+- [LANDING] Show google map
+- [LANDING] Show pengurus
+- [LANDING] Show Materi
 
-[LANDING]
-- Show Kemitraan
-- Post Subscribe
-- Fix show Artikel
-- Show Galery
-- Carousel About Galery
-- Post Donasi
-- Show Lowongan
-- Show Kisah Inspiratif
-- Show alamat. phone, email, google map
-- Show pengurus
-- Materi ?
-- Pencapaian?
+ONGOING
+- [ADMIN] CRUD Galery
+- [LANDING] Fix show Artikel 
 
-
+ 
 DONE
+- [ADMIN] CRUD Landing Info (Deskripsi YLKA, Sejarah, Visi misi, kemitraan)
+- [ADMIN] CRUD Program
+- [ADMIN] Fix CRUD Kemitraan
+- [ADMIN] Fix CRUD Artikel
+- [ADMIN] Get Subscribe 
+
+- [LANDING] Show Landing Info
+- [LANDING] Show Program
+- [LANDING] Show Kemitraan
+- [LANDING] Post Subscribe

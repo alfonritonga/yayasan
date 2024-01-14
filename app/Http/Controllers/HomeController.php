@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ArticleModel;
 use App\Models\LandingInfoModel;
 use App\Models\PartnerListModel;
+use App\Models\PartnerModel;
 use App\Models\ProgramModel;
 
 class HomeController extends Controller
@@ -23,7 +24,7 @@ class HomeController extends Controller
 
     function tentang()
     {
-        $partner = PartnerListModel::with('admin', 'category')->orderBy('id', 'desc')->get();
+        $partner = PartnerModel::with(['lists'])->orderBy('id', 'asc')->get();
         $landing_info = LandingInfoModel::find(1);
         return view('tentang', compact('partner', 'landing_info'));
     }

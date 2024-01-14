@@ -24,6 +24,6 @@ class PartnerListModel extends Model
 
     function category()
     {
-        return $this->belongsTo(PartnerModel::class, 'partner_id', 'id');
+        return $this->belongsTo(PartnerModel::class, 'partner_id', 'id')->withTrashed();
     }
 }
