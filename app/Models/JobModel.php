@@ -19,10 +19,23 @@ class JobModel extends Model
         'status',
         'from',
         'to',
+        'location',
+        'type',
+        'contact_info',
     ];
 
     function admin()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    function qualifications()
+    {
+        return $this->hasMany(JobQualificationModel::class, 'jobs_id', 'id');
+    }
+
+    function tasks()
+    {
+        return $this->hasMany(JobQualificationModel::class, 'jobs_id', 'id');
     }
 }

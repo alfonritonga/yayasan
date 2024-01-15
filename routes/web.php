@@ -117,9 +117,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::prefix('/job')->group(function () {
         Route::get('/', [JobController::class, 'index'])->name('job_view_index');
-        Route::get('/add-job', [JobController::class, 'addJob'])->name('add_job_view_index');
-        Route::post('/add-job', [JobController::class, 'addPostJob'])->name('job_add_post');
-        Route::get('/edit/{id}', [JobController::class, 'editView'])->name('job_edit');
+        Route::get('/add', [JobController::class, 'addView'])->name('add_job_add_view');
+        Route::post('/add', [JobController::class, 'addPost'])->name('job_add_post');
+        Route::get('/edit/{id}', [JobController::class, 'editView'])->name('job_edit_view');
         Route::post('/edit/{id}', [JobController::class, 'editPatch'])->name('job_edit_patch');
         Route::delete('/{id}', [JobController::class, 'delete'])->name('job_delete');
     });
