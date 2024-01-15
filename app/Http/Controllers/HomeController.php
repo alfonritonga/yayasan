@@ -49,7 +49,7 @@ class HomeController extends Controller
 
     function media()
     {
-
-        return view('materi');
+        $partner = PartnerListModel::with('admin', 'category')->orderBy('id', 'desc')->get();
+        return view('materi', compact('partner'));
     }
 }

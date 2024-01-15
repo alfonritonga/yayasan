@@ -6602,6 +6602,16 @@ label {
   background: #ffffff;
 }
 
+.btn-fix {
+  background: #fd0249;
+  color: white !important;
+}
+
+.btn-fix:hover {
+  background: #e70243;
+  color: white !important;
+}
+
 .box-head-single {
   background-color: #fff9f3;
   display: inline-block;

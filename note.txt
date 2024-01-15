@@ -35,22 +35,3 @@ DONE
 - [LANDING] Post Subscribe
 
 
-Need
-
-name
-deadline
-
-kota medan
-fulltime
-info kontak
-kualifikasi : list
-tugas dan tanggungjawba : list Need
-
-name
-deadline
-
-kota medan
-fulltime
-info kontak
-kualifikasi : list
-tugas dan tanggungjawba : list 

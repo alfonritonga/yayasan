@@ -24,7 +24,7 @@
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="text-center">
-                    <img src="assets/imgs/theme/loading.gif" alt="YLKA" />
+                    <img src="{{ asset('landing/imgs/loading.gif') }}" alt="YLKA" />
                 </div>
             </div>
         </div>
@@ -59,12 +59,13 @@
                         Dukungan dari saudara sangat membantu Yayasan Lentera Kasih Agape untuk bisa terus maksimal
                         melayani.</p>
                 </div>
-                <div class="row mt-60">
+                <div class="row mt-60 d-flex">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-md-30 align-items-center">
-                        <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
+                        <div class="card-grid h-100 hover-up wow animate__animated animate__fadeInUp"
                             style="overflow: hidden;" data-wow-delay=".1s">
                             <div class="radio-button">
-                                <img src="{{ asset('front/imgs/CheckCircle.png') }}">
+                                <img src="{{ asset('front/imgs/CheckCircle_active.png') }}" id="donate-bank"
+                                    class="checked" onclick="setClick(this, 'donate-bank', 'donate-item')">
                             </div>
                             <div class="rekening">
                                 <img src="{{ asset('front/imgs/mandiri.png') }}">
@@ -75,10 +76,11 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-md-30 align-items-center">
-                        <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
+                        <div class="card-grid h-100 hover-up wow animate__animated animate__fadeInUp"
                             style="overflow: hidden;" data-wow-delay=".1s">
                             <div class="radio-button">
-                                <img src="{{ asset('front/imgs/CheckCircle.png') }}">
+                                <img src="{{ asset('front/imgs/CheckCircle.png') }}" id="donate-item" class="unchecked"
+                                    onclick="setClick(this, 'donate-item', 'donate-bank')">
                             </div>
                             <div class="rekening">
                                 <img src="{{ asset('front/imgs/gift.png') }}">
@@ -86,43 +88,63 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="formDonasi mt-100 mb-200">
-                    <form class="contact-form-style mt-80" id="contact-form" action="#" method="post">
+                    <form class="contact-form-style mt-80" id="contact-form" method="post"
+                        enctype="multipart/form-data">
                         <div class="row wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="name" placeholder="Nama" type="text" />
+                                    <input name="name" class="form-control" placeholder="Nama" type="text" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="email" placeholder="Email" type="email" />
+                                    <input name="email" class="form-control" placeholder="Email" type="email" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="telephone" placeholder="Nomor HP" type="tel" />
+                                    <input name="telephone" class="form-control" placeholder="Nomor HP"
+                                        type="tel" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="subject" placeholder="Pesan" type="text" />
+                                    <input name="message" class="form-control" placeholder="Pesan" type="text" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="input-style mb-20" id="input-donate-bank">
+                                    <input name="amount" class="form-control" placeholder="Jumlah Donasi"
+                                        type="text" />
+                                </div>
+                                <div class="input-style mb-20 d-none" id="input-donate-item">
+                                    <input name="proof_of_delivery" class="form-control" placeholder="Jenis barang"
+                                        type="text" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="subject" placeholder="Jenis barang" type="text" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="input-style mb-20">
-                                    <input name="bukti" placeholder="Upload bukti transfer" type="file" />
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="input-file-text"
+                                            placeholder="Upload bukti transfer" aria-describedby="button-addon2">
+                                        <input type="file" id="input-file" name="media" hidden
+                                            onchange="getFile()">
+                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                                            onclick="openUpload()"><svg xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16" fill="currentColor"
+                                                class="bi bi-upload" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+                                                <path
+                                                    d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z" />
+                                            </svg></button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 text-center">
-                                <button class="kirimdonasi" type="submit">Kirim Donasi</button>
+                                <button class="btn w-100 btn-fix" type="submit">KIRIM DONASI</button>
                             </div>
                         </div>
                     </form>
@@ -221,6 +243,39 @@
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <script>
+        function openUpload() {
+            $('#input-file').click();
+        }
+
+        function getFile() {
+            var fileName = $('#input-file').val().split('\\').pop();
+            $('#input-file-text').val(fileName);
+            $('#input-file-text').attr('readonly', true);
+        }
+
+        function setClick(el, idchecked, idunchecked) {
+            if (el.className == 'unchecked') {
+                $('#' + idchecked).attr('src', "{{ asset('front/imgs/CheckCircle_active.png') }}");
+                $('#' + idunchecked).attr('src', "{{ asset('front/imgs/CheckCircle.png') }}");
+                $('#input-' + idchecked).removeClass('d-none');
+                $('#' + idchecked).removeClass('unchecked');
+                $('#' + idchecked).addClass('checked');
+                $('#' + idunchecked).removeClass('checked');
+                $('#' + idunchecked).addClass('unchecked');
+                $('#input-' + idunchecked).addClass('d-none');
+
+                $('#input-file').val();
+                $('#input-file-text').attr('readonly', false);
+                $('#input-file-text').val('');
+                if (idchecked == 'donate-bank') {
+                    $('#input-file-text').attr('placeholder', 'Upload bukti transfer');
+                } else {
+                    $('#input-file-text').attr('placeholder', 'Upload bukti pengiriman barang');
+                }
+            }
+        }
+
+
         $(document).ready(function() {
             $('#formSubscribe').submit(function(event) {
                 event.preventDefault();
