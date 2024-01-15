@@ -37,12 +37,13 @@ Route::get('/logout', [AuthController::class, 'proccesslogout']);
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
-Route::get('/donasi', [HomeController::class, 'donasi']);
+Route::get('/donasi', [HomeController::class, 'donasi'])->name('landing_donasi');
 Route::get('/program', [HomeController::class, 'program']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
 Route::get('/media-materi', [HomeController::class, 'media']);
 
 Route::post('/subscription', [SubscriptionController::class, 'addPost']);
+Route::post('/donations', [DonationController::class, 'addPost'])->name('donation_add_post');
 
 Route::prefix('/ajax')->group(function () {
     Route::get('/partner-list/{partner_category}', [PartnerController::class, 'ajaxList'])->name('partner-category_view_lists');

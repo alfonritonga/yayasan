@@ -58,6 +58,21 @@
                     <p class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
                         Dukungan dari saudara sangat membantu Yayasan Lentera Kasih Agape untuk bisa terus maksimal
                         melayani.</p>
+                    @if ($message = Session::get('message'))
+                        <div class="alert alert-primary alert-dismissible fade show">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                                stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                class="me-2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                            {{ $message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                            </button>
+                        </div>
+                    @endif
                 </div>
                 <div class="row mt-60 d-flex">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-md-30 align-items-center">
@@ -91,10 +106,12 @@
                 </div>
                 <div class="formDonasi mt-100 mb-200">
                     <form class="contact-form-style mt-80" id="contact-form" method="post"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" action="{{ route('donation_add_post') }}">
+                        @csrf
                         <div class="row wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
+                                    <input type="hidden" name="type" id="type" value="1">
                                     <input name="name" class="form-control" placeholder="Nama" type="text" />
                                 </div>
                             </div>
@@ -105,7 +122,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="telephone" class="form-control" placeholder="Nomor HP"
+                                    <input name="phone" class="form-control" placeholder="Nomor HP"
                                         type="tel" />
                                 </div>
                             </div>
@@ -269,8 +286,10 @@
                 $('#input-file-text').val('');
                 if (idchecked == 'donate-bank') {
                     $('#input-file-text').attr('placeholder', 'Upload bukti transfer');
+                    $('#type').val(1);
                 } else {
                     $('#input-file-text').attr('placeholder', 'Upload bukti pengiriman barang');
+                    $('#type').val(2);
                 }
             }
         }

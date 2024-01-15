@@ -16,6 +16,10 @@ class DonationModel extends Model
         'email',
         'phone',
         'nominal',
-        'message'
+        'message',
+        'amount',
+        'type_of_goods',
+        'type',
+        'media'
     ];
 }
