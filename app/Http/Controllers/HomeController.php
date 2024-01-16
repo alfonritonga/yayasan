@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ArticleModel;
+use App\Models\JobModel;
 use App\Models\LandingInfoModel;
 use App\Models\PartnerListModel;
 use App\Models\PartnerModel;
@@ -51,5 +52,17 @@ class HomeController extends Controller
     {
         $partner = PartnerListModel::with('admin', 'category')->orderBy('id', 'desc')->get();
         return view('materi', compact('partner'));
+    }
+
+    function lowongan()
+    {
+        $jobs = JobModel::with('admin')->orderBy('id', 'desc')->get();
+        return view('lowongan', compact('jobs'));
+    }
+
+    function lowonganDetail($guid)
+    {
+        $job = JobModel::with('admin')->where('guid', $guid)->first();
+        return view('lowongan-detail', compact('job'));
     }
 }

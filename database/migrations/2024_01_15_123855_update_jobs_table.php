@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::table('jobs', function (Blueprint $table) {
             $table->string('location')->after('status')->nullable();
             $table->tinyInteger('type')->after('location')->default(0);
-            $table->text('contact_info')->after('type')->nullable();
         });
     }
 

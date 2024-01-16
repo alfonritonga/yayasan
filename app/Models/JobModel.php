@@ -21,7 +21,6 @@ class JobModel extends Model
         'to',
         'location',
         'type',
-        'contact_info',
     ];
 
     function admin()

@@ -46,38 +46,21 @@ class JobController extends Controller
                 'to' => $request->to,
                 'status' => $request->status == 'true' ? 1 : 0,
                 'media' => $path,
+                'type' => $request->type,
+                'location' => $request->location
             ]);
-
-            if ($request->has('qualifications')) {
-                for ($i = 0; $i < count($request->qualifications); $i++) {
-                    JobQualificationModel::create([
-                        'jobs_id' => $job->id,
-                        'qualification' => $request->qualifications[$i],
-                    ]);
-                }
-            }
-
-            if ($request->has('tasks')) {
-                for ($i = 0; $i < count($request->tasks); $i++) {
-                    JobTaskModel::create([
-                        'jobs_id' => $job->id,
-                        'task' => $request->tasks[$i],
-                    ]);
-                }
-            }
 
             DB::commit();
             return redirect()->route('job_view_index')->with('message', 'Lowongan berhasil di tambahkan!');
         } catch (\Exception $exception) {
             DB::rollBack();
-            return redirect()->route('add_job_view_index')->with('error_message', $exception->getMessage());
+            return redirect()->route('add_job_add_view')->with('error_message', $exception->getMessage());
         }
-        return redirect()->route('job_view_index')->with('message', 'Lowongan berhasil di tambahkan!');
     }
 
     function editView($id)
     {
-        $job = JobModel::with(['admin', 'qualifications', 'tasks'])->find($id);
+        $job = JobModel::with(['admin'])->find($id);
         return view('lowongan.edit', compact('job'));
     }
 
@@ -86,52 +69,31 @@ class JobController extends Controller
         DB::beginTransaction();
         try {
             $job = JobModel::with('admin')->find($id);
+            $data = [
+                'title' => $request->title,
+                'description' => $request->description,
+                'from' => $request->from,
+                'from' => $request->from,
+                'to' => $request->to,
+                'status' => $request->status == 'true' ? 1 : 0,
+                'type' => $request->type,
+                'location' => $request->location
+            ];
 
             $file = $request->file('media');
             if ($file != null) {
                 $imageName = time() . '_' . $file->getClientOriginalName();
                 $file->move(public_path('/asset'), $imageName);
                 $path = 'asset/' . $imageName;
-            } else {
-                $path = null;
+                $data['media'] = $path;
             }
-
-            if ($file == null) {
-                $data = [
-                    // 'guid' => Str::uuid()->toString(),
-                    // 'user_id' => Auth::user()->id,
-                    'title' => $request->title,
-                    'description' => $request->description,
-                    'from' => $request->from,
-                    'to' => $request->to,
-                    'status' => $request->status == 'true' ? 1 : 0
-                ];
-
-                $job->update($data);
-
-                DB::commit();
-            } else {
-                $data = [
-                    // 'guid' => Str::uuid()->toString(),
-                    // 'user_id' => Auth::user()->id,
-                    'title' => $request->title,
-                    'description' => $request->description,
-                    'from' => $request->from,
-                    'to' => $request->to,
-                    'status' => $request->status == 'true' ? 1 : 0,
-                    'media' => $path
-                ];
-
-                $job->update($data);
-
-                DB::commit();
-            }
-
+            $job->update($data);
+            DB::commit();
 
             return redirect()->route('job_view_index')->with('message', 'Lowongan berhasil di edit!');
         } catch (\Exception $exception) {
             DB::rollBack();
-            return redirect()->route('job_edit', $id)->with('error_message', $exception->getMessage());
+            return redirect()->route('job_edit_view', $id)->with('error_message', $exception->getMessage());
         }
     }
 

@@ -6602,6 +6602,10 @@ label {
   background: #ffffff;
 }
 
+.text-fix {
+  color: #fd0249 !important;
+}
+
 .btn-fix {
   background: #fd0249;
   color: white !important;
@@ -6610,6 +6614,17 @@ label {
 .btn-fix:hover {
   background: #e70243;
   color: white !important;
+}
+
+.btn-fix-outline {
+  color: #fd0249;
+  background-color: white !important;
+  border: 1px solid #fd0249;
+}
+
+.btn-fix-outline:hover {
+  background-color: #fd0249 !important;
+  color: #fff !important;
 }
 
 .box-head-single {

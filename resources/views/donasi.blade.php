@@ -112,7 +112,8 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
                                     <input type="hidden" name="type" id="type" value="1">
-                                    <input name="name" class="form-control" placeholder="Nama" type="text" />
+                                    <input name="name" class="form-control" placeholder="Nama" type="text"
+                                        required />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
@@ -137,7 +138,7 @@
                                         type="text" />
                                 </div>
                                 <div class="input-style mb-20 d-none" id="input-donate-item">
-                                    <input name="proof_of_delivery" class="form-control" placeholder="Jenis barang"
+                                    <input name="type_of_goods" class="form-control" placeholder="Jenis barang"
                                         type="text" />
                                 </div>
                             </div>

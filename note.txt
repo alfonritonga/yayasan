@@ -1,5 +1,4 @@
 TODO 
-- [ADMIN] Show Donasi
 - [ADMIN] CRUD Lowongan
 - [ADMIN] CRUD Image on About Page
 - [ADMIN] CRUD Kisah Inspiratif
@@ -10,7 +9,6 @@ TODO
 - [LANDING] Show Galery
 - [LANDING] Show Video
 - [LANDING] Carousel Image on About Page
-- [LANDING] Post Donasi
 - [LANDING] Show Lowongan
 - [LANDING] Show Kisah Inspiratif
 - [LANDING] Show google map
@@ -28,10 +26,12 @@ DONE
 - [ADMIN] Fix CRUD Kemitraan
 - [ADMIN] Fix CRUD Artikel
 - [ADMIN] Get Subscribe 
+- [ADMIN] Show Donasi
 
 - [LANDING] Show Landing Info
 - [LANDING] Show Program
 - [LANDING] Show Kemitraan
 - [LANDING] Post Subscribe
+- [LANDING] Post Donasi
 
 

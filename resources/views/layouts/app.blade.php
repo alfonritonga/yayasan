@@ -25,6 +25,7 @@
 
     <link rel="stylesheet" href="{{ asset('template/vendor/select2/css/select2.min.css') }}">
     <link href="{{ asset('template/vendor/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet">
+    <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
 </head>
 
 <body>
@@ -1061,8 +1062,6 @@
 
     <script src="{{ asset('template/js/custom.min.js') }}"></script>
     <script src="{{ asset('template/js/deznav-init.js') }}"></script>
-
-    <script src="{{ asset('template/vendor/ckeditor/ckeditor.js') }}"></script>
 
     <!-- Datatable -->
     <script src="{{ asset('template/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>

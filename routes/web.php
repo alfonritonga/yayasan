@@ -41,6 +41,8 @@ Route::get('/donasi', [HomeController::class, 'donasi'])->name('landing_donasi')
 Route::get('/program', [HomeController::class, 'program']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
 Route::get('/media-materi', [HomeController::class, 'media']);
+Route::get('/lowongan-kerja', [HomeController::class, 'lowongan'])->name('lowongan');
+Route::get('/lowongan-kerja/{guid}', [HomeController::class, 'lowonganDetail'])->name('lowongan_detail');
 
 Route::post('/subscription', [SubscriptionController::class, 'addPost']);
 Route::post('/donations', [DonationController::class, 'addPost'])->name('donation_add_post');
@@ -118,7 +120,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::prefix('/job')->group(function () {
         Route::get('/', [JobController::class, 'index'])->name('job_view_index');
-        Route::get('/add', [JobController::class, 'addView'])->name('add_job_add_view');
+        Route::get('/add', [JobController::class, 'addView'])->name('job_add_view');
         Route::post('/add', [JobController::class, 'addPost'])->name('job_add_post');
         Route::get('/edit/{id}', [JobController::class, 'editView'])->name('job_edit_view');
         Route::post('/edit/{id}', [JobController::class, 'editPatch'])->name('job_edit_patch');
