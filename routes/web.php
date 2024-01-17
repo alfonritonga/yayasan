@@ -7,6 +7,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\MediaMateriController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InspirationFigureController;
 use App\Http\Controllers\LandingInfoController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PartnerListController;
@@ -125,6 +126,24 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/edit/{id}', [JobController::class, 'editView'])->name('job_edit_view');
         Route::post('/edit/{id}', [JobController::class, 'editPatch'])->name('job_edit_patch');
         Route::delete('/{id}', [JobController::class, 'delete'])->name('job_delete');
+    });
+
+    Route::prefix('/job')->group(function () {
+        Route::get('/', [JobController::class, 'index'])->name('job_view_index');
+        Route::get('/add', [JobController::class, 'addView'])->name('job_add_view');
+        Route::post('/add', [JobController::class, 'addPost'])->name('job_add_post');
+        Route::get('/edit/{id}', [JobController::class, 'editView'])->name('job_edit_view');
+        Route::post('/edit/{id}', [JobController::class, 'editPatch'])->name('job_edit_patch');
+        Route::delete('/{id}', [JobController::class, 'delete'])->name('job_delete');
+    });
+
+    Route::prefix('/inspiration-figure')->group(function () {
+        Route::get('/', [InspirationFigureController::class, 'index'])->name('inspiration-figure_view_index');
+        Route::get('/add', [InspirationFigureController::class, 'addView'])->name('inspiration-figure_add_view');
+        Route::post('/add', [InspirationFigureController::class, 'addPost'])->name('inspiration-figure_add_post');
+        Route::get('/edit/{id}', [InspirationFigureController::class, 'editView'])->name('inspiration-figure_edit_view');
+        Route::post('/edit/{id}', [InspirationFigureController::class, 'editPatch'])->name('inspiration-figure_edit_patch');
+        Route::delete('/{id}', [InspirationFigureController::class, 'delete'])->name('inspiration-figure_delete');
     });
 
     Route::prefix('/partner')->group(function () {

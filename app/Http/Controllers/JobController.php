@@ -54,7 +54,7 @@ class JobController extends Controller
             return redirect()->route('job_view_index')->with('message', 'Lowongan berhasil di tambahkan!');
         } catch (\Exception $exception) {
             DB::rollBack();
-            return redirect()->route('add_job_add_view')->with('error_message', $exception->getMessage());
+            return redirect()->route('job_add_view')->with('error_message', $exception->getMessage());
         }
     }
 

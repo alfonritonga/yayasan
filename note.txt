@@ -1,7 +1,6 @@
 TODO 
-- [ADMIN] CRUD Lowongan
 - [ADMIN] CRUD Image on About Page
-- [ADMIN] CRUD Kisah Inspiratif
+- [ADMIN] CRUD Sosok Inspiratif
 - [ADMIN] CRUD Video 
 - [ADMIN] CRUD Materi
 - [ADMIN] CRUD pengurus
@@ -9,11 +8,11 @@ TODO
 - [LANDING] Show Galery
 - [LANDING] Show Video
 - [LANDING] Carousel Image on About Page
-- [LANDING] Show Lowongan
 - [LANDING] Show Kisah Inspiratif
 - [LANDING] Show google map
 - [LANDING] Show pengurus
 - [LANDING] Show Materi
+- [LANDING] Show Lowongan
 
 ONGOING
 - [ADMIN] CRUD Galery
@@ -21,6 +20,7 @@ ONGOING
 
  
 DONE
+- [ADMIN] CRUD Lowongan
 - [ADMIN] CRUD Landing Info (Deskripsi YLKA, Sejarah, Visi misi, kemitraan)
 - [ADMIN] CRUD Program
 - [ADMIN] Fix CRUD Kemitraan
