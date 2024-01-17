@@ -54,8 +54,8 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="#" class="brand-logo">
-                {{ asset('front/imgs/logo.svg') }}
+            <a href="" class="brand-logo">
+				<img src="{{ asset('front/imgs/logo.svg') }}" width="60%">
 
             </a>
             <div class="nav-control">
