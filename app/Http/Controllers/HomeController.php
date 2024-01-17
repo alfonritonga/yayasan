@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ArticleModel;
+use App\Models\InspirationFigureModel;
 use App\Models\JobModel;
 use App\Models\LandingInfoModel;
 use App\Models\PartnerListModel;
@@ -52,18 +53,20 @@ class HomeController extends Controller
     {
         $article = ArticleModel::with('admin')->orderBy('id', 'desc')->get();
         $partner = PartnerListModel::with('admin', 'category')->orderBy('id', 'desc')->get();
-        return view('materi', compact('partner'));
+        return view('materi', compact('partner', 'article'));
     }
 
     function lowongan()
     {
         $jobs = JobModel::with('admin')->orderBy('id', 'desc')->get();
-        return view('lowongan', compact('jobs'));
+        $inspiration_figures = InspirationFigureModel::orderBy('id', 'desc')->limit(3)->get();
+        return view('lowongan', compact('jobs', 'inspiration_figures'));
     }
 
     function lowonganDetail($guid)
     {
         $job = JobModel::with('admin')->where('guid', $guid)->first();
-        return view('lowongan-detail', compact('job'));
+        $other_jobs = JobModel::with('admin')->where('id', '!=', $job->id)->limit(3)->get();
+        return view('lowongan-detail', compact('job', 'other_jobs'));
     }
 }

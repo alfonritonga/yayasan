@@ -168,23 +168,20 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="section-box mt-50 mb-200 mb-md-0">
             <div class="container">
-                <div class="mw-650">
-                    @foreach ($jobs as $i)
-                        <div class="row">
-                            <div class="py-2 col-lg-12 col-md-12 col-sm-12 col-12 mb-md-30 align-items-center">
-                                <div class="card-grid h-100 hover-up wow animate__animated animate__fadeInUp"
-                                    style="overflow: hidden;" data-wow-delay=".1s">
-                                    <div class="mb-3">
-                                        <span
-                                            class="border border-secondary rounded px-3 py-2">{{ $i->location }}</span>
-                                        <span
-                                            class="border border-secondary rounded px-3 py-2">{{ $i->type == 1 ? 'Full Time' : 'Part Time' }}</span>
-                                    </div>
-                                    <div class="mb-3">
-                                        <h5><strong>{{ $i->title }}</strong></h5>
+                @foreach ($jobs as $i)
+                    <div class="row">
+                        <div class="py-2 col-lg-8 col-md-12 col-sm-12 col-12 mx-auto align-items-center">
+                            <div class="card-grid h-100 hover-up wow animate__animated animate__fadeInUp"
+                                style="overflow: hidden;" data-wow-delay=".1s">
+                                <div class="mb-3">
+                                    <span class="border border-secondary rounded px-3 py-2">{{ $i->location }}</span>
+                                    <span
+                                        class="border border-secondary rounded px-3 py-2">{{ $i->type == 1 ? 'Full Time' : 'Part Time' }}</span>
+                                </div>
+                                <div class="mb-3">
+                                    <h5><strong>{{ $i->title }}</strong></h5>
+                                    <p>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                                             <path
@@ -193,22 +190,66 @@
                                                 d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
                                         </svg> Posted
                                         {{ $i->created_at->diffForHumans(['syntax' => Carbon\CarbonInterface::DIFF_RELATIVE_TO_NOW]) }}
-                                        </p>
+                                    </p>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-fix mb-2 mr-2"><strong>LAMAR PEKERJAAN
+                                            INI</strong>
+                                    </button>
+                                    <a href="{{ route('lowongan_detail', $i->guid) }}"
+                                        class="btn btn-fix-outline mb-2"><strong>DETAIL</strong></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                @if (count($jobs) == 0)
+                    <div class="row">
+                        <div class="py-2 col-lg-12 col-md-12 col-sm-12 col-12 mb-md-30 align-items-center">
+                            <div class="alert alert-info" role="alert">
+                                Saat ini lowongan belum tersedia
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </section>
+        <section class="section-box mt-50 mb-md-0">
+            <div class="container pt-50">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8 text-center">
+                        <h3 class="section-title-large mb-30 wow animate__animated animate__fadeInUp">Sosok Inspiratif
+                        </h3>
+                        <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
+                            Apa kata mereka yang sudah bergabung dengan Yayasan Lentera Kasih Agape?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="post-loop-grid mb-200">
+            <div class="container">
+                <div class="row pr-15 pl-15">
+                    @foreach ($inspiration_figures as $i)
+                        <div class="col-lg-4 mb-30">
+                            <div class="card-blog-1 border-0 bg-soft-green hover-up wow animate__animated animate__fadeIn"
+                                data-wow-delay=".0s">
+                                <div class="card-block-info">
+                                    <div class="post-meta text-muted d-flex align-items-center mb-15">
+                                        <div class="author d-flex align-items-center mr-30">
+                                            <img alt="jobhub" src="{{ asset($i->media) }}" />
+                                            <h5>&nbsp; <strong>{{ $i->name }}</strong></h5>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <button type="button" class="btn btn-fix mb-2 mr-2"><strong>LAMAR PEKERJAAN
-                                                INI</strong>
-                                        </button>
-                                        <a href="{{ route('lowongan_detail', $i->guid) }}"
-                                            class="btn btn-fix-outline mb-2"><strong>DETAIL</strong></a>
-                                    </div>
+                                    <p class="post-title mb-15">{{ $i->description }}</p>
+
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
             </div>
-        </section>
+        </div>
     </main>
     <!-- End Content -->
     <!-- Footer -->

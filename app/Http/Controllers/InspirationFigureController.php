@@ -35,7 +35,7 @@ class InspirationFigureController extends Controller
             InspirationFigureModel::create([
                 'name' => $request->name,
                 'description' => $request->description,
-                'status' => $request->status,
+                'status' => $request->status == 'true' ? 1 : 0,
                 'media' => $path,
             ]);
 
@@ -50,17 +50,17 @@ class InspirationFigureController extends Controller
     function editView($id)
     {
         $inspiration_figure = InspirationFigureModel::find($id);
-        return view('inspiration-figure.edit', compact('job'));
+        return view('inspiration-figure.edit', compact('inspiration_figure'));
     }
 
     function editPatch(Request $request, $id)
     {
         DB::beginTransaction();
         try {
-            $inspiration_figure = InspirationFigureModel::with('admin')->find($id);
+            $inspiration_figure = InspirationFigureModel::find($id);
             $data = [
                 'name' => $request->name,
-                'status' => $request->status,
+                'status' => $request->status == 'true' ? 1 : 0,
                 'description' => $request->description,
             ];
 

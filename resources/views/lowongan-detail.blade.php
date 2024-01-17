@@ -153,33 +153,24 @@
     <!--End header-->
     <!-- Content -->
     <main class="main">
-        <section class="section-box">
-            <div class="container pt-50">
-                <div class="row">
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-8 text-dark">
-                        <h5><a href="{{ route('lowongan') }}"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                    height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
-                                </svg> Lowongan kerja / {{ $job->title }}</a></h5>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="section-box mt-50 mb-200 mb-md-0">
+        <section class="section-box mt-50">
             <div class="container">
                 <div class="row">
-                    <div class="py-2 col-lg-12 col-md-12 col-sm-12 col-12 mb-md-30 align-items-center">
-                        <div class="card-grid h-100 hover-up wow animate__animated animate__fadeInUp"
-                            style="overflow: hidden;" data-wow-delay=".1s">
-                            <div class="mb-3">
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-12 mx-auto">
+                        <div class="content-single content-except">
+                            <a href="{{ route('lowongan') }}" class="text-dark"><strong><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                                    </svg> Lowongan kerja / {{ $job->title }}</strong> </a>
+                            <div class="my-3">
                                 <span class="border border-secondary rounded px-3 py-2">{{ $job->location }}</span>
                                 <span
                                     class="border border-secondary rounded px-3 py-2">{{ $job->type == 1 ? 'Full Time' : 'Part Time' }}</span>
                             </div>
                             <div class="mb-3">
-                                <h5><strong>{{ $job->title }}</strong></h5>
+                                <h3><strong>{{ $job->title }}</strong></h3>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                                     <path
@@ -193,16 +184,62 @@
                                 <button type="button" class="btn btn-fix mb-2 mr-2"><strong>LAMAR PEKERJAAN
                                         INI</strong>
                                 </button>
-                                <button type="button"
-                                    class="btn btn-fix-outline mb-2"><strong>DETAIL</strong></button>
                             </div>
+                            {!! $job->description !!}
                             <div>
-                                <h5>Deskripsi Pekerjaan</h5>
-                                {!! $job->description !!}
+                                <p>
+                                    <strong>Batas Akhir Pengiriman:</strong><br>
+                                    {{ date('d F Y', strtotime($job->to)) }}
+                                </p>
                             </div>
-                            <div>
-                                <span><strong>Batas Akhir Pengiriman : </strong></span><br>
-                                {{ \Carbon\Carbon::parse($job->to)->format('d F Y') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-box mb-200 mt-50 bg-dark-green">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-12 mx-auto">
+                        <div class="single-recent-jobs mt-3 py-5">
+                            <h4 class="text-white"><span>Lowongan kerja lainnya</span></h4>
+                            <div class="list-recent-jobs">
+                                @foreach ($other_jobs as $i)
+                                    <div class="card-job hover-up wow animate__animated animate__fadeInUp">
+                                        <div class="card-job-top">
+                                            <div class="card-job-top--info pl-0">
+                                                <div class="mb-3">
+                                                    <span
+                                                        class="border border-secondary rounded px-3 py-2">{{ $i->location }}</span>
+                                                    <span
+                                                        class="border border-secondary rounded px-3 py-2">{{ $i->type == 1 ? 'Full Time' : 'Part Time' }}</span>
+                                                </div>
+                                                <h5 class="card-job-top--info-heading">{{ $i->title }}</h5>
+                                                <div class="row">
+                                                    <p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor" class="bi bi-clock"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                                            <path
+                                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                                                        </svg> Posted
+                                                        {{ $i->created_at->diffForHumans(['syntax' => Carbon\CarbonInterface::DIFF_RELATIVE_TO_NOW]) }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-job-description mt-20">
+                                            <button type="button" class="btn btn-fix mb-2 mr-2"><strong>LAMAR
+                                                    PEKERJAAN
+                                                    INI</strong>
+                                            </button>
+                                            <a href="{{ route('lowongan_detail', $i->guid) }}"
+                                                class="btn btn-fix-outline mb-2"><strong>DETAIL</strong></a>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
