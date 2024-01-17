@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
+class ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -354,8 +354,8 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -543,6 +543,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Controllers\\PartnerController' => __DIR__ . '/../..' . '/app/Http/Controllers/PartnerController.php',
         'App\\Http\\Controllers\\PartnerListController' => __DIR__ . '/../..' . '/app/Http/Controllers/PartnerListController.php',
         'App\\Http\\Controllers\\ProgramController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProgramController.php',
+        'App\\Http\\Controllers\\SubscriptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubscriptionController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -562,12 +563,15 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Models\\ArticleModel' => __DIR__ . '/../..' . '/app/Models/ArticleModel.php',
         'App\\Models\\DonationModel' => __DIR__ . '/../..' . '/app/Models/DonationModel.php',
         'App\\Models\\JobModel' => __DIR__ . '/../..' . '/app/Models/JobModel.php',
+        'App\\Models\\JobQualificationModel' => __DIR__ . '/../..' . '/app/Models/JobQualificationModel.php',
+        'App\\Models\\JobTaskModel' => __DIR__ . '/../..' . '/app/Models/JobTaskModel.php',
         'App\\Models\\LandingInfoModel' => __DIR__ . '/../..' . '/app/Models/LandingInfoModel.php',
         'App\\Models\\MediaModel' => __DIR__ . '/../..' . '/app/Models/MediaModel.php',
         'App\\Models\\PartnerListModel' => __DIR__ . '/../..' . '/app/Models/PartnerListModel.php',
         'App\\Models\\PartnerModel' => __DIR__ . '/../..' . '/app/Models/PartnerModel.php',
         'App\\Models\\ProgramModel' => __DIR__ . '/../..' . '/app/Models/ProgramModel.php',
         'App\\Models\\ProgramTaskModel' => __DIR__ . '/../..' . '/app/Models/ProgramTaskModel.php',
+        'App\\Models\\SubscriptionModel' => __DIR__ . '/../..' . '/app/Models/SubscriptionModel.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -6555,9 +6559,9 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9c491b8531eec05ba41a11d9276a5749::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9c491b8531eec05ba41a11d9276a5749::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit9c491b8531eec05ba41a11d9276a5749::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024::$classMap;
 
         }, null, ClassLoader::class);
     }

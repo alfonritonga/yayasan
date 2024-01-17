@@ -153,200 +153,147 @@
     <!--End header-->
     <!-- Content -->
     <main class="main">
-        <section class="section-box">
-            <div class="container pt-50">
-                <div class="row">
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-8 text-center">
-                        <h1 class="section-title-large mb-30 wow animate__animated animate__fadeInUp">Tentang Yayasan
-                            Lentera Kasih Agape</h1>
-
-                        <div id="carousel">
-
-                            <div class="hideLeft">
-                                <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
-                            </div>
-
-                            <div class="prevLeftSecond">
-                                <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
-                            </div>
-
-                            <div class="prev">
-                                <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
-                            </div>
-
-                            <div class="selected">
-                                <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
-                            </div>
-
-                            <div class="next">
-                                <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
-                            </div>
-
-                            <div class="nextRightSecond">
-                                <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
-                            </div>
-
-                            <div class="hideRight">
-                                <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-                <!-- <div class="box-banner-services mt-40">
-                    <div class="box-banner-services--inner wow animate__animated animate__fadeInUp">
-                        <figure><img alt="YLKA"
-                                src="{{ asset('front/imgs/page/services/banner-our-services.png') }}" />
-                        </figure>
-                        <a href="https://www.youtube.com/watch?v=ea-I4sqgVGY" class="popup-youtube btn-play-2"></a>
-                    </div>
-                </div> -->
-            </div>
-        </section>
-        <section class="section-box mt-90 mb-50 mb-md-0">
+        <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35 article">
             <div class="container">
                 <div class="mw-650">
-                    <h4 class="text-center wow animate__animated animate__fadeInUp">Sejarah Yayasan Lentera Kasih Agape
-                    </h4>
-                    <p class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
-                        Yayasan Lentera Kasih Agape (selanjutnya disingkat YLKA) adalah organisasi yang sebelumnya
-                        berdiri atas nama sebuah lembaga, yaitu Lembaga Obor Sahabat (LOS) yang berdiri sejak Maret
-                        2008. Pelayanan LOS berfokus kepada komunitas, Gereja dan Anak namun atas dasar kebutuhan
-                        pengembangan pelayanan maka Lembaga LOS ditutup dan pelayanannya dialihkan kepada YLKA. Maka
-                        pelayanan YLKA tetap bergerak dan melakukan suatu pendekatan misi melalui Gereja, pelayanan
-                        anak-anak dan komunitas, yang selanjutnya disebut 3C (Church, Children, Community)</p>
-                </div>
-
-            </div>
-        </section>
-        <section class="section-box mt-90 mb-50 mb-md-0 p-20 pt-95 visi">
-            <div class="container">
-                <div class="mw-650">
-                    <h4 class="text-center wow animate__animated animate__fadeInUp">Visi, Misi, & Nilai
+                    <h4 class="text-center wow animate__animated animate__fadeInUp">Artikel Terbaru
                     </h4>
                     <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                        Visi YLKA yaitu “Dunia bagi Kristus,” karena itu YLKA akan senantiasa melakukan kerjasama dengan
-                        berbagai pihak dari berbagai gereja, daerah, denominasi di dalam dan di luar negeri. Maksudnya
-                        YLKA ingin melihat “orang yang diselamatkan sebagai pengikut yang ditebus Yesus.”</p>
+                        Rilis berita terbaru dari Yayasan Lentera Kasih Agape
+                    </p>
                 </div>
-                <div class="row mt-60">
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
-                        <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".0s">
-                            <div class="block-image">
-                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" /></figure>
-                            </div>
-                            <div class="card-info-bottom">
-                                <!-- <h3><span class="count">15</span>00+</h3>
-                                <strong>Ready perfect jobs</strong> -->
-                                <p class="text-mutted">Bekerjasama dengan dan menggerakkan gereja yang resmi dan mapan.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
-                        <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                            <div class="block-image">
-                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support2.svg') }}" />
-                                </figure>
-                            </div>
-                            <div class="card-info-bottom">
-                                <!-- <h3><span class="count">8</span>00K</h3>
-                                <strong>Candidate calls</strong> -->
-                                <p class="text-mutted">Pelayanan anak dengan menggerakkan dan menguatkan gereja-gereja,
-                                    pelayanan lokal dan lembaga untuk membawa harapan, iman dan kehidupan kepada
-                                    anak-anak di Indonesia.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
-                        <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                            <div class="block-image">
-                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support3.svg') }}" />
-                                </figure>
-                            </div>
-                            <div class="card-info-bottom">
-                                <!-- <h3><span class="count">12</span>00</h3>
-                                <strong>Jobs posted</strong> -->
-                                <p class="text-mutted">Melalui komunitas, menggerakkan masyarakat untuk menciptakan
-                                    harapan dan masa depan yang lebih baik untuk kehidupan mereka.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="row mt-70 mb-150">
+                    <div class="box-swiper">
+                        <div class="swiper-container swiper-group-3">
+                            <div class="swiper-wrapper pb-60 pt-5">
+                                @foreach($article as $x)
+                                <div class="swiper-slide">
+                                    <div class="card-grid-3 hover-up">
+                                        <div class="text-center card-grid-3-image">
+                                            <a href="/blog/{{ $x->slug }}">
+                                                <figure><img alt="YLKA" src="{{ $x->media }}" />
+                                                </figure>
+                                            </a>
+                                        </div>
+                                        <div class="card-block-info">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-6 text-start">
+                                                    <span>{{ $x->admin->first_name }}
+                                                        {{ $x->admin->last_name }}</span>
+                                                </div>
+                                                <div class="col-lg-6 col-6 text-end">
+                                                    <span>{{ date('d M Y', strtotime($x->created_at)) }}</span>
+                                                </div>
+                                            </div>
+                                            <h5 class="mt-15 heading-md"><a href="/blog/{{ $x->slug }}">{{ $x->title
+                                                    }}</a></h5>
+                                            <div class="card-2-bottom mt-50">
+                                                <div class="row">
+                                                    <div class="col-lg-9 col-8">
+                                                        <a href="/blog/{{ $x->slug }}"
+                                                            class="btn btn-border btn-brand-hover">Baca
+                                                            Selengkapnya</a>
+                                                    </div>
+                                                    <!-- <div class="col-lg-3 text-end col-4">
+                                                        <a href="#" class="mt-10 display-block mr-20"><img alt="YLKA"
+                                                                src="{{ asset('front/imgs/theme/icons/bookmark.svg') }}" /></a>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-            </div>
+                                @endforeach
+                            </div>
+                            <div class="swiper-pagination swiper-pagination3"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
             <div class="container">
                 <div class="mw-650">
-                    <h4 class="text-center wow animate__animated animate__fadeInUp">Kemitraan
+                    <h4 class="text-center wow animate__animated animate__fadeInUp">Materi
                     </h4>
                     <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                        Dalam mengemban misi tersebut, YLKA bekerjasama dengan mitra-mitra/rekan pada tingkat nasional
-                        ataupun lokal, seperti: gereja, organisasi/lembaga agama, pemerintah atau kelompok-kelompok yang
-                        ada di masyarakat.
+                        Materi dan Buku dari Yayasan Lentera Kasih Agape
                     </p>
                 </div>
-                <div class="row mt-60">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-md-30">
-                        <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".0s">
-                            <div class="card-info-bottom">
-                                <h3>Kerjasama Gereja</h3>
-                                <strong>&nbsp</strong>
-                                <p class="text-mutted">Bekerjasama dengan dan menggerakkan gereja yang resmi dan mapan.
-                                </p>
+                <div class="row mt-70 mb-150">
+                    <div class="col-6 materi-p">
+                        <div class="row">
+                            <div class="col-6">
+                                <figure><img alt="YLKA"
+                                        src="https://blog.unmc.edu/fwc/wp-content/uploads/sites/32/2018/09/IMG_4916.png"
+                                        class="image-materi" />
+                                </figure>
+                            </div>
+                            <div class="col-6">
+                                <div class="title-materi">Kisahku dari Sumbah Timur</div>
+                                <div class="price-materi">Rp 200.000</div>
+                                <div class="preview-materi">preview</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-md-30">
-                        <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".0s">
-                            <div class="card-info-bottom">
-                                <h3><span class="count">15</span>00+</h3>
-                                <strong>&nbsp</strong>
-                                <p class="text-mutted">Gereja yang senantiasa terbuka untuk bekerjasama menjadi
-                                    mitra/rekan sekerja Allah dalam mengemban tugas peduli terhadap anak-anak,
-                                    keberlangsungan misi terhadap tritugas panggilan gereja (koinonia, diakonia,
-                                    marturia) dan peningkatan kapasitas para pelayan rohani.</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
-        <div class="section-box wow animate__animated animate__fadeIn mt-70 mb-70">
+        <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
             <div class="container">
-                <div class="text-md-lh24 color-black-5 wow animate__animated animate__fadeInUp text-center">
-                    Kemitraan
+                <div class="mw-650">
+                    <h4 class="text-center wow animate__animated animate__fadeInUp">Galeri Foto
+                    </h4>
+                    <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
+                        Dokumentasi foto terbaru dari Yayasan Lentera Kasih Agape
+                    </p>
                 </div>
-                <h2 class="section-title mb-15 wow animate__animated animate__fadeInUp text-center">Partnership</h2>
-                <div class="row mt-50">
-                    <div class="box-swiper">
-                        <div class="swiper-container swiper-group-6">
-                            <div class="swiper-wrapper pb-70 pt-5">
-                                @foreach ($partner as $x)
-                                    <div class="swiper-slide hover-up">
-                                        <div class="item-logo">
-                                            <a href="#">
-                                                <img alt="YLKA" src="{{ $x->media }}" width="78" />
-                                                <p>{{ $x->title }}</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                @endforeach
+                <div class="row">
+                    @foreach($article as $x)
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <div class="">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+                                    class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+                                <div class="cap">{{ $x->title }}</div>
                             </div>
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-
-
-
+        </section>
+        <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
+            <div class="container">
+                <div class="mw-650">
+                    <h4 class="text-center wow animate__animated animate__fadeInUp">Galeri Video
+                    </h4>
+                    <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
+                        Dokumentasi video terbaru dari Yayasan Lentera Kasih Agape
+                    </p>
+                </div>
+                <div class="row mt-70 mb-150">
+                    <div class="col-lg-12 mb-4 mb-lg-0">
+                        <div class="">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+                                class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+                            <div class="play"><img src="{{ asset('front/imgs/play.svg') }}"><span>Watch Full Video</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-150">
+                    @foreach($article as $x)
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <div class="">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+                                    class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+                                <div class="cap">{{ $x->title }}</div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
     </main>
     <!-- End Content -->
     <!-- Footer -->
@@ -375,9 +322,8 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email"
-                                            class="input-newsletter-2" value="" placeholder="Alamat email"
-                                            required />
+                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
+                                            placeholder="Alamat email" required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -390,14 +336,10 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
-                                alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}" alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}" alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}" alt="YLKA" /></a>
+                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}" alt="YLKA" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -438,8 +380,8 @@
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <script>
-        $(document).ready(function() {
-            $('#formSubscribe').submit(function(event) {
+        $(document).ready(function () {
+            $('#formSubscribe').submit(function (event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -447,11 +389,11 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function(response) {
+                    success: function (response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function(error) {
+                    error: function (error) {
                         alert('Terjadi kesalahan');
                     }
                 });
