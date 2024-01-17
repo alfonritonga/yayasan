@@ -50,6 +50,7 @@ class HomeController extends Controller
 
     function media()
     {
+        $article = ArticleModel::with('admin')->orderBy('id', 'desc')->get();
         $partner = PartnerListModel::with('admin', 'category')->orderBy('id', 'desc')->get();
         return view('materi', compact('partner'));
     }
