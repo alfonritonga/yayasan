@@ -117,12 +117,12 @@
                                 <div class="card-grid pengurus hover-up wow animate__animated animate__fadeInUp"
                                     data-wow-delay=".0s">
                                     <div class="block-image">
-                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" />
+                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/contact.svg') }}" />
                                         </figure>
                                     </div>
                                     <div class="card-info-bottom">
-                                        <h6>Alfon Ritonga</h6>
-                                        <p class="text-mutted">085360077171</p>
+                                        <h6>Christian Pakpahan</h6>
+                                        <p class="text-mutted">061-8212465</p>
                                     </div>
                                 </div>
                             </div>
@@ -130,12 +130,12 @@
                                 <div class="card-grid pengurus hover-up wow animate__animated animate__fadeInUp"
                                     data-wow-delay=".0s">
                                     <div class="block-image">
-                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" />
+                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/contact.svg') }}" />
                                         </figure>
                                     </div>
                                     <div class="card-info-bottom">
-                                        <h6>Alfon Ritonga</h6>
-                                        <p class="text-mutted">085360077171</p>
+                                        <h6>Ribka Amalia</h6>
+                                        <p class="text-mutted">0812-6330-3002</p>
                                     </div>
                                 </div>
                             </div>
@@ -143,12 +143,12 @@
                                 <div class="card-grid pengurus hover-up wow animate__animated animate__fadeInUp"
                                     data-wow-delay=".0s">
                                     <div class="block-image">
-                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" />
+                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/contact.svg') }}" />
                                         </figure>
                                     </div>
                                     <div class="card-info-bottom">
-                                        <h6>Alfon Ritonga</h6>
-                                        <p class="text-mutted">085360077171</p>
+                                        <h6>Nepen Marbun</h6>
+                                        <p class="text-mutted">0877-3557-5443</p>
                                     </div>
                                 </div>
                             </div>
