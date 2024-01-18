@@ -160,49 +160,62 @@
                     <div class="col-lg-8 text-center">
                         <h1 class="section-title-large mb-30 wow animate__animated animate__fadeInUp">Tentang Yayasan
                             Lentera Kasih Agape</h1>
-
-                        <div id="carousel">
-
-                            <div class="hideLeft">
-                                <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
+                        @php
+                            $n = count($about_images);
+                            $arr_class = [];
+                            if ($n == 1) {
+                                $arr_class[] = 'selected';
+                            }
+                            if ($n == 2) {
+                                $arr_class[] = 'selected';
+                                $arr_class[] = 'next';
+                            }
+                            if ($n == 3) {
+                                $arr_class[] = 'prev';
+                                $arr_class[] = 'selected';
+                                $arr_class[] = 'next';
+                            }
+                            if ($n == 4) {
+                                $arr_class[] = 'prev';
+                                $arr_class[] = 'selected';
+                                $arr_class[] = 'next';
+                                $arr_class[] = 'nextRightSecond';
+                            }
+                            if ($n == 5) {
+                                $arr_class[] = 'prevLeftSecond';
+                                $arr_class[] = 'prev';
+                                $arr_class[] = 'selected';
+                                $arr_class[] = 'next';
+                                $arr_class[] = 'nextRightSecond';
+                            } else {
+                                $arr_class[] = 'prevLeftSecond';
+                                $arr_class[] = 'prev';
+                                $arr_class[] = 'selected';
+                                $arr_class[] = 'next';
+                                $arr_class[] = 'nextRightSecond';
+                                $position = 1; // 1 right, 0 left
+                                for ($x = 0; $x < $n - 5; $x++) {
+                                    if ($position == 1) {
+                                        $arr_class[] = 'hideRight';
+                                        $position = 0;
+                                    } else {
+                                        $arr_class[] = 'hideLeft';
+                                        $position = 1;
+                                    }
+                                }
+                            }
+                        @endphp
+                        @if ($n != 0)
+                            <div id="carousel">
+                                @for ($i = 0; $i < $n; $i++)
+                                    <div class="{{ $arr_class[$i] }}">
+                                        <img src="{{ asset($about_images[$i]->image) }}">
+                                    </div>
+                                @endfor
                             </div>
-
-                            <div class="prevLeftSecond">
-                                <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
-                            </div>
-
-                            <div class="prev">
-                                <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
-                            </div>
-
-                            <div class="selected">
-                                <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
-                            </div>
-
-                            <div class="next">
-                                <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
-                            </div>
-
-                            <div class="nextRightSecond">
-                                <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
-                            </div>
-
-                            <div class="hideRight">
-                                <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
-                            </div>
-
-                        </div>
-
+                        @endif
                     </div>
                 </div>
-                <!-- <div class="box-banner-services mt-40">
-                    <div class="box-banner-services--inner wow animate__animated animate__fadeInUp">
-                        <figure><img alt="YLKA"
-                                src="{{ asset('front/imgs/page/services/banner-our-services.png') }}" />
-                        </figure>
-                        <a href="https://www.youtube.com/watch?v=ea-I4sqgVGY" class="popup-youtube btn-play-2"></a>
-                    </div>
-                </div> -->
             </div>
         </section>
         <section class="section-box mt-90 mb-50 mb-md-0">

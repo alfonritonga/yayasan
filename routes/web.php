@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutImageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
@@ -119,13 +120,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/{id}', [ProgramController::class, 'delete'])->name('programw_delete');
     });
 
-    Route::prefix('/job')->group(function () {
-        Route::get('/', [JobController::class, 'index'])->name('job_view_index');
-        Route::get('/add', [JobController::class, 'addView'])->name('job_add_view');
-        Route::post('/add', [JobController::class, 'addPost'])->name('job_add_post');
-        Route::get('/edit/{id}', [JobController::class, 'editView'])->name('job_edit_view');
-        Route::post('/edit/{id}', [JobController::class, 'editPatch'])->name('job_edit_patch');
-        Route::delete('/{id}', [JobController::class, 'delete'])->name('job_delete');
+    Route::prefix('/about-image')->group(function () {
+        Route::get('/', [AboutImageController::class, 'index'])->name('about-image_view_index');
+        Route::get('/add', [AboutImageController::class, 'addView'])->name('about-image_add_view');
+        Route::post('/add', [AboutImageController::class, 'addPost'])->name('about-image_add_post');
+        Route::get('/edit/{id}', [AboutImageController::class, 'editView'])->name('about-image_edit_view');
+        Route::post('/edit/{id}', [AboutImageController::class, 'editPatch'])->name('about-image_edit_patch');
+        Route::delete('/{id}', [AboutImageController::class, 'delete'])->name('about-image_delete');
     });
 
     Route::prefix('/job')->group(function () {

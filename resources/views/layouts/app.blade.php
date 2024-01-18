@@ -55,7 +55,7 @@
         ***********************************-->
         <div class="nav-header">
             <a href="" class="brand-logo">
-				<img src="{{ asset('front/imgs/logo.svg') }}" width="60%">
+                <img src="{{ asset('front/imgs/logo.svg') }}" width="60%">
 
             </a>
             <div class="nav-control">
@@ -948,6 +948,11 @@
                             <span class="nav-text">Donasi</span>
                         </a>
                     </li>
+                    <li><a href="{{ route('about-image_view_index') }}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-heart"></i>
+                            <span class="nav-text">Gambar Tentang</span>
+                        </a>
+                    </li>
                     <li><a href="/subscribtion" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-heart"></i>
                             <span class="nav-text">Subscription</span>
@@ -958,7 +963,8 @@
                             <span class="nav-text">Lowongan</span>
                         </a>
                     </li>
-                    <li><a href="{{route('inspiration-figure_view_index')}}" class="ai-icon" aria-expanded="false">
+                    <li><a href="{{ route('inspiration-figure_view_index') }}" class="ai-icon"
+                            aria-expanded="false">
                             <i class="la la-graduation-cap"></i>
                             <span class="nav-text">Sosok Inspiratif</span>
                         </a>

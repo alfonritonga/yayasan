@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutImageModel;
 use Illuminate\Http\Request;
 use App\Models\ArticleModel;
 use App\Models\InspirationFigureModel;
@@ -28,7 +29,8 @@ class HomeController extends Controller
     {
         $partner = PartnerModel::with(['lists'])->orderBy('id', 'asc')->get();
         $landing_info = LandingInfoModel::find(1);
-        return view('tentang', compact('partner', 'landing_info'));
+        $about_images = AboutImageModel::orderBy('id')->get();
+        return view('tentang', compact('partner', 'landing_info', 'about_images'));
     }
 
     function donasi()
