@@ -1,14 +1,12 @@
 TODO 
-- [ADMIN] CRUD Image on About Page
 - [ADMIN] CRUD Video 
 - [ADMIN] CRUD Materi
 - [ADMIN] CRUD pengurus
 
 - [LANDING] Show Galery
 - [LANDING] Show Video
-- [LANDING] Carousel Image on About Page
-- [LANDING] Show pengurus
 - [LANDING] Show Materi
+- [LANDING] Show pengurus
 
 ONGOING
 - [ADMIN] CRUD Galery
@@ -24,6 +22,7 @@ DONE
 - [ADMIN] Get Subscribe 
 - [ADMIN] Show Donasi
 - [ADMIN] CRUD Sosok Inspiratif
+- [ADMIN] CRUD Image on About Page
 
 - [LANDING] Show Landing Info
 - [LANDING] Show Program
@@ -32,5 +31,6 @@ DONE
 - [LANDING] Post Donasi
 - [LANDING] Show Kisah Inspiratif
 - [LANDING] Show Lowongan
+- [LANDING] Carousel Image on About Page
 
 

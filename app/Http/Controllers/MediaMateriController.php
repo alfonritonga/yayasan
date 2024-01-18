@@ -11,111 +11,198 @@ use Illuminate\Support\Str;
 
 class MediaMateriController extends Controller
 {
-    //
-    function index()
+    // PHOTO
+    function indexPhoto()
     {
-        // $users = User::with(['role'])->orderBy('id', 'desc')->get();
-        $media = MediaModel::orderBy('id', 'desc')->get();
-        return view('media-materi.index', compact('media'));
+        $photos = MediaModel::with(['admin'])->where('type', 'photo')->orderBy('id', 'desc')->get();
+        return view('media-materi.photo.index', compact('photos'));
     }
 
-    function addVideo()
+    function addViewPhoto()
     {
-        // $genre = GenreModel::all();
-        return view('media-materi.addVideo');
-    }
-
-    function addPhoto()
-    {
-        // $genre = GenreModel::all();
-        return view('media-materi.addPhoto');
-    }
-
-    function addPostVideo(MediaRequest $request)
-    {
-        $file = $request->file('media');
-        $extension = strtolower($file->getClientOriginalExtension());
-        if ($extension == 'jpg' || $extension == 'png') {
-            return redirect()->route('add_video_view_index')->with('error_message', 'Pilihlah Video');
-        } else {
-            DB::beginTransaction();
-            try {
-                if ($file != null) {
-                    $imageName = time() . '_' . $file->getClientOriginalName();
-                    $file->move(public_path('/asset'), $imageName);
-                    $path = 'asset/' . $imageName;
-                } else {
-                    $path = null;
-                }
-
-                $media = MediaModel::create([
-                    // 'guid' => Str::uuid()->toString(),
-                    'user_id' => Auth::user()->id,
-                    'type' => 'video',
-                    'title' => $request->title,
-                    'description' => $request->description,
-                    'status' => $request->status == 'true' ? 1 : 0,
-                    'media' => $path,
-                ]);
-                DB::commit();
-                return redirect()->route('video_view_index')->with('message', 'Video berhasil di tambahkan!');
-            } catch (\Exception $exception) {
-                DB::rollBack();
-                return redirect()->route('add_video_view_index')->with('error_message', $exception->getMessage());
-            }
-            return redirect()->route('video_view_index')->with('message', 'Video berhasil di tambahkan!');
-        }
+        return view('media-materi.photo.add');
     }
 
     function addPostPhoto(MediaRequest $request)
     {
-        $file = $request->file('media');
-        $extension = strtolower($file->getClientOriginalExtension());
-        if ($extension == 'mp4' || $extension == '3gp') {
-            return redirect()->route('add_video_view_index')->with('error_message', 'Pilihlah Photo');
-        } else {
-            DB::beginTransaction();
-            try {
-                if ($file != null) {
-                    $imageName = time() . '_' . $file->getClientOriginalName();
-                    $file->move(public_path('/asset'), $imageName);
-                    $path = 'asset/' . $imageName;
-                } else {
-                    $path = null;
-                }
-
-                $media = MediaModel::create([
-                    // 'guid' => Str::uuid()->toString(),
-                    'user_id' => Auth::user()->id,
-                    'type' => 'photo',
-                    'title' => $request->title,
-                    'description' => $request->description,
-                    'status' => $request->status == 'true' ? 1 : 0,
-                    'media' => $path,
-                ]);
-                DB::commit();
-                return redirect()->route('photo_view_index')->with('message', 'Photo berhasil di tambahkan!');
-            } catch (\Exception $exception) {
-                DB::rollBack();
-                return redirect()->route('add_photo_view_index')->with('error_message', $exception->getMessage());
+        DB::beginTransaction();
+        try {
+            $file = $request->file('media');
+            if ($file != null) {
+                $imageName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('/asset'), $imageName);
+                $path = 'asset/' . $imageName;
+            } else {
+                $path = null;
             }
+
+            MediaModel::create([
+                'guid' => Str::uuid()->toString(),
+                'type' => 'photo',
+                'title' => $request->title,
+                'description' => $request->description,
+                'media' => $path,
+                'user_id' => Auth::user()->id,
+                'status' => $request->status == 'true' ? 1 : 0,
+            ]);
+            DB::commit();
             return redirect()->route('photo_view_index')->with('message', 'Photo berhasil di tambahkan!');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return redirect()->route('photo_add_index')->with('error_message', $exception->getMessage());
         }
     }
 
-    function indexVideo()
+    function editViewPhoto($id)
     {
-        // $users = User::with(['role'])->orderBy('id', 'desc')->get();
-        $media = MediaModel::with(['admin'])->where('type', 'video')->orderBy('id', 'desc')->get();
-        // dd($media);
-        return view('media-materi.indexVideo', compact('media'));
+        $photo = MediaModel::with(['admin'])->find($id);
+        return view('media-materi.photo.edit', compact('photo'));
     }
 
-    function indexPhoto()
+    function editPatchPhoto(Request $request, $id)
     {
-        // $users = User::with(['role'])->orderBy('id', 'desc')->get();
-        $photos = MediaModel::with(['admin'])->where('type', 'photo')->orderBy('id', 'desc')->get();
-        // dd($media);
-        return view('media-materi.indexPhoto', compact('photos'));
+        DB::beginTransaction();
+        try {
+            $photo = MediaModel::with('admin')->find($id);
+            $data = [
+                'title' => $request->title,
+                'description' => $request->description,
+                'status' => $request->status == 'true' ? 1 : 0,
+            ];
+
+            $file = $request->file('media');
+            if ($file != null) {
+                $imageName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('/asset'), $imageName);
+                $path = 'asset/' . $imageName;
+                $data['media'] = $path;
+            }
+            $photo->update($data);
+            DB::commit();
+            return redirect()->route('photo_view_index')->with('message', 'Photo berhasil di edit!');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return redirect()->route('photo_edit_view', $id)->with('error_message', $exception->getMessage());
+        }
+    }
+
+
+    function deletePhoto($id)
+    {
+        DB::beginTransaction();
+        try {
+            MediaModel::find($id)->delete();
+            DB::commit();
+            return response([
+                'status' => true,
+                'message' => 'Delete photo success',
+                'data' => null
+            ]);
+        } catch (\Exception $exception) {
+            DB::rollback();
+            return response([
+                'status' => false,
+                'message' => 'Delete photo failed',
+                'error' => $exception->getMessage()
+            ]);
+        }
+    }
+
+
+    //VIDEO
+    function indexVideo()
+    {
+        $videos = MediaModel::with(['admin'])->where('type', 'photo')->orderBy('id', 'desc')->get();
+        return view('media-materi.video.index', compact('videos'));
+    }
+
+    function addViewVideo()
+    {
+        return view('media-materi.video.add');
+    }
+
+    function addPostVideo(MediaRequest $request)
+    {
+        DB::beginTransaction();
+        try {
+            $file = $request->file('media');
+            if ($file != null) {
+                $imageName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('/asset'), $imageName);
+                $path = 'asset/' . $imageName;
+            } else {
+                $path = null;
+            }
+
+            MediaModel::create([
+                'guid' => Str::uuid()->toString(),
+                'type' => 'video',
+                'title' => $request->title,
+                'description' => $request->description,
+                'media' => $path,
+                'user_id' => Auth::user()->id,
+                'status' => $request->status == 'true' ? 1 : 0,
+            ]);
+            DB::commit();
+            return redirect()->route('video_view_index')->with('message', 'video berhasil di tambahkan!');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return redirect()->route('video_add_index')->with('error_message', $exception->getMessage());
+        }
+    }
+
+    function editViewVideo($id)
+    {
+        $video = MediaModel::with(['admin'])->find($id);
+        return view('media-materi.video.edit', compact('video'));
+    }
+
+    function editPatchVideo(Request $request, $id)
+    {
+        DB::beginTransaction();
+        try {
+            $video = MediaModel::with('admin')->find($id);
+            $data = [
+                'title' => $request->title,
+                'description' => $request->description,
+                'status' => $request->status == 'true' ? 1 : 0,
+            ];
+
+            $file = $request->file('media');
+            if ($file != null) {
+                $imageName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('/asset'), $imageName);
+                $path = 'asset/' . $imageName;
+                $data['media'] = $path;
+            }
+            $video->update($data);
+            DB::commit();
+            return redirect()->route('video_view_index')->with('message', 'video berhasil di edit!');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return redirect()->route('video_edit_view', $id)->with('error_message', $exception->getMessage());
+        }
+    }
+
+
+    function deleteVideo($id)
+    {
+        DB::beginTransaction();
+        try {
+            MediaModel::find($id)->delete();
+            DB::commit();
+            return response([
+                'status' => true,
+                'message' => 'Delete video success',
+                'data' => null
+            ]);
+        } catch (\Exception $exception) {
+            DB::rollback();
+            return response([
+                'status' => false,
+                'message' => 'Delete video failed',
+                'error' => $exception->getMessage()
+            ]);
+        }
     }
 }

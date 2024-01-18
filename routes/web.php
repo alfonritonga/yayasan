@@ -10,6 +10,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InspirationFigureController;
 use App\Http\Controllers\LandingInfoController;
+use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PartnerListController;
 use App\Http\Controllers\ProgramController;
@@ -60,28 +61,37 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::prefix('/media')->group(function () {
         Route::prefix('/video')->group(function () {
-            Route::get('/', [MediaMateriController::class, 'index'])->name('media_view_index');
-            Route::get('/add-video', [MediaMateriController::class, 'addVideo'])->name('add_video_view_index');
+            Route::get('/', [MediaMateriController::class, 'indexVideo'])->name('video_view_index');
+            Route::get('/add-video', [MediaMateriController::class, 'addViewVideo'])->name('video_add_view');
             Route::post('/add-video', [MediaMateriController::class, 'addPostVideo'])->name('video_add_post');
-            Route::get('/edit/{id}', [JobController::class, 'editView'])->name('article_edit');
-            Route::post('/edit/{id}', [JobController::class, 'editPatch'])->name('article_edit_patch');
-            Route::delete('/{id}', [JobController::class, 'delete'])->name('article_delete');
+            Route::get('/edit/{id}', [MediaMateriController::class, 'editViewVideo'])->name('video_edit_view');
+            Route::post('/edit/{id}', [MediaMateriController::class, 'editPatchVideo'])->name('video_edit_patch');
+            Route::delete('/{id}', [MediaMateriController::class, 'deleteVideo'])->name('video_delete');
         });
         Route::prefix('/photo')->group(function () {
             Route::get('/', [MediaMateriController::class, 'indexPhoto'])->name('photo_view_index');
-            Route::get('/add-photo', [MediaMateriController::class, 'addPhoto'])->name('add_photo_view_index');
+            Route::get('/add-photo', [MediaMateriController::class, 'addViewPhoto'])->name('photo_add_view');
             Route::post('/add-photo', [MediaMateriController::class, 'addPostPhoto'])->name('photo_add_post');
-            Route::get('/edit/{id}', [JobController::class, 'editView'])->name('article_edit');
-            Route::post('/edit/{id}', [JobController::class, 'editPatch'])->name('article_edit_patch');
-            Route::delete('/{id}', [JobController::class, 'delete'])->name('article_delete');
+            Route::get('/edit/{id}', [MediaMateriController::class, 'editViewPhoto'])->name('photo_edit_view');
+            Route::post('/edit/{id}', [MediaMateriController::class, 'editPatchPhoto'])->name('photo_edit_patch');
+            Route::delete('/{id}', [MediaMateriController::class, 'deletePhoto'])->name('photo_delete');
         });
         Route::prefix('/article')->group(function () {
             Route::get('/', [ArticleController::class, 'index'])->name('article_view_index');
-            Route::get('/add-article', [ArticleController::class, 'addArticle'])->name('article_add_view');
-            Route::post('/add-article', [ArticleController::class, 'addPostArticle'])->name('article_add_post');
+            Route::get('/add-article', [ArticleController::class, 'addView'])->name('article_add_view');
+            Route::post('/add-article', [ArticleController::class, 'addPost'])->name('article_add_post');
             Route::get('/edit/{id}', [ArticleController::class, 'editView'])->name('article_edit_view');
             Route::post('/edit/{id}', [ArticleController::class, 'editPatch'])->name('article_edit_patch');
             Route::delete('/{id}', [ArticleController::class, 'delete'])->name('article_delete');
+        });
+
+        Route::prefix('/materi')->group(function () {
+            Route::get('/', [MateriController::class, 'index'])->name('materi_view_index');
+            Route::get('/add-article', [MateriController::class, 'add'])->name('materi_add_view');
+            Route::post('/add-article', [MateriController::class, 'addPost'])->name('materi_add_post');
+            Route::get('/edit/{id}', [MateriController::class, 'editView'])->name('materi_edit_view');
+            Route::post('/edit/{id}', [MateriController::class, 'editPatch'])->name('materi_edit_patch');
+            Route::delete('/{id}', [MateriController::class, 'delete'])->name('materi_delete');
         });
     });
 

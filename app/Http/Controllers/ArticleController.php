@@ -11,25 +11,50 @@ use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
-    //
-    //
     function index()
     {
-        // $users = User::with(['role'])->orderBy('id', 'desc')->get();
         $articles = ArticleModel::orderBy('id', 'desc')->get();
         return view('artikel.index', compact('articles'));
     }
 
-    function addArticle()
+    function addView()
     {
-        // $genre = GenreModel::all();
         return view('artikel.add');
+    }
+
+    function addPost(ArticleRequest $request)
+    {
+        $file = $request->file('media');
+        DB::beginTransaction();
+        try {
+            if ($file != null) {
+                $imageName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('/asset'), $imageName);
+                $path = 'asset/' . $imageName;
+            } else {
+                $path = null;
+            }
+
+            ArticleModel::create([
+                'guid' => Str::uuid()->toString(),
+                'slug' => Str::slug($request->title),
+                'user_id' => Auth::user()->id,
+                'title' => $request->title,
+                'description' => $request->description,
+                'status' => $request->status == 'true' ? 1 : 0,
+                'media' => $path,
+            ]);
+            DB::commit();
+            return redirect()->route('article_view_index')->with('message', 'Artikel berhasil di tambahkan!');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return redirect()->route('article_add_view')->with('error_message', $exception->getMessage());
+        }
     }
 
     function editView($id)
     {
         $article = ArticleModel::with('admin')->find($id);
-        // dd($job);
         return view('artikel.edit', compact('article'));
     }
 
@@ -72,47 +97,16 @@ class ArticleController extends Controller
             DB::commit();
             return response([
                 'status' => true,
-                'message' => 'Delete lowongan success',
+                'message' => 'Delete artikel success',
                 'data' => null
             ]);
         } catch (\Exception $exception) {
             DB::rollback();
             return response([
                 'status' => false,
-                'message' => 'Delete lowongan failed',
+                'message' => 'Delete artikel failed',
                 'error' => $exception->getMessage()
             ]);
-        }
-    }
-
-
-    function addPostArticle(ArticleRequest $request)
-    {
-        $file = $request->file('media');
-        DB::beginTransaction();
-        try {
-            if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-            } else {
-                $path = null;
-            }
-
-            ArticleModel::create([
-                'guid' => Str::uuid()->toString(),
-                'slug' => Str::slug($request->title),
-                'user_id' => Auth::user()->id,
-                'title' => $request->title,
-                'description' => $request->description,
-                'status' => $request->status == 'true' ? 1 : 0,
-                'media' => $path,
-            ]);
-            DB::commit();
-            return redirect()->route('article_view_index')->with('message', 'Artikel berhasil di tambahkan!');
-        } catch (\Exception $exception) {
-            DB::rollBack();
-            return redirect()->route('add_article_view_index')->with('error_message', $exception->getMessage());
         }
     }
 }
