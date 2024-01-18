@@ -28,62 +28,38 @@ class ArticleController extends Controller
 
     function editView($id)
     {
-        $job = ArticleModel::with('admin')->find($id);
+        $article = ArticleModel::with('admin')->find($id);
         // dd($job);
-        return view('artikel.edit', compact('job'));
+        return view('artikel.edit', compact('article'));
     }
 
     function editPatch(ArticleRequest $request, $id)
     {
-        $file = $request->file('media');
         DB::beginTransaction();
         try {
             $job = ArticleModel::with('admin')->find($id);
+            $data = [
+                'title' => $request->title,
+                'description' => $request->description,
+                'from' => $request->from,
+                'to' => $request->to,
+                'status' => $request->status == 'true' ? 1 : 0
+            ];
 
+            $file = $request->file('media');
             if ($file != null) {
                 $imageName = time() . '_' . $file->getClientOriginalName();
                 $file->move(public_path('/asset'), $imageName);
                 $path = 'asset/' . $imageName;
-            } else {
-                $path = null;
+                $data['media'] = $path;
             }
-            
-            if($file == null){
-                $data = [
-                    // 'guid' => Str::uuid()->toString(),
-                    // 'user_id' => Auth::user()->id,
-                    'title' => $request->title,
-                    'description' => $request->description,
-                    'from' => $request->from,
-                    'to' => $request->to,
-                    'status' => $request->status == 'true' ? 1 : 0
-                ];
-    
-                $job->update($data);
-    
-                DB::commit();
-            } else {
-                $data = [
-                    // 'guid' => Str::uuid()->toString(),
-                    // 'user_id' => Auth::user()->id,
-                    'title' => $request->title,
-                    'description' => $request->description,
-                    'from' => $request->from,
-                    'to' => $request->to,
-                    'status' => $request->status == 'true' ? 1 : 0,
-                    'media' => $path
-                ];
-    
-                $job->update($data);
-    
-                DB::commit();
-            }
+            $job->update($data);
+            DB::commit();
 
-           
             return redirect()->route('article_view_index')->with('message', 'Artikel berhasil di edit!');
         } catch (\Exception $exception) {
             DB::rollBack();
-            return redirect()->route('article_edit', $id)->with('error_message', $exception->getMessage());
+            return redirect()->route('article_edit_view', $id)->with('error_message', $exception->getMessage());
         }
     }
 
@@ -123,7 +99,7 @@ class ArticleController extends Controller
                 $path = null;
             }
 
-            $job = ArticleModel::create([
+            ArticleModel::create([
                 'guid' => Str::uuid()->toString(),
                 'slug' => Str::slug($request->title),
                 'user_id' => Auth::user()->id,
@@ -138,6 +114,5 @@ class ArticleController extends Controller
             DB::rollBack();
             return redirect()->route('add_article_view_index')->with('error_message', $exception->getMessage());
         }
-        return redirect()->route('article_view_index')->with('message', 'Artikel berhasil di tambahkan!');
     }
 }

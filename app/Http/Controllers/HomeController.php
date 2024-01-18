@@ -16,7 +16,7 @@ class HomeController extends Controller
     //
     function index()
     {
-        $article = ArticleModel::with('admin')->orderBy('id', 'desc')->get();
+        $article = ArticleModel::with('admin')->orderBy('id', 'desc')->limit(3)->get();
         $partner = PartnerListModel::with('admin', 'category')->orderBy('id', 'desc')->get();
         $program = ProgramModel::orderBy('id', 'asc')->get();
         $landing_info = LandingInfoModel::find(1);

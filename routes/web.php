@@ -76,9 +76,9 @@ Route::group(['middleware' => ['auth']], function () {
         });
         Route::prefix('/article')->group(function () {
             Route::get('/', [ArticleController::class, 'index'])->name('article_view_index');
-            Route::get('/add-article', [ArticleController::class, 'addArticle'])->name('add_article_view_index');
+            Route::get('/add-article', [ArticleController::class, 'addArticle'])->name('article_add_view');
             Route::post('/add-article', [ArticleController::class, 'addPostArticle'])->name('article_add_post');
-            Route::get('/edit/{id}', [ArticleController::class, 'editView'])->name('article_edit');
+            Route::get('/edit/{id}', [ArticleController::class, 'editView'])->name('article_edit_view');
             Route::post('/edit/{id}', [ArticleController::class, 'editPatch'])->name('article_edit_patch');
             Route::delete('/{id}', [ArticleController::class, 'delete'])->name('article_delete');
         });
