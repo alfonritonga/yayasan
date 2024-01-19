@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Artikel')
+@section('title', 'Video')
 
 @section('content')
 
@@ -8,8 +8,8 @@
 
         <div class="row page-titles">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Artikel</a></li>
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Artikel</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Media & Materi</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Video</a></li>
             </ol>
         </div>
         <!-- row -->
@@ -35,10 +35,10 @@
                     <div class="card-header">
                         <!-- <div class="row"> -->
                         <div class="col-xl-6">
-                            <h4 class="card-title">Artikel Terbaru</h4>
+                            <h4 class="card-title">Video</h4>
                         </div>
                         <div class="col-xl- d-flex flex-column align-items-end">
-                            <a href="{{ route('article_add_view') }}" class="btn btn-outline-primary">Tambah Data</a>
+                            <a href="{{ route('video_add_view') }}" class="btn btn-outline-primary">Tambah Data</a>
                         </div>
                         <!-- </div> -->
                     </div>
@@ -47,8 +47,10 @@
                             <table id="example4" class="display" style="min-width: 845px">
                                 <thead>
                                     <tr>
+                                        <th>Tipe</th>
                                         <th>Judul</th>
-                                        <th>Gambar</th>
+                                        <th>Thumbnail</th>
+                                        <th>Url</th>
                                         <th>Admin</th>
                                         <th>Status </th>
                                         <th>Created At</th>
@@ -56,11 +58,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($articles as $x)
+                                    @foreach ($videos as $x)
                                         <tr>
+                                            <td>{{ $x->type }}</td>
                                             <td>{{ $x->title }}</td>
-                                            <td><a target="_blank" href="../{{ $x->media }}"> {{ $x->media }}</a>
-                                            </td>
+                                            <td>{{ $x->media }}</td>
+                                            <td>{{ $x->url_video }}</td>
                                             <td>{{ $x->admin->first_name }} {{ $x->admin->last_name }}</td>
                                             @if ($x->status == 1)
                                                 <td><span class="badge light badge-success">Aktif</span></td>
@@ -70,7 +73,7 @@
                                             <td>{{ $x->created_at }}</td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <a href="{{ route('article_edit_view', $x->id) }}"
+                                                    <a href="{{ route('video_edit_view', $x->id) }}"
                                                         class="btn btn-primary shadow btn-xs sharp me-1"><i
                                                             class="fa fa-pencil"></i></a>
                                                     <a href="javascript:void(0)" onclick="deleteData({{ $x->id }})"
@@ -104,14 +107,14 @@
                     if (willDelete) {
                         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                         $.ajax({
-                            url: `/media/article/${id}`,
+                            url: `/media/video/${id}`,
                             method: 'DELETE',
                             data: {
                                 _token: CSRF_TOKEN
                             },
                             success: function(res, data) {
                                 if (res.status == true) {
-                                    swal("Success", "Artikel udah berhasil di hapus yaa!", "success");
+                                    swal("Success", "Video udah berhasil di hapus yaa!", "success");
                                     window.location.reload();
                                 } else {
                                     swal({

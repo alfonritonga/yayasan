@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Photo')
+@section('title', 'Materi')
 
 @section('content')
 
@@ -8,8 +8,8 @@
 
         <div class="row page-titles">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Media & Materi</a></li>
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Photo</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Materi</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Materi</a></li>
             </ol>
         </div>
         <!-- row -->
@@ -35,10 +35,10 @@
                     <div class="card-header">
                         <!-- <div class="row"> -->
                         <div class="col-xl-6">
-                            <h4 class="card-title">Photo</h4>
+                            <h4 class="card-title">Materi Terbaru</h4>
                         </div>
                         <div class="col-xl- d-flex flex-column align-items-end">
-                            <a href="{{ route('add_photo_view_index') }}" class="btn btn-outline-primary">Tambah Data</a>
+                            <a href="{{ route('materi_add_view') }}" class="btn btn-outline-primary">Tambah Data</a>
                         </div>
                         <!-- </div> -->
                     </div>
@@ -47,32 +47,27 @@
                             <table id="example4" class="display" style="min-width: 845px">
                                 <thead>
                                     <tr>
-                                        <th>Tipe</th>
                                         <th>Judul</th>
-                                        <th>Media</th>
-                                        <th>Admin</th>
+                                        <th>Gambar</th>
+                                        <th>Harga</th>
                                         <th>Status </th>
-                                        <th>Created At</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($photos as $x)
+                                    @foreach ($materi as $x)
                                         <tr>
-                                            <td>{{ $x->type }}</td>
                                             <td>{{ $x->title }}</td>
-                                            <td><a target="_blank" href="../{{ $x->media }}"> {{ $x->media }}</a>
-                                            </td>
-                                            <td>{{ $x->admin->first_name }} {{ $x->admin->last_name }}</td>
+                                            <td>{{ $x->image }}</td>
+                                            <td>{{ 'Rp. ' . number_format($x->price, 0, '.', '.') }}</td>
                                             @if ($x->status == 1)
                                                 <td><span class="badge light badge-success">Aktif</span></td>
                                             @else
                                                 <td><span class="badge light badge-warning">Tidak Aktif</span></td>
                                             @endif
-                                            <td>{{ $x->created_at }}</td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <a href="{{ route('job_edit_view', $x->id) }}"
+                                                    <a href="{{ route('materi_edit_view', $x->id) }}"
                                                         class="btn btn-primary shadow btn-xs sharp me-1"><i
                                                             class="fa fa-pencil"></i></a>
                                                     <a href="javascript:void(0)" onclick="deleteData({{ $x->id }})"
@@ -92,4 +87,50 @@
         </div>
     </div>
 
+@endsection
+@section('script')
+    <script>
+        function deleteData(id) {
+            swal({
+                    title: "Yakin bro?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                        $.ajax({
+                            url: `/media/materi/${id}`,
+                            method: 'DELETE',
+                            data: {
+                                _token: CSRF_TOKEN
+                            },
+                            success: function(res, data) {
+                                if (res.status == true) {
+                                    swal("Success", "Materi udah berhasil di hapus yaa!", "success");
+                                    window.location.reload();
+                                } else {
+                                    swal({
+                                        title: "Oppsss",
+                                        text: res.error,
+                                        timer: 2e3,
+                                        showConfirmButton: !1
+                                    })
+                                }
+                            },
+                            error: function(error) {
+                                console.log(error)
+                                swal({
+                                    title: "Oppsss",
+                                    text: "Sorry bro lagi ada masalah!",
+                                    timer: 2e3,
+                                    showConfirmButton: !1
+                                })
+                            }
+                        })
+                    } else {}
+                });
+        }
+    </script>
 @endsection

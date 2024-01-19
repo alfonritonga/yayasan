@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Photo')
+@section('title', 'Materi')
 
 @section('content')
 
     <div class="container-fluid">
         <div class="row page-titles">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Media & Materi</a></li>
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Tambah Foto Baru</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Materi</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Ubah Materi</a></li>
             </ol>
         </div>
         <!-- row -->
@@ -30,29 +30,39 @@
                 @endif
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Tambah Foto Baru</h4>
+                        <h4 class="card-title">Ubah Materi</h4>
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form method="POST" action="{{ route('photo_add_post') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('materi_edit_patch', $materi->id) }}"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label">Judul</label>
                                     <div class="col-sm-9">
                                         <input type="text" required name="title" class="form-control"
-                                            placeholder="Judul">
+                                            value="{{ $materi->title }}">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-3 col-form-label">Gambar</label>
+                                    <div class="col-sm-9">
+                                        <img src="{{ asset($materi->image) }}" height="200">
+                                        <br>
+                                        <input type="file" name="image" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-3 col-form-label">Harga</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" required name="price" class="form-control"
+                                            value="{{ (int) $materi->price }}">
                                     </div>
                                 </div>
                                 <div class="mb-3 row custom-ekeditor">
                                     <label class="col-sm-3 col-form-label">Deskripsi</label>
                                     <div class="col-sm-9">
-                                        <input type="text" required name="description" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label">Media</label>
-                                    <div class="col-sm-9">
-                                        <input type="file" required name="media" class="form-control">
+                                        <textarea name="description" id="description" cols="30" rows="10">{{ $materi->description }}</textarea>
                                     </div>
                                 </div>
                                 <fieldset class="mb-3">
@@ -61,14 +71,14 @@
                                         <div class="col-sm-9">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="status" value="true"
-                                                    checked>
+                                                    @if ($materi->status == 1) checked @endif>
                                                 <label class="form-check-label">
                                                     Aktif
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status"
-                                                    value="false">
+                                                <input class="form-check-input" type="radio" name="status" value="false"
+                                                    @if ($materi->status == 0) checked @endif>
                                                 <label class="form-check-label">
                                                     Tidak Aktif
                                                 </label>
@@ -78,7 +88,7 @@
                                 </fieldset>
                                 <div class="mb-3 row">
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Tambah</button>
+                                        <button type="submit" class="btn btn-primary">Ubah</button>
                                     </div>
                                 </div>
                             </form>
@@ -91,13 +101,7 @@
     </div>
 
     <script>
-        $(function() {
-            var $ckfield = CKEDITOR.replace('ckfield');
-
-            $ckfield.on('change', function() {
-                $ckfield.updateElement();
-            });
-        });
+        CKEDITOR.replace('description');
     </script>
 
 @endsection

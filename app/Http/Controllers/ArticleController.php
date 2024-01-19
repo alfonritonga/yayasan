@@ -65,6 +65,7 @@ class ArticleController extends Controller
             $job = ArticleModel::with('admin')->find($id);
             $data = [
                 'title' => $request->title,
+                'slug' => Str::slug($request->title),
                 'description' => $request->description,
                 'from' => $request->from,
                 'to' => $request->to,
@@ -92,8 +93,7 @@ class ArticleController extends Controller
     {
         DB::beginTransaction();
         try {
-            $job = ArticleModel::find($id);
-            $job->delete();
+            ArticleModel::find($id)->delete();
             DB::commit();
             return response([
                 'status' => true,

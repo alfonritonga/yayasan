@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Artikel')
+@section('title', 'Video')
 
 @section('content')
 
     <div class="container-fluid">
         <div class="row page-titles">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Artikel</a></li>
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Edit Artikel</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Media & Materi</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Ubah Video</a></li>
             </ol>
         </div>
         <!-- row -->
@@ -30,32 +30,40 @@
                 @endif
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Edit Artikel</h4>
+                        <h4 class="card-title">Ubah Video</h4>
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form method="POST" action="{{ route('article_edit_patch', $article->id) }}"
+                            <form method="POST" action="{{ route('video_edit_patch', $video->id) }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label">Judul</label>
                                     <div class="col-sm-9">
-                                        <input type="text" value="{{ $article->title }}" required name="title"
-                                            class="form-control" placeholder="Judul">
+                                        <input type="text" required name="title" class="form-control"
+                                            value="{{ $video->title }}">
                                     </div>
                                 </div>
                                 <div class="mb-3 row custom-ekeditor">
                                     <label class="col-sm-3 col-form-label">Deskripsi</label>
                                     <div class="col-sm-9">
-                                        <textarea name="description" id="description" cols="30" rows="10">{{ $article->description }}</textarea>
+                                        <input type="text" required name="description" class="form-control"
+                                            value="{{ $video->description }}">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label">Gambar</label>
+                                    <label class="col-sm-3 col-form-label">Thumbnail</label>
                                     <div class="col-sm-9">
-                                        <img src="{{ asset($article->media) }}" height="200">
+                                        <img src="{{ asset($video->media) }}" height="200">
                                         <br>
                                         <input type="file" name="media" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row custom-ekeditor">
+                                    <label class="col-sm-3 col-form-label">Url</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" required name="url_video" class="form-control"
+                                            value="{{ $video->url_video }}">
                                     </div>
                                 </div>
                                 <fieldset class="mb-3">
@@ -64,14 +72,14 @@
                                         <div class="col-sm-9">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="status" value="true"
-                                                    @if ($article->status == 1) checked @endif>
+                                                    @if ($video->status == 1) checked @endif>
                                                 <label class="form-check-label">
                                                     Aktif
                                                 </label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="status" value="false"
-                                                    @if ($article->status == 0) checked @endif>
+                                                    @if ($video->status == 0) checked @endif>
                                                 <label class="form-check-label">
                                                     Tidak Aktif
                                                 </label>
@@ -81,7 +89,7 @@
                                 </fieldset>
                                 <div class="mb-3 row">
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        <button type="submit" class="btn btn-primary">Ubah</button>
                                     </div>
                                 </div>
                             </form>
@@ -92,9 +100,5 @@
 
         </div>
     </div>
-
-    <script>
-        CKEDITOR.replace('description');
-    </script>
 
 @endsection

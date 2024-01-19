@@ -112,7 +112,7 @@ class MediaMateriController extends Controller
     //VIDEO
     function indexVideo()
     {
-        $videos = MediaModel::with(['admin'])->where('type', 'photo')->orderBy('id', 'desc')->get();
+        $videos = MediaModel::with(['admin'])->where('type', 'video')->orderBy('id', 'desc')->get();
         return view('media-materi.video.index', compact('videos'));
     }
 
@@ -140,6 +140,7 @@ class MediaMateriController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
                 'media' => $path,
+                'url_video' => $request->url_video,
                 'user_id' => Auth::user()->id,
                 'status' => $request->status == 'true' ? 1 : 0,
             ]);
@@ -165,6 +166,7 @@ class MediaMateriController extends Controller
             $data = [
                 'title' => $request->title,
                 'description' => $request->description,
+                'url_video' => $request->url_video,
                 'status' => $request->status == 'true' ? 1 : 0,
             ];
 

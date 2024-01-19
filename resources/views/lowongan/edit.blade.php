@@ -53,7 +53,7 @@
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label">Media</label>
                                     <div class="col-sm-9">
-                                        <img src="../../{{ $job->media }}" width="200" height="200">
+                                        <img src="{{ asset($job->media) }}" height="200">
                                         <br>
                                         <input type="file" name="media" class="form-control">
                                     </div>
@@ -95,8 +95,8 @@
                                         <label class="col-form-label col-sm-3 pt-0">Status</label>
                                         <div class="col-sm-9">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status"
-                                                    value="true" {@if ($job->status == 1) checked @endif>
+                                                <input class="form-check-input" type="radio" name="status" value="true"
+                                                    @if ($job->status == 1) checked @endif>
                                                 <label class="form-check-label">
                                                     Aktif
                                                 </label>

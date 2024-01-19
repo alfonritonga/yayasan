@@ -16,6 +16,7 @@ class MediaModel extends Model
         'title',
         'description',
         'media',
+        'url_video',
         'user_id',
         'status'
     ];

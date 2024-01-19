@@ -936,10 +936,10 @@
                             <span class="nav-text">Media & Materi</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="/media/article">Artikel</a></li>
-                            <li><a href="/media/buletin">Materi</a></li>
-                            <li><a href="/media/photo">Galeri Foto</a></li>
-                            <li><a href="/media/video">Galeri Video</a></li>
+                            <li><a href="{{ route('article_view_index') }}">Artikel</a></li>
+                            <li><a href="{{ route('materi_view_index') }}">Materi</a></li>
+                            <li><a href="{{ route('photo_view_index') }}">Galeri Foto</a></li>
+                            <li><a href="{{ route('video_view_index') }}">Galeri Video</a></li>
                         </ul>
 
                     </li>
