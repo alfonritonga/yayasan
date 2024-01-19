@@ -61,7 +61,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $x->title }}</td>
-                                            <td>{{ $x->description }}</td>
+                                            <td>{{ Illuminate\Support\Str::limit($x->description, 50) }}...</td>
                                             <td><a target="_blank" href="../{{ $x->media }}"> {{ $x->media }}</a>
                                             </td>
                                             <td>

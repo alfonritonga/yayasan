@@ -8,13 +8,13 @@ use App\Models\ArticleModel;
 use App\Models\InspirationFigureModel;
 use App\Models\JobModel;
 use App\Models\LandingInfoModel;
+use App\Models\MateriModel;
 use App\Models\PartnerListModel;
 use App\Models\PartnerModel;
 use App\Models\ProgramModel;
 
 class HomeController extends Controller
 {
-    //
     function index()
     {
         $article = ArticleModel::with('admin')->orderBy('id', 'desc')->limit(3)->get();
@@ -53,9 +53,10 @@ class HomeController extends Controller
 
     function media()
     {
-        $article = ArticleModel::with('admin')->orderBy('id', 'desc')->get();
+        $article = ArticleModel::with('admin')->orderBy('id', 'desc')->paginate(6);
         $partner = PartnerListModel::with('admin', 'category')->orderBy('id', 'desc')->get();
-        return view('materi', compact('partner', 'article'));
+        $materi = MateriModel::orderBy('id', 'desc')->limit('4')->get();
+        return view('materi', compact('partner', 'article', 'materi'));
     }
 
     function lowongan()
@@ -70,5 +71,12 @@ class HomeController extends Controller
         $job = JobModel::with('admin')->where('guid', $guid)->first();
         $other_jobs = JobModel::with('admin')->where('id', '!=', $job->id)->limit(3)->get();
         return view('lowongan-detail', compact('job', 'other_jobs'));
+    }
+
+    function articleDetail($slug)
+    {
+        $article = ArticleModel::where('slug', $slug)->first();
+        $other_articles = ArticleModel::where('id', '!=', $article->id)->limit(3)->get();
+        return view('article-detail', compact('article', 'other_articles'));
     }
 }

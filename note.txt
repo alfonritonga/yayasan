@@ -1,16 +1,12 @@
 TODO 
-- [ADMIN] CRUD Video 
-- [ADMIN] CRUD Materi
 - [ADMIN] CRUD pengurus
 
 - [LANDING] Show Galery
 - [LANDING] Show Video
-- [LANDING] Show Materi
 - [LANDING] Show pengurus
+- [LANDING] Animasi Blob
 
 ONGOING
-- [ADMIN] CRUD Galery
-- [LANDING] Fix show Artikel 
 
  
 DONE
@@ -23,6 +19,9 @@ DONE
 - [ADMIN] Show Donasi
 - [ADMIN] CRUD Sosok Inspiratif
 - [ADMIN] CRUD Image on About Page
+- [ADMIN] CRUD Video 
+- [ADMIN] CRUD Materi
+- [ADMIN] CRUD Galery
 
 - [LANDING] Show Landing Info
 - [LANDING] Show Program
@@ -32,5 +31,13 @@ DONE
 - [LANDING] Show Kisah Inspiratif
 - [LANDING] Show Lowongan
 - [LANDING] Carousel Image on About Page
+- [LANDING] Show Materi
+- [LANDING] Fix show Artikel 
 
 
+- perbaiki href -> ganti jadi route name
+- pergunakan request dan handle request
+- atur height photo pas edit
+- redirect donasi anda sangat berarti bagi kami
+- yg ada status aktif, pas get yg aktif aja 
+- landing footer

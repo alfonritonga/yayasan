@@ -33,7 +33,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/login', [AuthController::class, 'viewlogin'])->name('login');
-// Route::get('/', [AuthController::class, 'viewlogin'])->name('login');
 Route::post('/login', [AuthController::class, 'proccesslogin']);
 Route::post('/', [AuthController::class, 'proccesslogin']);
 Route::get('/logout', [AuthController::class, 'proccesslogout']);
@@ -43,9 +42,10 @@ Route::get('/tentang', [HomeController::class, 'tentang']);
 Route::get('/donasi', [HomeController::class, 'donasi'])->name('landing_donasi');
 Route::get('/program', [HomeController::class, 'program']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
-Route::get('/media-materi', [HomeController::class, 'media']);
+Route::get('/media-materi', [HomeController::class, 'media'])->name('media_materi');
 Route::get('/lowongan-kerja', [HomeController::class, 'lowongan'])->name('lowongan');
 Route::get('/lowongan-kerja/{guid}', [HomeController::class, 'lowonganDetail'])->name('lowongan_detail');
+Route::get('/article/{slug}', [HomeController::class, 'articleDetail'])->name('article_detail');
 
 Route::post('/subscription', [SubscriptionController::class, 'addPost']);
 Route::post('/donations', [DonationController::class, 'addPost'])->name('donation_add_post');

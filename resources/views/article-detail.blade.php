@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>YLKA - Materi dan Galery</title>
+    <title>YLKA - Artikel</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,7 +24,7 @@
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="text-center">
-                    <img src="{{ asset('front/imgs/theme/loading.gif') }}" alt="YLKA" />
+                    <img src="{{ asset('landing/imgs/loading.gif') }}" alt="YLKA" />
                 </div>
             </div>
         </div>
@@ -153,24 +153,50 @@
     <!--End header-->
     <!-- Content -->
     <main class="main">
-        <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35 article">
+        <section class="section-box mt-50">
             <div class="container">
-                <div class="mw-650">
-                    <h4 class="text-center wow animate__animated animate__fadeInUp">Artikel Terbaru
-                    </h4>
-                    <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                        Rilis berita terbaru dari Yayasan Lentera Kasih Agape
-                    </p>
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-12 mx-auto">
+                        <div class="content-single content-except">
+                            <a href="{{ route('media_materi') }}" class="text-dark"><strong><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                                    </svg> Media & Materi / {{ $article->title }}</strong> </a>
+                            <div class="my-3">
+                                <div class="post-meta text-muted d-flex align-items-center mb-15">
+                                    <div class="date">
+                                        <span><i
+                                                class="fi-rr-edit mr-5 text-grey-6"></i>{{ date('l, d F Y', strtotime($article->created_at)) }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <h3><strong>{{ $article->title }}</strong></h3>
+                            </div>
+                            {!! $article->description !!}
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="row pr-15 pl-15">
-                    @foreach ($article as $i)
+        </section>
+        <section class="section-box mb-200 mt-50 bg-dark-green">
+            <div class="container mb-20">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="single-recent-jobs mt-3 py-5 text-center">
+                            <h4 class="text-white"><span>Artikel lainnya</span></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-20">
+                    @foreach ($other_articles as $i)
                         <div class="col-lg-4 mb-30">
                             <div class="card-blog-1 bg-white hover-up wow animate__animated animate__fadeIn"
                                 data-wow-delay=".0s">
                                 <figure class="post-thumb mb-15" style="max-height: 200px">
-                                    <a href="{{ route('article_detail', $i->slug) }}" target="_blank">
+                                    <a href="{{ route('article_detail', $i->slug) }}">
                                         <img alt="jobhub" src="{{ asset($i->media) }}" />
                                     </a>
                                 </figure>
@@ -181,8 +207,8 @@
                                                     class="fi-rr-edit mr-5 text-grey-6"></i>{{ date('l, d F Y', strtotime($i->created_at)) }}</span>
                                         </div>
                                     </div>
-                                    <h3 class="post-title mb-15"><a href="{{ route('article_detail', $i->slug) }}"
-                                            target="_blank">{{ \Illuminate\Support\Str::limit($i->title, 45, $end = '...') }}</a>
+                                    <h3 class="post-title mb-15"><a
+                                            href="{{ route('article_detail', $i->slug) }}">{{ \Illuminate\Support\Str::limit($i->title, 45, $end = '...') }}</a>
                                     </h3>
                                     <p class="post-excerpt text-muted">
                                         {!! \Illuminate\Support\Str::limit($i->description, 97, $end = '...') !!}</p>
@@ -190,102 +216,12 @@
                                         <div class="d-flex align-items-center justify-content-between">
                                             <div class="keep-reading">
                                                 <a href="{{ route('article_detail', $i->slug) }}" target="_blank"
-                                                    target="_blank" class="text-fix"><strong>BACA
+                                                    class="text-fix"><strong>BACA
                                                         SELENGKAPNYA</strong></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="paginations d-flex justify-content-center">
-                    {{ $article->links() }}
-                </div>
-            </div>
-        </section>
-        <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
-            <div class="container">
-                <div class="mw-650">
-                    <h4 class="text-center wow animate__animated animate__fadeInUp">Materi
-                    </h4>
-                    <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                        Materi dan Buku dari Yayasan Lentera Kasih Agape
-                    </p>
-                </div>
-                <div class="row mt-70 mb-150">
-                    @foreach ($materi as $i)
-                        <div class="col-lg-6">
-                            <div class="post-listing">
-                                <div class="card-blog-1 mb-30 post-list hover-up wow animate__animated animate__fadeIn"
-                                    data-wow-delay=".0s">
-                                    <figure class="post-thumb" style="max-height: 175px">
-                                        <a href="blog-single.html">
-                                            <img alt="jobhub" src="{{ asset($i->image) }}" />
-                                        </a>
-                                    </figure>
-                                    <div class="card-block-info">
-                                        <h5 class="post-title mb-15">{{ $i->title }}</h5>
-                                        <p>Rp. {{ number_format($i->price, 0, '.', '.') }}</p>
-                                        <a href="javascript:void(0)" class="text-fix mt-2"><strong>PREVIEW</strong>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-        <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
-            <div class="container">
-                <div class="mw-650">
-                    <h4 class="text-center wow animate__animated animate__fadeInUp">Galeri Foto
-                    </h4>
-                    <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                        Dokumentasi foto terbaru dari Yayasan Lentera Kasih Agape
-                    </p>
-                </div>
-                <div class="row">
-                    @foreach ($article as $x)
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <div class="">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                    class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
-                                <div class="cap">{{ $x->title }}</div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-        <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
-            <div class="container">
-                <div class="mw-650">
-                    <h4 class="text-center wow animate__animated animate__fadeInUp">Galeri Video
-                    </h4>
-                    <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                        Dokumentasi video terbaru dari Yayasan Lentera Kasih Agape
-                    </p>
-                </div>
-                <div class="row mt-70 mb-150">
-                    <div class="col-lg-12 mb-4 mb-lg-0">
-                        <div class="">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
-                            <div class="play"><img src="{{ asset('front/imgs/play.svg') }}"><span>Watch Full
-                                    Video</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-150">
-                    @foreach ($article as $x)
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <div class="">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                    class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
-                                <div class="cap">{{ $x->title }}</div>
                             </div>
                         </div>
                     @endforeach
