@@ -34,7 +34,7 @@ class AdminController extends Controller
 
             AdminModel::create([
                 'name' => $request->name,
-                'email' => $request->email,
+                'phone' => $request->phone,
                 'role' => $request->role,
                 'image' => $path,
             ]);
@@ -60,7 +60,7 @@ class AdminController extends Controller
             $admin = AdminModel::find($id);
             $data = [
                 'name' => $request->name,
-                'email' => $request->email,
+                'phone' => $request->phone,
                 'role' => $request->role,
             ];
 

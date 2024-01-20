@@ -29,9 +29,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/welcome', function () {
+    return view('blob');
+});
 
 Route::get('/login', [AuthController::class, 'viewlogin'])->name('login');
 Route::post('/login', [AuthController::class, 'proccesslogin']);
