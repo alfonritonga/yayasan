@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutImageController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
@@ -157,6 +158,15 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/edit/{id}', [InspirationFigureController::class, 'editView'])->name('inspiration-figure_edit_view');
         Route::post('/edit/{id}', [InspirationFigureController::class, 'editPatch'])->name('inspiration-figure_edit_patch');
         Route::delete('/{id}', [InspirationFigureController::class, 'delete'])->name('inspiration-figure_delete');
+    });
+
+    Route::prefix('/admin')->group(function () {
+        Route::get('/', [AdminController::class, 'index'])->name('admin_view_index');
+        Route::get('/add', [AdminController::class, 'addView'])->name('admin_add_view');
+        Route::post('/add', [AdminController::class, 'addPost'])->name('admin_add_post');
+        Route::get('/edit/{id}', [AdminController::class, 'editView'])->name('admin_edit_view');
+        Route::post('/edit/{id}', [AdminController::class, 'editPatch'])->name('admin_edit_patch');
+        Route::delete('/{id}', [AdminController::class, 'delete'])->name('admin_delete');
     });
 
     Route::prefix('/partner')->group(function () {

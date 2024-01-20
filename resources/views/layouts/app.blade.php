@@ -963,6 +963,11 @@
                             <span class="nav-text">Lowongan</span>
                         </a>
                     </li>
+                    <li><a href="{{ route('admin_view_index') }}" class="ai-icon" aria-expanded="false">
+                            <i class="la la-male"></i>
+                            <span class="nav-text">Pengurus</span>
+                        </a>
+                    </li>
                     <li><a href="{{ route('inspiration-figure_view_index') }}" class="ai-icon"
                             aria-expanded="false">
                             <i class="la la-graduation-cap"></i>

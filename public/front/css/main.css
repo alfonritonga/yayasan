@@ -8680,4 +8680,13 @@ label {
   bottom: 10px;
 }
 
+.galery-photo .row > div {
+  padding: 4px 4px !important;
+}
+
+.galery-photo img { 
+  vertical-align: middle;
+}
+
+
 /*# sourceMappingURL=main.css.map */

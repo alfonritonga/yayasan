@@ -113,45 +113,21 @@
                             </p>
                         </div>
                         <div class="row mt-60">
-                            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
-                                <div class="card-grid pengurus hover-up wow animate__animated animate__fadeInUp"
-                                    data-wow-delay=".0s">
-                                    <div class="block-image">
-                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/contact.svg') }}" />
-                                        </figure>
-                                    </div>
-                                    <div class="card-info-bottom">
-                                        <h6>Christian Pakpahan</h6>
-                                        <p class="text-mutted">061-8212465</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
-                                <div class="card-grid pengurus hover-up wow animate__animated animate__fadeInUp"
-                                    data-wow-delay=".0s">
-                                    <div class="block-image">
-                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/contact.svg') }}" />
-                                        </figure>
-                                    </div>
-                                    <div class="card-info-bottom">
-                                        <h6>Ribka Amalia</h6>
-                                        <p class="text-mutted">0812-6330-3002</p>
+                            @foreach ($admins as $i)
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
+                                    <div class="card-grid pengurus hover-up wow animate__animated animate__fadeInUp"
+                                        data-wow-delay=".0s">
+                                        <div class="block-image">
+                                            <figure><img alt="YLKA" src="{{ asset($i->image) }}" />
+                                            </figure>
+                                        </div>
+                                        <div class="card-info-bottom">
+                                            <h6>{{ $i->name }}</h6>
+                                            <p class="text-mutted">{{ $i->phone }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
-                                <div class="card-grid pengurus hover-up wow animate__animated animate__fadeInUp"
-                                    data-wow-delay=".0s">
-                                    <div class="block-image">
-                                        <figure><img alt="YLKA" src="{{ asset('front/imgs/contact.svg') }}" />
-                                        </figure>
-                                    </div>
-                                    <div class="card-info-bottom">
-                                        <h6>Nepen Marbun</h6>
-                                        <p class="text-mutted">0877-3557-5443</p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </section>

@@ -239,7 +239,7 @@
             </div>
         </section>
         <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
-            <div class="container">
+            <div class="container galery-photo">
                 <div class="mw-650">
                     <h4 class="text-center wow animate__animated animate__fadeInUp">Galeri Foto
                     </h4>
@@ -248,15 +248,149 @@
                     </p>
                 </div>
                 <div class="row">
-                    @foreach ($article as $x)
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <div class="">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                    class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
-                                <div class="cap">{{ $x->title }}</div>
+                    @php
+                        $jlh = (int) floor(count($photos) / 3);
+                    @endphp
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        @foreach (array_slice($photos, 0, $jlh) as $i)
+                            <div class="img-photo">
+                                <img src="{{ $i['media'] }}" class="w-100 shadow-1-strong mb-2"
+                                    class="img-fluid" />
+                                <div class="cap">{{ $i['title'] }}</div>
                             </div>
+                        @endforeach
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        @foreach (array_slice($photos, $jlh, $jlh) as $i)
+                            <div class="img-photo">
+                                <img src="{{ $i['media'] }}" class="w-100 shadow-1-strong mb-2"
+                                    class="img-fluid" />
+                                <div class="cap">{{ $i['title'] }}</div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        @foreach (array_slice($photos, $jlh + $jlh) as $i)
+                            <div class="img-photo">
+                                <img src="{{ $i['media'] }}" class="w-100 shadow-1-strong mb-2"
+                                    class="img-fluid" />
+                                <div class="cap">{{ $i['title'] }}</div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
+            <div class="container galery-photo">
+                <div class="mw-650">
+                    <h4 class="text-center wow animate__animated animate__fadeInUp">Galeri Foto
+                    </h4>
+                    <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
+                        Dokumentasi foto terbaru dari Yayasan Lentera Kasih Agape
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/wedding.jpg"
+                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
+                            <div class="cap">Anu </div>
                         </div>
-                    @endforeach
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/rocks.jpg" class="w-100 shadow-1-strong mb-2"
+                                class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/falls2.jpg"
+                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/paris.jpg" class="w-100 shadow-1-strong mb-2"
+                                class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/nature.jpg"
+                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/mist.jpg" class="w-100 shadow-1-strong mb-2"
+                                class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/nature.jpg"
+                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/wedding.jpg"
+                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/rocks.jpg" class="w-100 shadow-1-strong mb-2"
+                                class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/paris.jpg" class="w-100 shadow-1-strong mb-2"
+                                class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/mist.jpg" class="w-100 shadow-1-strong mb-2"
+                                class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/falls2.jpg"
+                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/wedding.jpg"
+                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/paris.jpg" class="w-100 shadow-1-strong mb-2"
+                                class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/falls2.jpg"
+                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/nature.jpg"
+                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/mist.jpg" class="w-100 shadow-1-strong mb-2"
+                                class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                        <div class="img-photo">
+                            <img src="https://www.w3schools.com/w3images/rocks.jpg" class="w-100 shadow-1-strong mb-2"
+                                class="img-fluid" />
+                            <div class="cap">Anu </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -270,26 +404,40 @@
                     </p>
                 </div>
                 <div class="row mt-70 mb-150">
-                    <div class="col-lg-12 mb-4 mb-lg-0">
-                        <div class="">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
-                            <div class="play"><img src="{{ asset('front/imgs/play.svg') }}"><span>Watch Full
-                                    Video</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-150">
-                    @foreach ($article as $x)
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <div class="">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                    class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
-                                <div class="cap">{{ $x->title }}</div>
+                    @if (count($videos) != 0)
+                        <div class="col-lg-12 mb-4 mb-lg-0">
+                            <div>
+                                <a href="{{ $videos[0]->url_video }}" target="_blank">
+                                    <img src="{{ asset($videos[0]->media) }}"
+                                        class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+                                    <div class="play"><img src="{{ asset('front/imgs/play.svg') }}"><span>Watch
+                                            Full
+                                            Video</span></div>
+                                </a>
                             </div>
                         </div>
-                    @endforeach
+                    @endif
                 </div>
+                @if (count($videos) > 1)
+                    <div class="row mb-150">
+                        @foreach ($videos as $key => $i)
+                            @php
+                                if ($key == 0) {
+                                    continue;
+                                }
+                            @endphp
+                            <div class="col-lg-4 mb-4 mb-lg-0">
+                                <div style="cursor: pointer">
+                                    <a href="{{ $i->url_video }}" target="_blank">
+                                        <img src="{{ asset($i->media) }}" class="w-100 shadow-1-strong rounded mb-4"
+                                            alt="Mountains in the Clouds" />
+                                        <div class="cap">{{ $i->title }}</div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
             </div>
         </section>
     </main>

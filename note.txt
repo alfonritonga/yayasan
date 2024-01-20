@@ -1,12 +1,6 @@
 TODO 
-- [ADMIN] CRUD pengurus
 
-- [LANDING] Show Galery
-- [LANDING] Show Video
-- [LANDING] Show pengurus
 - [LANDING] Animasi Blob
-
-ONGOING
 
  
 DONE
@@ -22,6 +16,7 @@ DONE
 - [ADMIN] CRUD Video 
 - [ADMIN] CRUD Materi
 - [ADMIN] CRUD Galery
+- [ADMIN] CRUD pengurus
 
 - [LANDING] Show Landing Info
 - [LANDING] Show Program
@@ -33,6 +28,9 @@ DONE
 - [LANDING] Carousel Image on About Page
 - [LANDING] Show Materi
 - [LANDING] Fix show Artikel 
+- [LANDING] Show pengurus
+- [LANDING] Show Video
+- [LANDING] Show Galery
 
 
 - perbaiki href -> ganti jadi route name
@@ -41,3 +39,4 @@ DONE
 - redirect donasi anda sangat berarti bagi kami
 - yg ada status aktif, pas get yg aktif aja 
 - landing footer
+- edit : change image, hide old
