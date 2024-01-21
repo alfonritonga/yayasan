@@ -1,6 +1,5 @@
 TODO 
 
-- [LANDING] Animasi Blob
 
  
 DONE
@@ -31,12 +30,11 @@ DONE
 - [LANDING] Show pengurus
 - [LANDING] Show Video
 - [LANDING] Show Galery
+- [LANDING] Animasi Blob
 
 
 - perbaiki href -> ganti jadi route name
-- pergunakan request dan handle request
-- atur height photo pas edit
-- redirect donasi anda sangat berarti bagi kami
+- pergunakan request dan handle request 
 - yg ada status aktif, pas get yg aktif aja 
 - landing footer
 - edit : change image, hide old

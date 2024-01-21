@@ -282,119 +282,6 @@
             </div>
         </section>
         <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
-            <div class="container galery-photo">
-                <div class="mw-650">
-                    <h4 class="text-center wow animate__animated animate__fadeInUp">Galeri Foto
-                    </h4>
-                    <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                        Dokumentasi foto terbaru dari Yayasan Lentera Kasih Agape
-                    </p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/wedding.jpg"
-                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/rocks.jpg" class="w-100 shadow-1-strong mb-2"
-                                class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/falls2.jpg"
-                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/paris.jpg" class="w-100 shadow-1-strong mb-2"
-                                class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/nature.jpg"
-                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/mist.jpg" class="w-100 shadow-1-strong mb-2"
-                                class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/nature.jpg"
-                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/wedding.jpg"
-                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/rocks.jpg" class="w-100 shadow-1-strong mb-2"
-                                class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/paris.jpg" class="w-100 shadow-1-strong mb-2"
-                                class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/mist.jpg" class="w-100 shadow-1-strong mb-2"
-                                class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/falls2.jpg"
-                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/wedding.jpg"
-                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/paris.jpg" class="w-100 shadow-1-strong mb-2"
-                                class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/falls2.jpg"
-                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/nature.jpg"
-                                class="w-100 shadow-1-strong mb-2" class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/mist.jpg" class="w-100 shadow-1-strong mb-2"
-                                class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                        <div class="img-photo">
-                            <img src="https://www.w3schools.com/w3images/rocks.jpg" class="w-100 shadow-1-strong mb-2"
-                                class="img-fluid" />
-                            <div class="cap">Anu </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
             <div class="container">
                 <div class="mw-650">
                     <h4 class="text-center wow animate__animated animate__fadeInUp">Galeri Video
@@ -455,7 +342,8 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <button class="btn btn-donasi font-heading">Donasi Sekarang</button>
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
+                                Sekarang</a>
                         </div>
                     </div>
                 </div>

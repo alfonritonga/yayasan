@@ -16,6 +16,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
+    <link rel="stylesheet" href="{{ asset('front/css/blob.css') }}" />
 </head>
 
 <body>
@@ -50,18 +51,21 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="banner-imgs">
-                                <img alt="YLKA" src="{{ asset('front/imgs/header.png') }}"
-                                    class="img-responsive shape-1" />
-                                <!-- <span class="banner-sm1"><img alt="YLKA"
-                                        src="{{ asset('front/imgs/page/homepage3/banner-sm1.png') }}"
-                                        class="img-responsive shape-3" /></span>
-                                <span class="banner-sm2"><img alt="YLKA"
-                                        src="{{ asset('front/imgs/page/homepage3/banner-sm2.png') }}"
-                                        class="img-responsive shape-2" /></span>
-                                <span class="banner-sm3"><img alt="YLKA"
-                                        src="{{ asset('front/imgs/page/homepage3/banner-sm3.png') }}"
-                                        class="img-responsive shape-2" /></span> -->
+                            <div class="banner-imgs mt-5">
+                                <div class="blob-container">
+                                    <div class="svg-wrapper">
+                                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="blob"
+                                            width="100%" height="100%" style="width:450px">
+                                            <path
+                                                d="M47.6,-24.4C59.8,-6.5,66.3,17.7,57.4,33.1C48.5,48.5,24.2,55.1,1,54.5C-22.3,53.9,-44.5,46.2,-57.2,28.6C-69.9,11,-73.1,-16.5,-62,-33.8C-50.8,-51.1,-25.4,-58.2,-3.8,-56C17.8,-53.8,35.5,-42.3,47.6,-24.4Z"
+                                                transform="translate(100 100)" />
+                                        </svg>
+                                    </div>
+                                    <div class="img-wrapper" style="width: 400px">
+                                        <img alt="YLKA" src="{{ asset('front/imgs/header-no-bg.png') }}"
+                                            class="img-responsive shape-1" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,8 +95,7 @@
                                     <h2 class="accordion-header" id="flush-headingOne">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#flush-collapseOne-{{ $x->id }}"
-                                            aria-expanded="false"
-                                            aria-controls="flush-collapseOne-{{ $x->id }}">
+                                            aria-expanded="false" aria-controls="flush-collapseOne-{{ $x->id }}">
                                             {{ $x->title }}
                                         </button>
                                     </h2>
@@ -209,7 +212,8 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <button class="btn btn-donasi font-heading">Donasi Sekarang</button>
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
+                                Sekarang</a>
                         </div>
                     </div>
                 </div>

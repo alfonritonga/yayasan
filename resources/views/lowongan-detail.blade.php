@@ -261,7 +261,8 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <button class="btn btn-donasi font-heading">Donasi Sekarang</button>
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
+                                Sekarang</a>
                         </div>
                     </div>
                 </div>
