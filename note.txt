@@ -32,9 +32,4 @@ DONE
 - [LANDING] Show Galery
 - [LANDING] Animasi Blob
 
-
-- perbaiki href -> ganti jadi route name
-- pergunakan request dan handle request 
-- yg ada status aktif, pas get yg aktif aja 
-- landing footer
-- edit : change image, hide old
+ 

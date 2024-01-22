@@ -74,18 +74,27 @@
         </section>
         <section class="section-box mt-90">
             <div class="container">
-
                 <h2 class="section-title mb-15 wow animate__animated animate__fadeInUp text-center">Program Kerja</h2>
                 <div class="text-md-lh24 color-black-5 wow animate__animated animate__fadeInUp text-center">
                     Program Kerja dari Yayasan Lentera Kasih Agape
                 </div>
                 <div class="row mt-50">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 py-5">
                         <div class="box-image-findjob box-image-about ml-0">
-                            <figure><img alt="YLKA" src="{{ asset('front/imgs/program.png') }}">
-                            </figure>
-                            <a href="https://www.youtube.com/watch?v=ea-I4sqgVGY"
-                                class="btn-play-video popup-youtube"></a>
+                            <div class="blob-container">
+                                <div class="svg-wrapper">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="blob"
+                                        width="100%" height="100%" style="width:450px">
+                                        <path
+                                            d="M47.6,-24.4C59.8,-6.5,66.3,17.7,57.4,33.1C48.5,48.5,24.2,55.1,1,54.5C-22.3,53.9,-44.5,46.2,-57.2,28.6C-69.9,11,-73.1,-16.5,-62,-33.8C-50.8,-51.1,-25.4,-58.2,-3.8,-56C17.8,-53.8,35.5,-42.3,47.6,-24.4Z"
+                                            transform="translate(100 100)" />
+                                    </svg>
+                                </div>
+                                <div class="img-wrapper" style="width: 400px">
+                                    <img alt="YLKA" src="{{ asset('front/imgs/program-no-bg.png') }}"
+                                        class="img-responsive shape-1" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -112,6 +121,51 @@
                 </div>
             </div>
         </section>
+        @foreach ($achievements as $i)
+            <section class="section-box mt-90 banner-homepage-3">
+                <div class="container py-5">
+                    <h2 class="section-title mb-15 wow animate__animated animate__fadeInUp text-center">
+                        Pencapaian Tahun
+                        {{ $i->year }}</h2>
+                    <div class="row mt-50">
+                        <div class="col-lg-6 px-5 mb-5">
+                            <div style="border-right: 2px solid #bdbdbc">
+                                <h5 class="text-brand mb-2"><strong>Program Kerja Terlaksana</strong></h5>
+                                @foreach ($i->programs as $j)
+                                    <p class="achievement-text"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="16" height="16" fill="#fd0249"
+                                            class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                        </svg> {{ $j->program }}</p>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="col-lg-6 px-5 mb-5">
+                            <div>
+                                <h5 class="text-brand mb-2"><strong>Total Donasi Diterima</strong></h5>
+                                <p class="achievement-text">Total Donasi GEBRAKAN (Gerakan Berbagi Alkitab Anak)</p>
+                                <h4 class="mt-3"><strong>Rp.
+                                        {{ number_format($i->total_donation, 0, '.', '.') }}</strong></h4>
+                            </div>
+                        </div>
+                        @if ($i->media != null && $i->url_video != null)
+                            <div class="col-lg-12 mb-4 py-5">
+                                <div>
+                                    <a href="{{ $i->url_video }}" target="_blank">
+                                        <img src="{{ asset($i->media) }}" class="w-100 shadow-1-strong rounded mb-4"
+                                            alt="Mountains in the Clouds" />
+                                        <div class="play"><img src="{{ asset('front/imgs/play.svg') }}"><span>Watch
+                                                Full
+                                                Video</span></div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </section>
+        @endforeach
         <div class="section-box wow animate__animated animate__fadeIn mt-70">
             <div class="container">
                 <div class="text-md-lh24 color-black-5 wow animate__animated animate__fadeInUp text-center">
@@ -156,7 +210,8 @@
                                         <div class="card-grid-3 hover-up">
                                             <div class="text-center card-grid-3-image">
                                                 <a href="/blog/{{ $x->slug }}">
-                                                    <figure><img alt="YLKA" src="{{ $x->media }}" />
+                                                    <figure style="max-height: 200px"><img alt="YLKA"
+                                                            src="{{ $x->media }}" />
                                                     </figure>
                                                 </a>
                                             </div>
@@ -171,7 +226,8 @@
                                                     </div>
                                                 </div>
                                                 <h5 class="mt-15 heading-md"><a
-                                                        href="/blog/{{ $x->slug }}">{{ $x->title }}</a></h5>
+                                                        href="/blog/{{ $x->slug }}">{{ \Illuminate\Support\Str::limit($x->title, 50, $end = '...') }}</a>
+                                                </h5>
                                                 <div class="card-2-bottom mt-50">
                                                     <div class="row">
                                                         <div class="col-lg-9 col-8">

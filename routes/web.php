@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutImageController;
+use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
@@ -183,5 +184,14 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/list/add', [PartnerListController::class, 'addPost'])->name('partner-list_add_post');
         Route::patch('/list/edit/{id}', [PartnerListController::class, 'editPatch'])->name('partner-list_edit_patch');
         Route::delete('/list/{id}', [PartnerController::class, 'delete'])->name('partner-list_delete');
+    });
+
+    Route::prefix('/achievement')->group(function () {
+        Route::get('/', [AchievementController::class, 'index'])->name('achievement_view_index');
+        Route::get('/add', [AchievementController::class, 'addView'])->name('achievement_add_view');
+        Route::get('/edit/{id}', [AchievementController::class, 'editView'])->name('achievement_edit_view');
+        Route::post('/', [AchievementController::class, 'addPost'])->name('achievement_add_post');
+        Route::patch('/{id}', [AchievementController::class, 'editPatch'])->name('achievement_edit_patch');
+        Route::delete('/{id}', [AchievementController::class, 'delete'])->name('achievement_delete');
     });
 });

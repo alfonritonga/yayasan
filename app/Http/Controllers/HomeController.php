@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutImageModel;
+use App\Models\AchievementModel;
 use App\Models\AdminModel;
 use Illuminate\Http\Request;
 use App\Models\ArticleModel;
@@ -23,8 +24,8 @@ class HomeController extends Controller
         $partner = PartnerListModel::with('admin', 'category')->orderBy('id', 'desc')->get();
         $program = ProgramModel::orderBy('id', 'asc')->get();
         $landing_info = LandingInfoModel::find(1);
-        // $donations = DonationModel::orderBy('id', 'desc')->get();
-        return view('home.index', compact('article', 'partner', 'program', 'landing_info'));
+        $achievements = AchievementModel::with(['programs'])->where('status', 1)->orderBy('id', 'desc')->get();
+        return view('home.index', compact('article', 'partner', 'program', 'landing_info', 'achievements'));
     }
 
     function tentang()

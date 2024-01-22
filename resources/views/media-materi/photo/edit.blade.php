@@ -57,6 +57,9 @@
                                         <img src="{{ asset($photo->media) }}" height="200">
                                         <br>
                                         <input type="file" name="media" class="form-control">
+                                        @error('media')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <fieldset class="mb-3">

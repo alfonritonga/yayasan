@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MediaRequest;
+use App\Http\Requests\PhotoRequest;
 use App\Models\MediaModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,7 @@ class MediaMateriController extends Controller
         return view('media-materi.photo.add');
     }
 
-    function addPostPhoto(MediaRequest $request)
+    function addPostPhoto(PhotoRequest $request)
     {
         DB::beginTransaction();
         try {
@@ -59,7 +60,7 @@ class MediaMateriController extends Controller
         return view('media-materi.photo.edit', compact('photo'));
     }
 
-    function editPatchPhoto(Request $request, $id)
+    function editPatchPhoto(PhotoRequest $request, $id)
     {
         DB::beginTransaction();
         try {
@@ -121,7 +122,7 @@ class MediaMateriController extends Controller
         return view('media-materi.video.add');
     }
 
-    function addPostVideo(MediaRequest $request)
+    function addPostVideo(PhotoRequest $request)
     {
         DB::beginTransaction();
         try {
@@ -158,7 +159,7 @@ class MediaMateriController extends Controller
         return view('media-materi.video.edit', compact('video'));
     }
 
-    function editPatchVideo(Request $request, $id)
+    function editPatchVideo(PhotoRequest $request, $id)
     {
         DB::beginTransaction();
         try {

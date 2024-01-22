@@ -53,6 +53,9 @@
                                     <label class="col-sm-3 col-form-label">Thumbnail</label>
                                     <div class="col-sm-9">
                                         <input type="file" required name="media" class="form-control">
+                                        @error('media')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="mb-3 row custom-ekeditor">
