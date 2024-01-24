@@ -12,7 +12,8 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/imgs/theme/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon"
+        href="{{ asset('front/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
@@ -22,11 +23,11 @@
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="loader">
-			<span>Y</span>
-			<span>L</span>
-			<span>K</span>
-			<span>A</span>
-		</div>
+            <span>Y</span>
+            <span>L</span>
+            <span>K</span>
+            <span>A</span>
+        </div>
     </div>
     <header class="header sticky-bar">
         <div class="container">
@@ -73,7 +74,7 @@
                         <!-- mobile menu start -->
                         <nav>
                             <ul class="mobile-menu font-heading">
-                            <li><a href="/">Beranda</a></li>
+                                <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
                                 <li><a href="/media-materi">Media & Materi</a></li>
@@ -103,12 +104,13 @@
             </div>
             <div class="container">
                 <div class="row pr-15 pl-15">
-                    @foreach ($article as $i)
+                    @foreach($article as $i)
                         <div class="col-lg-4 mb-30">
                             <div class="card-blog-1 bg-white hover-up wow animate__animated animate__fadeIn"
                                 data-wow-delay=".0s">
                                 <figure class="post-thumb mb-15" style="max-height: 200px">
-                                    <a href="{{ route('article_detail', $i->slug) }}" target="_blank">
+                                    <a href="{{ route('article_detail', $i->slug) }}"
+                                        target="_blank">
                                         <img alt="jobhub" src="{{ asset($i->media) }}" />
                                     </a>
                                 </figure>
@@ -119,7 +121,8 @@
                                                     class="fi-rr-edit mr-5 text-grey-6"></i>{{ date('l, d F Y', strtotime($i->created_at)) }}</span>
                                         </div>
                                     </div>
-                                    <h3 class="post-title mb-15"><a href="{{ route('article_detail', $i->slug) }}"
+                                    <h3 class="post-title mb-15"><a
+                                            href="{{ route('article_detail', $i->slug) }}"
                                             target="_blank">{{ \Illuminate\Support\Str::limit($i->title, 45, $end = '...') }}</a>
                                     </h3>
                                     <p class="post-excerpt text-muted">
@@ -127,8 +130,8 @@
                                     <div class="card-2-bottom mt-30">
                                         <div class="d-flex align-items-center justify-content-between">
                                             <div class="keep-reading">
-                                                <a href="{{ route('article_detail', $i->slug) }}" target="_blank"
-                                                    target="_blank" class="text-fix"><strong>BACA
+                                                <a href="{{ route('article_detail', $i->slug) }}"
+                                                    target="_blank" target="_blank" class="text-fix"><strong>BACA
                                                         SELENGKAPNYA</strong></a>
                                             </div>
                                         </div>
@@ -153,7 +156,7 @@
                     </p>
                 </div>
                 <div class="row mt-70 mb-150">
-                    @foreach ($materi as $i)
+                    @foreach($materi as $i)
                         <div class="col-lg-6">
                             <div class="post-listing">
                                 <div class="card-blog-1 mb-30 post-list hover-up wow animate__animated animate__fadeIn"
@@ -165,7 +168,9 @@
                                     </figure>
                                     <div class="card-block-info">
                                         <h5 class="post-title mb-15">{{ $i->title }}</h5>
-                                        <p>Rp. {{ number_format($i->price, 0, '.', '.') }}</p>
+                                        <p>Rp.
+                                            {{ number_format($i->price, 0, '.', '.') }}
+                                        </p>
                                         <a href="javascript:void(0)" class="text-fix mt-2"><strong>PREVIEW</strong>
                                         </a>
                                     </div>
@@ -190,7 +195,7 @@
                         $jlh = (int) floor(count($photos) / 3);
                     @endphp
                     <div class="col-lg-4 mb-4 mb-lg-0">
-                        @foreach (array_slice($photos, 0, $jlh) as $i)
+                        @foreach(array_slice($photos, 0, $jlh) as $i)
                             <div class="img-photo">
                                 <img src="{{ $i['media'] }}" class="w-100 shadow-1-strong mb-2"
                                     class="img-fluid" />
@@ -199,7 +204,7 @@
                         @endforeach
                     </div>
                     <div class="col-lg-4 mb-4 mb-lg-0">
-                        @foreach (array_slice($photos, $jlh, $jlh) as $i)
+                        @foreach(array_slice($photos, $jlh, $jlh) as $i)
                             <div class="img-photo">
                                 <img src="{{ $i['media'] }}" class="w-100 shadow-1-strong mb-2"
                                     class="img-fluid" />
@@ -208,7 +213,7 @@
                         @endforeach
                     </div>
                     <div class="col-lg-4 mb-4 mb-lg-0">
-                        @foreach (array_slice($photos, $jlh + $jlh) as $i)
+                        @foreach(array_slice($photos, $jlh + $jlh) as $i)
                             <div class="img-photo">
                                 <img src="{{ $i['media'] }}" class="w-100 shadow-1-strong mb-2"
                                     class="img-fluid" />
@@ -229,13 +234,14 @@
                     </p>
                 </div>
                 <div class="row mt-70 mb-150">
-                    @if (count($videos) != 0)
+                    @if(count($videos) != 0)
                         <div class="col-lg-12 mb-4 mb-lg-0">
                             <div>
                                 <a href="{{ $videos[0]->url_video }}" target="_blank">
                                     <img src="{{ asset($videos[0]->media) }}"
                                         class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
-                                    <div class="play"><img src="{{ asset('front/imgs/play.svg') }}"><span>Watch
+                                    <div class="play"><img
+                                            src="{{ asset('front/imgs/play.svg') }}"><span>Watch
                                             Full
                                             Video</span></div>
                                 </a>
@@ -243,12 +249,12 @@
                         </div>
                     @endif
                 </div>
-                @if (count($videos) > 1)
+                @if(count($videos) > 1)
                     <div class="row mb-150">
-                        @foreach ($videos as $key => $i)
+                        @foreach($videos as $key => $i)
                             @php
                                 if ($key == 0) {
-                                    continue;
+                                continue;
                                 }
                             @endphp
                             <div class="col-lg-4 mb-4 mb-lg-0">
@@ -280,7 +286,8 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}"
+                                class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -294,9 +301,8 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email"
-                                            class="input-newsletter-2" value="" placeholder="Alamat email"
-                                            required />
+                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
+                                            placeholder="Alamat email" required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -309,11 +315,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
                                 alt="YLKA" /></a>
                         <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
                                 alt="YLKA" /></a>
@@ -357,9 +366,21 @@
     <script src="{{ asset('template/js/custom.min.js') }}"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
     <script>
-        $(document).ready(function() {
-            $('#formSubscribe').submit(function(event) {
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7SRR3L8JHR');
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#formSubscribe').submit(function (event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -367,11 +388,11 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function(response) {
+                    success: function (response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function(error) {
+                    error: function (error) {
                         alert('Terjadi kesalahan');
                     }
                 });

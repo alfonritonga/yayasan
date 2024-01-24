@@ -12,7 +12,8 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/imgs/theme/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon"
+        href="{{ asset('front/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
@@ -22,11 +23,11 @@
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="loader">
-			<span>Y</span>
-			<span>L</span>
-			<span>K</span>
-			<span>A</span>
-		</div>
+            <span>Y</span>
+            <span>L</span>
+            <span>K</span>
+            <span>A</span>
+        </div>
     </div>
     <header class="header sticky-bar">
         <div class="container">
@@ -73,7 +74,7 @@
                         <!-- mobile menu start -->
                         <nav>
                             <ul class="mobile-menu font-heading">
-                            <li><a href="/">Beranda</a></li>
+                                <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
                                 <li><a href="/media-materi">Media & Materi</a></li>
@@ -96,8 +97,8 @@
                     <div class="col-lg-8 col-md-12 col-sm-12 col-12 mx-auto">
                         <div class="content-single content-except">
                             <a href="{{ route('media_materi') }}" class="text-dark"><strong><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-left" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
                                             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
                                     </svg> Media & Materi / {{ $article->title }}</strong> </a>
@@ -128,7 +129,7 @@
                     </div>
                 </div>
                 <div class="row mb-20">
-                    @foreach ($other_articles as $i)
+                    @foreach($other_articles as $i)
                         <div class="col-lg-4 mb-30">
                             <div class="card-blog-1 bg-white hover-up wow animate__animated animate__fadeIn"
                                 data-wow-delay=".0s">
@@ -152,8 +153,8 @@
                                     <div class="card-2-bottom mt-30">
                                         <div class="d-flex align-items-center justify-content-between">
                                             <div class="keep-reading">
-                                                <a href="{{ route('article_detail', $i->slug) }}" target="_blank"
-                                                    class="text-fix"><strong>BACA
+                                                <a href="{{ route('article_detail', $i->slug) }}"
+                                                    target="_blank" class="text-fix"><strong>BACA
                                                         SELENGKAPNYA</strong></a>
                                             </div>
                                         </div>
@@ -180,7 +181,8 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}"
+                                class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -194,9 +196,8 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email"
-                                            class="input-newsletter-2" value="" placeholder="Alamat email"
-                                            required />
+                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
+                                            placeholder="Alamat email" required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -209,11 +210,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
                                 alt="YLKA" /></a>
                         <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
                                 alt="YLKA" /></a>
@@ -257,9 +261,21 @@
     <script src="{{ asset('template/js/custom.min.js') }}"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
     <script>
-        $(document).ready(function() {
-            $('#formSubscribe').submit(function(event) {
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7SRR3L8JHR');
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#formSubscribe').submit(function (event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -267,11 +283,11 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function(response) {
+                    success: function (response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function(error) {
+                    error: function (error) {
                         alert('Terjadi kesalahan');
                     }
                 });

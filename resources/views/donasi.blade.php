@@ -12,7 +12,8 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/imgs/theme/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon"
+        href="{{ asset('front/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
@@ -22,11 +23,11 @@
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="loader">
-			<span>Y</span>
-			<span>L</span>
-			<span>K</span>
-			<span>A</span>
-		</div>
+            <span>Y</span>
+            <span>L</span>
+            <span>K</span>
+            <span>A</span>
+        </div>
     </div>
     <header class="header sticky-bar">
         <div class="container">
@@ -73,7 +74,7 @@
                         <!-- mobile menu start -->
                         <nav>
                             <ul class="mobile-menu font-heading">
-                            <li><a href="/">Beranda</a></li>
+                                <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
                                 <li><a href="/media-materi">Media & Materi</a></li>
@@ -116,11 +117,10 @@
                     <p class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
                         Dukungan dari saudara sangat membantu Yayasan Lentera Kasih Agape untuk bisa terus maksimal
                         melayani.</p>
-                    @if ($message = Session::get('message'))
+                    @if($message = Session::get('message'))
                         <div class="alert alert-primary alert-dismissible fade show">
-                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
-                                stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                class="me-2">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
                                 <line x1="9" y1="9" x2="9.01" y2="9"></line>
@@ -137,8 +137,9 @@
                         <div class="card-grid h-100 hover-up wow animate__animated animate__fadeInUp"
                             style="overflow: hidden;" data-wow-delay=".1s">
                             <div class="radio-button">
-                                <img src="{{ asset('front/imgs/CheckCircle_active.png') }}" id="donate-bank"
-                                    class="checked" onclick="setClick(this, 'donate-bank', 'donate-item')">
+                                <img src="{{ asset('front/imgs/CheckCircle_active.png') }}"
+                                    id="donate-bank" class="checked"
+                                    onclick="setClick(this, 'donate-bank', 'donate-item')">
                             </div>
                             <div class="rekening">
                                 <img src="{{ asset('front/imgs/mandiri.png') }}">
@@ -152,7 +153,8 @@
                         <div class="card-grid h-100 hover-up wow animate__animated animate__fadeInUp"
                             style="overflow: hidden;" data-wow-delay=".1s">
                             <div class="radio-button">
-                                <img src="{{ asset('front/imgs/CheckCircle.png') }}" id="donate-item" class="unchecked"
+                                <img src="{{ asset('front/imgs/CheckCircle.png') }}"
+                                    id="donate-item" class="unchecked"
                                     onclick="setClick(this, 'donate-item', 'donate-bank')">
                             </div>
                             <div class="rekening">
@@ -163,15 +165,14 @@
                     </div>
                 </div>
                 <div class="formDonasi mt-100 mb-200">
-                    <form class="contact-form-style mt-80" id="contact-form" method="post"
-                        enctype="multipart/form-data" action="{{ route('donation_add_post') }}">
+                    <form class="contact-form-style mt-80" id="contact-form" method="post" enctype="multipart/form-data"
+                        action="{{ route('donation_add_post') }}">
                         @csrf
                         <div class="row wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
                                     <input type="hidden" name="type" id="type" value="1">
-                                    <input name="name" class="form-control" placeholder="Nama" type="text"
-                                        required />
+                                    <input name="name" class="form-control" placeholder="Nama" type="text" required />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
@@ -181,8 +182,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="phone" class="form-control" placeholder="Nomor HP"
-                                        type="tel" />
+                                    <input name="phone" class="form-control" placeholder="Nomor HP" type="tel" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
@@ -192,8 +192,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20" id="input-donate-bank">
-                                    <input name="amount" class="form-control" placeholder="Jumlah Donasi"
-                                        type="text" />
+                                    <input name="amount" class="form-control" placeholder="Jumlah Donasi" type="text" />
                                 </div>
                                 <div class="input-style mb-20 d-none" id="input-donate-item">
                                     <input name="type_of_goods" class="form-control" placeholder="Jenis barang"
@@ -205,12 +204,11 @@
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" id="input-file-text"
                                             placeholder="Upload bukti transfer" aria-describedby="button-addon2">
-                                        <input type="file" id="input-file" name="media" hidden
-                                            onchange="getFile()">
+                                        <input type="file" id="input-file" name="media" hidden onchange="getFile()">
                                         <button class="btn btn-outline-secondary" type="button" id="button-addon2"
-                                            onclick="openUpload()"><svg xmlns="http://www.w3.org/2000/svg"
-                                                width="16" height="16" fill="currentColor"
-                                                class="bi bi-upload" viewBox="0 0 16 16">
+                                            onclick="openUpload()"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                height="16" fill="currentColor" class="bi bi-upload"
+                                                viewBox="0 0 16 16">
                                                 <path
                                                     d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
                                                 <path
@@ -256,9 +254,8 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email"
-                                            class="input-newsletter-2" value="" placeholder="Alamat email"
-                                            required />
+                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
+                                            placeholder="Alamat email" required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -271,11 +268,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
                                 alt="YLKA" /></a>
                         <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
                                 alt="YLKA" /></a>
@@ -319,6 +319,18 @@
     <script src="{{ asset('template/js/custom.min.js') }}"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7SRR3L8JHR');
+    </script>
     <script>
         function openUpload() {
             $('#input-file').click();
@@ -332,7 +344,8 @@
 
         function setClick(el, idchecked, idunchecked) {
             if (el.className == 'unchecked') {
-                $('#' + idchecked).attr('src', "{{ asset('front/imgs/CheckCircle_active.png') }}");
+                $('#' + idchecked).attr('src',
+                "{{ asset('front/imgs/CheckCircle_active.png') }}");
                 $('#' + idunchecked).attr('src', "{{ asset('front/imgs/CheckCircle.png') }}");
                 $('#input-' + idchecked).removeClass('d-none');
                 $('#' + idchecked).removeClass('unchecked');
@@ -355,8 +368,8 @@
         }
 
 
-        $(document).ready(function() {
-            $('#formSubscribe').submit(function(event) {
+        $(document).ready(function () {
+            $('#formSubscribe').submit(function (event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -364,11 +377,11 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function(response) {
+                    success: function (response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function(error) {
+                    error: function (error) {
                         alert('Terjadi kesalahan');
                     }
                 });

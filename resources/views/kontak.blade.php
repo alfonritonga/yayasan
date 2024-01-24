@@ -12,7 +12,8 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/imgs/theme/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon"
+        href="{{ asset('front/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
@@ -22,11 +23,11 @@
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="loader">
-			<span>Y</span>
-			<span>L</span>
-			<span>K</span>
-			<span>A</span>
-		</div>
+            <span>Y</span>
+            <span>L</span>
+            <span>K</span>
+            <span>A</span>
+        </div>
     </div>
     <header class="header sticky-bar">
         <div class="container">
@@ -73,7 +74,7 @@
                         <!-- mobile menu start -->
                         <nav>
                             <ul class="mobile-menu font-heading">
-                            <li><a href="/">Beranda</a></li>
+                                <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
                                 <li><a href="/media-materi">Media & Materi</a></li>
@@ -171,7 +172,7 @@
                             </p>
                         </div>
                         <div class="row mt-60">
-                            @foreach ($admins as $i)
+                            @foreach($admins as $i)
                                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
                                     <div class="card-grid pengurus hover-up wow animate__animated animate__fadeInUp"
                                         data-wow-delay=".0s">
@@ -207,7 +208,8 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}"
+                                class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -221,9 +223,8 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email"
-                                            class="input-newsletter-2" value="" placeholder="Alamat email"
-                                            required />
+                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
+                                            placeholder="Alamat email" required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -236,11 +237,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
                                 alt="YLKA" /></a>
                         <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
                                 alt="YLKA" /></a>
@@ -284,9 +288,21 @@
     <script src="{{ asset('template/js/custom.min.js') }}"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
     <script>
-        $(document).ready(function() {
-            $('#formSubscribe').submit(function(event) {
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7SRR3L8JHR');
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#formSubscribe').submit(function (event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -294,11 +310,11 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function(response) {
+                    success: function (response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function(error) {
+                    error: function (error) {
                         alert('Terjadi kesalahan');
                     }
                 });

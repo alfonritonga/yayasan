@@ -12,7 +12,8 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/imgs/theme/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon"
+        href="{{ asset('front/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
@@ -22,18 +23,18 @@
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="loader">
-			<span>Y</span>
-			<span>L</span>
-			<span>K</span>
-			<span>A</span>
-		</div>
+            <span>Y</span>
+            <span>L</span>
+            <span>K</span>
+            <span>A</span>
+        </div>
     </div>
     <header class="header sticky-bar">
         <div class="container">
             <div class="main-header">
                 <div class="header-left">
                     <div class="header-logo">
-                    <a href="/" class="d-flex"><img alt="YLKA"
+                        <a href="/" class="d-flex"><img alt="YLKA"
                                 src="{{ asset('front/imgs/LogoYLKA.png') }}" width="170px" /></a>
                     </div>
                     <div class="header-nav">
@@ -73,7 +74,7 @@
                         <!-- mobile menu start -->
                         <nav>
                             <ul class="mobile-menu font-heading">
-                            <li><a href="/">Beranda</a></li>
+                                <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
                                 <li><a href="/media-materi">Media & Materi</a></li>
@@ -102,56 +103,47 @@
                             $n = count($about_images);
                             $arr_class = [];
                             if ($n == 1) {
-                                $arr_class[] = 'selected';
+                            $arr_class[] = 'selected';
                             }
                             if ($n == 2) {
-                                $arr_class[] = 'selected';
-                                $arr_class[] = 'next';
+                            $arr_class[] = 'selected';
+                            $arr_class[] = 'next';
                             }
                             if ($n == 3) {
-                                $arr_class[] = 'prev';
-                                $arr_class[] = 'selected';
-                                $arr_class[] = 'next';
+                            $arr_class[] = 'prev';
+                            $arr_class[] = 'selected';
+                            $arr_class[] = 'next';
                             }
                             if ($n == 4) {
-                                $arr_class[] = 'prev';
-                                $arr_class[] = 'selected';
-                                $arr_class[] = 'next';
-                                $arr_class[] = 'nextRightSecond';
+                            $arr_class[] = 'prev';
+                            $arr_class[] = 'selected';
+                            $arr_class[] = 'next';
+                            $arr_class[] = 'nextRightSecond';
                             }
                             if ($n == 5) {
-                                $arr_class[] = 'prevLeftSecond';
-                                $arr_class[] = 'prev';
-                                $arr_class[] = 'selected';
-                                $arr_class[] = 'next';
-                                $arr_class[] = 'nextRightSecond';
+                            $arr_class[] = 'prevLeftSecond';
+                            $arr_class[] = 'prev';
+                            $arr_class[] = 'selected';
+                            $arr_class[] = 'next';
+                            $arr_class[] = 'nextRightSecond';
                             } else {
-                                $arr_class[] = 'prevLeftSecond';
-                                $arr_class[] = 'prev';
-                                $arr_class[] = 'selected';
-                                $arr_class[] = 'next';
-                                $arr_class[] = 'nextRightSecond';
-                                $position = 1; // 1 right, 0 left
-                                for ($x = 0; $x < $n - 5; $x++) {
-                                    if ($position == 1) {
-                                        $arr_class[] = 'hideRight';
-                                        $position = 0;
-                                    } else {
-                                        $arr_class[] = 'hideLeft';
-                                        $position = 1;
-                                    }
-                                }
-                            }
-                        @endphp
-                        @if ($n != 0)
-                            <div id="carousel">
-                                @for ($i = 0; $i < $n; $i++)
-                                    <div class="{{ $arr_class[$i] }}">
-                                        <img src="{{ asset($about_images[$i]->image) }}">
+                            $arr_class[] = 'prevLeftSecond';
+                            $arr_class[] = 'prev';
+                            $arr_class[] = 'selected';
+                            $arr_class[] = 'next';
+                            $arr_class[] = 'nextRightSecond';
+                            $position = 1; // 1 right, 0 left
+                            for ($x = 0; $x < $n - 5; $x++) { if ($position==1) { $arr_class[]='hideRight' ;
+                                $position=0; } else { $arr_class[]='hideLeft' ; $position=1; } } } </blade endphp>
+                                @if($n != 0)
+                                    <div id="carousel">
+                                        @for($i = 0; $i < $n; $i++)
+                                            <div class="{{ $arr_class[$i] }}">
+                                                <img src="{{ asset($about_images[$i]->image) }}">
+                                            </div>
+                                        @endfor
                                     </div>
-                                @endfor
-                            </div>
-                        @endif
+                                @endif
                     </div>
                 </div>
             </div>
@@ -179,7 +171,8 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".0s">
                             <div class="block-image">
-                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" /></figure>
+                                <figure><img alt="YLKA"
+                                        src="{{ asset('front/imgs/ic_support.svg') }}" /></figure>
                             </div>
                             <div class="card-info-bottom">
                                 <!-- <h3><span class="count">15</span>00+</h3>
@@ -192,7 +185,8 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                             <div class="block-image">
-                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support2.svg') }}" />
+                                <figure><img alt="YLKA"
+                                        src="{{ asset('front/imgs/ic_support2.svg') }}" />
                                 </figure>
                             </div>
                             <div class="card-info-bottom">
@@ -207,7 +201,8 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
                             <div class="block-image">
-                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support3.svg') }}" />
+                                <figure><img alt="YLKA"
+                                        src="{{ asset('front/imgs/ic_support3.svg') }}" />
                                 </figure>
                             </div>
                             <div class="card-info-bottom">
@@ -235,7 +230,7 @@
                     @php
                         $point = 2;
                     @endphp
-                    @foreach ($partner as $i)
+                    @foreach($partner as $i)
                         <div class="col-md-6 box-mitra @if ($loop->first) box-selected @endif @if ($loop->iteration == $point) bg-light @endif"
                             onclick="getPartnerList({{ $i->id }})">
                             <div class="p-4">
@@ -245,11 +240,11 @@
                         </div>
                         @php
                             if ($loop->iteration == $point) {
-                                if ($loop->iteration % 2 == 0) {
-                                    $point += 1;
-                                } else {
-                                    $point += 3;
-                                }
+                            if ($loop->iteration % 2 == 0) {
+                            $point += 1;
+                            } else {
+                            $point += 3;
+                            }
                             }
                         @endphp
                     @endforeach
@@ -258,7 +253,7 @@
             </div>
         </section>
         <div class="section-box wow animate__animated animate__fadeIn mt-70 mb-70" id="div-partner">
-            @if (count($partner[0]->lists) > 0)
+            @if(count($partner[0]->lists) > 0)
                 <div class="container">
                     <div class="text-md-lh24 color-black-5 wow animate__animated animate__fadeInUp text-center">
                         Partner Kemitraan
@@ -270,7 +265,7 @@
                         <div class="box-swiper">
                             <div class="swiper-container swiper-group-5">
                                 <div class="swiper-wrapper pb-70 pt-5">
-                                    @foreach ($partner[0]->lists as $x)
+                                    @foreach($partner[0]->lists as $x)
                                         <div class="swiper-slide hover-up">
                                             <div class="item-logo">
                                                 <a href="#">
@@ -307,7 +302,8 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}"
+                                class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -321,9 +317,8 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email"
-                                            class="input-newsletter-2" value="" placeholder="Alamat email"
-                                            required />
+                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
+                                            placeholder="Alamat email" required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -336,11 +331,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
                                 alt="YLKA" /></a>
                         <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
                                 alt="YLKA" /></a>
@@ -384,9 +382,21 @@
     <script src="{{ asset('template/js/custom.min.js') }}"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
     <script>
-        $(document).ready(function() {
-            $('#formSubscribe').submit(function(event) {
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7SRR3L8JHR');
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#formSubscribe').submit(function (event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -394,18 +404,18 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function(response) {
+                    success: function (response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function(error) {
+                    error: function (error) {
                         alert('Terjadi kesalahan');
                     }
                 });
             });
         });
 
-        $(".box-mitra").click(function() {
+        $(".box-mitra").click(function () {
             $(".box-mitra").removeClass("box-selected");
             $(this).addClass("box-selected");
         });
@@ -414,12 +424,12 @@
             $.ajax({
                 url: `/ajax/partner-list/${id}`,
                 method: 'GET',
-                success: function(res) {
+                success: function (res) {
                     $('#div-partner').html(res);
                     initiateSwiper();
 
                 },
-                error: function(error) {
+                error: function (error) {
                     console.log(error);
                 }
             })
@@ -440,7 +450,7 @@
                 pagination: {
                     el: ".swiper-pagination",
                     type: "custom",
-                    renderCustom: function(swiper, current, total) {
+                    renderCustom: function (swiper, current, total) {
                         var customPaginationHtml = "";
                         for (var i = 0; i < total; i++) {
                             //Determine which pager should be activated at this time
