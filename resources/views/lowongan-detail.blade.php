@@ -20,14 +20,13 @@
 
 <body>
     <!-- Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="text-center">
-                    <img src="{{ asset('landing/imgs/loading.gif') }}" alt="YLKA" />
-                </div>
-            </div>
-        </div>
+    <div id="preloader">
+        <div class="loader">
+			<span>Y</span>
+			<span>L</span>
+			<span>K</span>
+			<span>A</span>
+		</div>
     </div>
     <header class="header sticky-bar">
         <div class="container">
@@ -274,6 +273,7 @@
     <script src="{{ asset('front/js/plugins/isotope.js') }}"></script>
     <script src="{{ asset('front/js/plugins/scrollup.js') }}"></script>
     <script src="{{ asset('front/js/plugins/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('template/js/custom.min.js') }}"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <script>

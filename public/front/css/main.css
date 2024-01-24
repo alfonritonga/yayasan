@@ -1157,6 +1157,42 @@ input:focus {
   border: 1px solid rgba(151, 119, 250, 0.5);
 }
 
+.loader {
+  -webkit-perspective: 700px;
+  perspective: 700px; }
+
+.loader > span {
+  font-size: 60px;
+  color: #FD0249;
+  font-family: "franklin gothic medium",sans-serif;
+  display: inline-block;
+  animation: flip 2.6s infinite linear;
+  transform-origin: 0 70%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; }
+
+@keyframes flip {
+  35% {
+    transform: rotateX(360deg); }
+  100% {
+    transform: rotatex(360deg); } }
+.loader > span:nth-child(even) {
+  color: #FD0249; }
+
+.loader > span:nth-child(2) {
+  animation-delay: 0.3s;
+  color: #FD0249; }
+
+.loader > span:nth-child(3) {
+  animation-delay: 0.6s; color: #FD0249;}
+
+.loader > span:nth-child(4) {
+  animation-delay: 0.9s;
+  color: #FD0249; }
+
+.loader > span:nth-child(5) {
+  animation-delay: 1.2s; color: #FD0249; }
+
 select {
   width: 100%;
   background: transparent;
