@@ -29,7 +29,66 @@
             </div>
         </div>
     </div>
-    @extends('home.menu')
+    <header class="header sticky-bar">
+        <div class="container">
+            <div class="main-header">
+                <div class="header-left">
+                    <div class="header-logo">
+                        <a href="/" class="d-flex"><img alt="YLKA"
+                                src="{{ asset('front/imgs/logo.svg') }}" /></a>
+                    </div>
+                    <div class="header-nav">
+                        <nav class="nav-main-menu d-none d-xl-block">
+                            <ul class="main-menu">
+                                <li><a href="/">Beranda</a></li>
+                                <li><a href="/tentang">Tentang Kami</a></li>
+                                <li><a href="/program">Program</a></li>
+                                <li><a href="/media-materi">Media & Materi</a></li>
+                                <li><a href="/donasi">Donasi</a></li>
+                                <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
+                                <li><a href="/kontak">Kontak</a></li>
+                            </ul>
+                        </nav>
+                        <div class="burger-icon burger-icon-white">
+                            <span class="burger-icon-top"></span>
+                            <span class="burger-icon-mid"></span>
+                            <span class="burger-icon-bottom"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-header-active mobile-header-wrapper-style perfect-scrollbar">
+        <div class="mobile-header-wrapper-inner">
+            <div class="mobile-header-top">
+                <div class="burger-icon burger-icon-white">
+                    <span class="burger-icon-top"></span>
+                    <span class="burger-icon-mid"></span>
+                    <span class="burger-icon-bottom"></span>
+                </div>
+            </div>
+            <div class="mobile-header-content-area">
+                <div class="perfect-scroll">
+                    <div class="mobile-menu-wrap mobile-header-border">
+                        <!-- mobile menu start -->
+                        <nav>
+                            <ul class="mobile-menu font-heading">
+                            <li><a href="/">Beranda</a></li>
+                                <li><a href="/tentang">Tentang Kami</a></li>
+                                <li><a href="/program">Program</a></li>
+                                <li><a href="/media-materi">Media & Materi</a></li>
+                                <li><a href="/donasi">Donasi</a></li>
+                                <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
+                                <li><a href="/kontak">Kontak</a></li>
+                            </ul>
+                        </nav>
+                        <!-- mobile menu end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--End header-->
     <!-- Content -->
     <main class="main">
