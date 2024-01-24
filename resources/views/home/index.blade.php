@@ -35,7 +35,7 @@
                 <div class="header-left">
                     <div class="header-logo">
                         <a href="/" class="d-flex"><img alt="YLKA"
-                                src="{{ asset('front/imgs/logo.svg') }}" /></a>
+                                src="{{ asset('front/imgs/LogoYLKA.png') }}" width="170px" /></a>
                     </div>
                     <div class="header-nav">
                         <nav class="nav-main-menu d-none d-xl-block">
@@ -113,14 +113,14 @@
                                 <div class="blob-container">
                                     <div class="svg-wrapper">
                                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="blob"
-                                            width="100%" height="100%" style="width:450px">
+                                            width="100%" height="100%" class="blob-home">
                                             <path
                                                 d="M47.6,-24.4C59.8,-6.5,66.3,17.7,57.4,33.1C48.5,48.5,24.2,55.1,1,54.5C-22.3,53.9,-44.5,46.2,-57.2,28.6C-69.9,11,-73.1,-16.5,-62,-33.8C-50.8,-51.1,-25.4,-58.2,-3.8,-56C17.8,-53.8,35.5,-42.3,47.6,-24.4Z"
                                                 transform="translate(100 100)" />
                                         </svg>
                                     </div>
-                                    <div class="img-wrapper" style="width: 400px">
-                                        <img alt="YLKA" src="{{ asset('front/imgs/header-no-bg.png') }}"
+                                    <div class="img-wrapper blob-image">
+                                        <img alt="YLKA" src="{{ asset('asset/Rectangle 2120.png') }}"
                                             class="img-responsive shape-1" />
                                     </div>
                                 </div>

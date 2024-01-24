@@ -8456,6 +8456,26 @@ label {
   }
 }
 
+@media screen and (min-width: 992px) and (max-width: 4000px) {
+ .banner-homepage-3 .banner-imgs{
+  margin-top: 18% !important;
+ }
+
+ .blob-home{
+  width: 600px !important;
+ }
+
+ .img-wrapper{
+  width: 600px !important;
+ }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1400px) {
+  .banner-homepage-3 .banner-imgs{
+    margin-top: 50% !important;
+   }
+}
+
 /*OTHER SCREEN*/
 @media screen and (min-width: 1200px) and (max-width: 1440px) {
   .header-right {

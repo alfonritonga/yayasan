@@ -33,8 +33,8 @@
             <div class="main-header">
                 <div class="header-left">
                     <div class="header-logo">
-                        <a href="/" class="d-flex"><img alt="YLKA"
-                                src="{{ asset('front/imgs/logo.svg') }}" /></a>
+                    <a href="/" class="d-flex"><img alt="YLKA"
+                                src="{{ asset('front/imgs/LogoYLKA.png') }}" width="170px" /></a>
                     </div>
                     <div class="header-nav">
                         <nav class="nav-main-menu d-none d-xl-block">
