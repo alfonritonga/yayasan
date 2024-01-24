@@ -114,7 +114,13 @@
         </section>
         <section id="slick-content">
             <div class="slider">
+            @foreach($about_images as $i)
                 <div>
+                    <div class="slide-h3" style="background-image: url('{{ asset($i->image)}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
+                </div>
+
+                @endforeach
+                <!-- <div>
                     <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
                 </div>
                 <div>
@@ -134,10 +140,7 @@
                 </div>
                 <div>
                     <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
-                </div>
-                <div>
-                    <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
-                </div>
+                </div> -->
             </div>
         </section>
         <section class="section-box mb-50 mb-md-0 sejarah">
