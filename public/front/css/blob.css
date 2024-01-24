@@ -14,7 +14,7 @@
 }
 
 #blob path {
-  animation: blob 5s linear infinite;
+  /* animation: blob 5s linear infinite; */
 }
 
 .blob-image {
@@ -25,7 +25,7 @@
   background-size: cover;
   background-position: center;
   /* box-shadow: 0 0 15px rgba(0, 0, 0, .2); */
-  animation: blob-image 3.7s linear infinite;
+  animation: blob-image 5s linear infinite;
 }
 
 @keyframes blob-image {

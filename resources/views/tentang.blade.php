@@ -17,6 +17,13 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
+    <link rel="stylesheet" href="{{ asset('front/css/slick.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+        integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -99,56 +106,41 @@
                     <div class="col-lg-8 text-center">
                         <h1 class="section-title-large mb-30 wow animate__animated animate__fadeInUp">Tentang Yayasan
                             Lentera Kasih Agape</h1>
-                        @php
-                            $n = count($about_images);
-                            $arr_class = [];
-                            if ($n == 1) {
-                            $arr_class[] = 'selected';
-                            }
-                            if ($n == 2) {
-                            $arr_class[] = 'selected';
-                            $arr_class[] = 'next';
-                            }
-                            if ($n == 3) {
-                            $arr_class[] = 'prev';
-                            $arr_class[] = 'selected';
-                            $arr_class[] = 'next';
-                            }
-                            if ($n == 4) {
-                            $arr_class[] = 'prev';
-                            $arr_class[] = 'selected';
-                            $arr_class[] = 'next';
-                            $arr_class[] = 'nextRightSecond';
-                            }
-                            if ($n == 5) {
-                            $arr_class[] = 'prevLeftSecond';
-                            $arr_class[] = 'prev';
-                            $arr_class[] = 'selected';
-                            $arr_class[] = 'next';
-                            $arr_class[] = 'nextRightSecond';
-                            } else {
-                            $arr_class[] = 'prevLeftSecond';
-                            $arr_class[] = 'prev';
-                            $arr_class[] = 'selected';
-                            $arr_class[] = 'next';
-                            $arr_class[] = 'nextRightSecond';
-                            $position = 1; // 1 right, 0 left
-                            for ($x = 0; $x < $n - 5; $x++) { if ($position==1) { $arr_class[]='hideRight' ;
-                                $position=0; } else { $arr_class[]='hideLeft' ; $position=1; } } } </blade endphp>
-                                @if($n != 0)
-                                    <div id="carousel">
-                                        @for($i = 0; $i < $n; $i++)
-                                            <div class="{{ $arr_class[$i] }}">
-                                                <img src="{{ asset($about_images[$i]->image) }}">
-                                            </div>
-                                        @endfor
-                                    </div>
-                                @endif
+
+
                     </div>
                 </div>
             </div>
         </section>
-        <section class="section-box mt-90 mb-50 mb-md-0">
+        <section id="slick-content">
+            <div class="slider">
+                <div>
+                    <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
+                </div>
+                <div>
+                    <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
+                </div>
+                <div>
+                    <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
+                </div>
+                <div>
+                    <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
+                </div>
+                <div>
+                    <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
+                </div>
+                <div>
+                    <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
+                </div>
+                <div>
+                    <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
+                </div>
+                <div>
+                    <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
+                </div>
+            </div>
+        </section>
+        <section class="section-box mb-50 mb-md-0 sejarah">
             <div class="container">
                 <div class="mw-650">
                     <h4 class="text-center wow animate__animated animate__fadeInUp">Sejarah Yayasan Lentera Kasih Agape
@@ -380,6 +372,9 @@
     <script src="{{ asset('front/js/plugins/scrollup.js') }}"></script>
     <script src="{{ asset('front/js/plugins/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('template/js/custom.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"
+        integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <!-- Google tag (gtag.js) -->
@@ -395,6 +390,34 @@
         gtag('config', 'G-7SRR3L8JHR');
     </script>
     <script>
+        $(document).ready(function () {
+            $('.slider').slick({
+                centerMode: true,
+                centerPadding: '20px',
+                slidesToShow: 5,
+                speed: 1500,
+                index: 2,
+                responsive: [{
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+        });
         $(document).ready(function () {
             $('#formSubscribe').submit(function (event) {
                 event.preventDefault();

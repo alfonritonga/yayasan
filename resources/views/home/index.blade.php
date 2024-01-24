@@ -12,8 +12,7 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon"
-        href="{{ asset('front/imgs/theme/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
@@ -24,11 +23,11 @@
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="loader">
-            <span>Y</span>
-            <span>L</span>
-            <span>K</span>
-            <span>A</span>
-        </div>
+			<span>Y</span>
+			<span>L</span>
+			<span>K</span>
+			<span>A</span>
+		</div>
     </div>
     <header class="header sticky-bar">
         <div class="container">
@@ -75,7 +74,7 @@
                         <!-- mobile menu start -->
                         <nav>
                             <ul class="mobile-menu font-heading">
-                                <li><a href="/">Beranda</a></li>
+                            <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
                                 <li><a href="/media-materi">Media & Materi</a></li>
@@ -121,8 +120,7 @@
                                         </svg>
                                     </div>
                                     <div class="img-wrapper blob-image">
-                                        <img alt="YLKA"
-                                            src="{{ asset('asset/Rectangle 2120.png') }}"
+                                        <img alt="YLKA" src="{{ asset('asset/Rectangle 2120.png') }}"
                                             class="img-responsive shape-1" />
                                     </div>
                                 </div>
@@ -143,16 +141,15 @@
                         <div class="box-image-findjob box-image-about ml-0">
                             <div class="blob-container">
                                 <div class="svg-wrapper">
-                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="blob" width="100%"
-                                        height="100%" style="width:450px">
+                                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="blob"
+                                        width="100%" height="100%" style="width:450px">
                                         <path
                                             d="M47.6,-24.4C59.8,-6.5,66.3,17.7,57.4,33.1C48.5,48.5,24.2,55.1,1,54.5C-22.3,53.9,-44.5,46.2,-57.2,28.6C-69.9,11,-73.1,-16.5,-62,-33.8C-50.8,-51.1,-25.4,-58.2,-3.8,-56C17.8,-53.8,35.5,-42.3,47.6,-24.4Z"
                                             transform="translate(100 100)" />
                                     </svg>
                                 </div>
                                 <div class="img-wrapper" style="width: 400px">
-                                    <img alt="YLKA"
-                                        src="{{ asset('front/imgs/program-no-bg.png') }}"
+                                    <img alt="YLKA" src="{{ asset('front/imgs/program-no-bg.png') }}"
                                         class="img-responsive shape-1" />
                                 </div>
                             </div>
@@ -160,12 +157,12 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="accordion accordion-flush" id="accordionFlushExample">
-                            @foreach($program as $x)
+                            @foreach ($program as $x)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseOne-{{ $x->id }}" aria-expanded="false"
-                                            aria-controls="flush-collapseOne-{{ $x->id }}">
+                                            data-bs-target="#flush-collapseOne-{{ $x->id }}"
+                                            aria-expanded="false" aria-controls="flush-collapseOne-{{ $x->id }}">
                                             {{ $x->title }}
                                         </button>
                                     </h2>
@@ -182,7 +179,7 @@
                 </div>
             </div>
         </section>
-        @foreach($achievements as $i)
+        @foreach ($achievements as $i)
             <section class="section-box mt-90 banner-homepage-3">
                 <div class="container py-5">
                     <h2 class="section-title mb-15 wow animate__animated animate__fadeInUp text-center">
@@ -192,10 +189,10 @@
                         <div class="col-lg-6 px-5 mb-5">
                             <div style="border-right: 2px solid #bdbdbc">
                                 <h5 class="text-brand mb-2"><strong>Program Kerja Terlaksana</strong></h5>
-                                @foreach($i->programs as $j)
-                                    <p class="achievement-text"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                            height="16" fill="#fd0249" class="bi bi-check-circle-fill"
-                                            viewBox="0 0 16 16">
+                                @foreach ($i->programs as $j)
+                                    <p class="achievement-text"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="16" height="16" fill="#fd0249"
+                                            class="bi bi-check-circle-fill" viewBox="0 0 16 16">
                                             <path
                                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                                         </svg> {{ $j->program }}</p>
@@ -207,18 +204,16 @@
                                 <h5 class="text-brand mb-2"><strong>Total Donasi Diterima</strong></h5>
                                 <p class="achievement-text">Total Donasi GEBRAKAN (Gerakan Berbagi Alkitab Anak)</p>
                                 <h4 class="mt-3"><strong>Rp.
-                                        {{ number_format($i->total_donation, 0, '.', '.') }}</strong>
-                                </h4>
+                                        {{ number_format($i->total_donation, 0, '.', '.') }}</strong></h4>
                             </div>
                         </div>
-                        @if($i->media != null && $i->url_video != null)
+                        @if ($i->media != null && $i->url_video != null)
                             <div class="col-lg-12 mb-4 py-5">
                                 <div>
                                     <a href="{{ $i->url_video }}" target="_blank">
                                         <img src="{{ asset($i->media) }}" class="w-100 shadow-1-strong rounded mb-4"
                                             alt="Mountains in the Clouds" />
-                                        <div class="play"><img
-                                                src="{{ asset('front/imgs/play.svg') }}"><span>Watch
+                                        <div class="play"><img src="{{ asset('front/imgs/play.svg') }}"><span>Watch
                                                 Full
                                                 Video</span></div>
                                     </a>
@@ -239,7 +234,7 @@
                     <div class="box-swiper">
                         <div class="swiper-container swiper-group-6">
                             <div class="swiper-wrapper pb-70 pt-5">
-                                @foreach($partner as $x)
+                                @foreach ($partner as $x)
                                     <div class="swiper-slide hover-up">
                                         <div class="item-logo">
                                             <a href="#">
@@ -268,7 +263,7 @@
                     <div class="box-swiper">
                         <div class="swiper-container swiper-group-3">
                             <div class="swiper-wrapper pb-60 pt-5">
-                                @foreach($article as $x)
+                                @foreach ($article as $x)
                                     <div class="swiper-slide">
                                         <div class="card-grid-3 hover-up">
                                             <div class="text-center card-grid-3-image">
@@ -331,8 +326,7 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('landing_donasi') }}"
-                                class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -346,8 +340,9 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
-                                            placeholder="Alamat email" required />
+                                        <input type="email" id="email" name="email"
+                                            class="input-newsletter-2" value="" placeholder="Alamat email"
+                                            required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -357,14 +352,11 @@
                         </div>
                     </div>
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
                                 alt="YLKA" /></a>
                         <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
                                 alt="YLKA" /></a>
@@ -410,20 +402,17 @@
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-7SRR3L8JHR');
-    </script>
+  gtag('config', 'G-7SRR3L8JHR');
+</script>
     <script>
-        $(document).ready(function () {
-            $('#formSubscribe').submit(function (event) {
+        $(document).ready(function() {
+            $('#formSubscribe').submit(function(event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -431,11 +420,11 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function (response) {
+                    success: function(response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function (error) {
+                    error: function(error) {
                         alert('Terjadi kesalahan');
                     }
                 });
