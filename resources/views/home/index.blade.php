@@ -264,7 +264,7 @@
                         <div class=" col-7">
                             <h5>Donasi anda sangat berarti bagi kami</h5>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 pattern-donation">
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
