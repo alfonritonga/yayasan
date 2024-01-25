@@ -49,8 +49,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Tahun</th>
-                                        <th>Total Donasi</th>
                                         <th>Status</th>
+                                        <th>Donasi</th>
                                         <th>Program</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -60,13 +60,18 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $x->year }}</td>
-                                            <td>{{ 'Rp. ' . number_format($x->total_donation, 0, '.', '.') }}</td>
                                             <td>
                                                 @if ($x->status == 1)
                                                     <span class="badge light badge-success">Aktif</span>
                                                 @else
                                                     <span class="badge light badge-warning">Tidak Aktif</span>
                                                 @endif
+                                            </td>
+                                            <td>
+                                                @foreach ($x->donations as $i)
+                                                    <span>-
+                                                        {{ $i->name . ' : Rp. ' . number_format($i->total_donation, 0, '.', '.') }}</span><br>
+                                                @endforeach
                                             </td>
                                             <td>
                                                 @foreach ($x->programs as $i)

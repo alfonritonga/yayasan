@@ -15,4 +15,9 @@ class AchievementModel extends Model
     {
         return $this->hasMany(AchievementProgramModel::class, 'achievements_id', 'id');
     }
+
+    function donations()
+    {
+        return $this->hasMany(AchievementDonationModel::class, 'achievements_id', 'id');
+    }
 }

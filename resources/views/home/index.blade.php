@@ -23,11 +23,11 @@
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="loader">
-			<span>Y</span>
-			<span>L</span>
-			<span>K</span>
-			<span>A</span>
-		</div>
+            <span>Y</span>
+            <span>L</span>
+            <span>K</span>
+            <span>A</span>
+        </div>
     </div>
     <header class="header sticky-bar">
         <div class="container">
@@ -74,7 +74,7 @@
                         <!-- mobile menu start -->
                         <nav>
                             <ul class="mobile-menu font-heading">
-                            <li><a href="/">Beranda</a></li>
+                                <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
                                 <li><a href="/media-materi">Media & Materi</a></li>
@@ -162,12 +162,14 @@
                                     <h2 class="accordion-header" id="flush-headingOne">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#flush-collapseOne-{{ $x->id }}"
-                                            aria-expanded="false" aria-controls="flush-collapseOne-{{ $x->id }}">
+                                            aria-expanded="false"
+                                            aria-controls="flush-collapseOne-{{ $x->id }}">
                                             {{ $x->title }}
                                         </button>
                                     </h2>
-                                    <div id="flush-collapseOne-{{ $x->id }}" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div id="flush-collapseOne-{{ $x->id }}"
+                                        class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                                        data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body">
                                             {{ $x->description }}
                                         </div>
@@ -202,9 +204,13 @@
                         <div class="col-lg-6 px-5 mb-5">
                             <div>
                                 <h5 class="text-brand mb-2"><strong>Total Donasi Diterima</strong></h5>
-                                <p class="achievement-text">Total Donasi GEBRAKAN (Gerakan Berbagi Alkitab Anak)</p>
-                                <h4 class="mt-3"><strong>Rp.
-                                        {{ number_format($i->total_donation, 0, '.', '.') }}</strong></h4>
+                                <ul class="ul-lists py-0">
+                                    @foreach ($i->donations as $i)
+                                        <li class="achievement-text" style="color: #fd0249 !important"> <span
+                                                style="color: black !important">{{ $i->name . ' : Rp. ' . number_format($i->total_donation, 0, '.', '.') }}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
                         @if ($i->media != null && $i->url_video != null)
@@ -402,14 +408,17 @@
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-7SRR3L8JHR');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7SRR3L8JHR');
+    </script>
     <script>
         $(document).ready(function() {
             $('#formSubscribe').submit(function(event) {

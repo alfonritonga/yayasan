@@ -46,13 +46,6 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label">Total Donasi</label>
-                                    <div class="col-sm-9">
-                                        <input type="number" required name="total_donation" class="form-control"
-                                            value="{{ (int) $achievement->total_donation }}">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label">Thumbnail</label>
                                     <div class="col-sm-9">
                                         <img src="{{ asset($achievement->media) }}" height="200">
@@ -88,6 +81,45 @@
                                         </div>
                                     </div>
                                 </fieldset>
+                                <div class="mb-3 row custom-ekeditor">
+                                    <label class="col-sm-3 col-form-label">Donasi Terkumpul</label>
+                                    <div class="col-sm-9">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" id="name_donation"
+                                                        placeholder="Nama Donasi">
+                                                    <input type="number" class="form-control" id="total_donation"
+                                                        placeholder="Total Donasi">
+                                                    <button class="btn btn-primary" type="button"
+                                                        onclick="addDonations()">Add</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="basic-list-group">
+                                                    <ul class="list-group" style="padding-left: 0 !important"
+                                                        id="list_donation">
+                                                        @foreach ($achievement->donations as $i)
+                                                            <li
+                                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                                {{ $i->name }}<strong>{{ 'Rp. ' . number_format($i->total_donation, 0, '.', '.') }}</strong>
+                                                                <span class="badge badge-danger badge-pill"
+                                                                    style="cursor: pointer"
+                                                                    onclick="deleteMe(this)"><small><i
+                                                                            class="flaticon-019-close"></i>
+                                                                    </small></span>
+                                                                <input type="hidden" name="name_donations[]"
+                                                                    value="{{ $i->name }}">
+                                                                <input type="hidden" name="total_donations[]"
+                                                                    value="{{ (int) $i->total_donation }}">
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mb-3 row custom-ekeditor">
                                     <label class="col-sm-3 col-form-label">Program Terlaksana</label>
                                     <div class="col-sm-9">
@@ -139,6 +171,46 @@
 
 @endsection
 <script>
+    function addDonations() {
+        let name_donation = $('#name_donation').val();
+        let total_donation = $('#total_donation').val();
+        if (name_donation.length > 0 && total_donation.length > 0) {
+            total_donation = parseInt(total_donation);
+            $('#name_donation').val('');
+            $('#total_donation').val('');
+            $('#list_donation').append(
+                `<li
+                    class="list-group-item d-flex justify-content-between align-items-center">
+                    ` + name_donation + ` : <strong> ` + formatRupiah(total_donation.toString(), "Rp. ") + `</strong>
+                    <span class="badge badge-danger badge-pill"
+                        style="cursor: pointer" onclick="deleteMe(this)"><small><i
+                                class="flaticon-019-close"></i>
+                        </small></span>
+                    <input type="hidden" name="name_donations[]" value="` + name_donation + `">
+                    <input type="hidden" name="total_donations[]" value="` + total_donation + `">
+                </li>`
+            );
+        }
+    }
+
+    function formatRupiah(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, "").toString(),
+            split = number_string.split(","),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? "." : "";
+            rupiah += separator + ribuan.join(".");
+        }
+
+        rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah;
+        return prefix == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
+    }
+
+
+
     function addProgram() {
         let value = $('#program').val();
         if (value.length > 0) {
