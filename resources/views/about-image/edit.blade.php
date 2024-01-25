@@ -40,7 +40,7 @@
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label">Gambar</label>
                                     <div class="col-sm-9">
-                                        <img src="{{ $about_image->media }}" width="200" height="200">
+                                        <img src="{{ asset($about_image->image) }}" width="200">
                                         <br>
                                         <input type="file" name="media" class="form-control">
                                     </div>

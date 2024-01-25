@@ -60,7 +60,7 @@ class AboutImageController extends Controller
                 'status' => $request->status == 'true' ? 1 : 0
             ];
 
-            $file = $request->file('image');
+            $file = $request->file('media');
             if ($file != null) {
                 $imageName = time() . '_' . $file->getClientOriginalName();
                 $file->move(public_path('/asset'), $imageName);
