@@ -6,6 +6,12 @@ use App\Models\MateriModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use FilippoToso\PdfWatermarker\Support\Pdf;
+use FilippoToso\PdfWatermarker\Watermarks\ImageWatermark;
+use FilippoToso\PdfWatermarker\PdfWatermarker;
+use FilippoToso\PdfWatermarker\Support\Position;
+
+
 class MateriController extends Controller
 {
     function index()
@@ -22,6 +28,7 @@ class MateriController extends Controller
     function addPost(Request $request)
     {
         $file = $request->file('image');
+        $pdf = $request->file('pdf');
         DB::beginTransaction();
         try {
             if ($file != null) {
@@ -32,9 +39,30 @@ class MateriController extends Controller
                 $path = null;
             }
 
+            if ($pdf != null) {
+                $pdfName = time() . '_' . $pdf->getClientOriginalName();
+                $pdf->move(public_path('/asset'), $pdfName);
+                $pdfpath = 'asset/' . $pdfName;
+            } else {
+                $pdfpath = null;
+            }
+
+            // Specify path to the existing pdf
+            $pdfW = new Pdf($pdfpath);
+
+            // Specify path to image. The image must have a 96 DPI resolution.
+            $watermark = new ImageWatermark('front/imgs/logowatermark.png'); 
+
+            // Create a new watermarker
+            $watermarker = new PDFWatermarker($pdfW, $watermark); 
+            
+            // Save the new PDF to its specified location
+            $watermarker->save($pdfpath);
+
             MateriModel::create([
                 'title' => $request->title,
                 'image' => $path,
+                'pdf' => $pdfpath,
                 'price' => $request->price,
                 'description' => $request->description,
                 'status' => $request->status == 'true' ? 1 : 0,
@@ -72,6 +100,27 @@ class MateriController extends Controller
                 $path = 'asset/' . $imageName;
                 $data['image'] = $path;
             }
+
+            if ($pdf != null) {
+                $pdfName = time() . '_' . $pdf->getClientOriginalName();
+                $pdf->move(public_path('/asset'), $pdfName);
+                $pdfpath = 'asset/' . $pdfName;
+            } else {
+                $pdfpath = null;
+            }
+
+            // Specify path to the existing pdf
+            $pdfW = new Pdf($pdfpath);
+
+            // Specify path to image. The image must have a 96 DPI resolution.
+            $watermark = new ImageWatermark('front/imgs/logowatermark.png'); 
+
+            // Create a new watermarker
+            $watermarker = new PDFWatermarker($pdfW, $watermark); 
+            
+            // Save the new PDF to its specified location
+            $watermarker->save($pdfpath);
+            
             $materi->update($data);
             DB::commit();
 

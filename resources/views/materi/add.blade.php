@@ -50,6 +50,12 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
+                                    <label class="col-sm-3 col-form-label">PDF</label>
+                                    <div class="col-sm-9">
+                                        <input type="file" required name="pdf" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label">Harga</label>
                                     <div class="col-sm-9">
                                         <input type="number" required name="price" class="form-control">

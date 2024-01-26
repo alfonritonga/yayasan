@@ -171,7 +171,7 @@
                                         <p>Rp.
                                             {{ number_format($i->price, 0, '.', '.') }}
                                         </p>
-                                        <a href="javascript:void(0)" class="text-fix mt-2"><strong>PREVIEW</strong>
+                                        <a href="{{ $i->pdf }}" target="_blank" class="text-fix mt-2"><strong>PREVIEW</strong>
                                         </a>
                                     </div>
                                 </div>

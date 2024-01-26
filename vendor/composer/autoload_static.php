@@ -45,6 +45,10 @@ class ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024
         array (
             'voku\\' => 5,
         ),
+        's' => 
+        array (
+            'setasign\\Fpdi\\' => 14,
+        ),
         'W' => 
         array (
             'Whoops\\' => 7,
@@ -147,6 +151,7 @@ class ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024
         'F' => 
         array (
             'Fruitcake\\Cors\\' => 15,
+            'FilippoToso\\PdfWatermarker\\' => 27,
             'Faker\\' => 6,
         ),
         'E' => 
@@ -183,6 +188,10 @@ class ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'setasign\\Fpdi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/setasign/fpdi/src',
         ),
         'Whoops\\' => 
         array (
@@ -354,8 +363,8 @@ class ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -467,6 +476,10 @@ class ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024
         array (
             0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
+        'FilippoToso\\PdfWatermarker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src',
+        ),
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
@@ -531,14 +544,19 @@ class ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AboutImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/AboutImageController.php',
+        'App\\Http\\Controllers\\AchievementController' => __DIR__ . '/../..' . '/app/Http/Controllers/AchievementController.php',
+        'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\ArticleController' => __DIR__ . '/../..' . '/app/Http/Controllers/ArticleController.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
         'App\\Http\\Controllers\\DonationController' => __DIR__ . '/../..' . '/app/Http/Controllers/DonationController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\InspirationFigureController' => __DIR__ . '/../..' . '/app/Http/Controllers/InspirationFigureController.php',
         'App\\Http\\Controllers\\JobController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobController.php',
         'App\\Http\\Controllers\\LandingInfoController' => __DIR__ . '/../..' . '/app/Http/Controllers/LandingInfoController.php',
+        'App\\Http\\Controllers\\MateriController' => __DIR__ . '/../..' . '/app/Http/Controllers/MateriController.php',
         'App\\Http\\Controllers\\MediaMateriController' => __DIR__ . '/../..' . '/app/Http/Controllers/MediaMateriController.php',
         'App\\Http\\Controllers\\PartnerController' => __DIR__ . '/../..' . '/app/Http/Controllers/PartnerController.php',
         'App\\Http\\Controllers\\PartnerListController' => __DIR__ . '/../..' . '/app/Http/Controllers/PartnerListController.php',
@@ -560,12 +578,21 @@ class ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024
         'App\\Http\\Requests\\MediaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/MediaRequest.php',
         'App\\Http\\Requests\\PartnerListRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PartnerListRequest.php',
         'App\\Http\\Requests\\PartnerRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PartnerRequest.php',
+        'App\\Http\\Requests\\PhotoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PhotoRequest.php',
+        'App\\Http\\Requests\\VideoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/VideoRequest.php',
+        'App\\Models\\AboutImageModel' => __DIR__ . '/../..' . '/app/Models/AboutImageModel.php',
+        'App\\Models\\AchievementDonationModel' => __DIR__ . '/../..' . '/app/Models/AchievementDonationModel.php',
+        'App\\Models\\AchievementModel' => __DIR__ . '/../..' . '/app/Models/AchievementModel.php',
+        'App\\Models\\AchievementProgramModel' => __DIR__ . '/../..' . '/app/Models/AchievementProgramModel.php',
+        'App\\Models\\AdminModel' => __DIR__ . '/../..' . '/app/Models/AdminModel.php',
         'App\\Models\\ArticleModel' => __DIR__ . '/../..' . '/app/Models/ArticleModel.php',
         'App\\Models\\DonationModel' => __DIR__ . '/../..' . '/app/Models/DonationModel.php',
+        'App\\Models\\InspirationFigureModel' => __DIR__ . '/../..' . '/app/Models/InspirationFigureModel.php',
         'App\\Models\\JobModel' => __DIR__ . '/../..' . '/app/Models/JobModel.php',
         'App\\Models\\JobQualificationModel' => __DIR__ . '/../..' . '/app/Models/JobQualificationModel.php',
         'App\\Models\\JobTaskModel' => __DIR__ . '/../..' . '/app/Models/JobTaskModel.php',
         'App\\Models\\LandingInfoModel' => __DIR__ . '/../..' . '/app/Models/LandingInfoModel.php',
+        'App\\Models\\MateriModel' => __DIR__ . '/../..' . '/app/Models/MateriModel.php',
         'App\\Models\\MediaModel' => __DIR__ . '/../..' . '/app/Models/MediaModel.php',
         'App\\Models\\PartnerListModel' => __DIR__ . '/../..' . '/app/Models/PartnerListModel.php',
         'App\\Models\\PartnerModel' => __DIR__ . '/../..' . '/app/Models/PartnerModel.php',
@@ -902,6 +929,7 @@ class ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/Warning.php',
+        'FPDF' => __DIR__ . '/..' . '/setasign/fpdf/fpdf.php',
         'Faker\\Calculator\\Ean' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Ean.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Inn' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Inn.php',
@@ -1408,6 +1436,23 @@ class ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024
         'Faker\\Provider\\zh_TW\\Text' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/zh_TW/Text.php',
         'Faker\\UniqueGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/UniqueGenerator.php',
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/ValidGenerator.php',
+        'FilippoToso\\PdfWatermarker\\Contracts\\Watermark' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Contracts/Watermark.php',
+        'FilippoToso\\PdfWatermarker\\Contracts\\Watermarker' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Contracts/Watermarker.php',
+        'FilippoToso\\PdfWatermarker\\Facades\\ImageWatermarker' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Facades/ImageWatermarker.php',
+        'FilippoToso\\PdfWatermarker\\Facades\\TextWatermarker' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Facades/TextWatermarker.php',
+        'FilippoToso\\PdfWatermarker\\PdfWatermarker' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/PdfWatermarker.php',
+        'FilippoToso\\PdfWatermarker\\Support\\Pdf' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Support/Pdf.php',
+        'FilippoToso\\PdfWatermarker\\Support\\Position' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Support/Position.php',
+        'FilippoToso\\PdfWatermarker\\Watermarkers\\BaseWatermarketer' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Watermarkers/BaseWatermarketer.php',
+        'FilippoToso\\PdfWatermarker\\Watermarkers\\Exceptions\\InvalidColorException' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Watermarkers/Exceptions/InvalidColorException.php',
+        'FilippoToso\\PdfWatermarker\\Watermarkers\\Exceptions\\InvalidFontFileException' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Watermarkers/Exceptions/InvalidFontFileException.php',
+        'FilippoToso\\PdfWatermarker\\Watermarkers\\Exceptions\\InvalidInputFileException' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Watermarkers/Exceptions/InvalidInputFileException.php',
+        'FilippoToso\\PdfWatermarker\\Watermarkers\\Exceptions\\InvalidOutputFileException' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Watermarkers/Exceptions/InvalidOutputFileException.php',
+        'FilippoToso\\PdfWatermarker\\Watermarkers\\Exceptions\\InvalidWatermarkFileException' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Watermarkers/Exceptions/InvalidWatermarkFileException.php',
+        'FilippoToso\\PdfWatermarker\\Watermarkers\\ImageWatermarker' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Watermarkers/ImageWatermarker.php',
+        'FilippoToso\\PdfWatermarker\\Watermarkers\\TextWatermarker' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Watermarkers/TextWatermarker.php',
+        'FilippoToso\\PdfWatermarker\\Watermarks\\ImageWatermark' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Watermarks/ImageWatermark.php',
+        'FilippoToso\\PdfWatermarker\\Watermarks\\TextWatermark' => __DIR__ . '/..' . '/filippo-toso/pdf-watermarker/src/Watermarks/TextWatermark.php',
         'Fruitcake\\Cors\\CorsService' => __DIR__ . '/..' . '/fruitcake/php-cors/src/CorsService.php',
         'Fruitcake\\Cors\\Exceptions\\InvalidOptionException' => __DIR__ . '/..' . '/fruitcake/php-cors/src/Exceptions/InvalidOptionException.php',
         'GrahamCampbell\\ResultType\\Error' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Error.php',
@@ -6553,6 +6598,57 @@ class ComposerStaticInit5beca10b30cfa37a4ecbbcc740b1d024
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'setasign\\Fpdi\\FpdfTpl' => __DIR__ . '/..' . '/setasign/fpdi/src/FpdfTpl.php',
+        'setasign\\Fpdi\\FpdfTplTrait' => __DIR__ . '/..' . '/setasign/fpdi/src/FpdfTplTrait.php',
+        'setasign\\Fpdi\\FpdfTrait' => __DIR__ . '/..' . '/setasign/fpdi/src/FpdfTrait.php',
+        'setasign\\Fpdi\\Fpdi' => __DIR__ . '/..' . '/setasign/fpdi/src/Fpdi.php',
+        'setasign\\Fpdi\\FpdiException' => __DIR__ . '/..' . '/setasign/fpdi/src/FpdiException.php',
+        'setasign\\Fpdi\\FpdiTrait' => __DIR__ . '/..' . '/setasign/fpdi/src/FpdiTrait.php',
+        'setasign\\Fpdi\\GraphicsState' => __DIR__ . '/..' . '/setasign/fpdi/src/GraphicsState.php',
+        'setasign\\Fpdi\\Math\\Matrix' => __DIR__ . '/..' . '/setasign/fpdi/src/Math/Matrix.php',
+        'setasign\\Fpdi\\Math\\Vector' => __DIR__ . '/..' . '/setasign/fpdi/src/Math/Vector.php',
+        'setasign\\Fpdi\\PdfParser\\CrossReference\\AbstractReader' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/CrossReference/AbstractReader.php',
+        'setasign\\Fpdi\\PdfParser\\CrossReference\\CrossReference' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/CrossReference/CrossReference.php',
+        'setasign\\Fpdi\\PdfParser\\CrossReference\\CrossReferenceException' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/CrossReference/CrossReferenceException.php',
+        'setasign\\Fpdi\\PdfParser\\CrossReference\\FixedReader' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/CrossReference/FixedReader.php',
+        'setasign\\Fpdi\\PdfParser\\CrossReference\\LineReader' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/CrossReference/LineReader.php',
+        'setasign\\Fpdi\\PdfParser\\CrossReference\\ReaderInterface' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/CrossReference/ReaderInterface.php',
+        'setasign\\Fpdi\\PdfParser\\Filter\\Ascii85' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Filter/Ascii85.php',
+        'setasign\\Fpdi\\PdfParser\\Filter\\Ascii85Exception' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Filter/Ascii85Exception.php',
+        'setasign\\Fpdi\\PdfParser\\Filter\\AsciiHex' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Filter/AsciiHex.php',
+        'setasign\\Fpdi\\PdfParser\\Filter\\FilterException' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Filter/FilterException.php',
+        'setasign\\Fpdi\\PdfParser\\Filter\\FilterInterface' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Filter/FilterInterface.php',
+        'setasign\\Fpdi\\PdfParser\\Filter\\Flate' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Filter/Flate.php',
+        'setasign\\Fpdi\\PdfParser\\Filter\\FlateException' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Filter/FlateException.php',
+        'setasign\\Fpdi\\PdfParser\\Filter\\Lzw' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Filter/Lzw.php',
+        'setasign\\Fpdi\\PdfParser\\Filter\\LzwException' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Filter/LzwException.php',
+        'setasign\\Fpdi\\PdfParser\\PdfParser' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/PdfParser.php',
+        'setasign\\Fpdi\\PdfParser\\PdfParserException' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/PdfParserException.php',
+        'setasign\\Fpdi\\PdfParser\\StreamReader' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/StreamReader.php',
+        'setasign\\Fpdi\\PdfParser\\Tokenizer' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Tokenizer.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfArray' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfArray.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfBoolean' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfBoolean.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfDictionary' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfDictionary.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfHexString' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfHexString.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfIndirectObject' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfIndirectObject.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfIndirectObjectReference' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfIndirectObjectReference.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfName' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfName.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfNull' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfNull.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfNumeric' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfNumeric.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfStream' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfStream.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfString' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfString.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfToken' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfToken.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfType' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfType.php',
+        'setasign\\Fpdi\\PdfParser\\Type\\PdfTypeException' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfParser/Type/PdfTypeException.php',
+        'setasign\\Fpdi\\PdfReader\\DataStructure\\Rectangle' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfReader/DataStructure/Rectangle.php',
+        'setasign\\Fpdi\\PdfReader\\Page' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfReader/Page.php',
+        'setasign\\Fpdi\\PdfReader\\PageBoundaries' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfReader/PageBoundaries.php',
+        'setasign\\Fpdi\\PdfReader\\PdfReader' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfReader/PdfReader.php',
+        'setasign\\Fpdi\\PdfReader\\PdfReaderException' => __DIR__ . '/..' . '/setasign/fpdi/src/PdfReader/PdfReaderException.php',
+        'setasign\\Fpdi\\TcpdfFpdi' => __DIR__ . '/..' . '/setasign/fpdi/src/TcpdfFpdi.php',
+        'setasign\\Fpdi\\Tcpdf\\Fpdi' => __DIR__ . '/..' . '/setasign/fpdi/src/Tcpdf/Fpdi.php',
+        'setasign\\Fpdi\\Tfpdf\\FpdfTpl' => __DIR__ . '/..' . '/setasign/fpdi/src/Tfpdf/FpdfTpl.php',
+        'setasign\\Fpdi\\Tfpdf\\Fpdi' => __DIR__ . '/..' . '/setasign/fpdi/src/Tfpdf/Fpdi.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
     );
 

@@ -14,6 +14,7 @@ class MateriModel extends Model
         'image',
         'price',
         'description',
-        'status'
+        'status',
+        'pdf'
     ];
 }
