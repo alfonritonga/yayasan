@@ -205,9 +205,9 @@
                             <div>
                                 <h5 class="text-brand mb-2"><strong>Total Donasi Diterima</strong></h5>
                                 <ul class="ul-lists py-0">
-                                    @foreach ($i->donations as $i)
+                                    @foreach ($i->donations as $j)
                                         <li class="achievement-text" style="color: #fd0249 !important"> <span
-                                                style="color: black !important">{{ $i->name . ' : Rp. ' . number_format($i->total_donation, 0, '.', '.') }}</span>
+                                                style="color: black !important">{{ $j->name . ' : Rp. ' . number_format($j->total_donation, 0, '.', '.') }}</span>
                                         </li>
                                     @endforeach
                                 </ul>
