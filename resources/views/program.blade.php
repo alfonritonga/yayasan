@@ -12,7 +12,8 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/imgs/theme/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon"
+        href="{{ asset('front/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
@@ -101,8 +102,8 @@
                 </div>
             </div>
         </section>
-        @foreach ($program as $i)
-            @if ($i->image_position == 1)
+        @foreach($program as $i)
+            @if($i->image_position == 1)
                 <section class="section-box mt-90 @if ($loop->last) mb-200 @endif">
                     <div class="container">
                         <div class="row mt-50">
@@ -121,13 +122,14 @@
                                 <p
                                     class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
                                     {{ $i->description }}</p>
-                                @foreach ($i->tasks as $j)
+                                @foreach($i->tasks as $j)
                                     <div class="list-program">
                                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
                                             data-wow-delay=".0s">
                                             <div class="row">
                                                 <div class="col-1">
-                                                    <img src="{{ asset('front/imgs/CheckCircle_active.png') }}">
+                                                    <img
+                                                        src="{{ asset('front/imgs/CheckCircle_active.png') }}">
                                                 </div>
                                                 <div class="col-11">
                                                     {{ $j->task }}
@@ -151,13 +153,14 @@
                                 <p
                                     class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
                                     {{ $i->description }}</p>
-                                @foreach ($i->tasks as $j)
+                                @foreach($i->tasks as $j)
                                     <div class="list-program">
                                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
                                             data-wow-delay=".0s">
                                             <div class="row">
                                                 <div class="col-1">
-                                                    <img src="{{ asset('front/imgs/CheckCircle_active.png') }}">
+                                                    <img
+                                                        src="{{ asset('front/imgs/CheckCircle_active.png') }}">
                                                 </div>
                                                 <div class="col-11">
                                                     {{ $j->task }}
@@ -189,7 +192,7 @@
     <footer class="footer pt-50" style="margin-top: -8px;">
         <div class="container">
             <div class="row text-center">
-                <div class="donation-box p-30">
+                <div class="donation-box p-30 mobileResponsive_">
                     <div class="row pt-30 pl-90 text-center justify-content-md-center">
                         <div class=" col-7">
                             <h5>Donasi anda sangat berarti bagi kami</h5>
@@ -198,7 +201,20 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}"
+                                class="btn btn-donasi py-3 font-heading">Donasi
+                                Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="donation-box p-30 mobileResponsive" style="display: none;">
+                    <div class="row pt-20 text-center justify-content-md-center">
+                        <div class=" col-12">
+                            <h5 style="text-align:center; margin-left: 2%;">Donasi anda sangat berarti bagi kami</h5>
+                        </div>
+                        <div class="col-12 mt-10">
+                            <a href="{{ route('landing_donasi') }}"
+                                class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -212,9 +228,8 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email"
-                                            class="input-newsletter-2" value="" placeholder="Alamat email"
-                                            required />
+                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
+                                            placeholder="Alamat email" required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -227,11 +242,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
                                 alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
+                        <a href="#"><img
+                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
                                 alt="YLKA" /></a>
                         <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
                                 alt="YLKA" /></a>
@@ -288,8 +306,8 @@
         gtag('config', 'G-7SRR3L8JHR');
     </script>
     <script>
-        $(document).ready(function() {
-            $('#formSubscribe').submit(function(event) {
+        $(document).ready(function () {
+            $('#formSubscribe').submit(function (event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -297,11 +315,11 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function(response) {
+                    success: function (response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function(error) {
+                    error: function (error) {
                         alert('Terjadi kesalahan');
                     }
                 });

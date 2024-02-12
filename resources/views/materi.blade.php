@@ -277,7 +277,7 @@
     <footer class="footer pt-50" style="margin-top: -8px;">
         <div class="container">
             <div class="row text-center">
-                <div class="donation-box p-30">
+            <div class="donation-box p-30 mobileResponsive_">
                     <div class="row pt-30 pl-90 text-center justify-content-md-center">
                         <div class=" col-7">
                             <h5>Donasi anda sangat berarti bagi kami</h5>
@@ -286,6 +286,18 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
+                            <a href="{{ route('landing_donasi') }}"
+                                class="btn btn-donasi py-3 font-heading">Donasi
+                                Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="donation-box p-30 mobileResponsive" style="display: none;">
+                    <div class="row pt-20 text-center justify-content-md-center">
+                        <div class=" col-12">
+                            <h5 style="text-align:center; margin-left: 2%;">Donasi anda sangat berarti bagi kami</h5>
+                        </div>
+                        <div class="col-12 mt-10">
                             <a href="{{ route('landing_donasi') }}"
                                 class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>

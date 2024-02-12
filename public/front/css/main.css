@@ -415,6 +415,36 @@ body {
   }
 }
 
+@media (max-width: 462px) {
+  .mobileResponsive{
+    display: block !important;
+    margin: 0px;
+  }
+
+  .mobileResponsive .col-12 .h5{
+    margin-left: 2% !important;
+    text-align: center !important;
+  }
+
+  .donation-box{
+    height: 250px !important;
+  }
+
+  .mobileResponsive .donation-box h5{
+    margin-left: 0px !important;
+    text-align: center !important;
+  }
+
+  .mobileResponsive .btn-donasi{
+      width: 100% !important;
+      margin-left: 0px;
+  }
+
+  .mobileResponsive_{
+    display: none !important;
+  }
+}
+
 strong {
   font-weight: bold;
 }
@@ -1167,43 +1197,58 @@ input:focus {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .loader {
   -webkit-perspective: 700px;
-  perspective: 700px; }
+  perspective: 700px;
+}
 
-.loader > span {
+.loader>span {
   font-size: 60px;
   color: #FD0249;
-  font-family: "franklin gothic medium",sans-serif;
+  font-family: "franklin gothic medium", sans-serif;
   display: inline-block;
   animation: flip 2.6s infinite linear;
   transform-origin: 0 70%;
   transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d; }
+  -webkit-transform-style: preserve-3d;
+}
 
 @keyframes flip {
   35% {
-    transform: rotateX(360deg); }
+    transform: rotateX(360deg);
+  }
+
   100% {
-    transform: rotatex(360deg); } }
-.loader > span:nth-child(even) {
-  color: #FD0249; }
+    transform: rotatex(360deg);
+  }
+}
 
-.loader > span:nth-child(2) {
+.loader>span:nth-child(even) {
+  color: #FD0249;
+}
+
+.loader>span:nth-child(2) {
   animation-delay: 0.3s;
-  color: #FD0249; }
+  color: #FD0249;
+}
 
-.loader > span:nth-child(3) {
-  animation-delay: 0.6s; color: #FD0249;}
+.loader>span:nth-child(3) {
+  animation-delay: 0.6s;
+  color: #FD0249;
+}
 
-.loader > span:nth-child(4) {
+.loader>span:nth-child(4) {
   animation-delay: 0.9s;
-  color: #FD0249; }
+  color: #FD0249;
+}
 
-.loader > span:nth-child(5) {
-  animation-delay: 1.2s; color: #FD0249; }
+.loader>span:nth-child(5) {
+  animation-delay: 1.2s;
+  color: #FD0249;
+}
 
 select {
   width: 100%;
@@ -7821,60 +7866,61 @@ label {
 
 @media screen and (min-width: 767px) and (max-width: 991px) {
   .donation-box .pattern-donation {
-      display: none !important;
+    display: none !important;
   }
 
-  .donation-box h5{
-      color: #FFF;
-      font-family: Rubik;
-      font-size: 32px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 43px;
-      margin-left: -160px;
-      letter-spacing: -0.5px;
-      margin-top: -17px;
+  .donation-box h5 {
+    color: #FFF;
+    font-family: Rubik;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 43px;
+    margin-left: -160px;
+    letter-spacing: -0.5px;
+    margin-top: -17px;
   }
 }
+
 @media only screen and (max-width: 1250px) {
-  .donation-box h5{
-      color: #FFF;
-      font-family: Rubik;
-      font-size: 32px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 55px;
-      letter-spacing: -0.5px;
-      margin-left: -110px;
-      margin-top: -7px;
+  .donation-box h5 {
+    color: #FFF;
+    font-family: Rubik;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 55px;
+    letter-spacing: -0.5px;
+    margin-left: -110px;
+    margin-top: -7px;
   }
 }
 
 @media only screen and (max-width: 767px) {
   .donation-box h5 {
-      text-align: left;
-      color: #FFF;
-      font-family: Rubik;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 700;
-      margin-top: -12px;
-      margin-left: -74px;
-      line-height: 1.6;
+    text-align: left;
+    color: #FFF;
+    font-family: Rubik;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    margin-top: -12px;
+    margin-left: -74px;
+    line-height: 1.6;
   }
 
   .donation-box .btn-donasi {
-      background-color: #ffffff;
-      width: 220%;
-      border-radius: 5px !important;
-      height: 78px;
-      margin-left: -16px;
-      margin-top: -12px;
-      line-height: 25px;
+    background-color: #ffffff;
+    width: 220%;
+    border-radius: 5px !important;
+    height: 78px;
+    margin-left: -16px;
+    margin-top: -12px;
+    line-height: 25px;
   }
 
   .donation-box .pattern-donation {
-      display: none !important;
+    display: none !important;
   }
 }
 
@@ -8150,29 +8196,54 @@ label {
 @media (max-width: 612.98px) {
 
   .box-subscribe {
-      margin-left: 25px !important;
+    margin-left: 25px !important;
   }
 }
 
 @media screen and (min-width: 575.98px) and (max-width: 753px) {
   .box-subscribe {
-      margin-left: 25px !important;
+    margin-left: 25px !important;
   }
 }
 
 @media screen and (min-width: 575.98px) and (max-width: 767px) {
   .box-subscribe {
-      margin-left: 25px !important;
+    margin-left: 25px !important;
+  }
+}
+
+
+@media screen and (min-width: 350px) and (max-width: 462px) {
+  .donation-box .col-7 {
+    display: none !important;
+  }
+
+  .donation-box .btn-donasi {
+    background-color: #ffffff;
+    /* width: 2752%; */
+    border-radius: 5px !important;
+    height: 78px;
+    margin-left: -76px;
+    margin-top: -12px;
+    line-height: 47px;
+    margin: 0 auto !important;
+  }
+
+}
+
+@media screen and (min-width: 100px) and (max-width: 1053px) {
+  .btn-open-map{
+    width: 100% !important;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 995px) {
   .box-subscribe {
-      margin-left: 145px !important;
+    margin-left: 145px !important;
   }
 
   .btn-subcribe {
-      width: 132% !important;
+    width: 132% !important;
   }
 }
 
@@ -8457,23 +8528,23 @@ label {
 }
 
 @media screen and (min-width: 992px) and (max-width: 4000px) {
- .banner-homepage-3 .banner-imgs{
-  margin-top: 18% !important;
- }
+  .banner-homepage-3 .banner-imgs {
+    margin-top: 18% !important;
+  }
 
- .blob-home{
-  width: 700px !important;
- }
+  .blob-home {
+    width: 700px !important;
+  }
 
- .img-wrapper{
-  width: 600px !important;
- }
+  .img-wrapper {
+    width: 600px !important;
+  }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1400px) {
-  .banner-homepage-3 .banner-imgs{
+  .banner-homepage-3 .banner-imgs {
     margin-top: 50% !important;
-   }
+  }
 }
 
 /*OTHER SCREEN*/
