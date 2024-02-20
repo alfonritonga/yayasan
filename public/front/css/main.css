@@ -7612,6 +7612,7 @@ label {
   background: var(--Primary, #fd0249);
   width: 30%;
   color: #ffffff;
+  width: 100% !important;
 }
 
 .kontak div img {

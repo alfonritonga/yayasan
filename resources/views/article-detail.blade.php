@@ -243,13 +243,13 @@
                         <div class="col-md-9 text-md-end text-start pt-15">
                             <nav class="nav-main-menu d-none d-xl-block">
                                 <ul class="main-menu">
-                                    <li><a href="index.html">Beranda</a></li>
-                                    <li><a href="index.html">Tentang Kami</a></li>
-                                    <li><a href="index.html">Program</a></li>
-                                    <li><a href="index.html">Media & Materi</a></li>
-                                    <li><a href="index.html">Donasi</a></li>
-                                    <li><a href="index.html">Lowongan Kerja</a></li>
-                                    <li><a href="index.html">Kontak</a></li>
+                                    <li><a href="/">Beranda</a></li>
+                                    <li><a href="/tentang">Tentang Kami</a></li>
+                                    <li><a href="/program">Program</a></li>
+                                    <li><a href="/media-materi">Media & Materi</a></li>
+                                    <li><a href="/donasi">Donasi</a></li>
+                                    <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
+                                    <li><a href="/kontak">Kontak</a></li>
                                 </ul>
                             </nav>
                         </div>
