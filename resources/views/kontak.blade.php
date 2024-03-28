@@ -168,7 +168,7 @@
                             </h4>
                             <p
                                 class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                                Ada pertanyaan? Silahkan hubungi pengurus kami untuk informasi lebih lanjut
+                                Untuk informasi lebih lanjut silahkan menghubungi pengurus kami.
                             </p>
                         </div>
                         <div class="row mt-60">

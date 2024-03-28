@@ -170,9 +170,11 @@
                                         src="{{ asset('front/imgs/ic_support.svg') }}" /></figure>
                             </div>
                             <div class="card-info-bottom">
-                                <!-- <h3><span class="count">15</span>00+</h3>
-                                <strong>Ready perfect jobs</strong> -->
-                                <p class="text-mutted">Bekerjasama dengan dan menggerakkan gereja yang resmi dan mapan.
+                                <!-- <h3><span class="count">15</span>00+</h3>-->
+                                <strong>Visi</strong> 
+                                <p class="text-mutted">Terwujudnya Pelayanan Holistik di
+Komunitas Masyarakat Indonesia secara berkelanjutan - Indonesia Bagi
+KRis.
                                 </p>
                             </div>
                         </div>
@@ -185,11 +187,11 @@
                                 </figure>
                             </div>
                             <div class="card-info-bottom">
-                                <!-- <h3><span class="count">8</span>00K</h3>
-                                <strong>Candidate calls</strong> -->
-                                <p class="text-mutted">Pelayanan anak dengan menggerakkan dan menguatkan gereja-gereja,
-                                    pelayanan lokal dan lembaga untuk membawa harapan, iman dan kehidupan kepada
-                                    anak-anak di Indonesia.</p>
+                                <!-- <h3><span class="count">8</span>00K</h3> -->
+                                <strong>Misi</strong>
+                                <p class="text-mutted">Injil ke orang yang belum terjangkau,
+Injil ke generasi baru, Saling melayani, Saling mengasihi, Muridkanlah, Komunikasi yang
+inovatif, Kepengurusan yang bertanggung jawab.</p>
                             </div>
                         </div>
                     </div>
@@ -201,10 +203,10 @@
                                 </figure>
                             </div>
                             <div class="card-info-bottom">
-                                <!-- <h3><span class="count">12</span>00</h3>
-                                <strong>Jobs posted</strong> -->
-                                <p class="text-mutted">Melalui komunitas, menggerakkan masyarakat untuk menciptakan
-                                    harapan dan masa depan yang lebih baik untuk kehidupan mereka.</p>
+                                <!-- <h3><span class="count">12</span>00</h3>-->
+                                <strong>Nilai - Nilai</strong> 
+                                <p class="text-mutted">Nilai Dinamis artinya YLKA senantiasa bergerak dan bergembang. Nilai Menghormati artinya
+YLKA senantiasa menjaga dan menjamin martabat setiap rekan kerja. Nilai Keterbukaan artinya YLKA senantiasa menjaga keterbukaan dan kebebasan dari setiap pihak yang berkerja sama. Nilai Membangun Kesatuan artinya YLKA senantiasa menghargai setiap perbedaan dan menjunjung persatuan untuk mencapai tujuan Bersama. Nilai Pelayanan adalah YLKA senantiasa melayani seperti Kristus melayani kita terlebih dahulu.</p>
                             </div>
                         </div>
                     </div>

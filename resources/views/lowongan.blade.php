@@ -101,9 +101,8 @@
                             Kerja
                         </h3>
                         <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                            Di Yayasan Lenetera Kasih Agape, waktu anda tidak hanya dihabiskan dengan sekedar bekerja.
-                            Dengan bergabung bersama Yayasan Lenetera Kasih Agape, anda menjadi bagian dari ratusan
-                            staff kami untuk melayani masyarakat di seluruh Indonesia.</p>
+                            Jika anda memiliki kerinduan melayani anak, remaja, pemuda, komunitas, gereja dan pelayanan
+                            misi lainnya, mari bergabung dengan kami!</p>
                     </div>
                 </div>
             </div>
@@ -161,7 +160,7 @@
                         <h3 class="section-title-large mb-30 wow animate__animated animate__fadeInUp">Sosok Inspiratif
                         </h3>
                         <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                            Apa kata mereka yang sudah bergabung dengan Yayasan Lentera Kasih Agape?</p>
+                            Apa kata mereka tentang Yayasan Lentera Kasih Agape?</p>
                     </div>
                 </div>
             </div>
