@@ -57,7 +57,7 @@ class HomeController extends Controller
     function media()
     {
         $article = ArticleModel::with('admin')->orderBy('id', 'desc')->paginate(6);
-        $materi = MateriModel::orderBy('id', 'desc')->limit('4')->get();
+        $materi = MateriModel::orderBy('id', 'desc')->paginate(4);
         $data_photo = MediaModel::with(['admin'])->where('type', 'photo')->orderBy('id', 'asc')->get();
         $photos = $data_photo->toArray();
         $videos = MediaModel::with(['admin'])->where('type', 'video')->orderBy('id', 'desc')->limit(4)->get();

@@ -114,10 +114,12 @@
         </section>
         <section id="slick-content">
             <div class="slider">
-            @foreach($about_images as $i)
-                <div>
-                    <div class="slide-h3" style="background-image: url('{{ asset($i->image)}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
-                </div>
+                @foreach($about_images as $i)
+                    <div>
+                        <div class="slide-h3"
+                            style="background-image: url('{{ asset($i->image) }}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+                            &nbsp;</div>
+                    </div>
 
                 @endforeach
                 <!-- <div>
@@ -171,10 +173,10 @@
                             </div>
                             <div class="card-info-bottom">
                                 <!-- <h3><span class="count">15</span>00+</h3>-->
-                                <strong>Visi</strong> 
+                                <strong>Visi</strong>
                                 <p class="text-mutted">Terwujudnya Pelayanan Holistik di
-Komunitas Masyarakat Indonesia secara berkelanjutan - Indonesia Bagi
-KRis.
+                                    Komunitas Masyarakat Indonesia secara berkelanjutan - Indonesia Bagi
+                                    KRis.
                                 </p>
                             </div>
                         </div>
@@ -190,8 +192,9 @@ KRis.
                                 <!-- <h3><span class="count">8</span>00K</h3> -->
                                 <strong>Misi</strong>
                                 <p class="text-mutted">Injil ke orang yang belum terjangkau,
-Injil ke generasi baru, Saling melayani, Saling mengasihi, Muridkanlah, Komunikasi yang
-inovatif, Kepengurusan yang bertanggung jawab.</p>
+                                    Injil ke generasi baru, Saling melayani, Saling mengasihi, Muridkanlah, Komunikasi
+                                    yang
+                                    inovatif, Kepengurusan yang bertanggung jawab.</p>
                             </div>
                         </div>
                     </div>
@@ -204,9 +207,14 @@ inovatif, Kepengurusan yang bertanggung jawab.</p>
                             </div>
                             <div class="card-info-bottom">
                                 <!-- <h3><span class="count">12</span>00</h3>-->
-                                <strong>Nilai - Nilai</strong> 
-                                <p class="text-mutted">Nilai Dinamis artinya YLKA senantiasa bergerak dan bergembang. Nilai Menghormati artinya
-YLKA senantiasa menjaga dan menjamin martabat setiap rekan kerja. Nilai Keterbukaan artinya YLKA senantiasa menjaga keterbukaan dan kebebasan dari setiap pihak yang berkerja sama. Nilai Membangun Kesatuan artinya YLKA senantiasa menghargai setiap perbedaan dan menjunjung persatuan untuk mencapai tujuan Bersama. Nilai Pelayanan adalah YLKA senantiasa melayani seperti Kristus melayani kita terlebih dahulu.</p>
+                                <strong>Nilai - Nilai</strong>
+                                <p class="text-mutted">Nilai Dinamis artinya YLKA senantiasa bergerak dan bergembang.
+                                    Nilai Menghormati artinya
+                                    YLKA senantiasa menjaga dan menjamin martabat setiap rekan kerja. Nilai Keterbukaan
+                                    artinya YLKA senantiasa menjaga keterbukaan dan kebebasan dari setiap pihak yang
+                                    berkerja sama. Nilai Membangun Kesatuan artinya YLKA senantiasa menghargai setiap
+                                    perbedaan dan menjunjung persatuan untuk mencapai tujuan Bersama. Nilai Pelayanan
+                                    adalah YLKA senantiasa melayani seperti Kristus melayani kita terlebih dahulu.</p>
                             </div>
                         </div>
                     </div>

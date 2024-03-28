@@ -155,7 +155,7 @@
                         Materi dan Buku dari Yayasan Lentera Kasih Agape
                     </p>
                 </div>
-                <div class="row mt-70 mb-150">
+                <div class="row mt-70 mb-50">
                     @foreach($materi as $i)
                         <div class="col-lg-6">
                             <div class="post-listing">
@@ -178,6 +178,9 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+                <div class="paginations d-flex justify-content-center">
+                    {{ $materi->links() }}
                 </div>
             </div>
         </section>
