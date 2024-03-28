@@ -123,7 +123,7 @@
                                     <img src="{{ asset('front/imgs/phone.svg') }}">
                                 </div>
                                 <div class="col-10">
-                                    0812 – 6330 - 3002
+                                    0822 6733 2889
                                 </div>
                             </div>
                             <div class="row mt-10">
@@ -131,7 +131,7 @@
                                     <img src="{{ asset('front/imgs/email.svg') }}">
                                 </div>
                                 <div class="col-10">
-                                    lenterakasihagape@gmail.com
+                                    ylkaindonesia@gmail.com
                                 </div>
                             </div>
 

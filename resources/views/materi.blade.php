@@ -98,7 +98,7 @@
                     <h4 class="text-center wow animate__animated animate__fadeInUp">Artikel Terbaru
                     </h4>
                     <p class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                        Rilis berita terbaru dari Yayasan Lentera Kasih Agape
+                        Rilisan berita terbaru dari Yayasan Lentera Kasih Agape
                     </p>
                 </div>
             </div>
