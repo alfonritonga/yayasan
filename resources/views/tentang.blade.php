@@ -176,7 +176,7 @@
                                 <strong>Visi</strong>
                                 <p class="text-mutted">Terwujudnya Pelayanan Holistik di
                                     Komunitas Masyarakat Indonesia secara berkelanjutan - Indonesia Bagi
-                                    KRis.
+                                    Kristus.
                                 </p>
                             </div>
                         </div>

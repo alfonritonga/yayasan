@@ -203,7 +203,9 @@
                         </div>
                         <div class="col-lg-6 px-5 mb-5">
                             <div>
-                                <h5 class="text-brand mb-2"><strong>Total Donasi Diterima</strong></h5>
+                                <h5 class="text-brand mb-2">
+                                {{-- <strong>Total Donasi Diterima</strong> --}}
+                                </h5>
                                 <ul class="ul-lists py-0">
                                     @foreach ($i->donations as $j)
                                         <li class="achievement-text" style="color: #fd0249 !important"> <span
