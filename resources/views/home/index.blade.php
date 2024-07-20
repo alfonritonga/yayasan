@@ -292,12 +292,12 @@
                                                     </div>
                                                 </div>
                                                 <h5 class="mt-15 heading-md"><a
-                                                        href="/blog/{{ $x->slug }}">{{ \Illuminate\Support\Str::limit($x->title, 50, $end = '...') }}</a>
+                                                        href="/article/{{ $x->slug }}">{{ \Illuminate\Support\Str::limit($x->title, 50, $end = '...') }}</a>
                                                 </h5>
                                                 <div class="card-2-bottom mt-50">
                                                     <div class="row">
                                                         <div class="col-lg-9 col-8">
-                                                            <a href="/blog/{{ $x->slug }}"
+                                                            <a href="/article/{{ $x->slug }}"
                                                                 class="btn btn-border btn-brand-hover">Baca
                                                                 Selengkapnya</a>
                                                         </div>
