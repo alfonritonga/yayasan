@@ -275,7 +275,7 @@
                                     <div class="swiper-slide">
                                         <div class="card-grid-3 hover-up">
                                             <div class="text-center card-grid-3-image">
-                                                <a href="/blog/{{ $x->slug }}">
+                                                <a href="/article/{{ $x->slug }}">
                                                     <figure style="max-height: 200px"><img alt="YLKA"
                                                             src="{{ $x->media }}" />
                                                     </figure>
