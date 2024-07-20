@@ -12,8 +12,7 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon"
-        href="{{ asset('front/imgs/theme/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/imgs/faviconylka.png') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
