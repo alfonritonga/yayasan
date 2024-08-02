@@ -146,7 +146,7 @@
                 </div>
             </div>
         </section>
-        <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
+        {{-- <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
             <div class="container">
                 <div class="mw-650">
                     <h4 class="text-center wow animate__animated animate__fadeInUp">Materi
@@ -183,7 +183,7 @@
                     {{ $materi->links() }}
                 </div>
             </div>
-        </section>
+        </section> --}}
         <section class="section-box mt-40 mb-40 mb-md-0 p-20 pt-35">
             <div class="container galery-photo">
                 <div class="mw-650">
