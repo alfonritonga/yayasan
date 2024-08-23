@@ -34,6 +34,8 @@ Route::get('/welcome', function () {
     return view('blob');
 });
 
+Route::get('/sitemap.xml', [HomeController::class, 'sitemap']);
+
 Route::get('/login', [AuthController::class, 'viewlogin'])->name('login');
 Route::post('/login', [AuthController::class, 'proccesslogin']);
 Route::post('/', [AuthController::class, 'proccesslogin']);

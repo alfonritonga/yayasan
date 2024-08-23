@@ -4,8 +4,8 @@ namespace App\Console\Commands;
 
 use App\Models\ArticleModel;
 use Illuminate\Console\Command;
-use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
+use Spatie\Sitemap\Sitemap;
 
 class GenerateSitemap extends Command
 {

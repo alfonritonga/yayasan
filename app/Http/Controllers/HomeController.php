@@ -28,6 +28,11 @@ class HomeController extends Controller
         return view('home.index', compact('article', 'partner', 'program', 'landing_info', 'achievements'));
     }
 
+    function sitemap(){
+        $posts = ArticleModel::orderBy('updated_at', 'DESC')->get();
+        return response()->view('sitemap', compact('posts'))->header('Content-Type', 'text/xml');
+    }
+
     function tentang()
     {
         $partner = PartnerModel::with(['lists'])->orderBy('id', 'asc')->get();
