@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>YLKA - Materi dan Galery</title>
+    <title>YLKA - Artikel & Galeri</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

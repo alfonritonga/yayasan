@@ -120,8 +120,8 @@
                                                 transform="translate(100 100)" />
                                         </svg>
                                     </div>
-                                    <div class="img-wrapper blob-image">
-                                        <img alt="YLKA" src="{{ asset('asset/Rectangle 2120.png') }}"
+                                   <div class="img-wrapper blob-image">
+                                        <img width="130%" height="110%" alt="YLKA" src="{{ asset('asset/Rectangle 2120.png') }}"
                                             class="img-responsive shape-1" />
                                     </div>
                                 </div>
