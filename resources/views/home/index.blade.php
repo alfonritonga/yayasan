@@ -74,7 +74,7 @@
                     <div class="mobile-menu-wrap mobile-header-border">
                         <!-- mobile menu start -->
                         <nav>
-                             <ul class="mobile-menu font-heading">
+                            <ul class="mobile-menu font-heading">
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
@@ -84,7 +84,7 @@
                                 <li><a href="/kontak">Kontak</a></li>
                                 <li><a href="https://market.lenterakasihagape.org">Market</a></li>
                             </ul>
-                        <!-- mobile menu end -->
+                            <!-- mobile menu end -->
                     </div>
                 </div>
             </div>
@@ -120,8 +120,9 @@
                                                 transform="translate(100 100)" />
                                         </svg>
                                     </div>
-                                   <div class="img-wrapper blob-image">
-                                        <img width="130%" height="110%" alt="YLKA" src="{{ asset('asset/Rectangle 2120.png') }}"
+                                    <div class="img-wrapper blob-image">
+                                        <img width="130%" height="110%" alt="YLKA"
+                                            src="{{ asset('asset/Rectangle 2120.png') }}"
                                             class="img-responsive shape-1" />
                                     </div>
                                 </div>
@@ -205,7 +206,7 @@
                         <div class="col-lg-6 px-5 mb-5">
                             <div>
                                 <h5 class="text-brand mb-2">
-                                {{-- <strong>Total Donasi Diterima</strong> --}}
+                                    {{-- <strong>Total Donasi Diterima</strong> --}}
                                 </h5>
                                 <ul class="ul-lists py-0">
                                     @foreach ($i->donations as $j)
@@ -335,8 +336,7 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('landing_donasi') }}"
-                                class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -347,8 +347,7 @@
                             <h5 style="text-align:center; margin-left: 2%;">Donasi anda sangat berarti bagi kami</h5>
                         </div>
                         <div class="col-12 mt-10">
-                            <a href="{{ route('landing_donasi') }}"
-                                class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -374,14 +373,14 @@
                         </div>
                     </div>
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163144.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163145.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Group 163146.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
-                                alt="YLKA" /></a>
+                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img src="{{ asset('asset/social/instagram.png') }}"
+                                alt="Instagram" /></a>
+                        <a href="https://www.facebook.com/lenterakasihagape"><img src="{{ asset('asset/social/facebook.png') }}"
+                                alt="Facebook" /></a>
+                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img src="{{ asset('asset/social/linkedin.png') }}"
+                                alt="Linked In" /></a>
+                        <a href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img src="{{ asset('asset/social/spotify.png') }}"
+                                alt="Spotify" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -424,7 +423,7 @@
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1KZLND1B5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -433,7 +432,7 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-7SRR3L8JHR');
+        gtag('config', 'G-T1KZLND1B5');
     </script>
     <script>
         $(document).ready(function() {

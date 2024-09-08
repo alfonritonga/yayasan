@@ -80,7 +80,7 @@
                     <div class="mobile-menu-wrap mobile-header-border">
                         <!-- mobile menu start -->
                         <nav>
-                             <ul class="mobile-menu font-heading">
+                            <ul class="mobile-menu font-heading">
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
@@ -90,7 +90,7 @@
                                 <li><a href="/kontak">Kontak</a></li>
                                 <li><a href="https://market.lenterakasihagape.org">Market</a></li>
                             </ul>
-                        <!-- mobile menu end -->
+                            <!-- mobile menu end -->
                     </div>
                 </div>
             </div>
@@ -114,13 +114,12 @@
         </section>
         <section id="slick-content">
             <div class="slider">
-                @foreach($about_images as $i)
+                @foreach ($about_images as $i)
                     <div>
                         <div class="slide-h3"
                             style="background-image: url('{{ asset($i->image) }}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
                             &nbsp;</div>
                     </div>
-
                 @endforeach
                 <!-- <div>
                     <div class="slide-h3" style="background-image: url('https://scontent.fcgk30-1.fna.fbcdn.net/v/t39.30808-6/326459941_740374507432414_4724457447640968010_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=783fdb&_nc_ohc=lze4EkGCuD8AX_1ra4h&_nc_ht=scontent.fcgk30-1.fna&oh=00_AfBTFubJLrIil6pqK9IwPnUApbq_4j9yKLuAz5gnO5b2uQ&oe=65B60FA7'); background-repeat: no-repeat; background-position: center; background-size: cover;">&nbsp;</div>
@@ -168,8 +167,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".0s">
                             <div class="block-image">
-                                <figure><img alt="YLKA"
-                                        src="{{ asset('front/imgs/ic_support.svg') }}" /></figure>
+                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support.svg') }}" /></figure>
                             </div>
                             <div class="card-info-bottom">
                                 <!-- <h3><span class="count">15</span>00+</h3>-->
@@ -184,8 +182,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                             <div class="block-image">
-                                <figure><img alt="YLKA"
-                                        src="{{ asset('front/imgs/ic_support2.svg') }}" />
+                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support2.svg') }}" />
                                 </figure>
                             </div>
                             <div class="card-info-bottom">
@@ -201,8 +198,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-md-30">
                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
                             <div class="block-image">
-                                <figure><img alt="YLKA"
-                                        src="{{ asset('front/imgs/ic_support3.svg') }}" />
+                                <figure><img alt="YLKA" src="{{ asset('front/imgs/ic_support3.svg') }}" />
                                 </figure>
                             </div>
                             <div class="card-info-bottom">
@@ -235,7 +231,7 @@
                     @php
                         $point = 2;
                     @endphp
-                    @foreach($partner as $i)
+                    @foreach ($partner as $i)
                         <div class="col-md-6 box-mitra @if ($loop->first) box-selected @endif @if ($loop->iteration == $point) bg-light @endif"
                             onclick="getPartnerList({{ $i->id }})">
                             <div class="p-4">
@@ -245,11 +241,11 @@
                         </div>
                         @php
                             if ($loop->iteration == $point) {
-                            if ($loop->iteration % 2 == 0) {
-                            $point += 1;
-                            } else {
-                            $point += 3;
-                            }
+                                if ($loop->iteration % 2 == 0) {
+                                    $point += 1;
+                                } else {
+                                    $point += 3;
+                                }
                             }
                         @endphp
                     @endforeach
@@ -258,7 +254,7 @@
             </div>
         </section>
         <div class="section-box wow animate__animated animate__fadeIn mt-70 mb-70" id="div-partner">
-            @if(count($partner[0]->lists) > 0)
+            @if (count($partner[0]->lists) > 0)
                 <div class="container">
                     <div class="text-md-lh24 color-black-5 wow animate__animated animate__fadeInUp text-center">
                         Partner Kemitraan
@@ -270,7 +266,7 @@
                         <div class="box-swiper">
                             <div class="swiper-container swiper-group-5">
                                 <div class="swiper-wrapper pb-70 pt-5">
-                                    @foreach($partner[0]->lists as $x)
+                                    @foreach ($partner[0]->lists as $x)
                                         <div class="swiper-slide hover-up">
                                             <div class="item-logo">
                                                 <a href="#">
@@ -307,8 +303,7 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('landing_donasi') }}"
-                                class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -319,8 +314,7 @@
                             <h5 style="text-align:center; margin-left: 2%;">Donasi anda sangat berarti bagi kami</h5>
                         </div>
                         <div class="col-12 mt-10">
-                            <a href="{{ route('landing_donasi') }}"
-                                class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -334,8 +328,9 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
-                                            placeholder="Alamat email" required />
+                                        <input type="email" id="email" name="email"
+                                            class="input-newsletter-2" value="" placeholder="Alamat email"
+                                            required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -348,17 +343,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
-                                alt="YLKA" /></a>
+                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img src="{{ asset('asset/social/instagram.png') }}"
+                                alt="Instagram" /></a>
+                        <a href="https://www.facebook.com/lenterakasihagape"><img src="{{ asset('asset/social/facebook.png') }}"
+                                alt="Facebook" /></a>
+                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img src="{{ asset('asset/social/linkedin.png') }}"
+                                alt="Linked In" /></a>
+                        <a href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img src="{{ asset('asset/social/spotify.png') }}"
+                                alt="Spotify" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -403,7 +395,7 @@
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1KZLND1B5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -412,10 +404,10 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-7SRR3L8JHR');
+        gtag('config', 'G-T1KZLND1B5');
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.slider').slick({
                 centerMode: true,
                 centerPadding: '20px',
@@ -443,8 +435,8 @@
                 ]
             });
         });
-        $(document).ready(function () {
-            $('#formSubscribe').submit(function (event) {
+        $(document).ready(function() {
+            $('#formSubscribe').submit(function(event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -452,18 +444,18 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function (response) {
+                    success: function(response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function (error) {
+                    error: function(error) {
                         alert('Terjadi kesalahan');
                     }
                 });
             });
         });
 
-        $(".box-mitra").click(function () {
+        $(".box-mitra").click(function() {
             $(".box-mitra").removeClass("box-selected");
             $(this).addClass("box-selected");
         });
@@ -472,12 +464,12 @@
             $.ajax({
                 url: `/ajax/partner-list/${id}`,
                 method: 'GET',
-                success: function (res) {
+                success: function(res) {
                     $('#div-partner').html(res);
                     initiateSwiper();
 
                 },
-                error: function (error) {
+                error: function(error) {
                     console.log(error);
                 }
             })
@@ -498,7 +490,7 @@
                 pagination: {
                     el: ".swiper-pagination",
                     type: "custom",
-                    renderCustom: function (swiper, current, total) {
+                    renderCustom: function(swiper, current, total) {
                         var customPaginationHtml = "";
                         for (var i = 0; i < total; i++) {
                             //Determine which pager should be activated at this time

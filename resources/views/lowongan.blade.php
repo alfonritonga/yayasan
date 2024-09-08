@@ -73,7 +73,7 @@
                     <div class="mobile-menu-wrap mobile-header-border">
                         <!-- mobile menu start -->
                         <nav>
-                             <ul class="mobile-menu font-heading">
+                            <ul class="mobile-menu font-heading">
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
@@ -83,7 +83,7 @@
                                 <li><a href="/kontak">Kontak</a></li>
                                 <li><a href="https://market.lenterakasihagape.org">Market</a></li>
                             </ul>
-                        <!-- mobile menu end -->
+                            <!-- mobile menu end -->
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div class="container">
-                @foreach($jobs as $i)
+                @foreach ($jobs as $i)
                     <div class="row">
                         <div class="py-2 col-lg-8 col-md-12 col-sm-12 col-12 mx-auto align-items-center">
                             <div class="card-grid h-100 hover-up wow animate__animated animate__fadeInUp"
@@ -141,7 +141,7 @@
                         </div>
                     </div>
                 @endforeach
-                @if(count($jobs) == 0)
+                @if (count($jobs) == 0)
                     <div class="row">
                         <div class="py-2 col-lg-12 col-md-12 col-sm-12 col-12 mb-md-30 align-items-center">
                             <div class="alert alert-info" role="alert">
@@ -168,7 +168,7 @@
         <div class="post-loop-grid mb-200">
             <div class="container">
                 <div class="row pr-15 pl-15">
-                    @foreach($inspiration_figures as $i)
+                    @foreach ($inspiration_figures as $i)
                         <div class="col-lg-4 mb-30">
                             <div class="card-blog-1 border-0 bg-soft-green hover-up wow animate__animated animate__fadeIn"
                                 data-wow-delay=".0s">
@@ -203,8 +203,7 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('landing_donasi') }}"
-                                class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -215,8 +214,7 @@
                             <h5 style="text-align:center; margin-left: 2%;">Donasi anda sangat berarti bagi kami</h5>
                         </div>
                         <div class="col-12 mt-10">
-                            <a href="{{ route('landing_donasi') }}"
-                                class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -230,8 +228,9 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
-                                            placeholder="Alamat email" required />
+                                        <input type="email" id="email" name="email"
+                                            class="input-newsletter-2" value="" placeholder="Alamat email"
+                                            required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -244,17 +243,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
-                                alt="YLKA" /></a>
+                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img src="{{ asset('asset/social/instagram.png') }}"
+                                alt="Instagram" /></a>
+                        <a href="https://www.facebook.com/lenterakasihagape"><img src="{{ asset('asset/social/facebook.png') }}"
+                                alt="Facebook" /></a>
+                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img src="{{ asset('asset/social/linkedin.png') }}"
+                                alt="Linked In" /></a>
+                        <a href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img src="{{ asset('asset/social/spotify.png') }}"
+                                alt="Spotify" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -296,7 +292,7 @@
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1KZLND1B5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -305,11 +301,11 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-7SRR3L8JHR');
+        gtag('config', 'G-T1KZLND1B5');
     </script>
     <script>
-        $(document).ready(function () {
-            $('#formSubscribe').submit(function (event) {
+        $(document).ready(function() {
+            $('#formSubscribe').submit(function(event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -317,11 +313,11 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function (response) {
+                    success: function(response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function (error) {
+                    error: function(error) {
                         alert('Terjadi kesalahan');
                     }
                 });

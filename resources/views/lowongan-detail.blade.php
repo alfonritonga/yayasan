@@ -73,7 +73,7 @@
                     <div class="mobile-menu-wrap mobile-header-border">
                         <!-- mobile menu start -->
                         <nav>
-                             <ul class="mobile-menu font-heading">
+                            <ul class="mobile-menu font-heading">
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
@@ -83,7 +83,7 @@
                                 <li><a href="/kontak">Kontak</a></li>
                                 <li><a href="https://market.lenterakasihagape.org">Market</a></li>
                             </ul>
-                        <!-- mobile menu end -->
+                            <!-- mobile menu end -->
                     </div>
                 </div>
             </div>
@@ -98,8 +98,8 @@
                     <div class="col-lg-8 col-md-12 col-sm-12 col-12 mx-auto">
                         <div class="content-single content-except">
                             <a href="{{ route('lowongan') }}" class="text-dark"><strong><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
                                             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
                                     </svg> Lowongan kerja / {{ $job->title }}</strong> </a>
@@ -110,8 +110,8 @@
                             </div>
                             <div class="mb-3">
                                 <h3><strong>{{ $job->title }}</strong></h3>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-clock" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                                     <path
                                         d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
                                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
@@ -143,7 +143,7 @@
                         <div class="single-recent-jobs mt-3 py-5">
                             <h4 class="text-white"><span>Lowongan kerja lainnya</span></h4>
                             <div class="list-recent-jobs">
-                                @foreach($other_jobs as $i)
+                                @foreach ($other_jobs as $i)
                                     <div class="card-job hover-up wow animate__animated animate__fadeInUp">
                                         <div class="card-job-top">
                                             <div class="card-job-top--info pl-0">
@@ -156,8 +156,9 @@
                                                 <h5 class="card-job-top--info-heading">{{ $i->title }}</h5>
                                                 <div class="row">
                                                     <p>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor" class="bi bi-clock"
+                                                            viewBox="0 0 16 16">
                                                             <path
                                                                 d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
                                                             <path
@@ -199,8 +200,7 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('landing_donasi') }}"
-                                class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -211,8 +211,7 @@
                             <h5 style="text-align:center; margin-left: 2%;">Donasi anda sangat berarti bagi kami</h5>
                         </div>
                         <div class="col-12 mt-10">
-                            <a href="{{ route('landing_donasi') }}"
-                                class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -226,8 +225,9 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
-                                            placeholder="Alamat email" required />
+                                        <input type="email" id="email" name="email"
+                                            class="input-newsletter-2" value="" placeholder="Alamat email"
+                                            required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -240,17 +240,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
-                                alt="YLKA" /></a>
+                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img src="{{ asset('asset/social/instagram.png') }}"
+                                alt="Instagram" /></a>
+                        <a href="https://www.facebook.com/lenterakasihagape"><img src="{{ asset('asset/social/facebook.png') }}"
+                                alt="Facebook" /></a>
+                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img src="{{ asset('asset/social/linkedin.png') }}"
+                                alt="Linked In" /></a>
+                        <a href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img src="{{ asset('asset/social/spotify.png') }}"
+                                alt="Spotify" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -292,7 +289,7 @@
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1KZLND1B5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -301,11 +298,11 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-7SRR3L8JHR');
+        gtag('config', 'G-T1KZLND1B5');
     </script>
     <script>
-        $(document).ready(function () {
-            $('#formSubscribe').submit(function (event) {
+        $(document).ready(function() {
+            $('#formSubscribe').submit(function(event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -313,11 +310,11 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function (response) {
+                    success: function(response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function (error) {
+                    error: function(error) {
                         alert('Terjadi kesalahan');
                     }
                 });

@@ -34,7 +34,8 @@
             <div class="main-header">
                 <div class="header-left">
                     <div class="header-logo">
-                        <a href="/" class="d-flex"><img alt="YLKA" src="{{ asset('front/imgs/LogoYLKA.png') }}" width="170px" /></a>
+                        <a href="/" class="d-flex"><img alt="YLKA"
+                                src="{{ asset('front/imgs/LogoYLKA.png') }}" width="170px" /></a>
                     </div>
                     <div class="header-nav">
                         <nav class="nav-main-menu d-none d-xl-block">
@@ -73,7 +74,7 @@
                     <div class="mobile-menu-wrap mobile-header-border">
                         <!-- mobile menu start -->
                         <nav>
-                             <ul class="mobile-menu font-heading">
+                            <ul class="mobile-menu font-heading">
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
@@ -83,7 +84,7 @@
                                 <li><a href="/kontak">Kontak</a></li>
                                 <li><a href="https://market.lenterakasihagape.org">Market</a></li>
                             </ul>
-                        <!-- mobile menu end -->
+                            <!-- mobile menu end -->
                     </div>
                 </div>
             </div>
@@ -101,8 +102,8 @@
                 </div>
             </div>
         </section>
-        @foreach($program as $i)
-            @if($i->image_position == 1)
+        @foreach ($program as $i)
+            @if ($i->image_position == 1)
                 <section class="section-box mt-90 @if ($loop->last) mb-200 @endif">
                     <div class="container">
                         <div class="row mt-50">
@@ -121,14 +122,13 @@
                                 <p
                                     class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
                                     {{ $i->description }}</p>
-                                @foreach($i->tasks as $j)
+                                @foreach ($i->tasks as $j)
                                     <div class="list-program">
                                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
                                             data-wow-delay=".0s">
                                             <div class="row">
                                                 <div class="col-1">
-                                                    <img
-                                                        src="{{ asset('front/imgs/CheckCircle_active.png') }}">
+                                                    <img src="{{ asset('front/imgs/CheckCircle_active.png') }}">
                                                 </div>
                                                 <div class="col-11">
                                                     {{ $j->task }}
@@ -152,14 +152,13 @@
                                 <p
                                     class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
                                     {{ $i->description }}</p>
-                                @foreach($i->tasks as $j)
+                                @foreach ($i->tasks as $j)
                                     <div class="list-program">
                                         <div class="card-grid hover-up wow animate__animated animate__fadeInUp"
                                             data-wow-delay=".0s">
                                             <div class="row">
                                                 <div class="col-1">
-                                                    <img
-                                                        src="{{ asset('front/imgs/CheckCircle_active.png') }}">
+                                                    <img src="{{ asset('front/imgs/CheckCircle_active.png') }}">
                                                 </div>
                                                 <div class="col-11">
                                                     {{ $j->task }}
@@ -200,8 +199,7 @@
                             <img src="{{ asset('front/imgs/social/pattern.svg') }}">
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('landing_donasi') }}"
-                                class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -212,8 +210,7 @@
                             <h5 style="text-align:center; margin-left: 2%;">Donasi anda sangat berarti bagi kami</h5>
                         </div>
                         <div class="col-12 mt-10">
-                            <a href="{{ route('landing_donasi') }}"
-                                class="btn btn-donasi py-3 font-heading">Donasi
+                            <a href="{{ route('landing_donasi') }}" class="btn btn-donasi py-3 font-heading">Donasi
                                 Sekarang</a>
                         </div>
                     </div>
@@ -227,8 +224,9 @@
                                 @csrf
                                 <div class="row text-center">
                                     <div class="col-md-5">
-                                        <input type="email" id="email" name="email" class="input-newsletter-2" value=""
-                                            placeholder="Alamat email" required />
+                                        <input type="email" id="email" name="email"
+                                            class="input-newsletter-2" value="" placeholder="Alamat email"
+                                            required />
                                     </div>
                                     <div class="col-md-3"><button type="submit"
                                             class="btn btn-subcribe font-heading">Subscribe</button>
@@ -241,17 +239,14 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163144.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163145.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img
-                                src="{{ asset('front/imgs/social/Group 163146.svg') }}"
-                                alt="YLKA" /></a>
-                        <a href="#"><img src="{{ asset('front/imgs/social/Mask group.svg') }}"
-                                alt="YLKA" /></a>
+                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img src="{{ asset('asset/social/instagram.png') }}"
+                                alt="Instagram" /></a>
+                        <a href="https://www.facebook.com/lenterakasihagape"><img src="{{ asset('asset/social/facebook.png') }}"
+                                alt="Facebook" /></a>
+                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img src="{{ asset('asset/social/linkedin.png') }}"
+                                alt="Linked In" /></a>
+                        <a href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img src="{{ asset('asset/social/spotify.png') }}"
+                                alt="Spotify" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -293,7 +288,7 @@
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SRR3L8JHR"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1KZLND1B5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -302,11 +297,11 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-7SRR3L8JHR');
+        gtag('config', 'G-T1KZLND1B5');
     </script>
     <script>
-        $(document).ready(function () {
-            $('#formSubscribe').submit(function (event) {
+        $(document).ready(function() {
+            $('#formSubscribe').submit(function(event) {
                 event.preventDefault();
                 var email = $('#email').val();
                 var formData = $('#formSubscribe').serialize();
@@ -314,11 +309,11 @@
                     url: '/subscription',
                     type: 'POST',
                     data: formData,
-                    success: function (response) {
+                    success: function(response) {
                         $('#email').val('');
                         swal("Success", "Subscribe added successfully!", "success");
                     },
-                    error: function (error) {
+                    error: function(error) {
                         alert('Terjadi kesalahan');
                     }
                 });
