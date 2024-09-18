@@ -364,7 +364,7 @@
     </footer>
     <!-- End Footer -->
     <div class="modal" tabindex="-1" role="dialog" id="openYoutube">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="titleVideo"></h5>
