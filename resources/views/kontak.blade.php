@@ -160,7 +160,7 @@
                     </div>
 
                 </div>
-                <section class="section-box mt-40 mb-120 mb-md-0 p-20 pt-35">
+                <section class="section-box mt-40 mb-80 mb-md-0 p-20 pt-35">
                     <div class="container">
                         <div class="mw-650">
                             <h4 class="text-center wow animate__animated animate__fadeInUp">Pengurus Yayasan Lentera
@@ -187,6 +187,71 @@
                                     </div>
                                 </div>
                             @endforeach
+                        </div>
+                    </div>
+                </section>
+                <section class="section-box mt-20 mb-120 mb-md-0 p-20 pt-35">
+                    <div class="container">
+
+                        <div class="mw-650">
+                            <h4 class="text-center wow animate__animated animate__fadeInUp">Kotak Pengaduan
+                            </h4>
+                            <p
+                                class="mb-30 mt-30 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
+                                Untuk kotak pengaduan silahkan menghubungi kami.
+                            </p>
+                        </div>
+                        @if ($message = Session::get('message'))
+                            <div class="alert alert-primary alert-dismissible fade show">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                                    stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                    class="me-2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                </svg>
+                                {{ $message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="btn-close">
+                                </button>
+                            </div>
+                        @endif
+                        <div class="formDonasi mt-100 mb-200">
+                            <form class="contact-form-style mt-80" id="contact-form" method="post"
+                                action="{{ route('report_add_post') }}">
+                                @csrf
+                                <div class="row wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
+                                    <div class="col-lg-12 col-md-6">
+                                        <div class="input-style mb-20">
+                                            <input type="hidden" name="type" id="type" value="1">
+                                            <input name="name" class="form-control" placeholder="Nama"
+                                                type="text" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-6">
+                                        <div class="input-style mb-20">
+                                            <input name="email" class="form-control" placeholder="Email"
+                                                type="email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-6">
+                                        <div class="input-style mb-20">
+                                            <input name="subject" class="form-control" placeholder="Subjek"
+                                                type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-6">
+                                        <div class="input-style mb-20">
+                                            <textarea name="message" rows="10" style="height:100%;" class="form-control" placeholder="Pesan"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 text-center">
+                                        <button class="btn w-100 btn-fix" type="submit">KIRIM</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </section>
@@ -248,16 +313,17 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img src="{{ asset('asset/social/instagram.png') }}"
-                                alt="Instagram" /></a>
-                        <a href="https://www.facebook.com/lenterakasihagape"><img src="{{ asset('asset/social/facebook.png') }}"
-                                alt="Facebook" /></a>
-                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img src="{{ asset('asset/social/linkedin.png') }}"
-                                alt="Linked In" /></a>
-                        <a href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img src="{{ asset('asset/social/spotify.png') }}"
-                                alt="Spotify" /></a>
-                        <a href="https://www.youtube.com/channel/UC7JWCqX0uDWZVtmYYdolhXw"><img src="{{ asset('asset/social/youtubee.png') }}"
-                                alt="Youtube" /></a>
+                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img
+                                src="{{ asset('asset/social/instagram.png') }}" alt="Instagram" /></a>
+                        <a href="https://www.facebook.com/lenterakasihagape"><img
+                                src="{{ asset('asset/social/facebook.png') }}" alt="Facebook" /></a>
+                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img
+                                src="{{ asset('asset/social/linkedin.png') }}" alt="Linked In" /></a>
+                        <a
+                            href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img
+                                src="{{ asset('asset/social/spotify.png') }}" alt="Spotify" /></a>
+                        <a href="https://www.youtube.com/channel/UC7JWCqX0uDWZVtmYYdolhXw"><img
+                                src="{{ asset('asset/social/youtubee.png') }}" alt="Youtube" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
