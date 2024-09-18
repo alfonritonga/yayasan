@@ -25,7 +25,8 @@ class HomeController extends Controller
         $program = ProgramModel::orderBy('id', 'asc')->get();
         $landing_info = LandingInfoModel::find(1);
         $achievements = AchievementModel::with(['programs', 'donations'])->where('status', 1)->orderBy('id', 'desc')->get();
-        return view('home.index', compact('article', 'partner', 'program', 'landing_info', 'achievements'));
+        $videos = MediaModel::with(['admin'])->where('type', 'video')->orderBy('id', 'desc')->limit(1)->get();
+        return view('home.index', compact('article', 'partner', 'program', 'landing_info', 'achievements', 'videos'));
     }
 
     function sitemap(){
@@ -72,7 +73,7 @@ class HomeController extends Controller
     function lowongan()
     {
         $jobs = JobModel::with('admin')->orderBy('id', 'desc')->get();
-        $inspiration_figures = InspirationFigureModel::orderBy('id', 'desc')->limit(3)->get();
+        $inspiration_figures = InspirationFigureModel::orderBy('id', 'desc')->get();
         return view('lowongan', compact('jobs', 'inspiration_figures'));
     }
 

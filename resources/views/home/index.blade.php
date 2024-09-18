@@ -17,6 +17,16 @@
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/blob.css') }}" />
+    <style>
+        .bs-example {
+            margin: 20px;
+        }
+
+        .modal-content iframe {
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,7 +53,7 @@
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
-                                <li><a href="/media-materi">Artikel & Galeri</a></li>
+                                <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                 <li><a href="/donasi">Donasi</a></li>
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>
@@ -78,7 +88,7 @@
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
-                                <li><a href="/media-materi">Artikel & Galeri</a></li>
+                                <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                 <li><a href="/donasi">Donasi</a></li>
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>
@@ -217,13 +227,16 @@
                                 </ul>
                             </div>
                         </div>
-                        @if ($i->media != null && $i->url_video != null)
+                        @if (count($videos) != 0)
                             <div class="col-lg-12 mb-4 py-5">
                                 <div>
-                                    <a href="{{ $i->url_video }}" target="_blank">
-                                        <img src="{{ asset($i->media) }}" class="w-100 shadow-1-strong rounded mb-4"
-                                            alt="Mountains in the Clouds" />
-                                        <div class="play"><img src="{{ asset('front/imgs/play.svg') }}"><span>Watch
+                                    <a>
+                                        <img src="{{ asset($videos[0]->media) }}"
+                                            class="w-100 shadow-1-strong rounded mb-4"
+                                            alt="{{ $videos[0]->title }}" />
+                                        <div class="play" id="playYoutube" data-name="{{ $videos[0]->title }}"
+                                            data-id="{{ $videos[0]->url_video }}"><img
+                                                src="{{ asset('front/imgs/play.svg') }}"><span>Watch
                                                 Full
                                                 Video</span></div>
                                     </a>
@@ -373,14 +386,17 @@
                         </div>
                     </div>
                     <div class="mobile-social-icon mt-50">
-                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img src="{{ asset('asset/social/instagram.png') }}"
-                                alt="Instagram" /></a>
-                        <a href="https://www.facebook.com/lenterakasihagape"><img src="{{ asset('asset/social/facebook.png') }}"
-                                alt="Facebook" /></a>
-                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img src="{{ asset('asset/social/linkedin.png') }}"
-                                alt="Linked In" /></a>
-                        <a href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img src="{{ asset('asset/social/spotify.png') }}"
-                                alt="Spotify" /></a>
+                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img
+                                src="{{ asset('asset/social/instagram.png') }}" alt="Instagram" /></a>
+                        <a href="https://www.facebook.com/lenterakasihagape"><img
+                                src="{{ asset('asset/social/facebook.png') }}" alt="Facebook" /></a>
+                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img
+                                src="{{ asset('asset/social/linkedin.png') }}" alt="Linked In" /></a>
+                        <a
+                            href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img
+                                src="{{ asset('asset/social/spotify.png') }}" alt="Spotify" /></a>
+                        <a href="https://www.youtube.com/channel/UC7JWCqX0uDWZVtmYYdolhXw"><img
+                                src="{{ asset('asset/social/youtubee.png') }}" alt="Youtube" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -394,7 +410,7 @@
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/tentang">Tentang Kami</a></li>
                                     <li><a href="/program">Program</a></li>
-                                    <li><a href="/media-materi">Media & Materi</a></li>
+                                    <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                     <li><a href="/donasi">Donasi</a></li>
                                     <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                     <li><a href="/kontak">Kontak</a></li>
@@ -405,6 +421,27 @@
                 </div>
     </footer>
     <!-- End Footer -->
+
+    <div class="modal" tabindex="-1" role="dialog" id="openYoutube">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleVideo"></h5>
+                    <button type="button" class="close" id="closeVideo" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="Video" width="100%" height="315" src="" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+                {{-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> --}}
+            </div>
+        </div>
+    </div>
     <!-- Vendor JS-->
     <script src="{{ asset('front/js/vendor/modernizr-3.6.0.min.js') }}"></script>
     <script src="{{ asset('front/js/vendor/jquery-3.6.0.min.js') }}"></script>
@@ -420,6 +457,8 @@
     <script src="{{ asset('front/js/plugins/swiper-bundle.min.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ asset('template/js/custom.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Template  JS -->
     <script src="{{ asset('front/js/main.js?v=1.0') }}"></script>
     <!-- Google tag (gtag.js) -->
@@ -454,6 +493,19 @@
                 });
             });
         });
+
+        $('#playYoutube').click(function() {
+            var url = $(this).attr("data-id");
+            var name = $(this).attr("data-name");
+
+            $('#titleVideo').text(name)
+            $("#Video").attr('src', url);
+            $("#openYoutube").modal('show');
+        })
+
+        $('#closeVideo').click(function() {
+            $("#openYoutube").modal('hide');
+        })
     </script>
 </body>
 

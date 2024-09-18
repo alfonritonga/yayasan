@@ -42,7 +42,7 @@
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
-                                <li><a href="/media-materi">Artikel & Galeri</a></li>
+                                <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                 <li><a href="/donasi">Donasi</a></li>
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>
@@ -77,7 +77,7 @@
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
-                                <li><a href="/media-materi">Artikel & Galeri</a></li>
+                                <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                 <li><a href="/donasi">Donasi</a></li>
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>
@@ -97,7 +97,7 @@
                 <div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-8 text-center">
-                        <h1 class="section-title-large mb-30 wow animate__animated animate__fadeInUp">Donasi dari anda
+                        <h1 class="section-title-large mb-10 wow animate__animated animate__fadeInUp">Donasi dari anda
                             sangat berarti bagi kami</h1>
                     </div>
                 </div>
@@ -111,12 +111,22 @@
                 </div> -->
             </div>
         </section>
-        <section class="section-box mt-90 mb-50 mb-md-0">
+        <section class="section-box mt-40 mb-50 mb-md-0">
             <div class="container">
                 <div class="mw-650">
-                    <p class="mb-30 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
+                    <p class="mb-10 mt-30 text-muted text-center sejarah wow animate__animated animate__fadeInUp">
                         Dukungan dari saudara sangat membantu Yayasan Lentera Kasih Agape untuk bisa terus maksimal
                         melayani.</p>
+                    <p class="mt-2 text-muted text-left sejarah wow animate__animated animate__fadeInUp">
+                        Tujuan Donasi :</p>
+                    <ul class="text-muted" style="padding-left: 10px !important;">
+                        <ol style="margin-top: 5px !important;">1. Mendukung GEBRAKAN (Gerakan Berbagi Alkitab Anak)
+                            kepada anak-anak di daerah dampingan YLKA dan daerah lainnya di Indonesia.
+                        </ol>
+                        <ol style="margin-top: 5px !important;">2. Mendukung Gereja/Lembaga/Individu yang membutuhkan
+                            bantuan dana untuk melakukan pelayanan.
+                        </ol>
+                    </ul>
                     @if ($message = Session::get('message'))
                         <div class="alert alert-primary alert-dismissible fade show">
                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
@@ -272,14 +282,17 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img src="{{ asset('asset/social/instagram.png') }}"
-                                alt="Instagram" /></a>
-                        <a href="https://www.facebook.com/lenterakasihagape"><img src="{{ asset('asset/social/facebook.png') }}"
-                                alt="Facebook" /></a>
-                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img src="{{ asset('asset/social/linkedin.png') }}"
-                                alt="Linked In" /></a>
-                        <a href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img src="{{ asset('asset/social/spotify.png') }}"
-                                alt="Spotify" /></a>
+                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img
+                                src="{{ asset('asset/social/instagram.png') }}" alt="Instagram" /></a>
+                        <a href="https://www.facebook.com/lenterakasihagape"><img
+                                src="{{ asset('asset/social/facebook.png') }}" alt="Facebook" /></a>
+                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img
+                                src="{{ asset('asset/social/linkedin.png') }}" alt="Linked In" /></a>
+                        <a
+                            href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img
+                                src="{{ asset('asset/social/spotify.png') }}" alt="Spotify" /></a>
+                        <a href="https://www.youtube.com/channel/UC7JWCqX0uDWZVtmYYdolhXw"><img
+                                src="{{ asset('asset/social/youtubee.png') }}" alt="Youtube" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -293,7 +306,7 @@
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/tentang">Tentang Kami</a></li>
                                     <li><a href="/program">Program</a></li>
-                                    <li><a href="/media-materi">Media & Materi</a></li>
+                                    <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                     <li><a href="/donasi">Donasi</a></li>
                                     <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                     <li><a href="/kontak">Kontak</a></li>

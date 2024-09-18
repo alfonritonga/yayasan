@@ -42,7 +42,7 @@
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
-                                <li><a href="/media-materi">Artikel & Galeri</a></li>
+                                <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                 <li><a href="/donasi">Donasi</a></li>
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>
@@ -77,7 +77,7 @@
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
-                                <li><a href="/media-materi">Artikel & Galeri</a></li>
+                                <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                 <li><a href="/donasi">Donasi</a></li>
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>
@@ -110,7 +110,7 @@
                                 data-wow-delay=".0s">
                                 <figure class="post-thumb mb-15" style="max-height: 200px">
                                     <a href="{{ route('article_detail', $i->slug) }}" target="_blank">
-                                        <img alt="jobhub" src="{{ asset($i->media) }}" />
+                                        <img alt="ylka" src="{{ asset($i->media) }}" />
                                     </a>
                                 </figure>
                                 <div class="card-block-info text-dark">
@@ -161,7 +161,7 @@
                                     data-wow-delay=".0s">
                                     <figure class="post-thumb" style="max-height: 175px">
                                         <a href="blog-single.html">
-                                            <img alt="jobhub" src="{{ asset($i->image) }}" />
+                                            <img alt="ylka" src="{{ asset($i->image) }}" />
                                         </a>
                                     </figure>
                                     <div class="card-block-info">
@@ -238,10 +238,12 @@
                     @if (count($videos) != 0)
                         <div class="col-lg-12 mb-4 mb-lg-0">
                             <div>
-                                <a href="{{ $videos[0]->url_video }}" target="_blank">
+                                <a>
                                     <img src="{{ asset($videos[0]->media) }}"
-                                        class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
-                                    <div class="play"><img src="{{ asset('front/imgs/play.svg') }}"><span>Watch
+                                        class="w-100 shadow-1-strong rounded mb-4" alt="{{ $videos[0]->title }}" />
+                                    <div class="play" id="playYoutube" data-name="{{ $videos[0]->title }}"
+                                        data-id="{{ $videos[0]->url_video }}"><img
+                                            src="{{ asset('front/imgs/play.svg') }}"><span>Watch
                                             Full
                                             Video</span></div>
                                 </a>
@@ -326,14 +328,17 @@
                     <div class="newsletter-bottom"></div>
                 </div> -->
                     <div class="mobile-social-icon mt-50">
-                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img src="{{ asset('asset/social/instagram.png') }}"
-                                alt="Instagram" /></a>
-                        <a href="https://www.facebook.com/lenterakasihagape"><img src="{{ asset('asset/social/facebook.png') }}"
-                                alt="Facebook" /></a>
-                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img src="{{ asset('asset/social/linkedin.png') }}"
-                                alt="Linked In" /></a>
-                        <a href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img src="{{ asset('asset/social/spotify.png') }}"
-                                alt="Spotify" /></a>
+                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img
+                                src="{{ asset('asset/social/instagram.png') }}" alt="Instagram" /></a>
+                        <a href="https://www.facebook.com/lenterakasihagape"><img
+                                src="{{ asset('asset/social/facebook.png') }}" alt="Facebook" /></a>
+                        <a href="https://www.linkedin.com/in/lenterakasihagape"><img
+                                src="{{ asset('asset/social/linkedin.png') }}" alt="Linked In" /></a>
+                        <a
+                            href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img
+                                src="{{ asset('asset/social/spotify.png') }}" alt="Spotify" /></a>
+                        <a href="https://www.youtube.com/channel/UC7JWCqX0uDWZVtmYYdolhXw"><img
+                                src="{{ asset('asset/social/youtubee.png') }}" alt="Youtube" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -347,7 +352,7 @@
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/tentang">Tentang Kami</a></li>
                                     <li><a href="/program">Program</a></li>
-                                    <li><a href="/media-materi">Media & Materi</a></li>
+                                    <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                     <li><a href="/donasi">Donasi</a></li>
                                     <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                     <li><a href="/kontak">Kontak</a></li>
@@ -358,6 +363,26 @@
                 </div>
     </footer>
     <!-- End Footer -->
+    <div class="modal" tabindex="-1" role="dialog" id="openYoutube">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleVideo"></h5>
+                    <button type="button" class="close" id="closeVideo" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="Video" width="100%" height="315" src="" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+                {{-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> --}}
+            </div>
+        </div>
+    </div>
     <!-- Vendor JS-->
     <script src="{{ asset('front/js/vendor/modernizr-3.6.0.min.js') }}"></script>
     <script src="{{ asset('front/js/vendor/jquery-3.6.0.min.js') }}"></script>
@@ -406,6 +431,19 @@
                 });
             });
         });
+
+        $('#playYoutube').click(function() {
+            var url = $(this).attr("data-id");
+            var name = $(this).attr("data-name");
+
+            $('#titleVideo').text(name)
+            $("#Video").attr('src', url);
+            $("#openYoutube").modal('show');
+        })
+
+        $('#closeVideo').click(function() {
+            $("#openYoutube").modal('hide');
+        })
     </script>
 </body>
 

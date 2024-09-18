@@ -46,7 +46,7 @@ Route::get('/tentang', [HomeController::class, 'tentang']);
 Route::get('/donasi', [HomeController::class, 'donasi'])->name('landing_donasi');
 Route::get('/program', [HomeController::class, 'program']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
-Route::get('/media-materi', [HomeController::class, 'media'])->name('media_materi');
+Route::get('/artikel-galeri', [HomeController::class, 'media'])->name('media_materi');
 Route::get('/lowongan-kerja', [HomeController::class, 'lowongan'])->name('lowongan');
 Route::get('/lowongan-kerja/{guid}', [HomeController::class, 'lowonganDetail'])->name('lowongan_detail');
 Route::get('/article/{slug}', [HomeController::class, 'articleDetail'])->name('article_detail');

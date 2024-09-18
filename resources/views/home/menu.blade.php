@@ -12,7 +12,7 @@
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
-                                <li><a href="/media-materi">Artikel & Galeri</a></li>
+                                <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                 <li><a href="/donasi">Donasi</a></li>
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>

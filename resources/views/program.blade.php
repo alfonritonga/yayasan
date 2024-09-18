@@ -43,7 +43,7 @@
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
-                                <li><a href="/media-materi">Artikel & Galeri</a></li>
+                                <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                 <li><a href="/donasi">Donasi</a></li>
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>
@@ -78,7 +78,7 @@
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
-                                <li><a href="/media-materi">Artikel & Galeri</a></li>
+                                <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                 <li><a href="/donasi">Donasi</a></li>
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>
@@ -247,6 +247,8 @@
                                 alt="Linked In" /></a>
                         <a href="https://open.spotify.com/intl-id/artist/5DoAnhLHVlE2vTINFQfElh?si=nWCi6wjcTLqUan5wEC-fHQ"><img src="{{ asset('asset/social/spotify.png') }}"
                                 alt="Spotify" /></a>
+                        <a href="https://www.youtube.com/channel/UC7JWCqX0uDWZVtmYYdolhXw"><img src="{{ asset('asset/social/youtubee.png') }}"
+                                alt="Youtube" /></a>
                     </div>
                 </div>
                 <div class="footer-bottom mt-50">
@@ -260,7 +262,7 @@
                                     <li><a href="/">Beranda</a></li>
                                     <li><a href="/tentang">Tentang Kami</a></li>
                                     <li><a href="/program">Program</a></li>
-                                    <li><a href="/media-materi">Media & Materi</a></li>
+                                    <li><a href="/artikel-galeri">Artikel & Galeri</a></li>
                                     <li><a href="/donasi">Donasi</a></li>
                                     <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                     <li><a href="/kontak">Kontak</a></li>
