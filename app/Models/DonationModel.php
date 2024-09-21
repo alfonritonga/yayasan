@@ -20,6 +20,7 @@ class DonationModel extends Model
         'amount',
         'type_of_goods',
         'type',
-        'media'
+        'media',
+        'choice'
     ];
 }

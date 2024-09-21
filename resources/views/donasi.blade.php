@@ -187,18 +187,26 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="email" class="form-control" placeholder="Email" type="email" />
+                                    <select name="choice" required class="form-control">
+                                        <option value="">Pilih Tujuan Donasi</option>
+                                        <option value="1">Mendukung GEBRAKAN (Gerakan Berbagi Alkitab Anak)
+                                            kepada anak-anak di daerah dampingan YLKA dan daerah lainnya di Indonesia
+                                        </option>
+                                        <option value="2">Mendukung Gereja/Lembaga/Individu yang membutuhkan
+                                            bantuan dana untuk melakukan pelayanan</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="phone" class="form-control" placeholder="Nomor HP"
+                                    <input name="phone" class="form-control" required placeholder="Nomor HP"
                                         type="tel" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="message" class="form-control" placeholder="Pesan" type="text" />
+                                    <input name="message" class="form-control" required placeholder="Pesan"
+                                        type="text" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">

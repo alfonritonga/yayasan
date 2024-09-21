@@ -245,6 +245,7 @@
                                         <div class="input-style mb-20">
                                             <textarea name="message" rows="10" style="height:100%;" class="form-control" placeholder="Pesan"></textarea>
                                         </div>
+                                        <p style="padding-bottom: 15px;">*Kami menjamin privasi dan kerahasian informasi anda</p>
                                     </div>
 
                                     <div class="col-lg-12 col-md-12 text-center">

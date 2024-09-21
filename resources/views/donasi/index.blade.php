@@ -28,6 +28,7 @@
                                     <tr>
                                         <th>Nama</th>
                                         <th>Email</th>
+                                        <th>Tujuan</th>
                                         <th>Nomor HP</th>
                                         <th>Pesan </th>
                                         <th>Type</th>
@@ -40,6 +41,16 @@
                                         <tr>
                                             <td>{{ $x->name }}</td>
                                             <td>{{ $x->email }}</td>
+                                            <td>
+                                                @if ($x->choice == 1)
+                                                    Mendukung GEBRAKAN (Gerakan Berbagi Alkitab Anak)
+                                                    kepada anak-anak di daerah dampingan YLKA dan daerah lainnya di
+                                                    Indonesia
+                                                @elseif ($x->choice == 2)
+                                                    Mendukung Gereja/Lembaga/Individu yang membutuhkan
+                                                    bantuan dana untuk melakukan pelayanan
+                                                @endif
+                                            </td>
                                             <td>{{ $x->phone }}</td>
                                             <td>{{ $x->message }}</td>
                                             <td>{{ $x->type == 1 ? 'Transfer Bank' : 'Donasi Barang' }}</td>

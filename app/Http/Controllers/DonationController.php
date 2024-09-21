@@ -32,7 +32,8 @@ class DonationController extends Controller
 
             $job = DonationModel::create([
                 'name' => $request->name,
-                'email' => $request->email,
+                // 'email' => $request->email,
+                'choice' => $request->choice,
                 'phone' => $request->phone,
                 'message' => $request->message,
                 'amount' => $request->amount,
