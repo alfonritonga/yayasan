@@ -62,12 +62,53 @@ class HomeController extends Controller
 
     function media()
     {
+        $apiKey = 'AIzaSyCC8mVo5mPuMGDVTqoU_MJRZ7dabn1SDHk';
+
+        // Channel ID or Playlist ID
+        $channelId = 'UC7JWCqX0uDWZVtmYYdolhXw'; // Replace with the channel ID you want to fetch videos from
+
+        // API Endpoint for fetching videos from the channel
+        $apiEndpoint = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='.$channelId.'&maxResults=50&order=date&type=video&key='.$apiKey;
+
+        // Initialize cURL
+        $ch = curl_init();
+
+        // Set the URL
+        curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
+
+        // Return the response instead of printing it
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Execute the request
+        $response = curl_exec($ch);
+
+        // Close cURL session
+        curl_close($ch);
+
+        // Decode the JSON response
+        $videos = json_decode($response);
+        $items = $videos->items ?? [];
+
+        // Check if the response contains videos
+        // if(isset($videos->items)) {
+        //     foreach($videos->items as $video) {
+        //         // Extract video ID and title
+        //         $videoId = $video->id->videoId;
+        //         $title = $video->snippet->title;
+        //         echo "Title: ".$title."<br>";
+        //         echo "Video ID: ".$videoId."<br>";
+        //         echo "Watch: https://www.youtube.com/watch?v=".$videoId."<br><br>";
+        //     }
+        // } else {
+        //     echo "No videos found.";
+        // }
+
         $article = ArticleModel::with('admin')->orderBy('id', 'desc')->paginate(6);
         $materi = MateriModel::orderBy('id', 'desc')->paginate(4);
         $data_photo = MediaModel::with(['admin'])->where('type', 'photo')->orderBy('id', 'asc')->get();
         $photos = $data_photo->toArray();
         $videos = MediaModel::with(['admin'])->where('type', 'video')->orderBy('id', 'desc')->limit(4)->get();
-        return view('materi', compact('article', 'materi', 'photos', 'videos'));
+        return view('materi', compact('article', 'materi', 'photos', 'videos', 'items'));
     }
 
     function lowongan()

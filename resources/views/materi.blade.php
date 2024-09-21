@@ -234,7 +234,7 @@
                         Dokumentasi video terbaru dari Yayasan Lentera Kasih Agape
                     </p>
                 </div>
-                <div class="row mt-70 mb-150">
+                {{-- <div class="row mt-70 mb-150">
                     @if (count($videos) != 0)
                         <div class="col-lg-12 mb-4 mb-lg-0">
                             <div>
@@ -250,8 +250,8 @@
                             </div>
                         </div>
                     @endif
-                </div>
-                @if (count($videos) > 1)
+                </div> --}}
+                {{-- @if (count($videos) > 1)
                     <div class="row mb-150">
                         @foreach ($videos as $key => $i)
                             @php
@@ -270,7 +270,14 @@
                             </div>
                         @endforeach
                     </div>
-                @endif
+                @endif --}}
+                 <div class="row mb-150">
+                        @foreach ($items as $x)
+                            <div class="col-4">
+                               <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $x->id->videoId }}" title="{{ $x->snippet->title }}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                            </div>
+                        @endforeach
+                    </div>
             </div>
         </section>
     </main>
