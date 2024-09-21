@@ -227,9 +227,10 @@
                                 </ul>
                             </div>
                         </div>
-                        @if (count($videos) != 0)
+                        @if (!empty($videosHome))
                             <div class="col-lg-12 mb-4 py-5">
-                                <div>
+                             <iframe width="100%" height="700" src="https://www.youtube.com/embed/{{ $videosHome->id->videoId }}" title="{{ $videosHome->snippet->title }}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                                {{-- <div>
                                     <a>
                                         <img src="{{ asset($videos[0]->media) }}"
                                             class="w-100 shadow-1-strong rounded mb-4"
@@ -240,7 +241,7 @@
                                                 Full
                                                 Video</span></div>
                                     </a>
-                                </div>
+                                </div> --}}
                             </div>
                         @endif
                     </div>

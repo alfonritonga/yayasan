@@ -20,13 +20,47 @@ class HomeController extends Controller
 {
     function index()
     {
+        $apiKey = 'AIzaSyCC8mVo5mPuMGDVTqoU_MJRZ7dabn1SDHk';
+
+        // Channel ID or Playlist ID
+        $channelId = 'UC7JWCqX0uDWZVtmYYdolhXw'; // Replace with the channel ID you want to fetch videos from
+
+        // API Endpoint for fetching videos from the channel
+        $apiEndpoint = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='.$channelId.'&maxResults=50&order=date&type=video&key='.$apiKey;
+
+        // Initialize cURL
+        $ch = curl_init();
+
+        // Set the URL
+        curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
+
+        // Return the response instead of printing it
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Execute the request
+        $response = curl_exec($ch);
+
+        // Close cURL session
+        curl_close($ch);
+
+        // Decode the JSON response
+        $videos = json_decode($response);
+        $items = $videos->items ?? [];
+        $videosHome = null;
+
+        foreach ($items as $key => $value) {
+            if ($key === 0) {
+                $videosHome = $value;
+            }
+        }
+        
         $article = ArticleModel::with('admin')->orderBy('id', 'desc')->limit(3)->get();
         $partner = PartnerListModel::with('admin', 'category')->orderBy('id', 'desc')->get();
         $program = ProgramModel::orderBy('id', 'asc')->get();
         $landing_info = LandingInfoModel::find(1);
         $achievements = AchievementModel::with(['programs', 'donations'])->where('status', 1)->orderBy('id', 'desc')->get();
         $videos = MediaModel::with(['admin'])->where('type', 'video')->orderBy('id', 'desc')->limit(1)->get();
-        return view('home.index', compact('article', 'partner', 'program', 'landing_info', 'achievements', 'videos'));
+        return view('home.index', compact('article', 'partner', 'program', 'landing_info', 'achievements', 'videos', 'videosHome'));
     }
 
     function sitemap(){
