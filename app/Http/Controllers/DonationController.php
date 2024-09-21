@@ -85,15 +85,14 @@ class DonationController extends Controller
 
             // Recipients
             $mail->setFrom('admin@lenterakasihagape.org', 'Admin YLKA');
-            $mail->addAddress($to, $name); // Add a recipient
-            $mail->addReplyTo('admin@lenterakasihagape.org', 'Admin YLKA');
+            $mail->addAddress('alfonritonga@gmail.com', 'Laporan Atas Nama - '.$name); // Add a recipient
+            $mail->addReplyTo('laporkan@ylkaindonesia.com', 'Admin YLKA');
 
-            $mail->addCC('ylka@ylkaindonesia.com', 'Yayasan Lentera Kasih Agape');
-
+            $messageFromUser = '<p>Nama : '.$name.'<br />Email : '.$to.'<br />Subjek : '.$subject.'<br />Pesan : '.$message.'</p>';
             // Content
             $mail->isHTML(true);                        // Set email format to HTML
             $mail->Subject = $subject;
-            $mail->Body    = $message;
+            $mail->Body    = $messageFromUser;
 
             // Send the email
             $mail->send();
