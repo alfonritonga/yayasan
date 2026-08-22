@@ -15,7 +15,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/imgs/faviconylka.png') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/plugins/animate.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.0') }}" />
+    <link rel="stylesheet" href="{{ asset('front/css/main.css?v=1.1') }}" />
 </head>
 
 <body>
@@ -120,10 +120,11 @@
                                 </p>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-fix mb-2 mr-2"><strong>LAMAR PEKERJAAN
-                                        INI</strong>
-                                </button>
-                            </div>
+                                 <a href="mailto:hrd@lenterakasihagape.org?subject={{ rawurlencode($job->title) }}"
+                                     class="btn btn-fix mb-2 mr-2">
+                                     <strong>LAMAR PEKERJAAN INI</strong>
+                                 </a>
+                             </div>
                             {!! $job->description !!}
                             <div>
                                 <p>

@@ -6555,11 +6555,24 @@ label {
   width: 100%;
 }
 
+.content-single {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.content-single a {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
 .content-single p {
   font-size: 16px;
   line-height: 200%;
   color: #37404e;
   margin-bottom: 20px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .content-single h5 {
@@ -6574,6 +6587,48 @@ label {
   font-size: 16px;
   color: #37404e;
   list-style: disc;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.content-single img,
+.content-single table {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.content-single table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 767px) {
+  .content-single h3 {
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+  }
+  .content-single p,
+  .content-single li {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+  }
+  .content-single .btn-fix {
+    width: 100%;
+    text-align: center;
+    margin-right: 0 !important;
+  }
+  .card-job-description .btn-fix,
+  .card-job-description .btn-fix-outline {
+    width: 100%;
+    margin-right: 0 !important;
+    margin-bottom: 8px !important;
+    text-align: center;
+  }
+  .card-job-top--info-heading {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+  }
 }
 
 .author-single {
