@@ -27,13 +27,7 @@ class PartnerListController extends Controller
         DB::beginTransaction();
         try {
             $file = $request->file('media');
-            if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-            } else {
-                $path = null;
-            }
+            $path = $file ? \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 1200, 78) : null;
 
             PartnerListModel::create([
                 'partner_id' => $request->partner_id,
@@ -68,10 +62,7 @@ class PartnerListController extends Controller
             ];
             $file = $request->file('media');
             if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-                $data['media'] = $path;
+                $data['media'] = \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 1200, 78);
             }
             $job->update($data);
             DB::commit();

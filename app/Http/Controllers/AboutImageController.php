@@ -24,13 +24,7 @@ class AboutImageController extends Controller
         DB::beginTransaction();
         try {
             $file = $request->file('image');
-            if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-            } else {
-                $path = null;
-            }
+            $path = $file ? \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 1200, 78) : null;
 
             AboutImageModel::create([
                 'image' => $path,
@@ -62,10 +56,7 @@ class AboutImageController extends Controller
 
             $file = $request->file('media');
             if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-                $data['image'] = $path;
+                $data['image'] = \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 1200, 78);
             }
             $about_image->update($data);
             DB::commit();

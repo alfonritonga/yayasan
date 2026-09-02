@@ -24,13 +24,7 @@ class AdminController extends Controller
         DB::beginTransaction();
         try {
             $file = $request->file('media');
-            if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-            } else {
-                $path = null;
-            }
+            $path = $file ? \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 800, 78) : null;
 
             AdminModel::create([
                 'name' => $request->name,
@@ -66,10 +60,7 @@ class AdminController extends Controller
 
             $file = $request->file('media');
             if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-                $data['image'] = $path;
+                $data['image'] = \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 800, 78);
             }
             $admin->update($data);
             DB::commit();

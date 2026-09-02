@@ -49,7 +49,7 @@
                     </div>
                     <div class="header-nav">
                         <nav class="nav-main-menu d-none d-xl-block">
-                            <ul class="main-menu">
+                            <ul class="main-menu d-flex align-items-center">
                                 <li><a href="/">Beranda</a></li>
                                 <li><a href="/tentang">Tentang Kami</a></li>
                                 <li><a href="/program">Program</a></li>
@@ -58,6 +58,7 @@
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>
                                 <li><a href="https://market.lenterakasihagape.org">Market</a></li>
+                                <li><a href="{{ route('uyt_index') }}" class="btn btn-outline-dark px-3 py-1 font-weight-bold" style="border: 2px solid #000; border-radius: 4px; font-weight: 600; text-transform: none;">Use Your Talents</a></li>
                             </ul>
                         </nav>
                         <div class="burger-icon burger-icon-white">
@@ -93,6 +94,7 @@
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>
                                 <li><a href="https://market.lenterakasihagape.org">Market</a></li>
+                                <li><a href="{{ route('uyt_index') }}"><strong>Use Your Talents</strong></a></li>
                             </ul>
                             <!-- mobile menu end -->
                     </div>

@@ -17,6 +17,8 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PartnerListController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\UytController;
+use App\Http\Controllers\UytAdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +52,16 @@ Route::get('/artikel-galeri', [HomeController::class, 'media'])->name('media_mat
 Route::get('/lowongan-kerja', [HomeController::class, 'lowongan'])->name('lowongan');
 Route::get('/lowongan-kerja/{guid}', [HomeController::class, 'lowonganDetail'])->name('lowongan_detail');
 Route::get('/article/{slug}', [HomeController::class, 'articleDetail'])->name('article_detail');
+
+// UYT Frontend Routes
+Route::prefix('/uyt')->group(function () {
+    Route::get('/', [UytController::class, 'index'])->name('uyt_index');
+    Route::get('/cerita-dampak', [UytController::class, 'ceritaDampak'])->name('uyt_cerita_dampak');
+    Route::post('/cerita-dampak/kirim', [UytController::class, 'submitStory'])->name('uyt_submit_story');
+    Route::get('/fasilitator', [UytController::class, 'fasilitator'])->name('uyt_fasilitator');
+    Route::get('/workshop', [UytController::class, 'workshop'])->name('uyt_workshop');
+    Route::post('/workshop/daftar', [UytController::class, 'submitWorkshop'])->name('uyt_submit_workshop');
+});
 
 Route::post('/subscription', [SubscriptionController::class, 'addPost']);
 Route::post('/donations', [DonationController::class, 'addPost'])->name('donation_add_post');
@@ -196,5 +208,45 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/', [AchievementController::class, 'addPost'])->name('achievement_add_post');
         Route::patch('/{id}', [AchievementController::class, 'editPatch'])->name('achievement_edit_patch');
         Route::delete('/{id}', [AchievementController::class, 'delete'])->name('achievement_delete');
+    });
+
+    // UYT Admin Management Routes
+    Route::prefix('/admin-uyt')->group(function () {
+        Route::get('/content', [UytAdminController::class, 'indexContent'])->name('admin_uyt_content');
+        Route::post('/content', [UytAdminController::class, 'updateContent'])->name('admin_uyt_content_update');
+        
+        Route::get('/resources', [UytAdminController::class, 'indexResource'])->name('admin_uyt_resources');
+        Route::post('/resources', [UytAdminController::class, 'storeResource'])->name('admin_uyt_resources_store');
+        Route::delete('/resources/{id}', [UytAdminController::class, 'deleteResource'])->name('admin_uyt_resources_delete');
+
+        Route::get('/facilitators', [UytAdminController::class, 'indexFacilitator'])->name('admin_uyt_facilitators');
+        Route::post('/facilitators', [UytAdminController::class, 'storeFacilitator'])->name('admin_uyt_facilitators_store');
+        Route::delete('/facilitators/{id}', [UytAdminController::class, 'deleteFacilitator'])->name('admin_uyt_facilitators_delete');
+
+        Route::get('/stories', [UytAdminController::class, 'indexStories'])->name('admin_uyt_stories');
+        Route::get('/stories/export', [UytAdminController::class, 'exportStories'])->name('admin_uyt_stories_export');
+        Route::post('/stories/toggle/{id}', [UytAdminController::class, 'togglePublishStory'])->name('admin_uyt_stories_toggle');
+        Route::delete('/stories/{id}', [UytAdminController::class, 'deleteStory'])->name('admin_uyt_stories_delete');
+
+        Route::get('/workshops', [UytAdminController::class, 'indexWorkshops'])->name('admin_uyt_workshops');
+        Route::get('/workshops/export', [UytAdminController::class, 'exportWorkshops'])->name('admin_uyt_workshops_export');
+        Route::post('/workshops/status/{id}', [UytAdminController::class, 'updateWorkshopStatus'])->name('admin_uyt_workshops_status');
+        Route::delete('/workshops/{id}', [UytAdminController::class, 'deleteWorkshop'])->name('admin_uyt_workshops_delete');
+
+        // Artikel Khusus UYT
+        Route::get('/articles', [UytAdminController::class, 'indexArticles'])->name('admin_uyt_articles');
+        Route::get('/articles/add', [UytAdminController::class, 'addArticleView'])->name('admin_uyt_articles_add_view');
+        Route::post('/articles/add', [UytAdminController::class, 'storeArticle'])->name('admin_uyt_articles_add');
+        Route::get('/articles/edit/{id}', [UytAdminController::class, 'editArticleView'])->name('admin_uyt_articles_edit_view');
+        Route::patch('/articles/edit/{id}', [UytAdminController::class, 'updateArticle'])->name('admin_uyt_articles_edit');
+        Route::delete('/articles/{id}', [UytAdminController::class, 'deleteArticle'])->name('admin_uyt_articles_delete');
+
+        // Video Khusus UYT
+        Route::get('/videos', [UytAdminController::class, 'indexVideos'])->name('admin_uyt_videos');
+        Route::get('/videos/add', [UytAdminController::class, 'addVideoView'])->name('admin_uyt_videos_add_view');
+        Route::post('/videos/add', [UytAdminController::class, 'storeVideo'])->name('admin_uyt_videos_add');
+        Route::get('/videos/edit/{id}', [UytAdminController::class, 'editVideoView'])->name('admin_uyt_videos_edit_view');
+        Route::patch('/videos/edit/{id}', [UytAdminController::class, 'updateVideo'])->name('admin_uyt_videos_edit');
+        Route::delete('/videos/{id}', [UytAdminController::class, 'deleteVideo'])->name('admin_uyt_videos_delete');
     });
 });

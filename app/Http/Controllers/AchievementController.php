@@ -26,13 +26,7 @@ class AchievementController extends Controller
         DB::beginTransaction();
         try {
             $file = $request->file('media');
-            if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-            } else {
-                $path = null;
-            }
+            $path = $file ? \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 1200, 78) : null;
 
             $achievement = AchievementModel::create([
                 'year' => $request->year,
@@ -85,10 +79,7 @@ class AchievementController extends Controller
             ];
             $file = $request->file('media');
             if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-                $data['media'] = $path;
+                $data['media'] = \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 1200, 78);
             }
             $achievement->update($data);
             AchievementProgramModel::where('achievements_id', $id)->delete();

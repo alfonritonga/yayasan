@@ -31,13 +31,7 @@ class MateriController extends Controller
         $pdf = $request->file('pdf');
         DB::beginTransaction();
         try {
-            if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-            } else {
-                $path = null;
-            }
+            $path = $file ? \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 1200, 78) : null;
 
             if ($pdf != null) {
                 $pdfName = time() . '_' . $pdf->getClientOriginalName();
@@ -95,10 +89,7 @@ class MateriController extends Controller
 
             $file = $request->file('image');
             if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-                $data['image'] = $path;
+                $data['image'] = \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 1200, 78);
             }
 
             if ($pdf != null) {

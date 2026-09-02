@@ -60,8 +60,15 @@
                                         <tr>
                                             <td>{{ $x->name }}</td>
                                             <td>{{ $x->phone }}</td>
-                                            <td>{{ $x->role }}</td>
-                                            <td>{{ $x->image }}</td>
+                                            <td>
+                                                @if (!empty($x->image))
+                                                    <a href="javascript:void(0)" onclick="previewImageModal('{{ asset($x->image) }}', '{{ addslashes($x->name) }}')" title="Klik untuk lihat preview">
+                                                        <img src="{{ asset($x->image) }}" alt="Preview" style="width: 55px; height: 55px; object-fit: cover; border-radius: 50%; border: 1px solid #e2e8f0; transition: transform .2s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" />
+                                                    </a>
+                                                @else
+                                                    <span class="badge light badge-light text-muted">No Image</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <div class="d-flex">
                                                     <a href="{{ route('admin_edit_view', $x->id) }}"

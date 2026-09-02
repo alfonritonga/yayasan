@@ -55,7 +55,15 @@
                                 <tbody>
                                     @foreach ($about_images as $x)
                                         <tr>
-                                            <td>{{ $x->image }}</td>
+                                            <td>
+                                                @if (!empty($x->image))
+                                                    <a href="javascript:void(0)" onclick="previewImageModal('{{ asset($x->image) }}', 'Gambar Tentang YLKA')" title="Klik untuk lihat preview">
+                                                        <img src="{{ asset($x->image) }}" alt="Preview" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px; border: 1px solid #e2e8f0; transition: transform .2s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" />
+                                                    </a>
+                                                @else
+                                                    <span class="badge light badge-light text-muted">No Image</span>
+                                                @endif
+                                            </td>
                                             <td>{{ $x->status == 1 ? 'Aktif' : 'Tidak Aktif' }}</td>
                                             <td>
                                                 <div class="d-flex">

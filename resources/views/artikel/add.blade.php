@@ -90,8 +90,19 @@
         </div>
     </div>
 
+@section('script')
     <script>
-        CKEDITOR.replace('description');
+        document.addEventListener("DOMContentLoaded", function() {
+            const desc = document.querySelector('#description');
+            if (desc && typeof ClassicEditor !== 'undefined') {
+                ClassicEditor.create(desc, {
+                    toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', '|', 'undo', 'redo']
+                }).catch(function(error) {
+                    console.error(error);
+                });
+            } else if (desc && typeof CKEDITOR !== 'undefined') {
+                CKEDITOR.replace('description');
+            }
+        });
     </script>
-
 @endsection

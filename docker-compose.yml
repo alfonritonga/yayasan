@@ -1,0 +1,18 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: yayasan_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: yuhdygaa_ylka
+      MYSQL_USER: ylka_user
+      MYSQL_PASSWORD: ylka_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - yayasan_mysql_data:/var/lib/mysql
+      - ./yuhdygaa_ylka-2.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  yayasan_mysql_data:

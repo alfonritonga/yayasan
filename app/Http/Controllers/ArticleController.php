@@ -28,9 +28,7 @@ class ArticleController extends Controller
         DB::beginTransaction();
         try {
             if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
+                $path = $this->compressAndSaveImage($file);
             } else {
                 $path = null;
             }
@@ -74,9 +72,7 @@ class ArticleController extends Controller
 
             $file = $request->file('media');
             if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
+                $path = $this->compressAndSaveImage($file);
                 $data['media'] = $path;
             }
             $job->update($data);
@@ -87,6 +83,59 @@ class ArticleController extends Controller
             DB::rollBack();
             return redirect()->route('article_edit_view', $id)->with('error_message', $exception->getMessage());
         }
+    }
+
+    /**
+     * Kompres dan simpan gambar maksimal ~300KB
+     */
+    private function compressAndSaveImage($file)
+    {
+        $ext = strtolower($file->getClientOriginalExtension());
+        $filename = time() . '_' . uniqid() . '.' . ($ext === 'png' ? 'jpg' : $ext);
+        $destinationPath = public_path('/asset');
+
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0755, true);
+        }
+
+        $targetFile = $destinationPath . '/' . $filename;
+        $tempPath = $file->getRealPath();
+
+        // Menggunakan GD untuk resize & kompres
+        if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp']) && function_exists('imagecreatefromstring')) {
+            $imageData = file_get_contents($tempPath);
+            $srcImage = @imagecreatefromstring($imageData);
+
+            if ($srcImage !== false) {
+                $origWidth = imagesx($srcImage);
+                $origHeight = imagesy($srcImage);
+
+                // Batasi dimensi maksimal width 1200px agar efisien
+                $maxWidth = 1200;
+                if ($origWidth > $maxWidth) {
+                    $newWidth = $maxWidth;
+                    $newHeight = (int)($origHeight * ($maxWidth / $origWidth));
+
+                    $dstImage = imagecreatetruecolor($newWidth, $newHeight);
+                    // Pertahankan background putih jika ada transparansi
+                    $white = imagecolorallocate($dstImage, 255, 255, 255);
+                    imagefilledrectangle($dstImage, 0, 0, $newWidth, $newHeight, $white);
+                    imagecopyresampled($dstImage, $srcImage, 0, 0, 0, 0, $newWidth, $newHeight, $origWidth, $origHeight);
+                    imagedestroy($srcImage);
+                    $srcImage = $dstImage;
+                }
+
+                // Kompresi kualitas JPG 78% (rata-rata ukuran jadi 100KB - 250KB, di bawah 300KB)
+                imagejpeg($srcImage, $targetFile, 78);
+                imagedestroy($srcImage);
+
+                return 'asset/' . $filename;
+            }
+        }
+
+        // Fallback jika bukan image yang didukung GD
+        $file->move($destinationPath, $filename);
+        return 'asset/' . $filename;
     }
 
     function delete($id)

@@ -60,7 +60,14 @@
                                         <tr>
                                             <td>{{ $x->title }}</td>
                                             <td>{{ $x->category->title }}</td>
-                                            <td><a target="_blank" href="../{{ $x->media }}"> {{ $x->media }}</a>
+                                            <td>
+                                                @if (!empty($x->media))
+                                                    <a href="javascript:void(0)" onclick="previewImageModal('{{ asset($x->media) }}', '{{ addslashes($x->title) }}')" title="Klik untuk lihat preview">
+                                                        <img src="{{ asset($x->media) }}" alt="Preview" style="width: 55px; height: 55px; object-fit: contain; background: #f8fafc; padding: 3px; border-radius: 8px; border: 1px solid #e2e8f0; transition: transform .2s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" />
+                                                    </a>
+                                                @else
+                                                    <span class="badge light badge-light text-muted">No Image</span>
+                                                @endif
                                             </td>
                                             <td>{{ $x->description }}</td>
                                             <td>{{ $x->created_at }}</td>

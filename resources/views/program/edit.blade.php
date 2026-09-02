@@ -48,7 +48,7 @@
                                 <div class="mb-3 row custom-ekeditor">
                                     <label class="col-sm-3 col-form-label">Deskripsi</label>
                                     <div class="col-sm-9">
-                                        <textarea name="description" cols="30" rows="30" class="form-control" required>{{ $program->description }}</textarea>
+                                        <textarea id="description" name="description" cols="30" rows="10" class="form-control">{{ $program->description }}</textarea>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
@@ -86,16 +86,15 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <div class="basic-list-group">
+                                                <div class="bootstrap-badge">
                                                     <ul class="list-group" style="padding-left: 0 !important"
                                                         id="list_task">
                                                         @foreach ($program->tasks as $i)
                                                             <li
                                                                 class="list-group-item d-flex justify-content-between align-items-center">
-                                                                {{ $i->task }} <span
-                                                                    class="badge badge-danger badge-pill"
-                                                                    style="cursor: pointer"
-                                                                    onclick="deleteMe(this)"><small><i
+                                                                {{ $i->task }}
+                                                                <span class="badge badge-danger badge-pill"
+                                                                    style="cursor: pointer" onclick="deleteMe(this)"><small><i
                                                                             class="flaticon-019-close"></i>
                                                                     </small></span>
                                                                 <input type="hidden" name="tasks[]"
@@ -124,7 +123,20 @@
     </div>
 
 @endsection
+
+@section('script')
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const desc = document.querySelector('#description');
+        if (desc && typeof ClassicEditor !== 'undefined') {
+            ClassicEditor.create(desc, {
+                toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', '|', 'undo', 'redo']
+            }).catch(function(error) {
+                console.error(error);
+            });
+        }
+    });
+
     function addCelebrity() {
         let value = $('#task').val();
         if (value.length > 0) {
@@ -151,3 +163,4 @@
         elemen.remove();
     }
 </script>
+@endsection

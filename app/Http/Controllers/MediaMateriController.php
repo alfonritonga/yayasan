@@ -29,13 +29,7 @@ class MediaMateriController extends Controller
         DB::beginTransaction();
         try {
             $file = $request->file('media');
-            if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-            } else {
-                $path = null;
-            }
+            $path = $file ? \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 1200, 78) : null;
 
             MediaModel::create([
                 'guid' => Str::uuid()->toString(),
@@ -73,10 +67,7 @@ class MediaMateriController extends Controller
 
             $file = $request->file('media');
             if ($file != null) {
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('/asset'), $imageName);
-                $path = 'asset/' . $imageName;
-                $data['media'] = $path;
+                $data['media'] = \App\Helpers\ImageCompressionHelper::compressAndSave($file, 'asset', 1200, 78);
             }
             $photo->update($data);
             DB::commit();

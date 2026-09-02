@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" href="{{ asset('template/vendor/select2/css/select2.min.css') }}">
     <link href="{{ asset('template/vendor/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet">
-    <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('template/vendor/ckeditor/ckeditor.js') }}"></script>
 </head>
 
 <body>
@@ -989,6 +989,20 @@
                         </ul>
 
                     </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-layer-1"></i>
+                            <span class="nav-text">Use Your Talents</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{ route('admin_uyt_content') }}">Kelola Konten UYT</a></li>
+                            <li><a href="{{ route('admin_uyt_articles') }}">Artikel UYT</a></li>
+                            <li><a href="{{ route('admin_uyt_videos') }}">Video Kegiatan UYT</a></li>
+                            <li><a href="{{ route('admin_uyt_resources') }}">Resources / Download</a></li>
+                            <li><a href="{{ route('admin_uyt_facilitators') }}">Fasilitator UYT</a></li>
+                            <li><a href="{{ route('admin_uyt_stories') }}">Cerita Masuk</a></li>
+                            <li><a href="{{ route('admin_uyt_workshops') }}">Pendaftaran Workshop</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
                 <!-- <div class="copyright">
@@ -1064,7 +1078,44 @@
 
     @yield('script')
 
+    <!-- Global Image Preview Modal -->
+    <div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-labelledby="imagePreviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="border-radius: 12px; overflow: hidden; border: none; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+                <div class="modal-header" style="background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 14px 20px;">
+                    <h5 class="modal-title font-weight-bold" id="imagePreviewModalLabel" style="font-size: 16px; color: #1e293b;">Preview Gambar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4" style="background: #0f172a;">
+                    <img id="modalPreviewImg" src="" alt="Preview Image" style="max-width: 100%; max-height: 70vh; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);" />
+                </div>
+                <div class="modal-footer" style="background: #f8fafc; border-top: 1px solid #e2e8f0; justify-content: space-between;">
+                    <a id="modalOpenTabBtn" href="" target="_blank" class="btn btn-sm btn-outline-primary"><i class="fa fa-external-link me-1"></i>Buka Tab Baru</a>
+                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        function previewImageModal(url, title) {
+            const modalImg = document.getElementById('modalPreviewImg');
+            const modalTitle = document.getElementById('imagePreviewModalLabel');
+            const openTabBtn = document.getElementById('modalOpenTabBtn');
+            
+            if (modalImg) modalImg.src = url;
+            if (modalTitle) modalTitle.textContent = title || 'Preview Gambar';
+            if (openTabBtn) openTabBtn.href = url;
+
+            const modalEl = document.getElementById('imagePreviewModal');
+            if (modalEl && typeof bootstrap !== 'undefined') {
+                const myModal = new bootstrap.Modal(modalEl);
+                myModal.show();
+            } else if (modalEl && typeof $ !== 'undefined') {
+                $('#imagePreviewModal').modal('show');
+            }
+        }
+    </script>
 </body>
 
 </html>

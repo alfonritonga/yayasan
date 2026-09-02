@@ -1,9 +1,33 @@
-vendor/
 /vendor
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/public/uploads
+/public/s
+/public/__MACOSX
+/storage/*.key
 .env
-vendor
-vendor/composer/installed.php
-vendor/composer/installed.json
-vendor/composer/autoload_static.php
-vendor/composer/autoload_psr4.php
-vendor/composer/autoload_classmap.php
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
+.DS_Store
+Thumbs.db
+
+# Database dumps / SQL exports
+*.sql
+*.sqlite
+
+# Temporary / Draft files
+draft web uyt.pdf
+note.txt
+/tmp
+/uploads
+/file

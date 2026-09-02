@@ -46,7 +46,7 @@
                                 <div class="mb-3 row custom-ekeditor">
                                     <label class="col-sm-3 col-form-label">Deskripsi</label>
                                     <div class="col-sm-9">
-                                        <textarea name="description" cols="30" rows="30" class="form-control" required></textarea>
+                                        <textarea id="description" name="description" cols="30" rows="10" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
@@ -76,7 +76,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <div class="basic-list-group">
+                                                <div class="bootstrap-badge">
                                                     <ul class="list-group" style="padding-left: 0 !important"
                                                         id="list_task">
 
@@ -102,7 +102,20 @@
     </div>
 
 @endsection
+
+@section('script')
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const desc = document.querySelector('#description');
+        if (desc && typeof ClassicEditor !== 'undefined') {
+            ClassicEditor.create(desc, {
+                toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', '|', 'undo', 'redo']
+            }).catch(function(error) {
+                console.error(error);
+            });
+        }
+    });
+
     function addCelebrity() {
         let value = $('#task').val();
         if (value.length > 0) {
@@ -125,3 +138,4 @@
         elemen.remove();
     }
 </script>
+@endsection

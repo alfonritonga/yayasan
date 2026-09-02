@@ -58,7 +58,15 @@
                                     @foreach ($materi as $x)
                                         <tr>
                                             <td>{{ $x->title }}</td>
-                                            <td>{{ $x->image }}</td>
+                                            <td>
+                                                @if (!empty($x->image))
+                                                    <a href="javascript:void(0)" onclick="previewImageModal('{{ asset($x->image) }}', '{{ addslashes($x->title) }}')" title="Klik untuk lihat preview">
+                                                        <img src="{{ asset($x->image) }}" alt="Preview" style="width: 55px; height: 55px; object-fit: cover; border-radius: 8px; border: 1px solid #e2e8f0; transition: transform .2s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" />
+                                                    </a>
+                                                @else
+                                                    <span class="badge light badge-light text-muted">No Image</span>
+                                                @endif
+                                            </td>
                                             <td>{{ 'Rp. ' . number_format($x->price, 0, '.', '.') }}</td>
                                             @if ($x->status == 1)
                                                 <td><span class="badge light badge-success">Aktif</span></td>
