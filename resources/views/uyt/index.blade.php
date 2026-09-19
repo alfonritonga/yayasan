@@ -330,9 +330,9 @@
                     }
                 }
             @endphp
-            <div class="row pr-15 pl-15 mt-25 justify-content-center">
+            <div class="row pr-15 pl-15 mt-20 mb-20 justify-content-center">
                 <div class="col-lg-10">
-                    <div class="uyt-box wow animate__animated animate__fadeIn p-0 overflow-hidden" style="border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.06);">
+                    <div class="uyt-box wow animate__animated animate__fadeIn p-0 overflow-hidden" style="border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.06); margin-bottom: 0;">
                         @if ($introYoutubeId)
                             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
                                 <iframe src="https://www.youtube-nocookie.com/embed/{{ $introYoutubeId }}" 
@@ -342,10 +342,10 @@
                                     allowfullscreen></iframe>
                             </div>
                         @else
-                            <div class="p-35 text-center" style="background: linear-gradient(135deg, #05264e 0%, #16213e 100%); color: #fff;">
-                                <div style="font-size: 42px; margin-bottom: 10px;">🎬</div>
-                                <h5 class="text-white mb-8" style="font-size: 18px; font-weight: 700;">Video Introduction &mdash; Use Your Talents</h5>
-                                <p class="text-white-50 mb-0" style="max-width: 580px; margin: 0 auto; font-size: 14px; line-height: 1.6;">
+                            <div class="text-center" style="background: linear-gradient(135deg, #05264e 0%, #16213e 100%); color: #fff; padding: 52px 32px;">
+                                <div style="font-size: 48px; margin-bottom: 14px; line-height: 1;">🎬</div>
+                                <h5 class="text-white mb-10" style="font-size: 20px; font-weight: 700;">Video Introduction &mdash; Use Your Talents</h5>
+                                <p class="text-white-50 mb-0" style="max-width: 620px; margin: 0 auto; font-size: 15px; line-height: 1.65;">
                                     Kenali lebih dalam bagaimana pendekatan UYT mentransformasi jemaat dan komunitas mengenali apa yang ada di tangan mereka.
                                 </p>
                             </div>
@@ -355,9 +355,9 @@
             </div>
 
             @if (!empty($mengenal->content))
-            <div class="row pr-15 pl-15 mt-10">
+            <div class="row pr-15 pl-15 mt-30">
                 <div class="col-12">
-                    <div class="uyt-box wow animate__animated animate__fadeIn">
+                    <div class="uyt-box wow animate__animated animate__fadeIn" style="padding: 36px 40px;">
                         <div class="text-muted" style="font-size: 15px; line-height: 1.85;">
                             {!! $mengenal->content !!}
                         </div>
@@ -411,9 +411,9 @@
                 </div>
             </div>
             @if (!empty($landasan->content))
-            <div class="row pr-15 pl-15 mt-10">
+            <div class="row pr-15 pl-15 mt-25">
                 <div class="col-12">
-                    <div class="uyt-box wow animate__animated animate__fadeIn">
+                    <div class="uyt-box wow animate__animated animate__fadeIn" style="padding: 32px 36px;">
                         <div class="text-muted" style="font-size: 15px; line-height: 1.85;">{!! $landasan->content !!}</div>
                     </div>
                 </div>
@@ -455,9 +455,9 @@
                 @endforeach
             </div>
             @if (!empty($cara_kerja->content))
-            <div class="row pr-15 pl-15 mt-10">
+            <div class="row pr-15 pl-15 mt-25">
                 <div class="col-12">
-                    <div class="uyt-box wow animate__animated animate__fadeIn">
+                    <div class="uyt-box wow animate__animated animate__fadeIn" style="padding: 32px 36px;">
                         <div class="text-muted" style="font-size: 15px; line-height: 1.85;">{!! $cara_kerja->content !!}</div>
                     </div>
                 </div>
