@@ -124,21 +124,21 @@
     <section class="uyt-page-hero">
         <div class="container text-center">
             <span class="uyt-label">Katalisator Gerakan</span>
-            <h2 class="wow animate__animated animate__fadeInUp">Fasilitator Use Your Talents</h2>
-            <p class="wow animate__animated animate__fadeInUp" style="max-width: 580px; margin: 0 auto;">
+            <h2 class="wow animate__animated animate__fadeInUp">Menjadi Fasilitator UYT</h2>
+            <p class="wow animate__animated animate__fadeInUp" style="max-width: 620px; margin: 0 auto;">
                 Pelayan, pelatih, dan penggerak yang mendampingi jemaat serta masyarakat menggali potensi yang telah Tuhan percayakan.
             </p>
         </div>
     </section>
 
-    <!-- ===== Info Fasilitator ===== -->
-    <section class="section-box mt-50 mb-40 p-20 pt-50">
+    <!-- ===== 1. Peran Fasilitator ===== -->
+    <section class="section-box mt-50 mb-40 p-20 pt-50" id="peran-fasilitator">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-30">
-                    <span class="uyt-label-dark">Peran &amp; Panggilan</span>
+                    <span class="uyt-label-dark">Panggilan &amp; Misi</span>
                     <h4 class="wow animate__animated animate__fadeInUp" style="text-align: left;">
-                        {{ $info->title ?? 'Mengenal Fasilitator UYT' }}
+                        {{ $info->title ?? 'Peran Fasilitator Use Your Talents' }}
                     </h4>
                     <div class="text-muted wow animate__animated animate__fadeIn" style="font-size: 15px; line-height: 1.85;">
                         {!! $info->content ?? '<p>Fasilitator UYT adalah individu yang dilatih secara khusus untuk memandu proses penemuan talenta dan aset lokal serta merancang program aksi nyata mandiri yang berkelanjutan di gereja dan komunitas mereka.</p>' !!}
@@ -146,7 +146,7 @@
                 </div>
                 <div class="col-lg-6 mb-30">
                     <div class="uyt-info-box wow animate__animated animate__fadeIn">
-                        <h4>Apa yang Dikerjakan Fasilitator?</h4>
+                        <h4>Tanggung Jawab Utama Fasilitator</h4>
                         <ul style="padding-left: 20px; margin: 0;">
                             <li style="margin-bottom: 10px;">🎯 Memimpin sesi Discovery &amp; Asset Mapping bersama jemaat</li>
                             <li style="margin-bottom: 10px;">💡 Memandu proses Envisioning komunitas mandiri</li>
@@ -160,14 +160,57 @@
         </div>
     </section>
 
-    <!-- ===== Testimoni Trainer/Fasilitator ===== -->
+    <!-- ===== 2. Bagaimana Menjadi Fasilitator (Sesuai Wireframe Halaman 8) ===== -->
+    <section class="section-box mt-0 mb-40 p-20 pt-35" id="cara-menjadi-fasilitator" style="background: #ffffff;">
+        <div class="container">
+            <div class="mw-650">
+                <span class="uyt-label-dark">Tahapan Pelatihan</span>
+                <h4 class="text-center wow animate__animated animate__fadeInUp">Bagaimana Menjadi Fasilitator UYT?</h4>
+                <p class="mb-30 mt-15 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
+                    Alur proses pembekalan untuk menjadi fasilitator bersertifikat UYT Indonesia
+                </p>
+            </div>
+            <div class="row pr-15 pl-15 mt-20">
+                <div class="col-lg-3 col-md-6 mb-25">
+                    <div class="uyt-feature-card text-center wow animate__animated animate__fadeInUp" data-wow-delay=".0s">
+                        <div class="uyt-icon-box mx-auto">🌱</div>
+                        <h5>1. Rekomendasi Jemaat</h5>
+                        <p>Mendapatkan rekomendasi dari gereja, lembaga sosial, atau komunitas untuk menjadi utusan penggerak.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-25">
+                    <div class="uyt-feature-card text-center wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
+                        <div class="uyt-icon-box mx-auto">🎓</div>
+                        <h5>2. Mengikuti ToF</h5>
+                        <p>Mengikuti Training of Facilitators intensif (4–5 hari) mencakup metodologi ABCD dan coaching fasilitasi.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-25">
+                    <div class="uyt-feature-card text-center wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
+                        <div class="uyt-icon-box mx-auto">📝</div>
+                        <h5>3. Praktik Lapangan</h5>
+                        <p>Mempraktikkan pemanduan workshop mandiri di komunitas lokal dengan supervisi fasilitator senior.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-25">
+                    <div class="uyt-feature-card text-center wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
+                        <div class="uyt-icon-box mx-auto">🏅</div>
+                        <h5>4. Sertifikasi Resmi</h5>
+                        <p>Mendapatkan sertifikat resmi Fasilitator UYT dan tergabung dalam forum fasilitator aktif nasional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 3. List Fasilitator (Sesuai Wireframe Halaman 8) ===== -->
     <section class="section-box mt-40 mb-40 p-20 pt-35" id="fasilitator" style="background: #f8faff;">
         <div class="container">
             <div class="mw-650">
-                <span class="uyt-label-dark">Kesaksian Pelayanan</span>
-                <h4 class="text-center wow animate__animated animate__fadeInUp">Testimoni Trainer &amp; Fasilitator</h4>
-                <p class="mb-30 mt-20 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                    Bagian ini dikelola dan diperbarui secara berkala oleh Admin UYT
+                <span class="uyt-label-dark">Jaringan Fasilitator</span>
+                <h4 class="text-center wow animate__animated animate__fadeInUp">List Fasilitator UYT</h4>
+                <p class="mb-30 mt-15 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
+                    Daftar fasilitator bersertifikat yang siap melayani dan mendampingi komunitas Anda
                 </p>
             </div>
         </div>
@@ -196,6 +239,45 @@
                         <p class="text-muted">Daftar testimoni fasilitator sedang diperbarui oleh tim kami.</p>
                     </div>
                 @endforelse
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 4. Testimoni Peserta Training (Sesuai Wireframe Halaman 8) ===== -->
+    <section class="section-box mt-0 mb-40 p-20 pt-35" id="testimoni-training" style="background: #ffffff;">
+        <div class="container">
+            <div class="mw-650">
+                <span class="uyt-label-dark">Refleksi Pembekalan</span>
+                <h4 class="text-center wow animate__animated animate__fadeInUp">Testimoni Peserta Training</h4>
+                <p class="mb-30 mt-10 text-center wow animate__animated animate__fadeInUp" style="color: #fd0249; font-style: italic; font-size: 14px; font-weight: 600;">
+                    (Akan ada video testimoni dan teks testimoni)
+                </p>
+            </div>
+            <div class="row pr-15 pl-15 mt-10 justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-md-6 mb-20">
+                            <div class="uyt-box h-100 p-25" style="border-left: 4px solid #fd0249;">
+                                <div class="mb-10 text-brand" style="font-size: 24px;">💬</div>
+                                <h6 class="mb-5 font-weight-bold">Ev. David Situmorang</h6>
+                                <small class="text-muted d-block mb-10">Alumni ToF Angkatan II &bull; Tarutung</small>
+                                <p class="text-muted" style="font-size: 14px; line-height: 1.7; font-style: italic;">
+                                    "ToF UYT benar-benar mendisrupsi pola pikir pelayanan kami. Saya belajar cara memfasilitasi jemaat agar mereka sendiri yang menemukan solusinya, bukan disuapi."
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-20">
+                            <div class="uyt-box h-100 p-25" style="border-left: 4px solid #fd0249;">
+                                <div class="mb-10 text-brand" style="font-size: 24px;">💬</div>
+                                <h6 class="mb-5 font-weight-bold">Debora Sinaga, S.Pd</h6>
+                                <small class="text-muted d-block mb-10">Alumni ToF Angkatan III &bull; Medan</small>
+                                <p class="text-muted" style="font-size: 14px; line-height: 1.7; font-style: italic;">
+                                    "Simulasi lapangan dan bimbingan fasilitator senior sangat aplikatif. Toolkit dan materinya sangat siap pakai untuk diterapkan langsung ke kelompok pemuda gereja kami."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

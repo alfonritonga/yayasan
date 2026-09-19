@@ -196,24 +196,25 @@
                                 <li class="{{ request()->routeIs('uyt_index') ? 'uyt-active' : '' }}">
                                     <a href="{{ route('uyt_index') }}">Beranda</a>
                                 </li>
-                                <li class="{{ request()->routeIs('uyt_cerita_dampak') ? 'uyt-active' : '' }}">
-                                    <a href="{{ route('uyt_cerita_dampak') }}">Lihat Cerita dan Dampak</a>
+                                <li class="{{ request()->routeIs('uyt_cerita_dampak*') ? 'uyt-active' : '' }}">
+                                    <a href="{{ route('uyt_cerita_dampak') }}">Cerita dan Dampak</a>
                                     <ul class="sub-menu">
-                                        <li><a href="{{ route('uyt_cerita_dampak') }}#artikel">Artikel UYT</a></li>
-                                        <li><a href="{{ route('uyt_cerita_dampak') }}#video">Video UYT</a></li>
-                                        <li><a href="{{ route('uyt_cerita_dampak') }}#kirim-cerita">Kirim Ceritamu</a></li>
+                                        <li><a href="{{ route('uyt_cerita_dampak') }}#artikel">Cerita Inspiratif</a></li>
+                                        <li><a href="{{ route('uyt_cerita_dampak') }}#testimoni">Testimoni</a></li>
                                     </ul>
                                 </li>
-                                <li class="{{ request()->routeIs('uyt_fasilitator') ? 'uyt-active' : '' }}">
-                                    <a href="{{ route('uyt_fasilitator') }}">Fasilitator UYT</a>
-                                </li>
-                                <li class="{{ request()->routeIs('uyt_workshop') ? 'uyt-active' : '' }}">
-                                    <a href="{{ route('uyt_workshop') }}">Jadilah Mitra Gerakan UYT</a>
+                                <li class="{{ (request()->routeIs('uyt_workshop') || request()->routeIs('uyt_fasilitator')) ? 'uyt-active' : '' }}">
+                                    <a href="{{ route('uyt_workshop') }}">Mari Bermitra</a>
                                     <ul class="sub-menu">
-                                        <li><a href="{{ route('uyt_workshop') }}#apa-itu-mitra">Apa itu Mitra Gerakan</a></li>
-                                        <li><a href="{{ route('uyt_workshop') }}#jenis-workshop">Jenis Workshop</a></li>
-                                        <li><a href="{{ route('uyt_workshop') }}#form-pendaftaran">Form Pendaftaran Workshop</a></li>
+                                        <li><a href="{{ route('uyt_workshop') }}">Mengadakan Workshop UYT</a></li>
+                                        <li><a href="{{ route('uyt_fasilitator') }}">Menjadi Fasilitator UYT</a></li>
                                     </ul>
+                                </li>
+                                <li class="{{ request()->routeIs('uyt_resources') ? 'uyt-active' : '' }}">
+                                    <a href="{{ route('uyt_resources') }}">Resources</a>
+                                </li>
+                                <li>
+                                    <a href="https://market.lenterakasihagape.org" target="_blank" rel="noopener noreferrer">Merchandise</a>
                                 </li>
                                 <li>
                                     <a href="/" class="uyt-nav-back"><span>&#8592;</span> Web YLKA</a>
@@ -253,24 +254,23 @@
                         <!-- mobile menu start -->
                         <nav>
                             <ul class="mobile-menu font-heading">
-                                <li><a href="{{ route('uyt_index') }}">Beranda UYT</a></li>
+                                <li><a href="{{ route('uyt_index') }}">Beranda</a></li>
                                 <li class="has-children">
-                                    <a href="{{ route('uyt_cerita_dampak') }}">Lihat Cerita dan Dampak</a>
+                                    <a href="{{ route('uyt_cerita_dampak') }}">Cerita dan Dampak</a>
                                     <ul class="sub-menu">
-                                        <li><a href="{{ route('uyt_cerita_dampak') }}#artikel">Artikel UYT</a></li>
-                                        <li><a href="{{ route('uyt_cerita_dampak') }}#video">Video UYT</a></li>
-                                        <li><a href="{{ route('uyt_cerita_dampak') }}#kirim-cerita">Kirim Ceritamu</a></li>
+                                        <li><a href="{{ route('uyt_cerita_dampak') }}#artikel">Cerita Inspiratif</a></li>
+                                        <li><a href="{{ route('uyt_cerita_dampak') }}#testimoni">Testimoni</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{ route('uyt_fasilitator') }}">Fasilitator UYT</a></li>
                                 <li class="has-children">
-                                    <a href="{{ route('uyt_workshop') }}">Jadilah Mitra Gerakan UYT</a>
+                                    <a href="{{ route('uyt_workshop') }}">Mari Bermitra</a>
                                     <ul class="sub-menu">
-                                        <li><a href="{{ route('uyt_workshop') }}#apa-itu-mitra">Apa itu Mitra Gerakan</a></li>
-                                        <li><a href="{{ route('uyt_workshop') }}#jenis-workshop">Jenis Workshop</a></li>
-                                        <li><a href="{{ route('uyt_workshop') }}#form-pendaftaran">Form Pendaftaran Workshop</a></li>
+                                        <li><a href="{{ route('uyt_workshop') }}">Mengadakan Workshop UYT</a></li>
+                                        <li><a href="{{ route('uyt_fasilitator') }}">Menjadi Fasilitator UYT</a></li>
                                     </ul>
                                 </li>
+                                <li><a href="{{ route('uyt_resources') }}">Resources</a></li>
+                                <li><a href="https://market.lenterakasihagape.org" target="_blank" rel="noopener noreferrer">Merchandise</a></li>
                                 <li><a href="/">&larr; Kembali ke Web YLKA</a></li>
                             </ul>
                             <!-- mobile menu end -->
@@ -283,21 +283,20 @@
     <!--End header-->
 
     <!-- Content -->
-    <main class="main">
-        @yield('content')
-    </main>
-    <!-- End Content -->
+    @yield('content')
 
-    <!-- Footer -->
-    <footer class="footer pt-0" style="margin-top: 100px; position: relative;">
+    <!-- Footer (struktur identik dengan footer materi.blade.php & tentang.blade.php) -->
+    <footer class="footer mt-50">
         <div class="container">
-            <!-- CTA Banner Floating (persis 50% di atas garis footer, 50% di dalam footer) -->
-            <div style="position: relative; z-index: 10; transform: translateY(-50%); margin-bottom: -40px;">
-                <div style="background-color: #fd0249; border-radius: 12px; padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; box-shadow: 0 16px 40px rgba(0,0,0,0.25);">
-                    <div style="flex: 1; min-width: 280px; text-align: left;">
-                        <h5 style="color: #fff; font-family: Rubik, sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin: 0; line-height: 1.35;">
-                            Jadwalkan Workshop Use Your Talents di Gereja / Komunitas Anda
+            <div class="box-newsletter-bottom">
+                <div class="donation-box d-flex align-items-center justify-content-between flex-wrap p-4" style="background: linear-gradient(90deg, #fd0249 0%, #c8003a 100%); border-radius: 12px; gap: 16px;">
+                    <div class="text-start" style="max-width: 650px;">
+                        <h5 class="text-white mb-2" style="font-size: 20px; font-weight: 700;">
+                            Mari Bermitra dan Mengadakan Workshop Use Your Talents
                         </h5>
+                        <p class="text-white-50 mb-0" style="font-size: 14px;">
+                            Bersama-sama menggali aset dan talenta yang Tuhan percayakan untuk membawa dampak transformasional bagi jemaat dan komunitas.
+                        </p>
                     </div>
                     <img src="{{ asset('front/imgs/social/pattern.svg') }}" alt="" style="flex-shrink: 0; display: none;" class="d-lg-block">
                     <a href="{{ route('uyt_workshop') }}#form-pendaftaran" style="background-color: #fff; color: #fd0249; font-weight: 700; border-radius: 6px; padding: 14px 28px; white-space: nowrap; text-decoration: none; font-family: Rubik, sans-serif; font-size: 15px; flex-shrink: 0; transition: all 0.2s ease;">
@@ -311,19 +310,29 @@
                     <div class="box-newsletter-2 mt-40">
                         <h5 class="text-md-newsletter-subcribe">Use Your Talents Indonesia</h5>
                         <h6 class="text-lg-newsletter-2 pt-15">Gerakan pemberdayaan berbasis aset &amp; talenta di bawah naungan Yayasan Lentera Kasih Agape</h6>
-                        <div class="mt-30">
-                            <p class="text-muted" style="font-size: 14px;">
+                        
+                        <!-- Contact info bar sesuai wireframe -->
+                        <div class="mt-25 d-flex flex-wrap justify-content-center align-items-center text-muted" style="gap: 20px; font-size: 14px;">
+                            <div><i class="fi-rr-phone-call mr-5 text-brand"></i><strong>No. HP / WA:</strong> 0822 6733 2889</div>
+                            <div>&bull;</div>
+                            <div><i class="fi-rr-envelope mr-5 text-brand"></i><strong>Email:</strong> ylkaindonesia@gmail.com</div>
+                            <div>&bull;</div>
+                            <div><i class="fi-rr-marker mr-5 text-brand"></i><strong>Alamat:</strong> Komplek Taman Setia Budi Indah Blok HH No. 69, Medan, Sumut 20122</div>
+                        </div>
+
+                        <div class="mt-20">
+                            <p class="text-muted" style="font-size: 13px;">
                                 &copy; {{ date('Y') }} Use Your Talents Indonesia &bull; Yayasan Lentera Kasih Agape. All Rights Reserved.
                             </p>
                         </div>
                     </div>
-                    <div class="mobile-social-icon mt-50">
-                        <a href="https://www.instagram.com/ylka_lenterakasihagape"><img src="{{ asset('asset/social/instagram.png') }}" alt="Instagram" /></a>
-                        <a href="https://www.facebook.com/lenterakasihagape"><img src="{{ asset('asset/social/facebook.png') }}" alt="Facebook" /></a>
-                        <a href="https://www.youtube.com/channel/UC7JWCqX0uDWZVtmYYdolhXw"><img src="{{ asset('asset/social/youtubee.png') }}" alt="Youtube" /></a>
+                    <div class="mobile-social-icon mt-30">
+                        <a href="https://www.instagram.com/ylka_lenterakasihagape" target="_blank"><img src="{{ asset('asset/social/instagram.png') }}" alt="Instagram" /></a>
+                        <a href="https://www.facebook.com/lenterakasihagape" target="_blank"><img src="{{ asset('asset/social/facebook.png') }}" alt="Facebook" /></a>
+                        <a href="https://www.youtube.com/channel/UC7JWCqX0uDWZVtmYYdolhXw" target="_blank"><img src="{{ asset('asset/social/youtubee.png') }}" alt="Youtube" /></a>
                     </div>
                 </div>
-                <div class="footer-bottom mt-50">
+                <div class="footer-bottom mt-40">
                     <div class="row">
                         <div class="col-md-3">
                             <img src="{{ asset('front/imgs/logo_white.svg') }}">
@@ -331,10 +340,11 @@
                         <div class="col-md-9 text-md-end text-start pt-15">
                             <nav class="nav-main-menu d-none d-xl-block">
                                 <ul class="main-menu">
-                                    <li><a href="{{ route('uyt_index') }}">Beranda UYT</a></li>
+                                    <li><a href="{{ route('uyt_index') }}">Beranda</a></li>
                                     <li><a href="{{ route('uyt_cerita_dampak') }}">Cerita &amp; Dampak</a></li>
-                                    <li><a href="{{ route('uyt_fasilitator') }}">Fasilitator UYT</a></li>
-                                    <li><a href="{{ route('uyt_workshop') }}">Workshop &amp; Mitra</a></li>
+                                    <li><a href="{{ route('uyt_workshop') }}">Mari Bermitra</a></li>
+                                    <li><a href="{{ route('uyt_resources') }}">Resources</a></li>
+                                    <li><a href="https://market.lenterakasihagape.org" target="_blank">Merchandise</a></li>
                                     <li><a href="/">Web YLKA</a></li>
                                 </ul>
                             </nav>

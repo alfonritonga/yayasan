@@ -25,13 +25,25 @@ class UytController extends Controller
         $mengenal = UytContent::where('key', 'mengenal_uyt')->first();
         $landasan = UytContent::where('key', 'landasan_alkitab')->first();
         $cara_kerja = UytContent::where('key', 'cara_kerja')->first();
+        $kegiatan = UytContent::where('key', 'kegiatan_terdekat')->first();
         $resources = UytResource::where('status', 1)->orderBy('order_num', 'asc')->get();
         $articles = UytArticle::where('status', 1)->orderBy('id', 'desc')->limit(3)->get();
         $videos = UytVideo::where('status', 1)->orderBy('id', 'desc')->limit(3)->get();
 
         return view('uyt.index', compact(
-            'hero', 'stats', 'mengenal', 'landasan', 'cara_kerja', 'resources', 'articles', 'videos'
+            'hero', 'stats', 'mengenal', 'landasan', 'cara_kerja', 'kegiatan', 'resources', 'articles', 'videos'
         ));
+    }
+
+    /**
+     * Halaman Resources Dokumen & Video Materi UYT
+     */
+    public function resources()
+    {
+        $resources = UytResource::where('status', 1)->orderBy('order_num', 'asc')->get();
+        $videos = UytVideo::where('status', 1)->orderBy('id', 'desc')->get();
+
+        return view('uyt.resources', compact('resources', 'videos'));
     }
 
     /**

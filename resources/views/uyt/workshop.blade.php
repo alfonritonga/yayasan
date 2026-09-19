@@ -147,35 +147,35 @@
     <section class="uyt-page-hero" style="background: linear-gradient(135deg, #05264e 0%, #1a1a2e 100%);">
         <div class="container text-center">
             <span class="uyt-label">Kemitraan &amp; Pelatihan</span>
-            <h2 class="wow animate__animated animate__fadeInUp">Jadilah Mitra Gerakan UYT</h2>
-            <p class="wow animate__animated animate__fadeInUp" style="max-width: 600px; margin: 0 auto;">
-                Bergabung bersama sinode, gereja lokal, sekolah, dan yayasan dalam memperlengkapi generasi yang mandiri dan berbuah melalui Use Your Talents.
+            <h2 class="wow animate__animated animate__fadeInUp">Mengadakan Workshop (UYT)</h2>
+            <p class="wow animate__animated animate__fadeInUp" style="max-width: 620px; margin: 0 auto;">
+                Panduan kemitraan gereja, sinode, yayasan, dan komunitas untuk menyelenggarakan pelatihan pemberdayaan berbasis aset dan talenta.
             </p>
         </div>
     </section>
 
-    <!-- ===== Apa itu Mitra ===== -->
-    <section class="section-box mt-50 mb-40 p-20 pt-50" id="apa-itu-mitra" style="background: #f8faff;">
+    <!-- ===== 1. Tentang Workshop ===== -->
+    <section class="section-box mt-50 mb-40 p-20 pt-50" id="tentang-workshop" style="background: #f8faff;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-30">
                     <span class="uyt-label-dark">Kemitraan Strategis</span>
                     <h4 class="wow animate__animated animate__fadeInUp" style="text-align: left;">
-                        {{ $mitraInfo->title ?? 'Apa itu Mitra Gerakan UYT?' }}
+                        {{ $mitraInfo->title ?? 'Tentang Workshop Use Your Talents' }}
                     </h4>
                     <div class="text-muted wow animate__animated animate__fadeIn" style="font-size: 15px; line-height: 1.85;">
-                        {!! $mitraInfo->content ?? '<p>Mitra Gerakan UYT adalah gereja, sinode, yayasan, sekolah, atau komunitas yang berkomitmen menerapkan prinsip Use Your Talents secara terstruktur dalam pelayanan mereka dan menjadi pusat gerakan pemberdayaan di wilayah masing-masing.</p>' !!}
+                        {!! $mitraInfo->content ?? '<p>Workshop Use Your Talents dirancang untuk membantu jemaat dan komunitas mengenali bahwa Tuhan telah mempercayakan berbagai aset—mulai dari talenta individu, keahlian, jejaring, hingga aset fisik—yang siap diberdayakan secara mandiri tanpa ketergantungan bantuan dari luar.</p>' !!}
                     </div>
                 </div>
                 <div class="col-lg-6 mb-30">
                     <div class="uyt-dark-box wow animate__animated animate__fadeIn">
-                        <h4>Manfaat Menjadi Mitra Gerakan</h4>
+                        <h4>Manfaat Menyelenggarakan Workshop</h4>
                         <ul style="padding-left: 20px; margin: 0;">
-                            <li style="margin-bottom: 10px;">🎓 Akses pelatihan fasilitator bersertifikat UYT</li>
-                            <li style="margin-bottom: 10px;">📦 Materi &amp; toolkit workshop siap pakai</li>
-                            <li style="margin-bottom: 10px;">🤝 Pendampingan dari tim UYT Indonesia</li>
-                            <li style="margin-bottom: 10px;">🌐 Tergabung dalam jaringan gereja &amp; komunitas UYT</li>
-                            <li>📣 Kisah dampak Anda dibagikan kepada komunitas lebih luas</li>
+                            <li style="margin-bottom: 10px;">🎓 Membangun pola pikir kelimpahan (mindset of abundance)</li>
+                            <li style="margin-bottom: 10px;">📦 Pemetaan aset nyata komunitas secara partisipatif</li>
+                            <li style="margin-bottom: 10px;">🤝 Dipandu langsung oleh fasilitator UYT bersertifikat</li>
+                            <li style="margin-bottom: 10px;">🌐 Pendampingan penyusunan rencana aksi nyata (action plan)</li>
+                            <li>📣 Terkoneksi dengan jaringan gereja &amp; komunitas mandiri nasional</li>
                         </ul>
                     </div>
                 </div>
@@ -183,14 +183,14 @@
         </div>
     </section>
 
-    <!-- ===== Jenis Workshop ===== -->
-    <section class="section-box mt-0 mb-0 p-20 pt-40" id="jenis-workshop">
+    <!-- ===== 2. Yang Akan Dipelajari ===== -->
+    <section class="section-box mt-0 mb-0 p-20 pt-40" id="yang-dipelajari">
         <div class="container">
             <div class="mw-650">
-                <span class="uyt-label-dark">Pilihan Program</span>
-                <h4 class="text-center wow animate__animated animate__fadeInUp">Jenis Pilihan Workshop UYT</h4>
+                <span class="uyt-label-dark">Materi Pelatihan</span>
+                <h4 class="text-center wow animate__animated animate__fadeInUp">Yang Akan Dipelajari</h4>
                 <p class="mb-30 mt-20 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                    Pilih paket workshop yang paling sesuai dengan kebutuhan jemaat dan komunitas Anda
+                    Kurikulum praktis yang disesuaikan dengan kebutuhan jemaat, sinode, dan komunitas
                 </p>
             </div>
         </div>
@@ -271,14 +271,57 @@
         </div>
     </section>
 
-    <!-- ===== Form Pendaftaran ===== -->
-    <section class="section-box mt-40 mb-40 p-20 pt-35" id="form-pendaftaran" style="background: #f8faff;">
+    <!-- ===== 3. Alur Pelaksanaan (Sesuai Wireframe Halaman 7) ===== -->
+    <section class="section-box mt-40 mb-30 p-20 pt-35" id="alur-pelaksanaan">
         <div class="container">
             <div class="mw-650">
-                <span class="uyt-label-dark">Formulir Mandiri</span>
-                <h4 class="text-center wow animate__animated animate__fadeInUp">Form Pendaftaran Workshop &amp; Kemitraan</h4>
-                <p class="mb-30 mt-20 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                    Lengkapi data berikut dan tim Use Your Talents Indonesia akan menghubungi Anda dalam 1–3 hari kerja.
+                <span class="uyt-label-dark">Tahapan Kemitraan</span>
+                <h4 class="text-center wow animate__animated animate__fadeInUp">Alur Pelaksanaan Workshop</h4>
+                <p class="mb-30 mt-15 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
+                    Empat langkah mudah dari pendaftaran hingga pendampingan komunitas berkelanjutan
+                </p>
+            </div>
+            <div class="row pr-15 pl-15 mt-20">
+                <div class="col-lg-3 col-md-6 mb-25">
+                    <div class="uyt-feature-card text-center wow animate__animated animate__fadeInUp" data-wow-delay=".0s">
+                        <div class="uyt-icon-box mx-auto">1️⃣</div>
+                        <h5>Pengajuan Form</h5>
+                        <p>Mengisi form pengajuan workshop dan menentukan pilihan paket serta rencana tanggal pelaksanaan.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-25">
+                    <div class="uyt-feature-card text-center wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
+                        <div class="uyt-icon-box mx-auto">2️⃣</div>
+                        <h5>Konsultasi &amp; Jadwal</h5>
+                        <p>Tim UYT Indonesia menghubungi penanggung jawab untuk menyelaraskan sasaran dan logistik kegiatan.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-25">
+                    <div class="uyt-feature-card text-center wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
+                        <div class="uyt-icon-box mx-auto">3️⃣</div>
+                        <h5>Eksekusi Workshop</h5>
+                        <p>Fasilitator bersertifikat UYT memandu sesi interaktif, pemetaan aset 5 jenis, dan perumusan visi.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-25">
+                    <div class="uyt-feature-card text-center wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
+                        <div class="uyt-icon-box mx-auto">4️⃣</div>
+                        <h5>Aksi &amp; Evaluasi</h5>
+                        <p>Komunitas menjalankan rencana aksi mandiri dan mendapatkan pendampingan berkala dari tim UYT.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 4. Form Pengajuan (Sesuai Wireframe Halaman 7) ===== -->
+    <section class="section-box mt-20 mb-40 p-20 pt-35" id="form-pendaftaran" style="background: #f8faff;">
+        <div class="container">
+            <div class="mw-650">
+                <span class="uyt-label-dark">Formulir Kemitraan</span>
+                <h4 class="text-center wow animate__animated animate__fadeInUp">Form Pengajuan Workshop</h4>
+                <p class="mb-30 mt-15 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
+                    Lengkapi data pengajuan berikut dan tim Use Your Talents Indonesia akan segera menghubungi Anda dalam 1–3 hari kerja.
                 </p>
             </div>
             <div class="row justify-content-center">

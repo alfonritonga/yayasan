@@ -17,6 +17,7 @@
                                 <li><a href="/lowongan-kerja">Lowongan Kerja</a></li>
                                 <li><a href="/kontak">Kontak</a></li>
                                 <li><a href="https://market.lenterakasihagape.org">Market</a></li>
+                                <li><a href="{{ route('uyt_index') }}" class="btn btn-outline-dark px-3 py-1 font-weight-bold" style="border: 2px solid #000; border-radius: 4px; font-weight: 600; text-transform: none;">Use Your Talents</a></li>
                             </ul>
                         </nav>
                         <div class="burger-icon burger-icon-white">

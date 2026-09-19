@@ -79,27 +79,27 @@
     <!-- ===== Page Hero ===== -->
     <section class="uyt-page-hero">
         <div class="container text-center">
-            <span class="uyt-label">Dokumentasi &amp; Dampak Nyata</span>
+            <span class="uyt-label">Cerita &amp; Dampak Nyata</span>
             <h2 class="wow animate__animated animate__fadeInUp">Cerita dan Dampak UYT</h2>
-            <p class="wow animate__animated animate__fadeInUp" style="max-width: 600px; margin: 0 auto;">
-                Kumpulan artikel lapangan, galeri video workshop, dan kisah inspiratif dari berbagai gereja &amp; komunitas yang telah menjalani proses UYT.
+            <p class="wow animate__animated animate__fadeInUp" style="max-width: 620px; margin: 0 auto;">
+                Kumpulan artikel inspiratif, video kesaksian transformasi komunitas, dan cerita dari berbagai gereja yang mempraktikkan Use Your Talents.
             </p>
             <div class="mt-25 d-flex justify-content-center flex-wrap wow animate__animated animate__fadeInUp" style="gap: 12px;">
-                <a href="#artikel" class="uyt-hero-nav-btn active">Artikel UYT</a>
-                <a href="#video" class="uyt-hero-nav-btn">Video Kegiatan</a>
+                <a href="#artikel" class="uyt-hero-nav-btn active">Cerita Inspiratif</a>
+                <a href="#testimoni" class="uyt-hero-nav-btn">Testimoni &amp; Video</a>
                 <a href="#kirim-cerita" class="uyt-hero-nav-btn">Kirim Ceritamu</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== Artikel UYT ===== -->
+    <!-- ===== Halaman 4: Cerita Inspiratif ===== -->
     <section class="section-box mt-0 mb-50 p-20 pt-60" id="artikel" style="background: #ffffff;">
         <div class="container">
             <div class="mw-650">
-                <span class="uyt-label-dark">Artikel &amp; Berita</span>
-                <h4 class="text-center wow animate__animated animate__fadeInUp" style="color: #05264e;">Artikel &amp; Berita UYT</h4>
-                <p class="mb-25 mt-15 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                    Cerita dan liputan terbaru dari lapangan gerakan Use Your Talents Indonesia
+                <span class="uyt-label-dark">Artikel &amp; Cerita</span>
+                <h4 class="text-center wow animate__animated animate__fadeInUp" style="color: #05264e;">Cerita Inspiratif</h4>
+                <p class="mb-25 mt-10 text-center visimisi wow animate__animated animate__fadeInUp" style="color: #fd0249; font-style: italic; font-size: 14px; font-weight: 600;">
+                    (Artikel akan diupload secara berkala di bagian ini)
                 </p>
 
                 <!-- Search / Filter bar artikel -->
@@ -162,57 +162,114 @@
             <div class="paginations d-flex justify-content-center">
                 {{ $articles->links() }}
             </div>
+
+            <!-- Box Kirim Ceritamu Sesuai Wireframe Halaman 4 -->
+            <div class="row justify-content-center mt-30">
+                <div class="col-lg-10">
+                    <div class="uyt-box text-center p-30 wow animate__animated animate__fadeIn" style="border: 2px dashed #fd0249; background: #fffdfd;">
+                        <h5 class="mb-10 font-weight-bold" style="color: #05264e;">Kirim ceritamu</h5>
+                        <p class="text-muted mb-20" style="font-size: 14px;">Bagikan pengalaman inspiratif Anda, jemaat, atau komunitas Anda setelah mengikuti gerakan Use Your Talents.</p>
+                        <a href="#kirim-cerita" class="btn btn-primary px-4 py-2" style="background: #fd0249; border-color: #fd0249; border-radius: 8px; font-weight: 700;">
+                            ✍️ Tulis ceritamu disini
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ===== Galeri Video ===== -->
-    <section class="section-box mt-40 mb-40 p-20 pt-35" id="video" style="background: #f8faff;">
+    <!-- ===== Halaman 5: Testimoni ("Apa kata mereka tentang Use Your Talents?") ===== -->
+    <section class="section-box mt-40 mb-40 p-20 pt-35" id="testimoni" style="background: #f8faff;">
         <div class="container">
             <div class="mw-650">
-                <span class="uyt-label-dark">Dokumentasi Video</span>
-                <h4 class="text-center wow animate__animated animate__fadeInUp">Galeri Video Kegiatan</h4>
-                <p class="mb-30 mt-20 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
-                    Dokumentasi video dari workshop, liputan lapangan, dan kesaksian transformasi komunitas
+                <span class="uyt-label-dark">Kesaksian &amp; Dampak</span>
+                <h4 class="text-center wow animate__animated animate__fadeInUp">Apa kata mereka tentang Use Your Talents?</h4>
+                <p class="mb-30 mt-15 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
+                    Pengalaman nyata para hamba Tuhan, pimpinan jemaat, dan anggota komunitas yang mengalami perubahan pola pikir bersama UYT.
                 </p>
             </div>
-            <div class="row mb-50">
-                @forelse ($videos as $vid)
-                    @php
-                        $youtubeId = '';
-                        if (!empty($vid->url_video)) {
-                            if (preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i', $vid->url_video, $match)) {
-                                $youtubeId = $match[1];
+
+            <!-- 1. Video Testimoni (Sesuai Wireframe Halaman 5) -->
+            <div class="uyt-box mb-40 wow animate__animated animate__fadeIn">
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-25 pb-15 border-bottom">
+                    <h5 class="mb-0 font-weight-bold" style="color: #05264e;"><i class="fi-rr-play-alt text-brand mr-8"></i>Video Testimoni</h5>
+                    <small style="color: #fd0249; font-style: italic; font-weight: 600;">(Video akan diupload secara berkala di bagian ini)</small>
+                </div>
+                <div class="row">
+                    @forelse ($videos as $vid)
+                        @php
+                            $youtubeId = '';
+                            if (!empty($vid->url_video)) {
+                                if (preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i', $vid->url_video, $match)) {
+                                    $youtubeId = $match[1];
+                                }
                             }
-                        }
-                    @endphp
-                    <div class="col-lg-4 col-md-6 mb-30 wow animate__animated animate__fadeIn">
-                        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); background: #000; height: 210px;">
-                            @if ($youtubeId)
-                                <iframe width="100%" height="210"
-                                    src="https://www.youtube-nocookie.com/embed/{{ $youtubeId }}"
-                                    title="{{ $vid->title }}"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen
-                                    style="border: 0; display: block;">
-                                </iframe>
-                            @else
-                                <div class="d-flex align-items-center justify-content-center flex-column text-center p-20" style="height: 100%; background: linear-gradient(135deg, #05264e 0%, #16213e 100%);">
-                                    <span style="font-size: 36px; margin-bottom: 8px;">🎬</span>
-                                    <span style="color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 600;">Video Dokumentasi UYT</span>
-                                </div>
+                        @endphp
+                        <div class="col-lg-4 col-md-6 mb-30">
+                            <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); background: #000; height: 210px;">
+                                @if ($youtubeId)
+                                    <iframe width="100%" height="210"
+                                        src="https://www.youtube-nocookie.com/embed/{{ $youtubeId }}"
+                                        title="{{ $vid->title }}"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen
+                                        style="border: 0; display: block;">
+                                    </iframe>
+                                @else
+                                    <div class="d-flex align-items-center justify-content-center flex-column text-center p-20" style="height: 100%; background: linear-gradient(135deg, #05264e 0%, #16213e 100%);">
+                                        <span style="font-size: 36px; margin-bottom: 8px;">🎬</span>
+                                        <span style="color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 600;">Video Dokumentasi UYT</span>
+                                    </div>
+                                @endif
+                            </div>
+                            @if ($vid->title)
+                                <h6 class="mt-15 text-center text-dark" style="font-size: 14px; font-weight: 600; line-height: 1.4;">{{ $vid->title }}</h6>
                             @endif
                         </div>
-                        @if ($vid->title)
-                            <h6 class="mt-15 text-center text-dark" style="font-size: 14px; font-weight: 600; line-height: 1.4;">{{ $vid->title }}</h6>
-                        @endif
-                    </div>
-                @empty
-                    <div class="col-12 text-center py-30">
-                        <div style="font-size: 56px; margin-bottom: 16px;">🎥</div>
-                        <p class="text-muted">Belum ada video kegiatan yang ditambahkan.</p>
-                    </div>
-                @endforelse
+                    @empty
+                        <div class="col-12 text-center py-30">
+                            <div style="font-size: 48px; margin-bottom: 12px;">🎥</div>
+                            <p class="text-muted">Belum ada video testimoni yang ditambahkan.</p>
+                        </div>
+                    @endforelse
+                </div>
+            </div>
+
+            <!-- 2. Testimoni Teks (Sesuai Wireframe Halaman 5) -->
+            <div class="uyt-box wow animate__animated animate__fadeIn">
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-25 pb-15 border-bottom">
+                    <h5 class="mb-0 font-weight-bold" style="color: #05264e;"><i class="fi-rr-comment-alt text-brand mr-8"></i>Testimoni</h5>
+                    <small style="color: #fd0249; font-style: italic; font-weight: 600;">(Testimoni akan diupload secara berkala di bagian ini)</small>
+                </div>
+                <div>
+                    @forelse ($userStories as $idx => $st)
+                        <div class="p-3 mb-20 rounded" style="background: #fafafa; border-left: 4px solid #fd0249;">
+                            <p class="mb-10 text-dark" style="font-size: 15px; font-style: italic; line-height: 1.7;">
+                                "{{ $st->story }}"
+                            </p>
+                            <div class="d-flex align-items-center justify-content-between flex-wrap text-muted" style="font-size: 13px;">
+                                <span><strong>{{ $idx + 1 }}. {{ $st->name }}</strong> &bull; {{ $st->organization ?? 'Jemaat Mitra' }}</span>
+                                <small>{{ date('d M Y', strtotime($st->created_at)) }}</small>
+                            </div>
+                        </div>
+                    @empty
+                        <ol class="ps-3 mb-0" style="font-size: 15px; line-height: 1.9; color: #4a5568;">
+                            <li class="mb-15">
+                                <strong>Pdt. Markus Siregar (Gereja Mitra Sumatera Utara):</strong><br>
+                                "Gerakan Use Your Talents membuka mata jemaat kami bahwa kita tidak perlu menunggu donatur dari luar. Ternyata dari tanah pekarangan gereja dan keterampilan pemuda, kami bisa membangun program kemandirian bersama."
+                            </li>
+                            <li class="mb-15">
+                                <strong>Ibu Rina Sembiring (Penggerak Komunitas Kaum Ibu):</strong><br>
+                                "Sebelum workshop UYT, kami merasa tidak punya apa-apa untuk melayani. Melalui pemetaan aset, kami menyadari resep kuliner dan relasi persaudaraan adalah modal besar yang Tuhan berikan."
+                            </li>
+                            <li>
+                                <strong>Bapak Yohanes (Koordinator Pemuda Komunitas):</strong><br>
+                                "Pendekatan ABCD benar-benar mengubah cara kami melihat gereja lokal. Kami berhenti mengeluh tentang keterbatasan dan mulai mensyukuri serta melipatgandakan apa yang ada di tangan kami."
+                            </li>
+                        </ol>
+                    @endforelse
+                </div>
             </div>
         </div>
     </section>
@@ -221,7 +278,7 @@
     <section class="section-box mt-40 mb-40 p-20 pt-35" id="kirim-cerita">
         <div class="container">
             <div class="mw-650">
-                <span class="uyt-label-dark">Formulir Internal</span>
+                <span class="uyt-label-dark">Formulir Mandiri</span>
                 <h4 class="text-center wow animate__animated animate__fadeInUp">Kirim Ceritamu Disini</h4>
                 <p class="mb-30 mt-20 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
                     Bagikan bagaimana Tuhan memakai talenta dan aset di gereja / komunitas Anda untuk menginspirasi sesama.

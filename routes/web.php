@@ -61,6 +61,7 @@ Route::prefix('/uyt')->group(function () {
     Route::get('/fasilitator', [UytController::class, 'fasilitator'])->name('uyt_fasilitator');
     Route::get('/workshop', [UytController::class, 'workshop'])->name('uyt_workshop');
     Route::post('/workshop/daftar', [UytController::class, 'submitWorkshop'])->name('uyt_submit_workshop');
+    Route::get('/resources', [UytController::class, 'resources'])->name('uyt_resources');
 });
 
 Route::post('/subscription', [SubscriptionController::class, 'addPost']);

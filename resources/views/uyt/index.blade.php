@@ -322,6 +322,38 @@
                     </div>
                 </div>
             </div>
+            @php
+                $introYoutubeId = '';
+                if (!empty($mengenal->video_url)) {
+                    if (preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i', $mengenal->video_url, $match)) {
+                        $introYoutubeId = $match[1];
+                    }
+                }
+            @endphp
+            <div class="row pr-15 pl-15 mt-25 justify-content-center">
+                <div class="col-lg-10">
+                    <div class="uyt-box wow animate__animated animate__fadeIn p-0 overflow-hidden" style="border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.06);">
+                        @if ($introYoutubeId)
+                            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
+                                <iframe src="https://www.youtube-nocookie.com/embed/{{ $introYoutubeId }}" 
+                                    title="Video Introduction UYT" 
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen></iframe>
+                            </div>
+                        @else
+                            <div class="p-35 text-center" style="background: linear-gradient(135deg, #05264e 0%, #16213e 100%); color: #fff;">
+                                <div style="font-size: 42px; margin-bottom: 10px;">🎬</div>
+                                <h5 class="text-white mb-8" style="font-size: 18px; font-weight: 700;">Video Introduction &mdash; Use Your Talents</h5>
+                                <p class="text-white-50 mb-0" style="max-width: 580px; margin: 0 auto; font-size: 14px; line-height: 1.6;">
+                                    Kenali lebih dalam bagaimana pendekatan UYT mentransformasi jemaat dan komunitas mengenali apa yang ada di tangan mereka.
+                                </p>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
             @if (!empty($mengenal->content))
             <div class="row pr-15 pl-15 mt-10">
                 <div class="col-12">
@@ -434,18 +466,82 @@
         </div>
     </section>
 
-    <!-- ===== Resources ===== -->
+    <!-- ===== Kegiatan Terdekat (Sesuai Wireframe Halaman 2 & 3 PDF) ===== -->
+    <section class="section-box mt-40 mb-0 p-20 pt-35" id="kegiatan-terdekat" style="background: #fdfdfd;">
+        <div class="container">
+            <div class="mw-650">
+                <span class="uyt-label">Agenda Kegiatan</span>
+                <h4 class="text-center wow animate__animated animate__fadeInUp">
+                    {{ $kegiatan->title ?? 'Kegiatan Terdekat' }}
+                </h4>
+                <p class="mb-30 mt-10 text-center wow animate__animated animate__fadeInUp" style="color: #fd0249; font-style: italic; font-size: 14px; font-weight: 600;">
+                    (Bagian ini akan diupdate secara berkala)
+                </p>
+            </div>
+            <div class="row pr-15 pl-15 mt-15 justify-content-center">
+                <div class="col-lg-10">
+                    @if (!empty($kegiatan->content))
+                        <div class="uyt-box wow animate__animated animate__fadeIn">
+                            <div style="font-size: 15px; line-height: 1.85;">
+                                {!! $kegiatan->content !!}
+                            </div>
+                        </div>
+                    @else
+                        <div class="uyt-box wow animate__animated animate__fadeIn">
+                            <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+                                <li class="d-flex align-items-start mb-20 pb-20 border-bottom">
+                                    <div class="me-3 text-center p-2 rounded" style="background: #fff0f3; min-width: 65px; border: 1px solid #ffd6de;">
+                                        <strong style="color: #fd0249; font-size: 20px; display: block; line-height: 1;">28</strong>
+                                        <small style="color: #05264e; font-size: 11px; font-weight: 700; text-transform: uppercase;">OKT 2026</small>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h5 class="mb-1" style="font-size: 16px; font-weight: 700; color: #05264e;">Workshop Community Action UYT &mdash; Medan</h5>
+                                        <p class="text-muted mb-0" style="font-size: 13px;"><i class="fi-rr-marker mr-5"></i>GKII Jemaat Kasih Agape, Medan Sunggal &bull; Pukul 09.00 - 16.00 WIB</p>
+                                    </div>
+                                    <span class="badge" style="background: #e8f5e9; color: #2e7d32; font-size: 12px; padding: 6px 12px; border-radius: 20px;">Mendatang</span>
+                                </li>
+                                <li class="d-flex align-items-start mb-20 pb-20 border-bottom">
+                                    <div class="me-3 text-center p-2 rounded" style="background: #fff0f3; min-width: 65px; border: 1px solid #ffd6de;">
+                                        <strong style="color: #fd0249; font-size: 20px; display: block; line-height: 1;">12</strong>
+                                        <small style="color: #05264e; font-size: 11px; font-weight: 700; text-transform: uppercase;">NOV 2026</small>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h5 class="mb-1" style="font-size: 16px; font-weight: 700; color: #05264e;">Training of Facilitators (ToF) Angkatan IV</h5>
+                                        <p class="text-muted mb-0" style="font-size: 13px;"><i class="fi-rr-marker mr-5"></i>Pusat Pelatihan YLKA &bull; Pelatihan 3 Hari Intensif</p>
+                                    </div>
+                                    <span class="badge" style="background: #e8f5e9; color: #2e7d32; font-size: 12px; padding: 6px 12px; border-radius: 20px;">Pendaftaran Buka</span>
+                                </li>
+                                <li class="d-flex align-items-start">
+                                    <div class="me-3 text-center p-2 rounded" style="background: #fff0f3; min-width: 65px; border: 1px solid #ffd6de;">
+                                        <strong style="color: #fd0249; font-size: 20px; display: block; line-height: 1;">05</strong>
+                                        <small style="color: #05264e; font-size: 11px; font-weight: 700; text-transform: uppercase;">DES 2026</small>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h5 class="mb-1" style="font-size: 16px; font-weight: 700; color: #05264e;">Refleksi Tahunan &amp; Perayaan Dampak Talenta</h5>
+                                        <p class="text-muted mb-0" style="font-size: 13px;"><i class="fi-rr-marker mr-5"></i>Hybrid (Live Streaming &amp; Onsite YLKA)</p>
+                                    </div>
+                                    <span class="badge" style="background: #fff3e0; color: #e65100; font-size: 12px; padding: 6px 12px; border-radius: 20px;">Segera Datang</span>
+                                </li>
+                            </ul>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Resources Preview Section ===== -->
     <section class="section-box mt-0 mb-40 p-20 pt-35" id="resources" style="background: #f8faff;">
         <div class="container">
             <div class="mw-650">
-                <span class="uyt-label">Materi Unduhan</span>
+                <span class="uyt-label">Materi &amp; Panduan</span>
                 <h4 class="text-center wow animate__animated animate__fadeInUp">Resources Dokumen &amp; Presentasi</h4>
                 <p class="mb-30 mt-20 text-muted text-center visimisi wow animate__animated animate__fadeInUp">
                     Dokumen &amp; materi presentasi untuk mendukung pelaksanaan gerakan UYT di komunitas Anda
                 </p>
             </div>
             <div class="row pr-15 pl-15 mt-20">
-                @forelse ($resources as $res)
+                @forelse ($resources->take(4) as $res)
                     <div class="col-lg-6 mb-25">
                         <div class="uyt-resource-card wow animate__animated animate__fadeIn" data-wow-delay=".0s">
                             <span class="uyt-resource-type {{ strtolower($res->category) == 'pdf' ? 'pdf' : (strtolower($res->category) == 'presentasi' ? 'ppt' : 'doc') }}">
@@ -466,6 +562,11 @@
                         <p class="text-muted">Materi dokumen dan presentasi sedang dipersiapkan oleh tim kami.</p>
                     </div>
                 @endforelse
+            </div>
+            <div class="text-center mt-20">
+                <a href="{{ route('uyt_resources') }}" class="btn btn-outline-primary px-4 py-2" style="border-radius: 20px; font-size: 14px; font-weight: 600; color: #fd0249; border-color: #fd0249;">
+                    Lihat Semua Resources Dokumen &amp; Video Materi &rarr;
+                </a>
             </div>
         </div>
     </section>

@@ -90,6 +90,11 @@
                                 <input type="text" name="mengenal_uyt[title]" class="form-control" value="{{ $contents['mengenal_uyt']->title ?? '' }}" required />
                             </div>
                             <div class="mb-3">
+                                <label class="form-label font-weight-bold">Link Video Introduction (YouTube URL / Embed)</label>
+                                <input type="text" name="mengenal_uyt[video_url]" class="form-control" value="{{ $contents['mengenal_uyt']->video_url ?? '' }}" placeholder="https://www.youtube.com/watch?v=..." />
+                                <small class="text-muted">Masukkan link video YouTube pengenalan UYT untuk ditampilkan di Beranda.</small>
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label font-weight-bold">Isi Konten</label>
                                 <textarea id="editor_mengenal" name="mengenal_uyt[content]" class="form-control" rows="6">{{ $contents['mengenal_uyt']->content ?? '' }}</textarea>
                             </div>
@@ -237,6 +242,21 @@
                             </div>
                         </div>
 
+                        <!-- 7. Kegiatan Terdekat (Sesuai Wireframe Halaman 2 & 3 PDF) -->
+                        <div class="p-4 mb-4 border rounded bg-white shadow-sm">
+                            <h5 class="text-primary font-weight-bold mb-3"><i class="flaticon-381-calendar me-2"></i>7. Kegiatan Terdekat (Upcoming Events)</h5>
+                            <p class="text-muted small mb-3">Bagian ini ditampilkan di Beranda UYT dan diperbarui secara berkala sesuai wireframe.</p>
+                            <div class="mb-3">
+                                <label class="form-label font-weight-bold">Judul Bagian</label>
+                                <input type="text" name="kegiatan_terdekat[title]" class="form-control" value="{{ $contents['kegiatan_terdekat']->title ?? 'Kegiatan Terdekat' }}" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label font-weight-bold">Isi Agenda / Daftar Kegiatan (HTML / Text Editor)</label>
+                                <textarea id="editor_kegiatan" name="kegiatan_terdekat[content]" class="form-control" rows="6">{{ $contents['kegiatan_terdekat']->content ?? '' }}</textarea>
+                                <small class="text-muted">Gunakan editor ini untuk menuliskan agenda tanggal, nama workshop, kota, dan keterangan kegiatan yang akan datang.</small>
+                            </div>
+                        </div>
+
                         <div class="mt-4">
                             <button type="submit" class="btn btn-primary px-5"><i class="fa fa-save me-2"></i>Simpan Perubahan Konten</button>
                         </div>
@@ -256,7 +276,8 @@
             '#editor_landasan',
             '#editor_cara_kerja',
             '#editor_fasilitator',
-            '#editor_mitra'
+            '#editor_mitra',
+            '#editor_kegiatan'
         ];
 
         editors.forEach(function(selector) {
