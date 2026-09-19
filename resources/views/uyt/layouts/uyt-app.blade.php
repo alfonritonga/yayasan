@@ -147,24 +147,57 @@
         .uyt-nav-back:hover { 
             color: #fd0249 !important; 
         }
-        /* Override hardcoded negative margin-left pada donation-box dari main.css */
-        .donation-box {
-            margin-top: 0 !important;
+
+        /* CTA Floating Banner between body and footer */
+        .uyt-footer-floating-cta {
+            position: relative;
+            z-index: 25;
+            transform: translateY(-50%);
+            margin-bottom: -35px;
         }
-        .donation-box h5 {
-            margin-left: 0 !important;
-            margin-top: 0 !important;
-            text-align: center !important;
+        .uyt-cta-card {
+            background: linear-gradient(90deg, #fd0249 0%, #c8003a 100%);
+            border-radius: 14px;
+            padding: 26px 36px;
+            gap: 20px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28), 0 4px 12px rgba(253, 2, 73, 0.2);
         }
-        @media only screen and (max-width: 1250px) {
-            .donation-box h5 { margin-left: 0 !important; margin-top: 0 !important; }
+        .uyt-floating-cta-btn {
+            background-color: #fff;
+            color: #fd0249 !important;
+            font-weight: 700;
+            border-radius: 8px;
+            padding: 14px 28px;
+            white-space: nowrap;
+            text-decoration: none;
+            font-family: Rubik, sans-serif;
+            font-size: 15px;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            display: inline-block;
         }
-        @media screen and (min-width: 767px) and (max-width: 991px) {
-            .donation-box h5 { margin-left: 0 !important; margin-top: 0 !important; }
+        .uyt-floating-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25) !important;
+            background-color: #fdfdfd !important;
+            color: #c8003a !important;
         }
         @media only screen and (max-width: 767px) {
-            .donation-box h5 { margin-left: 0 !important; margin-top: 0 !important; text-align: center !important; }
-            .donation-box .btn-donasi { width: auto !important; margin-left: 0 !important; margin-top: 10px !important; height: auto !important; }
+            .uyt-footer-floating-cta {
+                margin-bottom: -20px;
+            }
+            .uyt-cta-card {
+                padding: 22px 20px;
+                text-align: center;
+            }
+            .uyt-cta-card .text-start {
+                text-align: center !important;
+            }
+            .uyt-floating-cta-btn {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
     @yield('styles')
@@ -285,29 +318,32 @@
     <!-- Content -->
     @yield('content')
 
-    <!-- Footer (struktur identik dengan footer materi.blade.php & tentang.blade.php) -->
-    <footer class="footer mt-50">
+    <!-- Footer with floating CTA Banner -->
+    <footer class="footer" style="margin-top: 100px; padding-top: 0; position: relative;">
         <div class="container">
-            <div class="box-newsletter-bottom">
-                <div class="donation-box d-flex align-items-center justify-content-between flex-wrap p-4" style="background: linear-gradient(90deg, #fd0249 0%, #c8003a 100%); border-radius: 12px; gap: 16px;">
-                    <div class="text-start" style="max-width: 650px;">
-                        <h5 class="text-white mb-2" style="font-size: 20px; font-weight: 700;">
+            <!-- Floating CTA Banner: 50% floating on body, 50% in footer -->
+            <div class="uyt-footer-floating-cta">
+                <div class="uyt-cta-card d-flex align-items-center justify-content-between flex-wrap">
+                    <div class="text-start" style="max-width: 680px;">
+                        <h5 class="text-white mb-2" style="font-size: 21px; font-weight: 700; line-height: 1.3;">
                             Mari Bermitra dan Mengadakan Workshop Use Your Talents
                         </h5>
-                        <p class="text-white-50 mb-0" style="font-size: 14px;">
+                        <p class="text-white-50 mb-0" style="font-size: 14px; line-height: 1.6;">
                             Bersama-sama menggali aset dan talenta yang Tuhan percayakan untuk membawa dampak transformasional bagi jemaat dan komunitas.
                         </p>
                     </div>
-                    <img src="{{ asset('front/imgs/social/pattern.svg') }}" alt="" style="flex-shrink: 0; display: none;" class="d-lg-block">
-                    <a href="{{ route('uyt_workshop') }}#form-pendaftaran" style="background-color: #fff; color: #fd0249; font-weight: 700; border-radius: 6px; padding: 14px 28px; white-space: nowrap; text-decoration: none; font-family: Rubik, sans-serif; font-size: 15px; flex-shrink: 0; transition: all 0.2s ease;">
-                        Daftar Workshop
-                    </a>
+                    <div class="d-flex align-items-center" style="gap: 20px;">
+                        <img src="{{ asset('front/imgs/social/pattern.svg') }}" alt="" style="flex-shrink: 0; display: none; height: 50px;" class="d-lg-block">
+                        <a href="{{ route('uyt_workshop') }}#form-pendaftaran" class="uyt-floating-cta-btn">
+                            Daftar Workshop
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <div class="row text-center">
                 <div class="row text-center justify-content-md-center">
-                    <div class="box-newsletter-2 mt-40">
+                    <div class="box-newsletter-2 mt-20">
                         <h5 class="text-md-newsletter-subcribe">Use Your Talents Indonesia</h5>
                         <h6 class="text-lg-newsletter-2 pt-15">Gerakan pemberdayaan berbasis aset &amp; talenta di bawah naungan Yayasan Lentera Kasih Agape</h6>
                         
